@@ -27,6 +27,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
+import java.util.Date;
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.admin.BrTO;
@@ -43,7 +44,11 @@ import org.sola.webservices.transferobjects.security.UserTO;
  * and {@linkplain mock.MockAdminClient}
  */
 public interface AdminClient extends AbstractWSClient {
-
+    
+    Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
+    
+    String getNepaliDate(Date date)throws WebServiceClientException;
+    
     boolean checkConnection() throws WebServiceClientException;
 
     UserTO getCurrentUser() throws  WebServiceClientException;

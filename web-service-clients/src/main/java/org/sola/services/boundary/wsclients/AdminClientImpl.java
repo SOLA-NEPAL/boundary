@@ -27,6 +27,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
+import java.util.Date;
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
@@ -50,7 +51,7 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
     private static final String NAMESPACE_URI = "http://webservices.sola.org/admin";
     private static final String LOCAL_PART = "admin-service";
     private static final String SERVICE_NAME = "Admin.";
-
+    
     public AdminClientImpl(String url) {
         super(url, new QName(NAMESPACE_URI, LOCAL_PART));
     }
@@ -250,6 +251,28 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         final String inputService = SERVICE_NAME + "saveBr";
         try {
             return getPort().saveBr(brTO);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       }
+    }
+
+    @Override
+    public Date getGregorianDate(String nepaliDate) throws WebServiceClientException {
+      final String inputService = SERVICE_NAME + "getGregorianDate";
+        try {
+            return XMLDateToDate(getPort().getGregorianDate(nepaliDate));
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       }
+    }
+
+    @Override
+    public String getNepaliDate(Date date) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getNepaliDate";
+        try {
+            return  getPort().getNepaliDate(DateToXMLDate(date));
          } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;

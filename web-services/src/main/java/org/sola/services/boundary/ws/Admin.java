@@ -29,6 +29,7 @@
  */
 package org.sola.services.boundary.ws;
 
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -393,5 +394,39 @@ public class Admin extends AbstractWebService {
         });
 
         return (BrTO) result[0];
+    }
+    
+    @WebMethod(operationName = "getGregorianDate")
+    public Date getGregorianDate(@WebParam(name="nepaliDate") final String nepaliDate)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = adminEJB.getGregorianDate(nepaliDate);
+            }
+        });
+
+        return (Date) result[0];
+    }
+    
+    @WebMethod(operationName = "getNepaliDate")
+    public String getNepaliDate(@WebParam(name="date") final Date date)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = adminEJB.getNepaliDate(date);
+            }
+        });
+
+        return  result[0].toString();
     }
 }
