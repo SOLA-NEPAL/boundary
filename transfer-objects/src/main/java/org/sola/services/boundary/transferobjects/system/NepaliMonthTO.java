@@ -4,13 +4,14 @@
  */
 package org.sola.services.boundary.transferobjects.system;
 
+import org.sola.services.common.contracts.AbstractReadWriteTO;
 import org.sola.services.common.contracts.AbstractTO;
 
 /**
  *
  * @author KumarKhadka
  */
-public class NepaliMonthTO extends AbstractTO{    
+public class NepaliMonthTO extends AbstractReadWriteTO{    
     public NepaliMonthTO(){
         super();
     }
