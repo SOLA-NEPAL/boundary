@@ -32,15 +32,10 @@ import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
-import org.sola.webservices.admin.BrTO;
-import org.sola.webservices.admin.LanguageTO;
+import org.sola.webservices.admin.*;
 import org.sola.webservices.transferobjects.security.GroupSummaryTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.UserTO;
-import org.sola.webservices.admin.UnhandledFault;
-import org.sola.webservices.admin.SOLAFault;
-import org.sola.webservices.admin.Admin;
-import org.sola.webservices.admin.AdminService;
 import org.sola.webservices.transferobjects.security.RoleTO;
 
 /**
@@ -277,5 +272,31 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
            handleExceptionsMethod(inputService,e);
            return null;
        }
+    }   
+    
+    
+
+    @Override
+    public List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO) {
+        final String inputService = SERVICE_NAME + "saveNepaliMonth";
+        try {
+            return getPort().saveNepaliMonth(nepaliMonthsTO);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       }
     }
+
+    
+    @Override
+    public List<NepaliMonthTO> getNepaliMonths(int nepYear) {
+       final String inputService = SERVICE_NAME + "getNepaliMonths";
+        try {
+            return getPort().getNepaliMonths(nepYear);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+    }
+     
 }

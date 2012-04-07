@@ -29,11 +29,9 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.Date;
 import java.util.List;
+import javax.jws.WebParam;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.webservices.admin.BrTO;
-import org.sola.webservices.admin.LanguageTO;
-import org.sola.webservices.admin.SOLAFault;
-import org.sola.webservices.admin.UnhandledFault;
+import org.sola.webservices.admin.*;
 import org.sola.webservices.transferobjects.security.GroupSummaryTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
@@ -44,6 +42,10 @@ import org.sola.webservices.transferobjects.security.UserTO;
  * and {@linkplain mock.MockAdminClient}
  */
 public interface AdminClient extends AbstractWSClient {
+    
+    List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO);
+    
+    List<NepaliMonthTO> getNepaliMonths(int nepYear); 
     
     Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
     
