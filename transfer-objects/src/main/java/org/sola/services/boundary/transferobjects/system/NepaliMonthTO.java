@@ -5,7 +5,6 @@
 package org.sola.services.boundary.transferobjects.system;
 
 import org.sola.services.common.contracts.AbstractReadWriteTO;
-import org.sola.services.common.contracts.AbstractTO;
 
 /**
  *
@@ -17,15 +16,15 @@ public class NepaliMonthTO extends AbstractReadWriteTO{
     }
     private int nepYear;
     private int nepMonth;
-    private int days;
+    private int dayss;
 
-    public int getDays() {
-        return days;
+    public int getDayss() {
+        return dayss;
     }
 
-    public void setDays(int days) {
-        this.days = days;
-    }
+    public void setDayss(int dayss) {
+        this.dayss = dayss;
+    }    
 
     public int getNepMonth() {
         return nepMonth;
