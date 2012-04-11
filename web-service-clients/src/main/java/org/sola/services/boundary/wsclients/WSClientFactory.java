@@ -148,4 +148,16 @@ public class WSClientFactory {
         }
         return result;
     }
+    
+    /** Creates a CadastreClient.
+    @see WSClientFactory */
+    public static AdminClient getAdminClient(String url) {
+        AdminClient result = null;
+        if (MockServiceManager.getInstance().isMockService()) {
+            //result = new MockSpatialClient(url);
+        } else {
+            result = new AdminClientImpl(url);
+        }
+        return result;
+    }
 }

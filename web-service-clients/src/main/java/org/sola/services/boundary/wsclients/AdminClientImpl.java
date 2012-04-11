@@ -298,5 +298,16 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
            return null;
        } 
     }
+    
+    @Override
+    public List<Integer> getNepaliYear() {
+        final String inputService = SERVICE_NAME + "getNepaliYear";
+        try {
+            return getPort().getNepaliYear();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+    }
      
 }

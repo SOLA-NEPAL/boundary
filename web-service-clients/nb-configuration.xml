@@ -12,7 +12,7 @@ Properties that influence various parts of the IDE, especially code formatting a
 You can copy and paste the single properties, into the pom.xml file and the IDE will pick them up.
 That way multiple projects can share the same settings (useful for formatting rules for example).
 Any value defined here will override the pom.xml file value but is only applicable to the current project.
--->
+--> 
         <org-netbeans-modules-maven-jaxws._5f_C_5f_casemanagement-service>http://localhost:8080/sola/casemanagement-service?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_casemanagement-service>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_search-service>http://localhost:8080/sola/search-service?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_search-service>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_referencedata-service>http://localhost:8080/sola/referencedata-service?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_referencedata-service>
