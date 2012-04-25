@@ -203,7 +203,7 @@
                         </configuration>      
                     </execution>
                 </executions>
-                  <dependencies>
+                <dependencies>
                     <dependency>
                         <groupId>org.glassfish.metro</groupId>
                         <artifactId>webservices-api</artifactId>
@@ -253,7 +253,7 @@
                         </manifest>    
                     </archive>
                     <packagingIncludes>WEB-INF/lib/sola-transfer-objects*.jar,
-                    **/*.xml,WEB-INF/classes/**
+                        **/*.xml,WEB-INF/classes/**
                     </packagingIncludes>
                 </configuration>
             </plugin>
@@ -307,7 +307,8 @@
                                 <groupId>javax</groupId>
                                 <artifactId>javaee-endorsed-api</artifactId>
                                 <version>6.0</version>
-                            </dependency>
+                            </dependency>                        
+
                         </dependencies>
                     </plugin>
                 </plugins>
