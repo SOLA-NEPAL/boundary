@@ -34,6 +34,7 @@ package org.sola.services.boundary.transferobjects.transaction;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTargetTO;
+import org.sola.services.boundary.transferobjects.cadastre.SegmentTO;
 import org.sola.services.boundary.transferobjects.cadastre.SurveyPointTO;
 
 /**
@@ -43,9 +44,19 @@ import org.sola.services.boundary.transferobjects.cadastre.SurveyPointTO;
 public class TransactionCadastreChangeTO extends TransactionTO {
 
     List<CadastreObjectTO> CadastreObjectList;
+    List<SegmentTO> segmentList; 
+    
     List<SurveyPointTO> surveyPointList;
     private List<CadastreObjectTargetTO> cadastreObjectTargetList;
     private List<TransactionSourceTO> transactionSourceList;
+    
+    public List<SegmentTO> getSegmentList() {
+        return segmentList;
+    }
+
+    public void setSegmentList(List<SegmentTO> segmentList) {
+        this.segmentList = segmentList;
+    }
 
     public List<CadastreObjectTO> getCadastreObjectList() {
         return CadastreObjectList;
@@ -78,5 +89,4 @@ public class TransactionCadastreChangeTO extends TransactionTO {
     public void setTransactionSourceList(List<TransactionSourceTO> transactionSourceList) {
         this.transactionSourceList = transactionSourceList;
     }
-    
 }
