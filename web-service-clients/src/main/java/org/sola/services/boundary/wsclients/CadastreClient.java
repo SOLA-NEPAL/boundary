@@ -31,10 +31,12 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
+import org.apache.sanselan.formats.jpeg.segments.Segment;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.webservices.transferobjects.cadastre.SegmentTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -72,4 +74,13 @@ public interface CadastreClient extends AbstractWSClient {
             TransactionCadastreRedefinitionTO transactionTO);
 
     TransactionCadastreRedefinitionTO getTransactionCadastreRedefinition(String serviceId);
+    
+    //Segment list.
+    List<SegmentTO> getSegmentObjects(List<String> Ids);
+    
+    SegmentTO getSegmentByPoint(double x, double y, int srid);
+    
+    List<ValidationResult>  saveSegment(TransactionCadastreChangeTO cadastreChangeTO);
+    
+    List<SegmentTO> getSegmentsByTransaction(String transactionId);
 }

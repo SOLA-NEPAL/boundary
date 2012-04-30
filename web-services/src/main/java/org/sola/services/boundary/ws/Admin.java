@@ -29,6 +29,7 @@
  */
 package org.sola.services.boundary.ws;
 
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -44,6 +45,7 @@ import org.sola.services.boundary.transferobjects.security.RoleTO;
 import org.sola.services.boundary.transferobjects.security.UserTO;
 import org.sola.services.boundary.transferobjects.system.BrTO;
 import org.sola.services.boundary.transferobjects.system.LanguageTO;
+import org.sola.services.boundary.transferobjects.system.NepaliMonthTO;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
@@ -52,6 +54,7 @@ import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
 import org.sola.services.ejb.system.repository.entities.Br;
 import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Group;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.NepaliMonth;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Role;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.User;
 
@@ -394,4 +397,86 @@ public class Admin extends AbstractWebService {
 
         return (BrTO) result[0];
     }
+    
+    @WebMethod(operationName = "getGregorianDate")
+    public Date getGregorianDate(@WebParam(name="nepaliDate") final String nepaliDate)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = adminEJB.getGregorianDate(nepaliDate);
+            }
+        });
+
+        return (Date) result[0];
+    }
+    
+    @WebMethod(operationName = "getNepaliDate")
+    public String getNepaliDate(@WebParam(name="date") final Date date)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = adminEJB.getNepaliDate(date);
+            }
+        });
+
+        return  result[0].toString();
+    }
+    
+    
+     /**
+     * save nepali months
+     */
+    @WebMethod(operationName = "saveNepaliMonth")
+    public List<NepaliMonthTO> saveNepaliMonth(@WebParam(name = "nepaliMonthTO")final List<NepaliMonthTO> nepaliMonthsTO) 
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+
+        final Object[] result = {null};
+
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                for(NepaliMonthTO nepMonthTO: nepaliMonthsTO){
+                    NepaliMonth nepMonthEntity= adminEJB.getNepaliMonth(nepMonthTO.getNepYear(),nepMonthTO.getNepMonth());
+                    nepMonthTO = GenericTranslator.toTO(
+                            adminEJB.saveNepaliMonth(
+                            GenericTranslator.fromTO(nepMonthTO, NepaliMonth.class, nepMonthEntity)),NepaliMonthTO.class);
+                }
+                result[0] = nepaliMonthsTO;
+            }
+        });
+
+        return (List<NepaliMonthTO>) result[0];
+    }
+    
+     @WebMethod(operationName = "getNepaliMonths")
+    public List<NepaliMonthTO> getNepaliMonths(@WebParam(name = "nepYear")final int nepYear) 
+            throws SOLAFault, UnhandledFault{
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {         
+                            
+               
+                result[0] =  GenericTranslator.toTOList(adminEJB.getNepaliMonths(nepYear),NepaliMonthTO.class);
+            }
+        });
+
+        return (List<NepaliMonthTO>) result[0];
+    }  
+     
+     
 }

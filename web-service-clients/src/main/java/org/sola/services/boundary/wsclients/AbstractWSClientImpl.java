@@ -35,7 +35,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Service;
@@ -375,5 +380,29 @@ public abstract class AbstractWSClientImpl implements AbstractWSClient {
             throw processException(serviceName, e);
            }
          
-      }    
+      } 
+      
+      /** Converts {@link XMLGregorianCalendar} to {@link Date}*/
+    public static Date XMLDateToDate(XMLGregorianCalendar xmlDate) {
+        if (xmlDate == null) {
+            return null;
+        }
+        return xmlDate.toGregorianCalendar().getTime();
+    }
+
+    /** Converts {@link Date} to {@link XMLGregorianCalendar}*/
+    public static XMLGregorianCalendar DateToXMLDate(Date date) {
+        if (date == null) {
+            return null;
+        }
+
+        GregorianCalendar gcal = new GregorianCalendar();
+        gcal.setTime(date);
+
+        try {
+            return DatatypeFactory.newInstance().newXMLGregorianCalendar(gcal);
+        } catch (DatatypeConfigurationException ex) {
+            return null;
+        }
+    }
 }
