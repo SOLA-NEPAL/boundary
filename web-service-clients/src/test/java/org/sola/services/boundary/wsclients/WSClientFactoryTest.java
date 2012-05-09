@@ -210,5 +210,7 @@ public class WSClientFactoryTest {
         assertEquals(14, result.getRequestTypes().size());
         List<RequestTypeTO> out = result.getRequestTypes();
         assertEquals(14, out.size());
-    }
+    }    
+   
+    
 }

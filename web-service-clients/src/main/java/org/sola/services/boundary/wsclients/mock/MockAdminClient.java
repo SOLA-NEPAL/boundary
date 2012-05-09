@@ -184,5 +184,30 @@ public class MockAdminClient extends AbstractMockWSClient implements AdminClient
     @Override
     public List<NepaliMonthTO> getNepaliMonths(int nepYear) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }   
+
+    @Override
+    public List<Integer> getNepaliYear() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Integer> getLMOCodes() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<String> getLMONames() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<String> getDistrictNames() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Integer> getDistrictCodes() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -47,6 +47,16 @@ public interface AdminClient extends AbstractWSClient {
     
     List<NepaliMonthTO> getNepaliMonths(int nepYear); 
     
+    List<Integer> getNepaliYear();
+    
+    List<Integer> getLMOCodes(); 
+     
+    List<String> getLMONames();    
+   
+    List<String> getDistrictNames();
+
+    List<Integer> getDistrictCodes();
+    
     Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
     
     String getNepaliDate(Date date)throws WebServiceClientException;

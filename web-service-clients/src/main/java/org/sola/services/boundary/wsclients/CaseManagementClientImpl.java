@@ -29,6 +29,10 @@
  */
 package org.sola.services.boundary.wsclients;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dateTestBranch
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
@@ -36,6 +40,11 @@ import org.sola.webservices.casemanagement.CaseManagement;
 import org.sola.webservices.casemanagement.CasemanagementService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.casemanagement.*;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dateTestBranch
 
 /**
  * Implementation class for the {@linkplain CaseManagementClient} interface.
@@ -460,6 +469,28 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
             return null;
         }
     }
+        
+    @Override
+    public MothTO saveMoth(MothTO mothTo) {
+        final String inputService = SERVICE_NAME + "saveMoth";
+        try {
+            return getPort().saveMoth(mothTo);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       }
+    }
+    
+    @Override
+    public List<VdcTO> getVdcList() {
+       final String inputService = SERVICE_NAME + "getVdcList";
+        try {
+          return getPort().getVdcList();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+  }
 
     @Override
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {

@@ -30,6 +30,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -112,7 +113,7 @@ public class Development {
     }        
     
     @Test
-    //@Ignore
+    @Ignore
     public void testSearch() {
         System.out.println("test search");
 
@@ -143,5 +144,17 @@ public class Development {
         System.out.print("Checking connection:");
                 System.out.println(result.CheckConnection());
 
-    }        
+    }  
+    
+     
+//    @Test
+//     public void testGetNepaliYear() throws Exception {     
+//        System.out.println("test AdminClient");
+//        // Valid service connection
+//        System.out.println("Valid Service Connection - Admin");
+//        String url = "http://localhost:8080/sola/webservices/admin-service?wsdl";
+//        AdminClient result = WSClientFactory.getAdminClient(url);        
+//        result.getNepaliYear();
+//    } 
+   
 }

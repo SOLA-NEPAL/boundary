@@ -27,21 +27,13 @@
  */
 package org.sola.services.boundary.wsclients.mock;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import org.sola.services.boundary.wsclients.CaseManagementClient;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.ValidationResult;
-import org.sola.webservices.transferobjects.casemanagement.AddressTO;
-import org.sola.webservices.transferobjects.casemanagement.ApplicationTO;
-import org.sola.webservices.transferobjects.casemanagement.BrReportTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementTimingTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementViewTO;
-import org.sola.webservices.transferobjects.casemanagement.PartySummaryTO;
-import org.sola.webservices.transferobjects.casemanagement.PartyTO;
-import org.sola.webservices.transferobjects.casemanagement.ServiceTO;
-import org.sola.webservices.transferobjects.casemanagement.SourceTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementViewParamsTO;
+import org.sola.webservices.transferobjects.casemanagement.*;
 
 /**
  * Provides a mock implementation for the 
@@ -286,9 +278,17 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     @Override
     public ServiceTO saveInformationService(ServiceTO service) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
+    }   
+
+    
+
+    @Override
+    public MothTO saveMoth(MothTO mothTo) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
+<<<<<<< HEAD
     public SourceTO saveSource(SourceTO sourceTO) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -297,4 +297,10 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+=======
+    public List<VdcTO> getVdcList() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+>>>>>>> dateTestBranch
 }
