@@ -288,7 +288,6 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     }
 
     @Override
-<<<<<<< HEAD
     public SourceTO saveSource(SourceTO sourceTO) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -297,10 +296,9 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-=======
+
     public List<VdcTO> getVdcList() {
         throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
->>>>>>> dateTestBranch
+    }    
+
 }

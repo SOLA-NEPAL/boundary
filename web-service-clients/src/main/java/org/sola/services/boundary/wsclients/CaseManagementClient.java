@@ -124,13 +124,12 @@ public interface CaseManagementClient extends AbstractWSClient {
     
     ServiceTO saveInformationService(ServiceTO service) throws WebServiceClientException;
     
-<<<<<<< HEAD
+
     SourceTO saveSource(SourceTO sourceTO);
-=======
+
     MothTO saveMoth(MothTO mothTo);
     
-    List<VdcTO> getVdcList();
-    
+    List<VdcTO> getVdcList(); 
    
->>>>>>> dateTestBranch
+
 }

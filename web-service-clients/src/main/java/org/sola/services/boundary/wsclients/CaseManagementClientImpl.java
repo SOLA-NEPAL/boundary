@@ -29,10 +29,6 @@
  */
 package org.sola.services.boundary.wsclients;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dateTestBranch
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
@@ -40,12 +36,6 @@ import org.sola.webservices.casemanagement.CaseManagement;
 import org.sola.webservices.casemanagement.CasemanagementService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.casemanagement.*;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> dateTestBranch
-
 /**
  * Implementation class for the {@linkplain CaseManagementClient} interface.
  *
