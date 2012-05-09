@@ -28,30 +28,13 @@
  package org.sola.services.boundary.wsclients;
 
 
-import java.util.Date;
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
-import org.sola.webservices.casemanagement.SOLAFault;
-import org.sola.webservices.casemanagement.SOLAValidationFault;
-import org.sola.webservices.casemanagement.UnhandledFault;
 import org.sola.webservices.casemanagement.CaseManagement;
 import org.sola.webservices.casemanagement.CasemanagementService;
-import org.sola.webservices.casemanagement.OptimisticLockingFault;
-import org.sola.webservices.casemanagement.SOLAAccessFault;
 import org.sola.webservices.transferobjects.ValidationResult;
-import org.sola.webservices.transferobjects.casemanagement.PartySummaryTO;
-import org.sola.webservices.transferobjects.casemanagement.AddressTO;
-import org.sola.webservices.transferobjects.casemanagement.ApplicationLogTO;
-import org.sola.webservices.transferobjects.casemanagement.ApplicationTO;
-import org.sola.webservices.transferobjects.casemanagement.BrReportTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementTimingTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementViewTO;
-import org.sola.webservices.transferobjects.casemanagement.PartyTO;
-import org.sola.webservices.transferobjects.casemanagement.ServiceTO;
-import org.sola.webservices.transferobjects.casemanagement.SourceTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementViewParamsTO;
+import org.sola.webservices.transferobjects.casemanagement.*;
 
 
 
@@ -471,5 +454,27 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
            return null;
         }   
     }
+        
+    @Override
+    public MothTO saveMoth(MothTO mothTo) {
+        final String inputService = SERVICE_NAME + "saveMoth";
+        try {
+            return getPort().saveMoth(mothTo);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       }
+    }
+    
+    @Override
+    public List<VdcTO> getVdcList() {
+       final String inputService = SERVICE_NAME + "getVdcList";
+        try {
+          return getPort().getVdcList();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+  }
 
 }

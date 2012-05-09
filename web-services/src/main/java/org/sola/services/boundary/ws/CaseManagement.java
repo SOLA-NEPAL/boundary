@@ -54,18 +54,22 @@ import org.sola.services.boundary.transferobjects.casemanagement.BrReportTO;
 import org.sola.services.boundary.transferobjects.casemanagement.LodgementTimingTO;
 import org.sola.services.boundary.transferobjects.casemanagement.LodgementViewParamsTO;
 import org.sola.services.boundary.transferobjects.casemanagement.LodgementViewTO;
+import org.sola.services.boundary.transferobjects.casemanagement.MothTO;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.application.repository.entities.Service;
 import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
 import org.sola.services.boundary.transferobjects.casemanagement.PartySummaryTO;
 import org.sola.services.boundary.transferobjects.casemanagement.PartyTO;
+import org.sola.services.boundary.transferobjects.casemanagement.VdcTO;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.faults.SOLAAccessFault;
 import org.sola.services.ejb.application.repository.entities.LodgementTiming;
 import org.sola.services.ejb.application.repository.entities.LodgementView;
 import org.sola.services.ejb.application.repository.entities.LodgementViewParams;
+import org.sola.services.ejb.party.repository.entities.Moth;
 import org.sola.services.ejb.party.repository.entities.Party;
+import org.sola.services.ejb.party.repository.entities.Vdc;
 
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
@@ -839,4 +843,77 @@ public class CaseManagement extends AbstractWebService {
 
         return (ServiceTO) result[0];
     }
+
+    /**
+     * save Moth
+     */
+    @WebMethod(operationName = "saveMoth")
+    public MothTO saveMoth(@WebParam(name = "mothsTO") final MothTO mothsTO)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+
+        final Object[] result = {null};
+        final Object[] params = {mothsTO};
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                MothTO mthTo = (MothTO) params[0];
+                if (mthTo != null) {
+                    //Moth mothEntity = partyEJB.getMoths(mthTo.getVdcSid(), mthTo.getMothLuj());
+                    Moth mothEntity = partyEJB.getMoth(mthTo.getId());
+                    mthTo = GenericTranslator.toTO(
+                            partyEJB.saveMoth(
+                            GenericTranslator.fromTO(mthTo, Moth.class, mothEntity)), MothTO.class);
+                    result[0] = mthTo;
+                }
+            }
+        });
+
+        return (MothTO) result[0];
+    }
+
+    
+    @WebMethod(operationName = "getMoth")
+    public MothTO getMoth(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
+        final String idTmp = id;
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(partyEJB.getMoth(idTmp), MothTO.class);
+            }
+        });
+        return (MothTO) result[0];
+    }
+    
+    
+    @WebMethod(operationName = "getVdcList")
+    public List<VdcTO> getVdcList()
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(partyEJB.getVdcList(), VdcTO.class);
+            }
+        });
+        return (List<VdcTO>) result[0];
+    }
+    
+    
+   @WebMethod(operationName = "getMoths")
+    public List<MothTO> getMoths(@WebParam(name = "vdcSid") int vdcSid,
+            @WebParam(name = "mothLuj") String mothLuj) throws SOLAFault, UnhandledFault {
+        final int vdcSidTmp = vdcSid;
+        final String mothLujTmp = mothLuj;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(partyEJB.getMoths(vdcSidTmp,mothLujTmp), MothTO.class);
+            }
+        });
+        return (List<MothTO>) result[0];
+    }   
 }

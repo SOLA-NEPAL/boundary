@@ -309,5 +309,49 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
            return null;
        } 
     }
+
+    @Override
+    public List<Integer> getLMOCodes() {
+        final String inputService = SERVICE_NAME + "getLMOCodes";
+        try {
+            return getPort().getLMOCode();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+    }
+
+    @Override
+    public List<String> getLMONames() {
+        final String inputService = SERVICE_NAME + "getLMONames";
+        try {
+            return getPort().getLMONames();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+    }
+
+    @Override
+    public List<String> getDistrictNames() {
+        final String inputService = SERVICE_NAME + "getDistrictNames";
+        try {
+            return getPort().getDistrictNames();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+    }
+
+    @Override
+    public List<Integer> getDistrictCodes() {
+        final String inputService = SERVICE_NAME + "getDistrictCodes";
+        try {
+            return getPort().getDistrictCodes();
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       } 
+    }
      
 }

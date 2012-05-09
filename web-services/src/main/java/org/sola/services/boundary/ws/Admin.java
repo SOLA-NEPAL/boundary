@@ -46,7 +46,6 @@ import org.sola.services.boundary.transferobjects.security.UserTO;
 import org.sola.services.boundary.transferobjects.system.BrTO;
 import org.sola.services.boundary.transferobjects.system.LanguageTO;
 import org.sola.services.boundary.transferobjects.system.NepaliMonthTO;
-import org.sola.services.boundary.transferobjects.system.NepaliYearTO;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
@@ -446,7 +445,7 @@ public class Admin extends AbstractWebService {
 
             @Override
             public void run() {
-                for (NepaliMonthTO nepMonthTO : nepaliMonthsTO) {
+                for(NepaliMonthTO nepMonthTO : nepaliMonthsTO) {
                     NepaliMonth nepMonthEntity = adminEJB.getNepaliMonth(nepMonthTO.getNepYear(), nepMonthTO.getNepMonth());
                     nepMonthTO = GenericTranslator.toTO(
                             adminEJB.saveNepaliMonth(
@@ -490,6 +489,79 @@ public class Admin extends AbstractWebService {
             public void run() {
 
                 result[0] = adminEJB.getNepaliYear();
+            }
+        });
+
+        return (List<Integer>) result[0];
+    }
+    
+    
+    @WebMethod(operationName = "getLMOCode")
+    public List<Integer> getLMOCode()
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+
+                result[0] = adminEJB.getLMOCode();
+            }
+        });
+
+        return (List<Integer>) result[0];
+    }
+    
+    @WebMethod(operationName = "getLMONames")
+    public List<String> getLMONames()
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+
+                result[0] = adminEJB.getLMONames();
+            }
+        });
+
+        return (List<String>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDistrictNames")
+    public List<String> getDistrictNames()
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+
+                result[0] = adminEJB.getDistrictNames();
+            }
+        });
+
+        return (List<String>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDistrictCodes")
+    public List<Integer> getDistrictCodes()
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+
+                result[0] = adminEJB.getDistrictCodes();
             }
         });
 

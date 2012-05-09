@@ -37,16 +37,7 @@ import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.casemanagement.*;
 import org.sola.webservices.transferobjects.ValidationResult;
-import org.sola.webservices.transferobjects.casemanagement.AddressTO;
-import org.sola.webservices.transferobjects.casemanagement.ApplicationTO;
-import org.sola.webservices.transferobjects.casemanagement.BrReportTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementTimingTO;
-import org.sola.webservices.transferobjects.casemanagement.PartySummaryTO;
-import org.sola.webservices.transferobjects.casemanagement.PartyTO;
-import org.sola.webservices.transferobjects.casemanagement.ServiceTO;
-import org.sola.webservices.transferobjects.casemanagement.SourceTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementViewTO;
-import org.sola.webservices.transferobjects.casemanagement.LodgementViewParamsTO;
+import org.sola.webservices.transferobjects.casemanagement.*;
 
 /**
  * Interface for the CaseManagement Service. Implemented by {@linkplain CaseManagementClientImpl}
@@ -133,4 +124,10 @@ public interface CaseManagementClient extends AbstractWSClient {
             String applicationId, int rowVersion) throws WebServiceClientException;
     
     ServiceTO saveInformationService(ServiceTO service) throws WebServiceClientException;
+    
+    MothTO saveMoth(MothTO mothTo);
+    
+    List<VdcTO> getVdcList();
+    
+   
 }

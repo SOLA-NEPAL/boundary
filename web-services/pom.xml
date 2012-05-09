@@ -94,7 +94,7 @@
             <groupId>org.sola.services</groupId>
             <artifactId>sola-services-common</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency>             
         <dependency>
             <groupId>org.sola.services.ejbs</groupId>
             <artifactId>sola-admin</artifactId>
