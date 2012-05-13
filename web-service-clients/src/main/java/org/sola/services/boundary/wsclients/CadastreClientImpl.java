@@ -32,7 +32,6 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import javax.xml.namespace.QName;
-import org.apache.sanselan.formats.jpeg.segments.Segment;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.cadastre.Cadastre;
 import org.sola.webservices.cadastre.CadastreService;

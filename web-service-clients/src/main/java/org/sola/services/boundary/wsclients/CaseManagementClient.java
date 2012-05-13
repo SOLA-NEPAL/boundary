@@ -130,6 +130,10 @@ public interface CaseManagementClient extends AbstractWSClient {
     MothTO saveMoth(MothTO mothTo);
     
     List<VdcTO> getVdcList(); 
+    
+    List<MothTO> getMoths(int vdcSid, String mothLuj);
+    
+    MothTO getMoth(String id);
    
 
 }

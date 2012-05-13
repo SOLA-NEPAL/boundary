@@ -299,6 +299,16 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
 
     public List<VdcTO> getVdcList() {
         throw new UnsupportedOperationException("Not supported yet.");
-    }    
+    }
+
+    @Override
+    public List<MothTO> getMoths(int vdcSid, String mothLuj) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public MothTO getMoth(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }
