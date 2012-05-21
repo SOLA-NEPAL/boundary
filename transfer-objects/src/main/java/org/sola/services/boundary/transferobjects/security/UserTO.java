@@ -28,12 +28,14 @@
 package org.sola.services.boundary.transferobjects.security;
 
 import java.util.List;
+import org.sola.services.boundary.transferobjects.referencedata.DepartmentTO;
 
 public class UserTO extends UserSummaryTO {
     private String userName;
     private String pasword;
     private List<UserGroupTO> userGroups;
     private boolean active;
+    private DepartmentTO department;
     
     public UserTO() {
         super();
@@ -69,5 +71,13 @@ public class UserTO extends UserSummaryTO {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public DepartmentTO getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(DepartmentTO department) {
+        this.department = department;
     }
 }

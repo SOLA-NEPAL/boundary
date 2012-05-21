@@ -280,13 +280,6 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
         throw new UnsupportedOperationException("Not supported yet.");
     }   
 
-    
-
-    @Override
-    public MothTO saveMoth(MothTO mothTo) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     @Override
     public SourceTO saveSource(SourceTO sourceTO) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -296,19 +289,4 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    public List<VdcTO> getVdcList() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<MothTO> getMoths(int vdcSid, String mothLuj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public MothTO getMoth(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
 }

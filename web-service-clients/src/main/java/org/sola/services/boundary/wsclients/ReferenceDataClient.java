@@ -40,9 +40,12 @@ import org.sola.webservices.transferobjects.referencedata.BrValidationTargetType
 import org.sola.webservices.transferobjects.referencedata.CadastreObjectTypeTO;
 import org.sola.webservices.transferobjects.referencedata.ChangeStatusTypeTO;
 import org.sola.webservices.transferobjects.referencedata.CommunicationTypeTO;
+import org.sola.webservices.transferobjects.referencedata.DepartmentTO;
+import org.sola.webservices.transferobjects.referencedata.DistrictTO;
 import org.sola.webservices.transferobjects.referencedata.GenderTypeTO;
 import org.sola.webservices.transferobjects.referencedata.IdTypeTO;
 import org.sola.webservices.transferobjects.referencedata.MortgageTypeTO;
+import org.sola.webservices.transferobjects.referencedata.OfficeTO;
 import org.sola.webservices.transferobjects.referencedata.PartyTypeTO;
 import org.sola.webservices.transferobjects.referencedata.PartyRoleTypeTO;
 import org.sola.webservices.transferobjects.referencedata.RegistrationStatusTypeTO;
@@ -55,6 +58,7 @@ import org.sola.webservices.transferobjects.referencedata.RrrGroupTypeTO;
 import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
 import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
 import org.sola.webservices.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
+import org.sola.webservices.transferobjects.referencedata.VdcTO;
 
 /**
  * Interface for the ReferenceData Service. Implemented by {@linkplain ReferenceDataClientImpl}
@@ -168,4 +172,20 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<BaUnitRelTypeTO> getBaUnitRelTypes(String lang) throws WebServiceClientException;
     
     List<BaUnitRelTypeTO> getBaUnitRelTypes() throws WebServiceClientException;
+    
+    List<OfficeTO> getOffices(String languageCode);
+    
+    List<OfficeTO> getOffices();
+    
+    List<DistrictTO> getDistricts(String languageCode);
+    
+    List<DistrictTO> getDistricts();
+    
+    List<DepartmentTO> getDepartments(String officeCode, String languageCode);
+    
+    List<DepartmentTO> getDepartments(String officeCode);
+    
+    List<VdcTO> getVdcs(String districtCode, String languageCode);
+    
+    List<VdcTO> getVdcs(String districtCode);
 }

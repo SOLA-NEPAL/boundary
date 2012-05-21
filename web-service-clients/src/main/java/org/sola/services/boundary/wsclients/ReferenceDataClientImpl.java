@@ -30,37 +30,10 @@ package org.sola.services.boundary.wsclients;
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
-import org.sola.webservices.referencedata.SOLAFault;
-import org.sola.webservices.referencedata.UnhandledFault;
 import org.sola.webservices.referencedata.ReferenceData;
 import org.sola.webservices.referencedata.ReferencedataService;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
-import org.sola.webservices.transferobjects.referencedata.ApplicationActionTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ApplicationStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BaUnitRelTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BaUnitTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BrSeverityTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BrTechnicalTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BrValidationTargetTypeTO;
-import org.sola.webservices.transferobjects.referencedata.CadastreObjectTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ChangeStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.CommunicationTypeTO;
-import org.sola.webservices.transferobjects.referencedata.GenderTypeTO;
-import org.sola.webservices.transferobjects.referencedata.IdTypeTO;
-import org.sola.webservices.transferobjects.referencedata.MortgageTypeTO;
-import org.sola.webservices.transferobjects.referencedata.PartyTypeTO;
-import org.sola.webservices.transferobjects.referencedata.PartyRoleTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RegistrationStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RequestCategoryTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RequestTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RrrGroupTypeTO;
-import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
-import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ServiceActionTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ServiceStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceTypeTO;
+import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
  * Implementation class for the {@linkplain ReferenceDataClient} interface. 
@@ -500,14 +473,78 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         final String inputService = SERVICE_NAME + "getBaUnitRelTypes";
         try {
             return getPort().getBaUnitRelTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
     @Override
     public List<BaUnitRelTypeTO> getBaUnitRelTypes() throws WebServiceClientException {
         return getBaUnitRelTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<OfficeTO> getOffices(String languageCode) {
+        final String inputService = SERVICE_NAME + "getOffices";
+        try {
+            return getPort().getOffices(languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<OfficeTO> getOffices() {
+        return getOffices(getLanguageCode());
+    }
+
+    @Override
+    public List<DistrictTO> getDistricts(String languageCode) {
+        final String inputService = SERVICE_NAME + "getDistricts";
+        try {
+            return getPort().getDistricts(languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<DistrictTO> getDistricts() {
+        return getDistricts(getLanguageCode());
+    }
+
+    @Override
+    public List<DepartmentTO> getDepartments(String officeCode, String languageCode) {
+        final String inputService = SERVICE_NAME + "getDepartments";
+        try {
+            return getPort().getDepartments(officeCode, languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<DepartmentTO> getDepartments(String officeCode) {
+        return getDepartments(officeCode, getLanguageCode());
+    }
+
+    @Override
+    public List<VdcTO> getVdcs(String districtCode, String languageCode) {
+        final String inputService = SERVICE_NAME + "getVdcs";
+        try {
+            return getPort().getVDCs(districtCode, languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<VdcTO> getVdcs(String districtCode) {
+        return getVdcs(districtCode, getLanguageCode());
     }
 }

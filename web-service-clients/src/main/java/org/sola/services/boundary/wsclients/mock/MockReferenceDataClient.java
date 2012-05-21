@@ -31,31 +31,7 @@ import java.util.List;
 import org.sola.services.boundary.wsclients.ReferenceDataClient;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
-import org.sola.webservices.transferobjects.referencedata.ApplicationActionTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ApplicationStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BaUnitRelTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BaUnitTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BrSeverityTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BrTechnicalTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BrValidationTargetTypeTO;
-import org.sola.webservices.transferobjects.referencedata.CadastreObjectTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ChangeStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.CommunicationTypeTO;
-import org.sola.webservices.transferobjects.referencedata.GenderTypeTO;
-import org.sola.webservices.transferobjects.referencedata.IdTypeTO;
-import org.sola.webservices.transferobjects.referencedata.MortgageTypeTO;
-import org.sola.webservices.transferobjects.referencedata.PartyTypeTO;
-import org.sola.webservices.transferobjects.referencedata.PartyRoleTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RegistrationStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RequestCategoryTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RequestTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RrrGroupTypeTO;
-import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
-import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ServiceActionTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ServiceStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceTypeTO;
+import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
  * Provides a mock implementation for the 
@@ -403,6 +379,46 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
 
     @Override
     public List<BaUnitRelTypeTO> getBaUnitRelTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<OfficeTO> getOffices(String languageCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<OfficeTO> getOffices() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<DistrictTO> getDistricts(String languageCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<DistrictTO> getDistricts() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<DepartmentTO> getDepartments(String officeCode, String languageCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<DepartmentTO> getDepartments(String officeCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<VdcTO> getVdcs(String districtCode, String languageCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<VdcTO> getVdcs(String districtCode) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

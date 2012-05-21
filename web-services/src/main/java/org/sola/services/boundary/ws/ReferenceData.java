@@ -72,6 +72,10 @@ import org.sola.services.boundary.transferobjects.referencedata.SourceTypeTO;
 import org.sola.services.boundary.transferobjects.referencedata.RrrTypeTO;
 import org.sola.services.boundary.transferobjects.referencedata.RrrGroupTypeTO;
 import org.sola.services.boundary.transferobjects.referencedata.TypeActionTO;
+import org.sola.services.boundary.transferobjects.referencedata.DepartmentTO;
+import org.sola.services.boundary.transferobjects.referencedata.DistrictTO;
+import org.sola.services.boundary.transferobjects.referencedata.OfficeTO;
+import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.AbstractCodeTO;
 import org.sola.services.common.repository.entities.AbstractCodeEntity;
@@ -106,6 +110,11 @@ import org.sola.services.ejb.system.repository.entities.BrTechnicalType;
 import org.sola.services.ejb.system.repository.entities.BrValidationTargetType;
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.RegistrationStatusType;
+import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.Department;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.District;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.Office;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.VDC;
 
 @WebService(serviceName = "referencedata-service", targetNamespace = ServiceConstants.REF_DATA_WS_NAMESPACE)
 public class ReferenceData extends AbstractWebService {
@@ -124,6 +133,9 @@ public class ReferenceData extends AbstractWebService {
     TransactionEJBLocal transactionEJB;
     @EJB
     SystemEJBLocal systemEJB;
+    @EJB
+    AdminEJBLocal adminEJB;
+    
     @Resource
     private WebServiceContext wsContext;
 
@@ -649,6 +661,80 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<BaUnitRelTypeTO>) result[0];
     }
+    
+    @WebMethod(operationName = "getOffices")
+    public List<OfficeTO> getOffices(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                result[0] = GenericTranslator.toTOList(adminEJB.getCodeEntityList(
+                        Office.class, languageCode), OfficeTO.class);
+            }
+        });
+
+        return (List<OfficeTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDistricts")
+    public List<DistrictTO> getDistricts(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                result[0] = GenericTranslator.toTOList(adminEJB.getCodeEntityList(
+                        District.class, languageCode), DistrictTO.class);
+            }
+        });
+
+        return (List<DistrictTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDepartments")
+    public List<DepartmentTO> getDepartments(@WebParam(name = "officeCode") final String officeCode,
+                        @WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(adminEJB.getDepartments
+                        (officeCode, languageCode), DepartmentTO.class);
+            }
+        });
+
+        return (List<DepartmentTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getVDCs")
+    public List<VdcTO> getVDCs(@WebParam(name = "districtCode") final String districtCode,
+                        @WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(adminEJB.getVDCs
+                        (districtCode, languageCode), VdcTO.class);
+            }
+        });
+
+        return (List<VdcTO>) result[0];
+    }
 
     @RolesAllowed(RolesConstants.ADMIN_MANAGE_REFDATA)
     @WebMethod(operationName = "saveReferenceData")
@@ -765,6 +851,22 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = administrativeEJB.getCodeEntity(BaUnitRelType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, BaUnitRelType.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof VdcTO) {
+                    codeEntity = adminEJB.getCodeEntity(VDC.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, VDC.class, codeEntity);
+                    adminEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof OfficeTO) {
+                    codeEntity = adminEJB.getCodeEntity(Office.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, Office.class, codeEntity);
+                    adminEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof DistrictTO) {
+                    codeEntity = adminEJB.getCodeEntity(District.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, District.class, codeEntity);
+                    adminEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof DepartmentTO) {
+                    codeEntity = adminEJB.getCodeEntity(Department.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, Department.class, codeEntity);
+                    adminEJB.saveCodeEntity(codeEntity);
                 }
 
                 result = GenericTranslator.toTO(codeEntity, refDataTO.getClass());

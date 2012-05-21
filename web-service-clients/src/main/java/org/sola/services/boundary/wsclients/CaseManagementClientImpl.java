@@ -459,56 +459,6 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
             return null;
         }
     }
-        
-    @Override
-    public MothTO saveMoth(MothTO mothTo) {
-        final String inputService = SERVICE_NAME + "saveMoth";
-        try {
-            return getPort().saveMoth(mothTo);
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
-    }
-    
-    @Override
-    public List<VdcTO> getVdcList() {
-       final String inputService = SERVICE_NAME + "getVdcList";
-        try {
-          return getPort().getVdcList();
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       } 
-  }
-    
-    
-    @Override
-    public MothTO getMoth(String id) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getMoth";
-        try {
-            MothTO result = getPort().getMoth(id);
-            return result;
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-    
-    
-    @Override
-    public List<MothTO> getMoths(int vdcSid, String mothLuj)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getMoths";
-        try {
-            return getPort().getMoths(vdcSid, mothLuj);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-    
-    
 
     @Override
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {

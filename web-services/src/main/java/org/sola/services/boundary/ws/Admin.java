@@ -53,10 +53,7 @@ import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
 import org.sola.services.ejb.system.repository.entities.Br;
 import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.Group;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.NepaliMonth;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.Role;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.User;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.*;
 
 /**
  * Provides methods for administrators to manage users, reference data and
@@ -489,79 +486,6 @@ public class Admin extends AbstractWebService {
             public void run() {
 
                 result[0] = adminEJB.getNepaliYear();
-            }
-        });
-
-        return (List<Integer>) result[0];
-    }
-    
-    
-    @WebMethod(operationName = "getLMOCode")
-    public List<Integer> getLMOCode()
-            throws SOLAFault, UnhandledFault {
-
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-
-                result[0] = adminEJB.getLMOCode();
-            }
-        });
-
-        return (List<Integer>) result[0];
-    }
-    
-    @WebMethod(operationName = "getLMONames")
-    public List<String> getLMONames()
-            throws SOLAFault, UnhandledFault {
-
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-
-                result[0] = adminEJB.getLMONames();
-            }
-        });
-
-        return (List<String>) result[0];
-    }
-    
-    @WebMethod(operationName = "getDistrictNames")
-    public List<String> getDistrictNames()
-            throws SOLAFault, UnhandledFault {
-
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-
-                result[0] = adminEJB.getDistrictNames();
-            }
-        });
-
-        return (List<String>) result[0];
-    }
-    
-    @WebMethod(operationName = "getDistrictCodes")
-    public List<Integer> getDistrictCodes()
-            throws SOLAFault, UnhandledFault {
-
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-
-                result[0] = adminEJB.getDistrictCodes();
             }
         });
 

@@ -27,16 +27,13 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
 import org.sola.webservices.administrative.Administrative;
 import org.sola.webservices.administrative.AdministrativeService;
-import org.sola.webservices.administrative.SOLAFault;
-import org.sola.webservices.administrative.UnhandledFault;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
+import org.sola.webservices.transferobjects.administrative.MothTO;
 
 public class AdministrativeClientImpl extends AbstractWSClientImpl 
         implements AdministrativeClient {
@@ -148,4 +145,38 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         }
     }
     
+    @Override
+    public MothTO saveMoth(MothTO mothTo) {
+        final String inputService = SERVICE_NAME + "saveMoth";
+        try {
+            return getPort().saveMoth(mothTo);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+       }
+    }
+    
+    @Override
+    public MothTO getMoth(String id) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getMoth";
+        try {
+            MothTO result = getPort().getMoth(id);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<MothTO> getMoths(String vdcSid, String mothLuj)
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getMoths";
+        try {
+            return getPort().getMoths(vdcSid, mothLuj);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }
