@@ -289,4 +289,19 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<ValidationResult> applicationActionTransfer(String applicationId, String userId, int rowVersion) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ValidationResult> applicationActionAssignBulk(List<ActionedApplicationTO> actionedApplications, String userId) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ValidationResult> applicationActionTransferBulk(List<ActionedApplicationTO> actionedApplications, String userId) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

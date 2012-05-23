@@ -37,6 +37,7 @@ public class ApplicationSearchResultTO extends ApplicationSummaryTO {
     private String contactPerson;
     private String agent;
     private String serviceList; 
+    private int rowVersion;
     
     public ApplicationSearchResultTO(){
         super();
@@ -88,5 +89,13 @@ public class ApplicationSearchResultTO extends ApplicationSummaryTO {
 
     public void setServiceList(String serviceList) {
         this.serviceList = serviceList;
-    }   
+    }
+
+    public int getRowVersion() {
+        return rowVersion;
+    }
+
+    public void setRowVersion(int rowVersion) {
+        this.rowVersion = rowVersion;
+    }
 }

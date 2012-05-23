@@ -470,4 +470,44 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
             return null;
         }
     }
+
+    @Override
+    public List<ValidationResult> applicationActionTransfer(String applicationId, String userId, int rowVersion) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "applicationActionTransfer";
+        try {
+            return getPort().applicationActionTransfer(applicationId, userId, 
+                    this.getLanguageCode(), rowVersion);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<ValidationResult> applicationActionAssignBulk(
+            List<ActionedApplicationTO> actionedApplications, String userId) 
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "applicationActionAssignBulk";
+        try {
+            return getPort().applicationActionAssignBulk(actionedApplications, userId, 
+                    this.getLanguageCode());
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<ValidationResult> applicationActionTransferBulk(
+            List<ActionedApplicationTO> actionedApplications, String userId) 
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "applicationActionTransferBulk";
+        try {
+            return getPort().applicationActionTransferBulk(actionedApplications, userId, 
+                    this.getLanguageCode());
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

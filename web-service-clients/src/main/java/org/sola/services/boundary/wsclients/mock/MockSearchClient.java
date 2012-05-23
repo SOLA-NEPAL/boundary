@@ -187,4 +187,9 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     public List<CadastreObjectSearchResultTO> searchCadastreObjects(String searchBy, String searchString) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<UserSearchResultTO> getMyDepartmentUsers() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

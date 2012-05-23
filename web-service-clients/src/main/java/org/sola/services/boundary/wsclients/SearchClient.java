@@ -91,4 +91,6 @@ public interface SearchClient extends AbstractWSClient {
             String searchBy, String searchString) throws WebServiceClientException;
     
     GenericResult test() throws WebServiceClientException;
+    
+    List<UserSearchResultTO> getMyDepartmentUsers();
 }

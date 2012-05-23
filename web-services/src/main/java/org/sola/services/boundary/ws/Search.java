@@ -47,12 +47,16 @@ import org.sola.services.ejb.search.businesslogic.SearchEJBLocal;
 import org.sola.services.ejb.search.repository.entities.*;
 import org.sola.services.ejb.search.spatial.QueryForSelect;
 import org.sola.services.ejb.search.spatial.ResultForSelectionInfo;
+import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.User;
 
 @WebService(serviceName = "search-service", targetNamespace = ServiceConstants.SEARCH_WS_NAMESPACE)
 public class Search extends AbstractWebService {
 
     @EJB
     SearchEJBLocal searchEJB;
+    @EJB
+    AdminEJBLocal adminEJB;
     @Resource
     private WebServiceContext wsContext;
 
@@ -73,6 +77,7 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
+
             @Override
             public void run() {
                 PropertyVerifier propertyVerifier =
@@ -121,8 +126,8 @@ public class Search extends AbstractWebService {
                         appList, ApplicationSearchResultTO.class);
             }
         });
-
-        return (List<ApplicationSearchResultTO>) result[0];
+        List<ApplicationSearchResultTO> resultList = (List<ApplicationSearchResultTO>) result[0];
+        return resultList;
     }
 
     @WebMethod(operationName = "SearchApplications")
@@ -222,6 +227,24 @@ public class Search extends AbstractWebService {
                 List<UserSearchResult> activeUsers = searchEJB.getActiveUsers();
                 result[0] = GenericTranslator.toTOList(activeUsers, UserSearchResultTO.class);
 
+            }
+        });
+
+        return (List<UserSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getMyDepartmentUsers")
+    public List<UserSearchResultTO> getMyDepartmentUsers() throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                User user = adminEJB.getCurrentUser();
+                List<UserSearchResult> activeUsers = searchEJB.getUsersByDepartment(user.getDepartmentCode());
+                result[0] = GenericTranslator.toTOList(activeUsers, UserSearchResultTO.class);
             }
         });
 

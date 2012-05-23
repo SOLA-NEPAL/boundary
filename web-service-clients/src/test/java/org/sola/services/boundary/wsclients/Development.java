@@ -30,6 +30,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -84,7 +85,7 @@ public class Development {
 
         ApplicationTO app = result.getApplication("3000");
         System.out.println("Application found: " + app.getId());
-        
+                
         System.out.println("Test Application actions");
         System.out.println("Test assign:" 
                 + result.applicationActionAssign(app.getId(), "1000", app.getRowVersion()));

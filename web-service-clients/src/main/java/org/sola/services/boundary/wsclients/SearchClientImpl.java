@@ -261,4 +261,15 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
            return null;
         }
     }
+
+    @Override
+    public List<UserSearchResultTO> getMyDepartmentUsers() {
+        final String inputService = SERVICE_NAME + "getMyDepartmentUsers";
+        try {
+            return getPort().getMyDepartmentUsers();
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
 }

@@ -118,7 +118,16 @@ public interface CaseManagementClient extends AbstractWSClient {
 
     List<ValidationResult> applicationActionAssign(
             String applicationId, String userId, int rowVersion) throws WebServiceClientException;
+    
+    List<ValidationResult> applicationActionAssignBulk(
+            List<ActionedApplicationTO> actionedApplications, String userId) throws WebServiceClientException;
 
+    List<ValidationResult> applicationActionTransfer(
+            String applicationId, String userId, int rowVersion) throws WebServiceClientException;
+    
+    List<ValidationResult> applicationActionTransferBulk(
+            List<ActionedApplicationTO> actionedApplications, String userId) throws WebServiceClientException;
+    
     List<ValidationResult> applicationActionResubmit(
             String applicationId, int rowVersion) throws WebServiceClientException;
     
