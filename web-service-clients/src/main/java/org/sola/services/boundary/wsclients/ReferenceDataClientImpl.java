@@ -59,7 +59,7 @@ import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
 import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
 import org.sola.webservices.transferobjects.referencedata.ServiceActionTypeTO;
 import org.sola.webservices.transferobjects.referencedata.ServiceStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
+
 import org.sola.webservices.transferobjects.referencedata.SourceTypeTO;
 
 /**
@@ -350,23 +350,23 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
     }
 
-    @Override
-    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes()
-            throws WebServiceClientException {
-        return getSourceBaUnitRelationTypes(getLanguageCode());
-    }
-    
-    @Override
-    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getSourceBaUnitRelationTypes";
-        try {
-            return getPort().getSourceBaUnitRelationTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-        }
-    }
+//    @Override
+//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes()
+//            throws WebServiceClientException {
+//        return getSourceBaUnitRelationTypes(getLanguageCode());
+//    }
+//    
+//    @Override
+//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang)
+//            throws WebServiceClientException {
+//        final String inputService = SERVICE_NAME + "getSourceBaUnitRelationTypes";
+//        try {
+//            return getPort().getSourceBaUnitRelationTypes(lang);
+//       } catch (Throwable e) {
+//           handleExceptionsMethod(inputService,e);
+//           return null;
+//        }
+//    }
 
     @Override
     public List<RegistrationStatusTypeTO> getRegistrationStatusTypes()

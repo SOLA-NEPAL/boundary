@@ -27,7 +27,6 @@
  */
 package org.sola.services.boundary.wsclients.mock;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import org.sola.services.boundary.wsclients.CaseManagementClient;
@@ -278,14 +277,9 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     @Override
     public ServiceTO saveInformationService(ServiceTO service) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
-    }   
+    }  
 
-    
-
-    @Override
-    public MothTO saveMoth(MothTO mothTo) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+   
 
     @Override
     public SourceTO saveSource(SourceTO sourceTO) {
@@ -295,20 +289,6 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     @Override
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public List<VdcTO> getVdcList() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<MothTO> getMoths(int vdcSid, String mothLuj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public MothTO getMoth(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    }   
 
 }

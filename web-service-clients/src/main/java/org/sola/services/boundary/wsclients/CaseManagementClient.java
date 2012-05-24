@@ -125,15 +125,11 @@ public interface CaseManagementClient extends AbstractWSClient {
     ServiceTO saveInformationService(ServiceTO service) throws WebServiceClientException;
     
 
-    SourceTO saveSource(SourceTO sourceTO);
-
-    MothTO saveMoth(MothTO mothTo);
+    SourceTO saveSource(SourceTO sourceTO);   
     
-    List<VdcTO> getVdcList(); 
+   
     
-    List<MothTO> getMoths(int vdcSid, String mothLuj);
     
-    MothTO getMoth(String id);
    
 
 }

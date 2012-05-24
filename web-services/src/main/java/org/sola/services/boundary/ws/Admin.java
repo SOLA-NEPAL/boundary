@@ -46,6 +46,7 @@ import org.sola.services.boundary.transferobjects.security.UserTO;
 import org.sola.services.boundary.transferobjects.system.BrTO;
 import org.sola.services.boundary.transferobjects.system.LanguageTO;
 import org.sola.services.boundary.transferobjects.system.NepaliMonthTO;
+import org.sola.services.boundary.transferobjects.system.VdcTO;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
@@ -445,7 +446,7 @@ public class Admin extends AbstractWebService {
 
             @Override
             public void run() {
-                for(NepaliMonthTO nepMonthTO : nepaliMonthsTO) {
+                for (NepaliMonthTO nepMonthTO : nepaliMonthsTO) {
                     NepaliMonth nepMonthEntity = adminEJB.getNepaliMonth(nepMonthTO.getNepYear(), nepMonthTO.getNepMonth());
                     nepMonthTO = GenericTranslator.toTO(
                             adminEJB.saveNepaliMonth(
@@ -476,7 +477,7 @@ public class Admin extends AbstractWebService {
 
         return (List<NepaliMonthTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getNepaliYear")
     public List<Integer> getNepaliYear()
             throws SOLAFault, UnhandledFault {
@@ -494,10 +495,9 @@ public class Admin extends AbstractWebService {
 
         return (List<Integer>) result[0];
     }
-    
-    
-    @WebMethod(operationName = "getLMOCode")
-    public List<Integer> getLMOCode()
+
+    @WebMethod(operationName = "getOfficeCode")
+    public List<Integer> getOfficeCode()
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
@@ -507,15 +507,15 @@ public class Admin extends AbstractWebService {
             @Override
             public void run() {
 
-                result[0] = adminEJB.getLMOCode();
+                result[0] = adminEJB.getOfficeCode();
             }
         });
 
         return (List<Integer>) result[0];
     }
-    
-    @WebMethod(operationName = "getLMONames")
-    public List<String> getLMONames()
+
+    @WebMethod(operationName = "getOfficeNames")
+    public List<String> getOfficeNames()
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
@@ -525,13 +525,13 @@ public class Admin extends AbstractWebService {
             @Override
             public void run() {
 
-                result[0] = adminEJB.getLMONames();
+                result[0] = adminEJB.getOfficeNames();
             }
         });
 
         return (List<String>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDistrictNames")
     public List<String> getDistrictNames()
             throws SOLAFault, UnhandledFault {
@@ -549,7 +549,7 @@ public class Admin extends AbstractWebService {
 
         return (List<String>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDistrictCodes")
     public List<Integer> getDistrictCodes()
             throws SOLAFault, UnhandledFault {
@@ -566,5 +566,53 @@ public class Admin extends AbstractWebService {
         });
 
         return (List<Integer>) result[0];
+    }
+
+    @WebMethod(operationName = "getVdcList")
+    public List<VdcTO> getVdcList()
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(adminEJB.getVdcList(), VdcTO.class);
+            }
+        });
+        return (List<VdcTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getVdcByCode")
+    public VdcTO getVdcByCode(@WebParam(name = "id") final String id)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {        
+        final Object[] result = {null};
+        
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {                
+                result[0] = GenericTranslator.toTO(adminEJB.getVdcByCode(
+                        id), VdcTO.class);
+            }
+        });
+
+        return (VdcTO) result[0];
+    }
+    
+    @WebMethod(operationName = "getVdcByName")
+    public VdcTO getVdcByName(@WebParam(name = "name") final String name)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {        
+        final Object[] result = {null};
+        
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {                
+                result[0] = GenericTranslator.toTO(adminEJB.getVdcByName(
+                        name), VdcTO.class);
+            }
+        });
+
+        return (VdcTO) result[0];
     }
 }

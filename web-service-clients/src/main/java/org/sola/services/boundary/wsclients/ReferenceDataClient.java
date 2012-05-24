@@ -54,7 +54,7 @@ import org.sola.webservices.transferobjects.referencedata.SourceTypeTO;
 import org.sola.webservices.transferobjects.referencedata.RrrGroupTypeTO;
 import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
 import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
+
 
 /**
  * Interface for the ReferenceData Service. Implemented by {@linkplain ReferenceDataClientImpl}
@@ -137,11 +137,11 @@ public interface ReferenceDataClient extends AbstractWSClient {
     
     List<TypeActionTO> getTypeActions(String lang) throws WebServiceClientException;
     
-    List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes() 
-            throws WebServiceClientException;
-    
-    List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang) 
-            throws WebServiceClientException;
+//    List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes() 
+//            throws WebServiceClientException;
+//    
+//    List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang) 
+//            throws WebServiceClientException;
     
     List<RegistrationStatusTypeTO> getRegistrationStatusTypes() throws WebServiceClientException;
     

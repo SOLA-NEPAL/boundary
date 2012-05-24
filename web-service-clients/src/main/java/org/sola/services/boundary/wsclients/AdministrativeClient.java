@@ -30,6 +30,7 @@ package org.sola.services.boundary.wsclients;
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
+import org.sola.webservices.transferobjects.administrative.MothTO;
 
 public interface AdministrativeClient extends AbstractWSClient {
     
@@ -48,4 +49,12 @@ public interface AdministrativeClient extends AbstractWSClient {
     BaUnitTO cancelBaUnitTermination(String baUnitId) throws WebServiceClientException;
     
     BaUnitTO terminateBaUnit(String baUnitId, String serviceId) throws WebServiceClientException;
+    
+    MothTO saveMoth(MothTO mothTo);   
+    
+    List<MothTO> getMoths(String vdcCode, String mothLuj);
+    
+    MothTO getMoth(String id);
+    
+    MothTO getMothByVdcCodeMothLujAndMothLujNumber(String vdcCode,String mothLuj,String mothLujNumber);
 }
