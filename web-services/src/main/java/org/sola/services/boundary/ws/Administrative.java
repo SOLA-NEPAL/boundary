@@ -234,7 +234,6 @@ public class Administrative extends AbstractWebService {
 
         return (BaUnitTO) result[0];
     }
-    
     /**
      * save Moth
      */
@@ -250,6 +249,7 @@ public class Administrative extends AbstractWebService {
             public void run() {
                 MothTO mthTo = (MothTO) params[0];
                 if (mthTo != null) {
+                    //Moth mothEntity = partyEJB.getMoths(mthTo.getVdcSid(), mthTo.getMothLuj());
                     Moth mothEntity = administrativeEJB.getMoth(mthTo.getId());
                     mthTo = GenericTranslator.toTO(
                             administrativeEJB.saveMoth(
@@ -275,18 +275,40 @@ public class Administrative extends AbstractWebService {
         return (MothTO) result[0];
     }
     
+   
+    
+    
    @WebMethod(operationName = "getMoths")
-    public List<MothTO> getMoths(@WebParam(name = "vdcSid") final String vdcSid,
+    public List<MothTO> getMoths(@WebParam(name = "vdcCode") String vdcCode,
             @WebParam(name = "mothLuj") String mothLuj) throws SOLAFault, UnhandledFault {
+        final String vdcCodeTmp = vdcCode;
         final String mothLujTmp = mothLuj;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(administrativeEJB.getMoths(vdcSid,mothLujTmp), MothTO.class);
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getMoths(vdcCodeTmp,mothLujTmp), MothTO.class);
             }
         });
         return (List<MothTO>) result[0];
-    }   
+    } 
+    
+   
+    @WebMethod(operationName = "getMothByVdcCodeMothLujAndMothLujNumber")
+    public MothTO getMothByVdcCodeMothLujAndMothLujNumber(@WebParam(name = "vdcCode") String vdcCode,
+            @WebParam(name = "mothLuj") String mothLuj, @WebParam(name = "mothLujNumber") String mothLujNumber) throws SOLAFault, UnhandledFault {
+        final String vdcCodeTmp = vdcCode;
+        final String mothLujTmp = mothLuj;
+        final String mothLujNumberTmp = mothLujNumber;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(administrativeEJB.getMoth(vdcCodeTmp,mothLujTmp,mothLujNumberTmp), MothTO.class);
+            }
+        });
+        return (MothTO) result[0];
+    } 
 }

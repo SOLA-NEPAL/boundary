@@ -36,6 +36,7 @@ import org.sola.webservices.casemanagement.CaseManagement;
 import org.sola.webservices.casemanagement.CasemanagementService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.casemanagement.*;
+
 /**
  * Implementation class for the {@linkplain CaseManagementClient} interface.
  *
@@ -459,6 +460,7 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
             return null;
         }
     }
+<<<<<<< HEAD
 
     @Override
     public SourceTO getSourceById(String sourceId) throws WebServiceClientException {
@@ -496,7 +498,6 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
             return null;
         }
     }
-
     @Override
     public List<ValidationResult> applicationActionTransferBulk(
             List<ActionedApplicationTO> actionedApplications, String userId) 

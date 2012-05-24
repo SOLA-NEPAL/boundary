@@ -42,18 +42,7 @@ import org.sola.webservices.transferobjects.security.UserTO;
  * Interface for the Admin Service. Implemented by {@linkplain AdminClientImpl}
  * and {@linkplain mock.MockAdminClient}
  */
-public interface AdminClient extends AbstractWSClient {
-    
-    List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO);
-    
-    List<NepaliMonthTO> getNepaliMonths(int nepYear); 
-    
-    List<Integer> getNepaliYear();
-    
-    Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
-    
-    String getNepaliDate(Date date)throws WebServiceClientException;
-    
+public interface AdminClient extends AbstractWSClient {    
     boolean checkConnection() throws WebServiceClientException;
 
     UserTO getCurrentUser() throws  WebServiceClientException;
@@ -89,4 +78,29 @@ public interface AdminClient extends AbstractWSClient {
     BrTO getBr(String id) throws WebServiceClientException;
     
     BrTO saveBr(BrTO brTO) throws WebServiceClientException;
+    
+    List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO);
+    
+    List<NepaliMonthTO> getNepaliMonths(int nepYear); 
+    
+    List<Integer> getNepaliYear();
+    
+    List<Integer> getOfficeCode(); 
+     
+    List<String> getOfficeNames();    
+   
+    List<String> getDistrictNames();
+
+    List<Integer> getDistrictCodes();
+    
+    Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
+    
+    String getNepaliDate(Date date)throws WebServiceClientException;
+    
+    List<VdcTO> getVdcList(); 
+    
+    VdcTO getVdcByCode(String id);
+    
+    VdcTO getVdcByName(String name);
+    
 }

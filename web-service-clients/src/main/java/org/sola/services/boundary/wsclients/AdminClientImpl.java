@@ -1,28 +1,30 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO).
- * All rights reserved.
+ * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations
+ * (FAO). All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *    1. Redistributions of source code must retain the above copyright notice,this list
- *       of conditions and the following disclaimer.
- *    2. Redistributions in binary form must reproduce the above copyright notice,this list
- *       of conditions and the following disclaimer in the documentation and/or other
- *       materials provided with the distribution.
- *    3. Neither the name of FAO nor the names of its contributors may be used to endorse or
- *       promote products derived from this software without specific prior written permission.
+ * 1. Redistributions of source code must retain the above copyright notice,this
+ * list of conditions and the following disclaimer. 2. Redistributions in binary
+ * form must reproduce the above copyright notice,this list of conditions and
+ * the following disclaimer in the documentation and/or other materials provided
+ * with the distribution. 3. Neither the name of FAO nor the names of its
+ * contributors may be used to endorse or promote products derived from this
+ * software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
- * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT
- * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT,STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
 package org.sola.services.boundary.wsclients;
@@ -38,14 +40,14 @@ import org.sola.webservices.transferobjects.security.RoleTO;
 import org.sola.webservices.transferobjects.security.UserTO;
 
 /**
- * Implementation class for the {@linkplain AdminClient} interface. 
+ * Implementation class for the {@linkplain AdminClient} interface.
  */
 public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient {
 
     private static final String NAMESPACE_URI = "http://webservices.sola.org/admin";
     private static final String LOCAL_PART = "admin-service";
     private static final String SERVICE_NAME = "Admin.";
-    
+
     public AdminClientImpl(String url) {
         super(url, new QName(NAMESPACE_URI, LOCAL_PART));
     }
@@ -61,8 +63,8 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             boolean result = getPort().checkConnection();
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return false;
+            handleExceptionsMethod(inputService, e);
+            return false;
         }
     }
 
@@ -73,8 +75,8 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             UserTO result = getPort().getCurrentUser();
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -84,10 +86,10 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             List<GroupTO> result = getPort().getGroups();
             return result;
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -96,10 +98,10 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             GroupTO result = getPort().getGroup(groupId);
             return result;
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -109,9 +111,9 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             UserTO result = getPort().getUser(userName);
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -120,10 +122,10 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             UserTO result = getPort().saveUser(userTO);
             return result;
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -132,12 +134,12 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             GroupTO result = getPort().saveGroup(groupTO);
             return result;
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
-    
+
     @Override
     public List<RoleTO> getRoles() throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRoles";
@@ -145,21 +147,21 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             List<RoleTO> result = getPort().getRoles();
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
-    
+
     @Override
     public RoleTO saveRole(RoleTO roleTO) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "SaveRole";
         try {
             RoleTO result = getPort().saveRole(roleTO);
             return result;
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -169,9 +171,9 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             List<GroupSummaryTO> result = getPort().getGroupsSummary();
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -180,9 +182,9 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             return getPort().changePassword(userName, password);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return  false;
-       }
+            handleExceptionsMethod(inputService, e);
+            return false;
+        }
     }
 
     @Override
@@ -192,9 +194,9 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             List<RoleTO> result = getPort().getCurrentUserRoles();
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -203,9 +205,9 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             return getPort().isUserAdmin();
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return false;
-       }
+            handleExceptionsMethod(inputService, e);
+            return false;
+        }
     }
 
     @Override
@@ -219,9 +221,9 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         try {
             return getPort().getLanguages(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
@@ -229,83 +231,157 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         final String inputService = SERVICE_NAME + "getBr";
         try {
             return getPort().getBr(id, lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
     public BrTO getBr(String id) throws WebServiceClientException {
         return getBr(id, getLanguageCode());
     }
-    
+
     @Override
     public BrTO saveBr(BrTO brTO) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "saveBr";
         try {
             return getPort().saveBr(brTO);
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
     public Date getGregorianDate(String nepaliDate) throws WebServiceClientException {
-      final String inputService = SERVICE_NAME + "getGregorianDate";
+        final String inputService = SERVICE_NAME + "getGregorianDate";
         try {
             return XMLDateToDate(getPort().getGregorianDate(nepaliDate));
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
     @Override
     public String getNepaliDate(Date date) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getNepaliDate";
         try {
-            return  getPort().getNepaliDate(DateToXMLDate(date));
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
-    }   
-    
-    
+            return getPort().getNepaliDate(DateToXMLDate(date));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 
     @Override
     public List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO) {
         final String inputService = SERVICE_NAME + "saveNepaliMonth";
         try {
             return getPort().saveNepaliMonth(nepaliMonthsTO);
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       }
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
 
-    
     @Override
     public List<NepaliMonthTO> getNepaliMonths(int nepYear) {
-       final String inputService = SERVICE_NAME + "getNepaliMonths";
+        final String inputService = SERVICE_NAME + "getNepaliMonths";
         try {
             return getPort().getNepaliMonths(nepYear);
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       } 
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
     }
-    
+
     @Override
     public List<Integer> getNepaliYear() {
         final String inputService = SERVICE_NAME + "getNepaliYear";
         try {
             return getPort().getNepaliYear();
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-       } 
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<Integer> getOfficeCode() {
+        final String inputService = SERVICE_NAME + "getLMOCodes";
+        try {
+            return getPort().getOfficeCode();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<String> getOfficeNames() {
+        final String inputService = SERVICE_NAME + "getLMONames";
+        try {
+            return getPort().getOfficeNames();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<String> getDistrictNames() {
+        final String inputService = SERVICE_NAME + "getDistrictNames";
+        try {
+            return getPort().getDistrictNames();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<Integer> getDistrictCodes() {
+        final String inputService = SERVICE_NAME + "getDistrictCodes";
+        try {
+            return getPort().getDistrictCodes();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<VdcTO> getVdcList() {
+        final String inputService = SERVICE_NAME + "getVdcList";
+        try {
+            return getPort().getVdcList();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public VdcTO getVdcByCode(String id) {
+      final String inputService = SERVICE_NAME + "getVdcByCode";
+        try {
+            return getPort().getVdcByCode(id);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }  
+    }
+
+    @Override
+    public VdcTO getVdcByName(String name) {
+       final String inputService = SERVICE_NAME + "getVdcByName";
+        try {
+            return getPort().getVdcByName(name);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        } 
     }
 }

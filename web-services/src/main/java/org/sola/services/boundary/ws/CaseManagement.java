@@ -39,26 +39,19 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.casemanagement.*;
+import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.br.ValidationResult;
-import org.sola.services.common.faults.OptimisticLockingFault;
-import org.sola.services.common.faults.SOLAFault;
-import org.sola.services.common.faults.SOLAValidationFault;
-import org.sola.services.common.faults.UnhandledFault;
+import org.sola.services.common.contracts.GenericTranslator;
+import org.sola.services.common.faults.*;
+import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.address.businesslogic.AddressEJBLocal;
 import org.sola.services.ejb.application.businesslogic.ApplicationEJBLocal;
-import org.sola.services.ejb.application.repository.entities.Application;
-import org.sola.services.common.contracts.GenericTranslator;
-import org.sola.services.common.webservices.AbstractWebService;
-import org.sola.services.ejb.application.repository.entities.Service;
-import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
-import org.sola.services.common.ServiceConstants;
-import org.sola.services.common.faults.SOLAAccessFault;
 import org.sola.services.ejb.application.repository.entities.*;
+import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
 import org.sola.services.ejb.party.repository.entities.Party;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.Source;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
-
 /**
  *
  * @author soladev
@@ -932,4 +925,7 @@ public class CaseManagement extends AbstractWebService {
 
         return (ServiceTO) result[0];
     }
-}
+    }  
+    
+    
+

@@ -213,11 +213,11 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
                 MockTOFactory.createRRRTypes());
     }
 
-    @Override
-    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes() throws WebServiceClientException {
-        return getManager().getResponse(GET_SOURCE_BA_UNIT_RELATION_TYPES, List.class,
-                MockTOFactory.createSourceBaUnitRelationTypes());
-    }
+//    @Override
+//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes() throws WebServiceClientException {
+//        return getManager().getResponse(GET_SOURCE_BA_UNIT_RELATION_TYPES, List.class,
+//                MockTOFactory.createSourceBaUnitRelationTypes());
+//    }
 
     @Override
     public List<RegistrationStatusTypeTO> getRegistrationStatusTypes() throws WebServiceClientException {
@@ -317,10 +317,10 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang) throws WebServiceClientException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    @Override
+//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang) throws WebServiceClientException {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
 
     @Override
     public List<RegistrationStatusTypeTO> getRegistrationStatusTypes(String lang) throws WebServiceClientException {

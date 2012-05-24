@@ -34,7 +34,6 @@ import org.sola.webservices.referencedata.ReferenceData;
 import org.sola.webservices.referencedata.ReferencedataService;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
-
 /**
  * Implementation class for the {@linkplain ReferenceDataClient} interface. 
  * @author amcdowell
@@ -323,23 +322,23 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
     }
 
-    @Override
-    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes()
-            throws WebServiceClientException {
-        return getSourceBaUnitRelationTypes(getLanguageCode());
-    }
-    
-    @Override
-    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getSourceBaUnitRelationTypes";
-        try {
-            return getPort().getSourceBaUnitRelationTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-        }
-    }
+//    @Override
+//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes()
+//            throws WebServiceClientException {
+//        return getSourceBaUnitRelationTypes(getLanguageCode());
+//    }
+//    
+//    @Override
+//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang)
+//            throws WebServiceClientException {
+//        final String inputService = SERVICE_NAME + "getSourceBaUnitRelationTypes";
+//        try {
+//            return getPort().getSourceBaUnitRelationTypes(lang);
+//       } catch (Throwable e) {
+//           handleExceptionsMethod(inputService,e);
+//           return null;
+//        }
+//    }
 
     @Override
     public List<RegistrationStatusTypeTO> getRegistrationStatusTypes()
