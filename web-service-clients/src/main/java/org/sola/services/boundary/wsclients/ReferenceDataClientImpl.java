@@ -535,7 +535,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<VdcTO> getVdcs(String districtCode, String languageCode) {
         final String inputService = SERVICE_NAME + "getVdcs";
         try {
-            return getPort().getVDCs(districtCode, languageCode);
+            return getPort().getVdcs(districtCode, languageCode);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -546,4 +546,84 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<VdcTO> getVdcs(String districtCode) {
         return getVdcs(districtCode, getLanguageCode());
     }
+    
+    
+    @Override
+    public List<Integer> getOfficeCode() {
+        final String inputService = SERVICE_NAME + "getLMOCodes";
+        try {
+            return getPort().getOfficeCode();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<String> getOfficeNames() {
+        final String inputService = SERVICE_NAME + "getLMONames";
+        try {
+            return getPort().getOfficeNames();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<String> getDistrictNames() {
+        final String inputService = SERVICE_NAME + "getDistrictNames";
+        try {
+            return getPort().getDistrictNames();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<Integer> getDistrictCodes() {
+        final String inputService = SERVICE_NAME + "getDistrictCodes";
+        try {
+            return getPort().getDistrictCodes();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<VdcTO> getVdcList() {
+        final String inputService = SERVICE_NAME + "getVdcList";
+        try {
+            return getPort().getVdcList();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public VdcTO getVdcByCode(String id) {
+      final String inputService = SERVICE_NAME + "getVdcByCode";
+        try {
+            return getPort().getVdcByCode(id);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }  
+    }
+
+    @Override
+    public VdcTO getVdcByName(String name) {
+       final String inputService = SERVICE_NAME + "getVdcByName";
+        try {
+            return getPort().getVdcByName(name);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        } 
+    }
+    
+    
 }

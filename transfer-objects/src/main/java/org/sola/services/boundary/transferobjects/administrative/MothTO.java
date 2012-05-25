@@ -5,7 +5,8 @@
 package org.sola.services.boundary.transferobjects.administrative;
 
 
-import org.sola.services.boundary.transferobjects.system.VdcTO;
+
+import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**

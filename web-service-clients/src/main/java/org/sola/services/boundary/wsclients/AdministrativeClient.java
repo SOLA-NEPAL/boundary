@@ -55,15 +55,9 @@ public interface AdministrativeClient extends AbstractWSClient {
 
     MothTO saveMoth(MothTO mothTo);
 
-    List<MothTO> getMoths(String vdcSid, String mothLuj);
-
     MothTO getMoth(String id);
-
-    MothTO saveMoth(MothTO mothTo);
 
     List<MothTO> getMoths(String vdcCode, String mothLuj);
-
-    MothTO getMoth(String id);
 
     MothTO getMothByVdcCodeMothLujAndMothLujNumber(String vdcCode, String mothLuj, String mothLujNumber);
 }

@@ -35,7 +35,6 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.admin.BrTO;
 import org.sola.webservices.admin.LanguageTO;
 import org.sola.webservices.admin.NepaliMonthTO;
-import org.sola.webservices.admin.VdcTO;
 import org.sola.webservices.transferobjects.security.GroupSummaryTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
@@ -190,40 +189,5 @@ public class MockAdminClient extends AbstractMockWSClient implements AdminClient
     @Override
     public List<Integer> getNepaliYear() {
         throw new UnsupportedOperationException("Not supported yet.");
-    }   
-
-    @Override
-    public List<String> getDistrictNames() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<Integer> getDistrictCodes() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<Integer> getOfficeCode() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<String> getOfficeNames() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<VdcTO> getVdcList() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public VdcTO getVdcByCode(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public VdcTO getVdcByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    }     
 }
