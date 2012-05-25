@@ -75,7 +75,8 @@ public interface CadastreClient extends AbstractWSClient {
 
     TransactionCadastreRedefinitionTO getTransactionCadastreRedefinition(String serviceId);
 
-    //Segment list.
+    //  <editor-fold defaultstate="collapsed" desc="By Kabindra">
+    //--------------------------------------------------------------------------
     List<SegmentTO> getSegmentObjects(List<String> Ids);
 
     SegmentTO getSegmentByPoint(double x, double y, int srid);
@@ -83,4 +84,12 @@ public interface CadastreClient extends AbstractWSClient {
     List<ValidationResult> saveSegment(TransactionCadastreChangeTO cadastreChangeTO);
 
     List<SegmentTO> getSegmentsByTransaction(String transactionId);
+    
+    List<CadastreObjectTO> getCadastreObjectByIntersection(String geom,int srid)
+            throws WebServiceClientException;
+    
+    List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom,int srid)
+            throws WebServiceClientException;
+    //--------------------------------------------------------------------------
+    //  </editor-fold>
 }
