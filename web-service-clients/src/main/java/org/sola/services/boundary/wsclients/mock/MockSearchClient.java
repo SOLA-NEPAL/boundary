@@ -151,7 +151,7 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     }
 
     @Override
-    public List<UserSearchResultTO> getActiveUsers() {
+    public List<UserSearchResultTO> getMyOfficeUsers() {
         List<UserSearchResultTO> defaultResponse = new ArrayList<UserSearchResultTO>();
         return getManager().getResponse(GET_ACTIVE_USERS, List.class, defaultResponse);
     }
@@ -190,6 +190,16 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
 
     @Override
     public List<UserSearchResultTO> getMyDepartmentUsers() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<UserSearchResultTO> getUsersWithAssignRightByDepartment(String departmentCode) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<UserSearchResultTO> getUsersWithAssignRightByOffice(String officeCode) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -114,7 +114,7 @@ import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Department;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.District;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Office;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.VDC;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.Vdc;
 
 @WebService(serviceName = "referencedata-service", targetNamespace = ServiceConstants.REF_DATA_WS_NAMESPACE)
 public class ReferenceData extends AbstractWebService {
@@ -852,8 +852,8 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = GenericTranslator.fromTO(refDataTO, BaUnitRelType.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof VdcTO) {
-                    codeEntity = adminEJB.getCodeEntity(VDC.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, VDC.class, codeEntity);
+                    codeEntity = adminEJB.getCodeEntity(Vdc.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, Vdc.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof OfficeTO) {
                     codeEntity = adminEJB.getCodeEntity(Office.class, refDataTO.getCode());
