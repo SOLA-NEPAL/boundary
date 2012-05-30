@@ -158,7 +158,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
            handleExceptionsMethod(inputService,e);
            return null;
         }
-
     }
 
     @Override
@@ -212,7 +211,8 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
        }
     }
     
-    //Segment processing.
+    //<editor-fold defaultstate="collapsed" desc="By Kabindra">
+    //--------------------------------------------------------------------------
     @Override
     public List<SegmentTO> getSegmentObjects(List<String> Ids)
             throws WebServiceClientException {
@@ -257,4 +257,28 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
            return null;
         }
     }
+
+    @Override
+    public List<CadastreObjectTO> getCadastreObjectByIntersection(String geom,int srid) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getCadastreObjectsByIntersection";
+        try {
+            return getPort().getCadastreObjectByIntersection(geom, srid);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom, int srid) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getCadastreObjectsByByteIntersection";
+        try {
+            return getPort().getCadastreObjectByByteIntersection(geom, srid);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+    //--------------------------------------------------------------------------
+    //</editor-fold>
 }

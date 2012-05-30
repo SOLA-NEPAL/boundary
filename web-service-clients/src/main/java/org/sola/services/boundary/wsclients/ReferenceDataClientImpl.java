@@ -34,7 +34,6 @@ import org.sola.webservices.referencedata.ReferenceData;
 import org.sola.webservices.referencedata.ReferencedataService;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
-
 /**
  * Implementation class for the {@linkplain ReferenceDataClient} interface. 
  * @author amcdowell
@@ -518,7 +517,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<VdcTO> getVdcs(String districtCode, String languageCode) {
         final String inputService = SERVICE_NAME + "getVdcs";
         try {
-            return getPort().getVDCs(districtCode, languageCode);
+            return getPort().getVdcs(districtCode, languageCode);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -529,4 +528,39 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<VdcTO> getVdcs(String districtCode) {
         return getVdcs(districtCode, getLanguageCode());
     }
+    
+    @Override
+    public List<VdcTO> getVdcList() {
+        final String inputService = SERVICE_NAME + "getVdcList";
+        try {
+            return getPort().getVdcList();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public VdcTO getVdcByCode(String id) {
+      final String inputService = SERVICE_NAME + "getVdcByCode";
+        try {
+            return getPort().getVdcByCode(id);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }  
+    }
+
+    @Override
+    public VdcTO getVdcByName(String name) {
+       final String inputService = SERVICE_NAME + "getVdcByName";
+        try {
+            return getPort().getVdcByName(name);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        } 
+    }
+    
+    
 }

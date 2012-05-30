@@ -36,6 +36,7 @@ import org.sola.webservices.casemanagement.CaseManagement;
 import org.sola.webservices.casemanagement.CasemanagementService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.casemanagement.*;
+
 /**
  * Implementation class for the {@linkplain CaseManagementClient} interface.
  *
@@ -475,7 +476,7 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
     public List<ValidationResult> applicationActionTransfer(String applicationId, String userId, int rowVersion) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "applicationActionTransfer";
         try {
-            return getPort().applicationActionTransfer(applicationId, userId, 
+            return getPort().applicationActionTransfer(applicationId, userId,
                     this.getLanguageCode(), rowVersion);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
@@ -485,11 +486,11 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
 
     @Override
     public List<ValidationResult> applicationActionAssignBulk(
-            List<ActionedApplicationTO> actionedApplications, String userId) 
+            List<ActionedApplicationTO> actionedApplications, String userId)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "applicationActionAssignBulk";
         try {
-            return getPort().applicationActionAssignBulk(actionedApplications, userId, 
+            return getPort().applicationActionAssignBulk(actionedApplications, userId,
                     this.getLanguageCode());
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
@@ -499,11 +500,11 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
 
     @Override
     public List<ValidationResult> applicationActionTransferBulk(
-            List<ActionedApplicationTO> actionedApplications, String userId) 
+            List<ActionedApplicationTO> actionedApplications, String userId)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "applicationActionTransferBulk";
         try {
-            return getPort().applicationActionTransferBulk(actionedApplications, userId, 
+            return getPort().applicationActionTransferBulk(actionedApplications, userId,
                     this.getLanguageCode());
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);

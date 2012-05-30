@@ -31,30 +31,11 @@
  */
 package org.sola.services.boundary.wsclients.mock;
 
-import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 import org.sola.services.boundary.wsclients.exception.MockResponseException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
-import org.sola.webservices.transferobjects.referencedata.ApplicationActionTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ApplicationStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.BaUnitTypeTO;
-import org.sola.webservices.transferobjects.referencedata.CadastreObjectTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ChangeStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.CommunicationTypeTO;
-import org.sola.webservices.transferobjects.referencedata.GenderTypeTO;
-import org.sola.webservices.transferobjects.referencedata.IdTypeTO;
-import org.sola.webservices.transferobjects.referencedata.MortgageTypeTO;
-import org.sola.webservices.transferobjects.referencedata.PartyRoleTypeTO;
-import org.sola.webservices.transferobjects.referencedata.PartyTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RegistrationStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RequestTypeTO;
-import org.sola.webservices.transferobjects.referencedata.ServiceStatusTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceTypeTO;
-import org.sola.webservices.transferobjects.referencedata.RrrGroupTypeTO;
-import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
-import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
+import org.sola.webservices.transferobjects.referencedata.*;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
 import org.sola.webservices.transferobjects.security.UserTO;

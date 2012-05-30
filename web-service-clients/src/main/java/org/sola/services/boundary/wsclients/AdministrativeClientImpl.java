@@ -144,7 +144,6 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
            return null;
         }
     }
-    
     @Override
     public MothTO saveMoth(MothTO mothTo) {
         final String inputService = SERVICE_NAME + "saveMoth";
@@ -155,6 +154,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
            return null;
        }
     }
+    
     
     @Override
     public MothTO getMoth(String id) throws WebServiceClientException {
@@ -168,15 +168,30 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         }
     }
     
+   
+    
     @Override
-    public List<MothTO> getMoths(String vdcSid, String mothLuj)
+    public List<MothTO> getMoths(String vdcCode, String mothLuj)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getMoths";
         try {
-            return getPort().getMoths(vdcSid, mothLuj);
+            return getPort().getMoths(vdcCode, mothLuj);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
         }
     }
+
+    @Override
+    public MothTO getMothByVdcCodeMothLujAndMothLujNumber(String vdcCode, String mothLuj, String mothLujNumber) {
+        final String inputService = SERVICE_NAME + "getMothByVdcCodeMothLujAndMothLujNumber";
+        try {
+            MothTO result = getPort().getMothByVdcCodeMothLujAndMothLujNumber(vdcCode, mothLuj, mothLujNumber);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
 }

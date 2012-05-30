@@ -4,6 +4,9 @@
  */
 package org.sola.services.boundary.transferobjects.administrative;
 
+
+
+import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
@@ -11,14 +14,14 @@ import org.sola.services.common.contracts.AbstractIdTO;
  * @author KumarKhadka
  */
 public class MothTO extends AbstractIdTO{
-
-    private int mothSid;
+    
     private String mothlujNumber;
-    private int vdcSid;
+    private String vdcCode;
     private int wardNo;
     private String mothLuj;
     private int financialYear;
     private int lmocd;
+    private VdcTO vdc;
 
     public int getFinancialYear() {
         return financialYear;
@@ -42,7 +45,7 @@ public class MothTO extends AbstractIdTO{
 
     public void setMothLuj(String mothLuj) {
         this.mothLuj = mothLuj;
-    }   
+    }
 
     public String getMothlujNumber() {
         return mothlujNumber;
@@ -52,12 +55,20 @@ public class MothTO extends AbstractIdTO{
         this.mothlujNumber = mothlujNumber;
     }
 
-    public int getVdcSid() {
-        return vdcSid;
+    public VdcTO getVdc() {
+        return vdc;
     }
 
-    public void setVdcSid(int vdcSid) {
-        this.vdcSid = vdcSid;
+    public void setVdc(VdcTO vdc) {
+        this.vdc = vdc;
+    }
+
+    public String getVdcCode() {
+        return vdcCode;
+    }
+
+    public void setVdcCode(String vdcCode) {
+        this.vdcCode = vdcCode;
     }
 
     public int getWardNo() {

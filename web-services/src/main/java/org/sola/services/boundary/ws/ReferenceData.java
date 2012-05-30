@@ -33,72 +33,28 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
-import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.common.RolesConstants;
-import org.sola.services.boundary.transferobjects.referencedata.ApplicationActionTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.ApplicationStatusTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.AvailabilityStatusTO;
-import org.sola.services.boundary.transferobjects.referencedata.BaUnitRelTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.BaUnitTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.BrSeverityTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.BrTechnicalTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.BrValidationTargetTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.CadastreObjectTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.ChangeStatusTypeTO;
+import org.sola.services.boundary.transferobjects.referencedata.*;
+import org.sola.services.common.ServiceConstants;
+import org.sola.services.common.contracts.AbstractCodeTO;
+import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.FaultUtility;
 import org.sola.services.common.faults.SOLAFault;
 import org.sola.services.common.faults.UnhandledFault;
-import org.sola.services.ejb.application.businesslogic.ApplicationEJBLocal;
-import org.sola.services.common.contracts.GenericTranslator;
-import org.sola.services.common.webservices.AbstractWebService;
-import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
-import org.sola.services.boundary.transferobjects.referencedata.CommunicationTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.GenderTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.IdTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.MortgageTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.PartyTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.PartyRoleTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.PresentationFormTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.RegistrationStatusTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.RequestCategoryTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.RequestTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.ServiceActionTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.ServiceStatusTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.SourceTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.RrrTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.RrrGroupTypeTO;
-import org.sola.services.boundary.transferobjects.referencedata.TypeActionTO;
-import org.sola.services.boundary.transferobjects.referencedata.DepartmentTO;
-import org.sola.services.boundary.transferobjects.referencedata.DistrictTO;
-import org.sola.services.boundary.transferobjects.referencedata.OfficeTO;
-import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
-import org.sola.services.common.ServiceConstants;
-import org.sola.services.common.contracts.AbstractCodeTO;
 import org.sola.services.common.repository.entities.AbstractCodeEntity;
+import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJBLocal;
-import org.sola.services.ejb.administrative.repository.entities.BaUnitRelType;
-import org.sola.services.ejb.administrative.repository.entities.BaUnitType;
-import org.sola.services.ejb.administrative.repository.entities.MortgageType;
-import org.sola.services.ejb.administrative.repository.entities.RrrGroupType;
-import org.sola.services.ejb.administrative.repository.entities.RrrType;
-import org.sola.services.ejb.application.repository.entities.ApplicationActionType;
-import org.sola.services.ejb.application.repository.entities.ApplicationStatusType;
-import org.sola.services.ejb.application.repository.entities.RequestCategoryType;
-import org.sola.services.ejb.application.repository.entities.RequestType;
-import org.sola.services.ejb.application.repository.entities.TypeAction;
-import org.sola.services.ejb.application.repository.entities.ServiceActionType;
-import org.sola.services.ejb.application.repository.entities.ServiceStatusType;
+import org.sola.services.ejb.administrative.repository.entities.*;
+import org.sola.services.ejb.application.businesslogic.ApplicationEJBLocal;
+import org.sola.services.ejb.application.repository.entities.*;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.cadastre.repository.entities.CadastreObjectType;
-import org.sola.services.ejb.party.repository.entities.CommunicationType;
-import org.sola.services.ejb.party.repository.entities.GenderType;
-import org.sola.services.ejb.party.repository.entities.IdType;
-import org.sola.services.ejb.party.repository.entities.PartyRoleType;
-import org.sola.services.ejb.party.repository.entities.PartyType;
+import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
+import org.sola.services.ejb.party.repository.entities.*;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.AvailabilityStatus;
 import org.sola.services.ejb.source.repository.entities.PresentationFormType;
@@ -134,7 +90,6 @@ public class ReferenceData extends AbstractWebService {
     SystemEJBLocal systemEJB;
     @EJB
     AdminEJBLocal adminEJB;
-    
     @Resource
     private WebServiceContext wsContext;
 
@@ -640,7 +595,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<BaUnitRelTypeTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getOffices")
     public List<OfficeTO> getOffices(@WebParam(name = "languageCode") String languageCode)
             throws SOLAFault, UnhandledFault {
@@ -659,7 +614,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<OfficeTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDistricts")
     public List<DistrictTO> getDistricts(@WebParam(name = "languageCode") String languageCode)
             throws SOLAFault, UnhandledFault {
@@ -678,10 +633,10 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<DistrictTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDepartments")
     public List<DepartmentTO> getDepartments(@WebParam(name = "officeCode") final String officeCode,
-                        @WebParam(name = "languageCode") final String languageCode)
+            @WebParam(name = "languageCode") final String languageCode)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
 
@@ -689,17 +644,16 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(adminEJB.getDepartments
-                        (officeCode, languageCode), DepartmentTO.class);
+                result[0] = GenericTranslator.toTOList(adminEJB.getDepartments(officeCode, languageCode), DepartmentTO.class);
             }
         });
 
         return (List<DepartmentTO>) result[0];
     }
-    
-    @WebMethod(operationName = "getVDCs")
-    public List<VdcTO> getVDCs(@WebParam(name = "districtCode") final String districtCode,
-                        @WebParam(name = "languageCode") final String languageCode)
+
+    @WebMethod(operationName = "getVdcs")
+    public List<VdcTO> getVdcs(@WebParam(name = "districtCode") final String districtCode,
+            @WebParam(name = "languageCode") final String languageCode)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
 
@@ -707,12 +661,58 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(adminEJB.getVdcs
-                        (districtCode, languageCode), VdcTO.class);
+                result[0] = GenericTranslator.toTOList(adminEJB.getVdcs(districtCode, languageCode), VdcTO.class);
             }
         });
 
         return (List<VdcTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getVdcList")
+    public List<VdcTO> getVdcList()
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(adminEJB.getVdcList(), VdcTO.class);
+            }
+        });
+        return (List<VdcTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getVdcByCode")
+    public VdcTO getVdcByCode(@WebParam(name = "id") final String id)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(adminEJB.getVdcByCode(
+                        id), VdcTO.class);
+            }
+        });
+
+        return (VdcTO) result[0];
+    }
+    @WebMethod(operationName = "getVdcByName")
+    public VdcTO getVdcByName(@WebParam(name = "name") final String name)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(adminEJB.getVdcByName(
+                        name), VdcTO.class);
+            }
+        });
+
+        return (VdcTO) result[0];
     }
 
     @RolesAllowed(RolesConstants.ADMIN_MANAGE_REFDATA)

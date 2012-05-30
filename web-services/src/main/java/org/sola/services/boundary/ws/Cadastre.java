@@ -29,7 +29,6 @@
  */
 package org.sola.services.boundary.ws;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -353,6 +352,8 @@ public class Cadastre extends AbstractWebService {
         return (TransactionCadastreRedefinitionTO) result[0];
     }
     
+    // <editor-fold defaultstate="collapsed" desc="By Kabindra">
+    //--------------------------------------------------------------------------
     @WebMethod(operationName = "GetSegmentObjects")
     public List<SegmentTO> GetSegmentObjects(
             @WebParam(name = "ids") List<String> Ids)
@@ -439,4 +440,52 @@ public class Cadastre extends AbstractWebService {
 
         return (List<SegmentTO>) result[0];
     }
+    
+    @WebMethod(operationName = "GetCadastreObjectByIntersection")
+    public List<CadastreObjectTO> GetCadastreObjectByIntersection(
+            @WebParam(name = "geom") String geom,
+            @WebParam(name = "srid") int srid)
+            throws SOLAFault, UnhandledFault {
+
+        final String geomTmp = geom;
+        final int sridTmp = srid;
+        final Object[] result={null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getCadastreObjectBy_Intersection(geomTmp,sridTmp),
+                        CadastreObjectTO.class);
+            }
+        });
+
+        return (List<CadastreObjectTO>)result[0];
+    }
+    
+    @WebMethod(operationName = "GetCadastreObjectByByteIntersection")
+    public List<CadastreObjectTO> GetCadastreObjectByByteIntersection(
+            @WebParam(name = "geom") String geom,
+            @WebParam(name = "srid") int srid)
+            throws SOLAFault, UnhandledFault {
+
+        final String geomTmp = geom;
+        final int sridTmp = srid;
+        final Object[] result={null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getCadastreObjectBy_ByteIntersection(geomTmp,sridTmp),
+                        CadastreObjectTO.class);
+            }
+        });
+
+        return (List<CadastreObjectTO>)result[0];
+    }
+    //--------------------------------------------------------------------------
+    // </editor-fold>
 }

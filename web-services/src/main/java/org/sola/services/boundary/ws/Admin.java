@@ -53,7 +53,10 @@ import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
 import org.sola.services.ejb.system.repository.entities.Br;
 import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.*;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.Group;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.NepaliMonth;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.Role;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.User;
 
 /**
  * Provides methods for administrators to manage users, reference data and
@@ -442,7 +445,7 @@ public class Admin extends AbstractWebService {
 
             @Override
             public void run() {
-                for(NepaliMonthTO nepMonthTO : nepaliMonthsTO) {
+                for (NepaliMonthTO nepMonthTO : nepaliMonthsTO) {
                     NepaliMonth nepMonthEntity = adminEJB.getNepaliMonth(nepMonthTO.getNepYear(), nepMonthTO.getNepMonth());
                     nepMonthTO = GenericTranslator.toTO(
                             adminEJB.saveNepaliMonth(
@@ -473,7 +476,7 @@ public class Admin extends AbstractWebService {
 
         return (List<NepaliMonthTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getNepaliYear")
     public List<Integer> getNepaliYear()
             throws SOLAFault, UnhandledFault {
@@ -490,5 +493,6 @@ public class Admin extends AbstractWebService {
         });
 
         return (List<Integer>) result[0];
-    }
+    } 
+
 }
