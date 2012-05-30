@@ -85,7 +85,6 @@ import org.sola.services.ejb.administrative.repository.entities.BaUnitType;
 import org.sola.services.ejb.administrative.repository.entities.MortgageType;
 import org.sola.services.ejb.administrative.repository.entities.RrrGroupType;
 import org.sola.services.ejb.administrative.repository.entities.RrrType;
-import org.sola.services.ejb.administrative.repository.entities.SourceBaUnitRelationType;
 import org.sola.services.ejb.application.repository.entities.ApplicationActionType;
 import org.sola.services.ejb.application.repository.entities.ApplicationStatusType;
 import org.sola.services.ejb.application.repository.entities.RequestCategoryType;
@@ -506,26 +505,6 @@ public class ReferenceData extends AbstractWebService {
         return (List<RrrTypeTO>) result[0];
     }
 
-    @WebMethod(operationName = "GetSourceBaUnitRelationTypes")
-    public List<SourceBaUnitRelationTypeTO> GetSourceBaUnitRelationTypes(String languageCode)
-            throws SOLAFault, UnhandledFault {
-
-        final String languageCodeTmp = languageCode;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        administrativeEJB.getSourceBaUnitRelationTypes(languageCodeTmp),
-                        SourceBaUnitRelationTypeTO.class);
-            }
-        });
-
-        return (List<SourceBaUnitRelationTypeTO>) result[0];
-    }
-
     @WebMethod(operationName = "GetRegistrationStatusTypes")
     public List<RegistrationStatusTypeTO> GetRegistrationStatusTypes(String languageCode)
             throws SOLAFault, UnhandledFault {
@@ -728,7 +707,7 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(adminEJB.getVDCs
+                result[0] = GenericTranslator.toTOList(adminEJB.getVdcs
                         (districtCode, languageCode), VdcTO.class);
             }
         });
@@ -782,10 +761,6 @@ public class ReferenceData extends AbstractWebService {
                 } else if (refDataTO instanceof RrrTypeTO) {
                     codeEntity = administrativeEJB.getCodeEntity(RrrType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, RrrType.class, codeEntity);
-                    administrativeEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof SourceBaUnitRelationTypeTO) {
-                    codeEntity = administrativeEJB.getCodeEntity(SourceBaUnitRelationType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, SourceBaUnitRelationType.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof ApplicationActionTypeTO) {
                     codeEntity = applicationEJB.getCodeEntity(ApplicationActionType.class, refDataTO.getCode());

@@ -55,7 +55,6 @@ import org.sola.webservices.transferobjects.referencedata.SourceTypeTO;
 import org.sola.webservices.transferobjects.referencedata.RrrGroupTypeTO;
 import org.sola.webservices.transferobjects.referencedata.TypeActionTO;
 import org.sola.webservices.transferobjects.referencedata.RrrTypeTO;
-import org.sola.webservices.transferobjects.referencedata.SourceBaUnitRelationTypeTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
 import org.sola.webservices.transferobjects.security.UserTO;
@@ -265,17 +264,6 @@ public class MockTOFactory {
         r.setStatus("c");
         
         result.add(r);
-        return result;
-    }
-    
-    /** Creates a default RRR types */
-    public static List<SourceBaUnitRelationTypeTO> createSourceBaUnitRelationTypes(){
-        List<SourceBaUnitRelationTypeTO> result = new ArrayList<SourceBaUnitRelationTypeTO>();
-        result.add(createCode(SourceBaUnitRelationTypeTO.class, "sourceBaUnitRelationType1", 
-                "SourceBaUnitRelationType1"));
-        result.add(createCode(SourceBaUnitRelationTypeTO.class, "sourceBaUnitRelationType2" , 
-                "SourceBaUnitRelationType2"));
-        
         return result;
     }
     
