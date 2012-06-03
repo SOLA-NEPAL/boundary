@@ -37,7 +37,6 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
-import org.sola.webservices.transferobjects.cadastre.SegmentTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -77,19 +76,13 @@ public interface CadastreClient extends AbstractWSClient {
 
     //  <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
-    List<SegmentTO> getSegmentObjects(List<String> Ids);
-
-    SegmentTO getSegmentByPoint(double x, double y, int srid);
-
-    List<ValidationResult> saveSegment(TransactionCadastreChangeTO cadastreChangeTO);
-
-    List<SegmentTO> getSegmentsByTransaction(String transactionId);
-    
     List<CadastreObjectTO> getCadastreObjectByIntersection(String geom,int srid)
             throws WebServiceClientException;
     
     List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom,int srid)
             throws WebServiceClientException;
+    
+    void executeQuery(String cmd);
     //--------------------------------------------------------------------------
     //  </editor-fold>
 }

@@ -39,7 +39,6 @@ import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.services.boundary.transferobjects.cadastre.PropertySummaryTO;
-import org.sola.services.boundary.transferobjects.cadastre.SegmentTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -354,93 +353,6 @@ public class Cadastre extends AbstractWebService {
     
     // <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
-    @WebMethod(operationName = "GetSegmentObjects")
-    public List<SegmentTO> GetSegmentObjects(
-            @WebParam(name = "ids") List<String> Ids)
-            throws SOLAFault, UnhandledFault {
-
-        final List<String> IdsTmp = Ids;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getSegmentObjects(IdsTmp), SegmentTO.class);
-            }
-        });
-
-        return (List<SegmentTO>) result[0];
-    }
-    
-    @WebMethod(operationName = "SaveSegment")
-    public List<ValidationResult> SaveSegment(
-            @WebParam(name = "transactionCadastreChangeTO") TransactionCadastreChangeTO transactionCadastreChangeTO,
-            @WebParam(name = "languageCode") String languageCode)
-            throws SOLAValidationFault, OptimisticLockingFault,
-            SOLAFault, UnhandledFault, SOLAAccessFault {
-
-        final TransactionCadastreChangeTO transactionTO = transactionCadastreChangeTO;
-        final String languageCodeTmp = languageCode;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                TransactionCadastreChange transactionCadastreChange = GenericTranslator.fromTO(
-                        transactionTO, TransactionCadastreChange.class, null);
-                result[0] = transactionEJB.saveTransaction(
-                        transactionCadastreChange, TransactionType.CADASTRE_CHANGE, languageCodeTmp);
-            }
-        });
-
-        return (List<ValidationResult>) result[0];
-    }
-    
-    @WebMethod(operationName = "GetSegmentByPoint")
-    public SegmentTO GetSegmentByPoint(
-            @WebParam(name = "x") double x,
-            @WebParam(name = "y") double y,
-            @WebParam(name = "srid") int srid)
-            throws SOLAFault, UnhandledFault {
-
-        final double xTmp = x;
-        final double yTmp = y;
-        final int sridTmp = srid;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTO(
-                        cadastreEJB.getSegmentByPoint(xTmp, yTmp, sridTmp),
-                        SegmentTO.class);
-            }
-        });
-
-        return (SegmentTO) result[0];
-    }
-    
-    @WebMethod(operationName = "getSegmentsByTransaction")
-    public List<SegmentTO> getSegmentsByTransaction(String transactionId)
-            throws UnhandledFault, SOLAFault{
-        final String transID = transactionId;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTO(cadastreEJB.getSegmentsByTransaction(transID), SegmentTO.class);
-            }
-        });
-
-        return (List<SegmentTO>) result[0];
-    }
-    
     @WebMethod(operationName = "GetCadastreObjectByIntersection")
     public List<CadastreObjectTO> GetCadastreObjectByIntersection(
             @WebParam(name = "geom") String geom,
@@ -485,6 +397,22 @@ public class Cadastre extends AbstractWebService {
         });
 
         return (List<CadastreObjectTO>)result[0];
+    }
+    
+    @WebMethod(operationName = "executeQuery")
+    public void executeQuery(
+            @WebParam(name = "cmd") String cmd)
+            throws SOLAFault, UnhandledFault {
+
+        final String tmp_cmd = cmd;
+
+        runGeneralMethod(wsContext, new Runnable() {
+            
+            @Override
+            public void run() {
+                cadastreEJB.executeQuery(tmp_cmd);
+            }
+        });
     }
     //--------------------------------------------------------------------------
     // </editor-fold>
