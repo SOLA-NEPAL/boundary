@@ -35,6 +35,7 @@ import org.sola.services.common.contracts.AbstractIdTO;
 public class CadastreObjectTO extends AbstractIdTO {
 
     private String typeCode;
+    private String mapSheetCode;
     private Date approvalDatetime;
     private Date historicDatetime;
     private String sourceReference;
@@ -44,7 +45,23 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String transactionId;
     private byte[] geomPolygon;
     private List<SpatialValueAreaTO> spatialValueAreaList = new ArrayList<SpatialValueAreaTO>();
-    
+    private MapSheetTO mapSheet;
+
+    public MapSheetTO getMapSheet() {
+        return mapSheet;
+    }
+
+    public void setMapSheet(MapSheetTO mapSheet) {
+        this.mapSheet = mapSheet;
+    }
+
+    public String getMapSheetCode() {
+        return mapSheetCode;
+    }
+
+    public void setMapSheetCode(String mapSheetCode) {
+        this.mapSheetCode = mapSheetCode;
+    }    
             
     public CadastreObjectTO() {
         super();
