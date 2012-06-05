@@ -35,6 +35,7 @@ import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.cadastre.Cadastre;
 import org.sola.webservices.cadastre.CadastreService;
+import org.sola.webservices.cadastre.HashMap;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
@@ -235,12 +236,13 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
     
     @Override
-    public void executeQuery(String cmd) {
+    public List<HashMap> executeQuery(String cmd) {
         final String inputService = SERVICE_NAME + "execute user query";
         try {
-            getPort().executeQuery(cmd);
+            return getPort().executeQuery(cmd);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
+           return null;
         }
     }
     //--------------------------------------------------------------------------
