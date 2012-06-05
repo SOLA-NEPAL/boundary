@@ -322,24 +322,6 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
     }
 
-//    @Override
-//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes()
-//            throws WebServiceClientException {
-//        return getSourceBaUnitRelationTypes(getLanguageCode());
-//    }
-//    
-//    @Override
-//    public List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang)
-//            throws WebServiceClientException {
-//        final String inputService = SERVICE_NAME + "getSourceBaUnitRelationTypes";
-//        try {
-//            return getPort().getSourceBaUnitRelationTypes(lang);
-//       } catch (Throwable e) {
-//           handleExceptionsMethod(inputService,e);
-//           return null;
-//        }
-//    }
-
     @Override
     public List<RegistrationStatusTypeTO> getRegistrationStatusTypes()
             throws WebServiceClientException {
@@ -547,51 +529,6 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         return getVdcs(districtCode, getLanguageCode());
     }
     
-    
-    @Override
-    public List<Integer> getOfficeCode() {
-        final String inputService = SERVICE_NAME + "getLMOCodes";
-        try {
-            return getPort().getOfficeCode();
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<String> getOfficeNames() {
-        final String inputService = SERVICE_NAME + "getLMONames";
-        try {
-            return getPort().getOfficeNames();
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<String> getDistrictNames() {
-        final String inputService = SERVICE_NAME + "getDistrictNames";
-        try {
-            return getPort().getDistrictNames();
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<Integer> getDistrictCodes() {
-        final String inputService = SERVICE_NAME + "getDistrictCodes";
-        try {
-            return getPort().getDistrictCodes();
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
     @Override
     public List<VdcTO> getVdcList() {
         final String inputService = SERVICE_NAME + "getVdcList";

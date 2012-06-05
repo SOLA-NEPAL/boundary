@@ -38,7 +38,6 @@ import org.sola.webservices.cadastre.CadastreService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
-import org.sola.webservices.transferobjects.cadastre.SegmentTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -158,7 +157,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
            handleExceptionsMethod(inputService,e);
            return null;
         }
-
     }
 
     @Override
@@ -212,35 +210,13 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
        }
     }
     
-    //Segment processing.
+    //<editor-fold defaultstate="collapsed" desc="By Kabindra">
+    //--------------------------------------------------------------------------
     @Override
-    public List<SegmentTO> getSegmentObjects(List<String> Ids)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getSegmentObjects";
+    public List<CadastreObjectTO> getCadastreObjectByIntersection(String geom,int srid) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getCadastreObjectsByIntersection";
         try {
-            return getPort().getSegmentObjects(Ids);
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-        }
-    }
-
-    @Override
-    public SegmentTO getSegmentByPoint(double x, double y, int srid) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "GetCadastreObjectByPoint";
-        try {
-            return getPort().getSegmentByPoint(x, y, srid);
-         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-        }
-    }
-
-    @Override
-    public List<ValidationResult>  saveSegment(TransactionCadastreChangeTO cadastreChangeTO) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "saveSegment";
-        try {
-            return getPort().saveSegment(cadastreChangeTO, this.getLanguageCode());
+            return getPort().getCadastreObjectByIntersection(geom, srid);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;
@@ -248,13 +224,25 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
 
     @Override
-    public List<SegmentTO> getSegmentsByTransaction(String transactionId) {
-        final String inputService = SERVICE_NAME + "getSegmentsByTransaction";
+    public List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom, int srid) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getCadastreObjectsByByteIntersection";
         try {
-            return getPort().getSegmentsByTransaction(transactionId);
-         } catch (Throwable e) {
+            return getPort().getCadastreObjectByByteIntersection(geom, srid);
+        } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;
         }
     }
+    
+    @Override
+    public void executeQuery(String cmd) {
+        final String inputService = SERVICE_NAME + "execute user query";
+        try {
+            getPort().executeQuery(cmd);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+        }
+    }
+    //--------------------------------------------------------------------------
+    //</editor-fold>
 }

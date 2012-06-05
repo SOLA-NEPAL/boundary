@@ -30,14 +30,11 @@ package org.sola.services.boundary.wsclients;
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.search.ResultForSelectionInfo;
-import org.sola.webservices.search.SOLAFault;
 import org.sola.webservices.search.Search;
 import org.sola.webservices.search.SearchService;
-import org.sola.webservices.search.UnhandledFault;
 import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
 import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
 import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
@@ -181,10 +178,10 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
     }
 
     @Override
-    public List<UserSearchResultTO> getActiveUsers() throws WebServiceClientException {
+    public List<UserSearchResultTO> getMyOfficeUsers() throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getActiveUsers";
         try {
-            List<UserSearchResultTO> result = getPort().getActiveUsers();
+            List<UserSearchResultTO> result = getPort().getMyOfficeUsers();
             return result;
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
@@ -267,6 +264,28 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         final String inputService = SERVICE_NAME + "getMyDepartmentUsers";
         try {
             return getPort().getMyDepartmentUsers();
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+
+    @Override
+    public List<UserSearchResultTO> getUsersWithAssignRightByDepartment(String departmentCode) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getUsersWithAssignRightByDepartment";
+        try {
+            return getPort().getUsersWithAssignRightByDepartment(departmentCode);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+
+    @Override
+    public List<UserSearchResultTO> getUsersWithAssignRightByOffice(String officeCode) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getUsersWithAssignRightByOffice";
+        try {
+            return getPort().getUsersWithAssignRightByOffice(officeCode);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;

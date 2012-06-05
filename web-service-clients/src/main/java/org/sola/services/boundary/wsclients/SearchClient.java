@@ -77,7 +77,7 @@ public interface SearchClient extends AbstractWSClient {
 
     List<SourceSearchResultTO> searchSources(SourceSearchParamsTO searchParams) throws WebServiceClientException;
 
-    List<UserSearchResultTO> getActiveUsers() throws WebServiceClientException;
+    List<UserSearchResultTO> getMyOfficeUsers() throws WebServiceClientException;
 
     List<UserSearchAdvancedResultTO> searchUsers(UserSearchParamsTO searchParams) throws WebServiceClientException;
 
@@ -92,5 +92,9 @@ public interface SearchClient extends AbstractWSClient {
     
     GenericResult test() throws WebServiceClientException;
     
-    List<UserSearchResultTO> getMyDepartmentUsers();
+    List<UserSearchResultTO> getMyDepartmentUsers() throws WebServiceClientException;
+    
+    List<UserSearchResultTO> getUsersWithAssignRightByDepartment(String departmentCode) throws WebServiceClientException;
+    
+    List<UserSearchResultTO> getUsersWithAssignRightByOffice(String officeCode) throws WebServiceClientException;
 }

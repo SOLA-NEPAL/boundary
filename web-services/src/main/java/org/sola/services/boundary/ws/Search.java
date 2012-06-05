@@ -215,8 +215,9 @@ public class Search extends AbstractWebService {
         return (List<SourceSearchResultTO>) result[0];
     }
 
-    @WebMethod(operationName = "GetActiveUsers")
-    public List<UserSearchResultTO> getActiveUsers() throws SOLAFault, UnhandledFault {
+    @WebMethod(operationName = "getMyOfficeUsers")
+    public List<UserSearchResultTO> getMyOfficeUsers()
+            throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
 
@@ -224,15 +225,51 @@ public class Search extends AbstractWebService {
 
             @Override
             public void run() {
-                List<UserSearchResult> activeUsers = searchEJB.getActiveUsers();
-                result[0] = GenericTranslator.toTOList(activeUsers, UserSearchResultTO.class);
-
+                String officeCode = adminEJB.getCurrentUser().getDepartment().getOfficeCode();
+                List<UserSearchResult> users = searchEJB.getUsersByOffice(officeCode);
+                result[0] = GenericTranslator.toTOList(users, UserSearchResultTO.class);
             }
         });
 
         return (List<UserSearchResultTO>) result[0];
     }
 
+    @WebMethod(operationName = "getUsersWithAssignRightByOffice")
+    public List<UserSearchResultTO> getUsersWithAssignRightByOffice(@WebParam(name="officeCode") final String officeCode)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                List<UserSearchResult> users = searchEJB.getUsersWithAssignRightByOffice(officeCode);
+                result[0] = GenericTranslator.toTOList(users, UserSearchResultTO.class);
+            }
+        });
+
+        return (List<UserSearchResultTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getUsersWithAssignRightByDepartment")
+    public List<UserSearchResultTO> getUsersWithAssignRightByDepartment(@WebParam(name="departmentCode") final String departmentCode)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                List<UserSearchResult> users = searchEJB.getUsersWithAssignRightByDepartment(departmentCode);
+                result[0] = GenericTranslator.toTOList(users, UserSearchResultTO.class);
+            }
+        });
+
+        return (List<UserSearchResultTO>) result[0];
+    }
+    
     @WebMethod(operationName = "getMyDepartmentUsers")
     public List<UserSearchResultTO> getMyDepartmentUsers() throws SOLAFault, UnhandledFault {
 

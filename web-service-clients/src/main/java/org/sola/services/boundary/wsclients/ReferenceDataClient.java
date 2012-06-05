@@ -29,12 +29,6 @@
  */
 package org.sola.services.boundary.wsclients;
 
-/**
- * Interface for the ReferenceData Service. Implemented by {@linkplain ReferenceDataClientImpl}
- * and {@linkplain mock.MockReferenceDataClient}
- *
- * @author amcdowell
- */
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
@@ -116,11 +110,6 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<TypeActionTO> getTypeActions(String lang) throws WebServiceClientException;
 
-//    List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes() 
-//            throws WebServiceClientException;
-//    
-//    List<SourceBaUnitRelationTypeTO> getSourceBaUnitRelationTypes(String lang) 
-//            throws WebServiceClientException;
     List<RegistrationStatusTypeTO> getRegistrationStatusTypes() throws WebServiceClientException;
 
     List<RegistrationStatusTypeTO> getRegistrationStatusTypes(String lang) throws WebServiceClientException;
@@ -162,14 +151,6 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<VdcTO> getVdcs(String districtCode, String languageCode);
 
     List<VdcTO> getVdcs(String districtCode);
-
-    List<Integer> getOfficeCode();
-
-    List<String> getOfficeNames();
-
-    List<String> getDistrictNames();
-
-    List<Integer> getDistrictCodes();
 
     List<VdcTO> getVdcList();
 

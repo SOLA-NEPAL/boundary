@@ -248,17 +248,6 @@ public class MockTOFactory {
         return result;
     }
     
-//    /** Creates a default RRR types */
-//    public static List<SourceBaUnitRelationTypeTO> createSourceBaUnitRelationTypes(){
-//        List<SourceBaUnitRelationTypeTO> result = new ArrayList<SourceBaUnitRelationTypeTO>();
-//        result.add(createCode(SourceBaUnitRelationTypeTO.class, "sourceBaUnitRelationType1", 
-//                "SourceBaUnitRelationType1"));
-//        result.add(createCode(SourceBaUnitRelationTypeTO.class, "sourceBaUnitRelationType2" , 
-//                "SourceBaUnitRelationType2"));
-//        
-//        return result;
-//    }
-    
     /** Creates a default registration status types */
     public static List<RegistrationStatusTypeTO> createRegistrationStatusTypes(){
         List<RegistrationStatusTypeTO> result = new ArrayList<RegistrationStatusTypeTO>();
