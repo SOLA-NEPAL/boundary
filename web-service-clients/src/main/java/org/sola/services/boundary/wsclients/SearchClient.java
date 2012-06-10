@@ -96,5 +96,5 @@ public interface SearchClient extends AbstractWSClient {
     
     List<UserSearchResultTO> getUsersWithAssignRightByDepartment(String departmentCode) throws WebServiceClientException;
     
-    List<UserSearchResultTO> getUsersWithAssignRightByOffice(String officeCode) throws WebServiceClientException;
+    List<UserSearchResultTO> getUsersWithAssignRightByOffice() throws WebServiceClientException;
 }

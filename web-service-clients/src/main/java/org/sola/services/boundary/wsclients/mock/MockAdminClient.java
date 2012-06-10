@@ -35,6 +35,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.admin.BrTO;
 import org.sola.webservices.admin.LanguageTO;
 import org.sola.webservices.admin.NepaliMonthTO;
+import org.sola.webservices.transferobjects.referencedata.OfficeTO;
 import org.sola.webservices.transferobjects.security.GroupSummaryTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
@@ -189,5 +190,10 @@ public class MockAdminClient extends AbstractMockWSClient implements AdminClient
     @Override
     public List<Integer> getNepaliYear() {
         throw new UnsupportedOperationException("Not supported yet.");
-    }     
+    }
+
+    @Override
+    public OfficeTO getCurrentOffice() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

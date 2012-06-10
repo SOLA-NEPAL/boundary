@@ -31,10 +31,11 @@ import org.sola.services.common.contracts.AbstractTO;
 
 public class UserSearchParamsTO extends AbstractTO {
 
-    private String groupId;
+    private String departmentCode;
     private String userName;
     private String firstName;
     private String lastName;
+    private String locale;
     
     public UserSearchParamsTO(){
         super();
@@ -48,12 +49,12 @@ public class UserSearchParamsTO extends AbstractTO {
         this.firstName = firstName;
     }
 
-    public String getGroupId() {
-        return groupId;
+    public String getDepartmentCode() {
+        return departmentCode;
     }
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
+    public void setDepartmentCode(String departmentCode) {
+        this.departmentCode = departmentCode;
     }
 
     public String getLastName() {
@@ -70,5 +71,13 @@ public class UserSearchParamsTO extends AbstractTO {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 }

@@ -39,6 +39,7 @@ import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.common.SOLAException;
 import org.sola.common.messaging.ServiceMessage;
+import org.sola.services.boundary.transferobjects.referencedata.OfficeTO;
 import org.sola.services.boundary.transferobjects.security.GroupSummaryTO;
 import org.sola.services.boundary.transferobjects.security.GroupTO;
 import org.sola.services.boundary.transferobjects.security.RoleTO;
@@ -495,4 +496,16 @@ public class Admin extends AbstractWebService {
         return (List<Integer>) result[0];
     } 
 
+    @WebMethod(operationName="getCurrentOffice")
+    public OfficeTO getCurrentOffice() throws SOLAFault, UnhandledFault{
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(adminEJB.getCurrentOffice(), OfficeTO.class);
+            }
+        });
+        return (OfficeTO) result[0];
+    }
 }

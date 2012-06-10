@@ -35,6 +35,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.admin.BrTO;
 import org.sola.webservices.admin.LanguageTO;
 import org.sola.webservices.admin.NepaliMonthTO;
+import org.sola.webservices.transferobjects.referencedata.OfficeTO;
 import org.sola.webservices.transferobjects.security.GroupSummaryTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
@@ -91,4 +92,6 @@ public interface AdminClient extends AbstractWSClient {
     Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
 
     String getNepaliDate(Date date) throws WebServiceClientException;
+    
+    OfficeTO getCurrentOffice() throws WebServiceClientException;
 }

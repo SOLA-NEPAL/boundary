@@ -34,6 +34,7 @@ import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.admin.*;
+import org.sola.webservices.transferobjects.referencedata.OfficeTO;
 import org.sola.webservices.transferobjects.security.GroupSummaryTO;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
@@ -306,5 +307,16 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             handleExceptionsMethod(inputService, e);
             return null;
         }
-    }    
+    }
+
+    @Override
+    public OfficeTO getCurrentOffice() throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getCurrentOffice";
+        try {
+            return getPort().getCurrentOffice();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

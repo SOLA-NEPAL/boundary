@@ -235,7 +235,7 @@ public class Search extends AbstractWebService {
     }
 
     @WebMethod(operationName = "getUsersWithAssignRightByOffice")
-    public List<UserSearchResultTO> getUsersWithAssignRightByOffice(@WebParam(name="officeCode") final String officeCode)
+    public List<UserSearchResultTO> getUsersWithAssignRightByOffice()
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
@@ -244,7 +244,8 @@ public class Search extends AbstractWebService {
 
             @Override
             public void run() {
-                List<UserSearchResult> users = searchEJB.getUsersWithAssignRightByOffice(officeCode);
+                List<UserSearchResult> users = searchEJB.getUsersWithAssignRightByOffice(
+                        adminEJB.getCurrentOffice().getCode());
                 result[0] = GenericTranslator.toTOList(users, UserSearchResultTO.class);
             }
         });

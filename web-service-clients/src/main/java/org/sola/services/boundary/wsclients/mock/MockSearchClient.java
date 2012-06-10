@@ -199,7 +199,7 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     }
 
     @Override
-    public List<UserSearchResultTO> getUsersWithAssignRightByOffice(String officeCode) throws WebServiceClientException {
+    public List<UserSearchResultTO> getUsersWithAssignRightByOffice() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
