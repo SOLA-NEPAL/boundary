@@ -35,7 +35,8 @@ import org.sola.services.common.contracts.AbstractIdTO;
 
 public class BaUnitTO extends AbstractIdTO {
     
-    private String typeCode;
+    private String typeCode;     
+    private String locId;
     private String name;
     private String nameFirstpart;
     private String nameLastpart;
@@ -176,6 +177,14 @@ public class BaUnitTO extends AbstractIdTO {
 
     public void setPendingActionCode(String pendingActionCode) {
         this.pendingActionCode = pendingActionCode;
+    }
+
+    public String getLocId() {
+        return locId;
+    }
+
+    public void setLocId(String locId) {
+        this.locId = locId;
     }
     
 }
