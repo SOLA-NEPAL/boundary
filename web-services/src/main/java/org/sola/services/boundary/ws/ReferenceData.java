@@ -614,6 +614,24 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<OfficeTO>) result[0];
     }
+    
+    @WebMethod(operationName = "getOfficesByDistrict")
+    public List<OfficeTO> getOfficesByDistrict(
+            @WebParam(name = "districtCode") final String districtCode,
+            @WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(adminEJB.getOfficesByDistrict(districtCode, languageCode), OfficeTO.class);
+            }
+        });
+
+        return (List<OfficeTO>) result[0];
+    }
 
     @WebMethod(operationName = "getDistricts")
     public List<DistrictTO> getDistricts(@WebParam(name = "languageCode") String languageCode)

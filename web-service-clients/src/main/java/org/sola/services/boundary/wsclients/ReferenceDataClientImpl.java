@@ -480,6 +480,23 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<OfficeTO> getOffices() {
         return getOffices(getLanguageCode());
     }
+    
+    @Override
+    public List<OfficeTO> getOfficesByDistrict(String districtCode, String languageCode) {
+        final String inputService = SERVICE_NAME + "getDepartments";
+        try {
+            return getPort().getOfficesByDistrict(districtCode, languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<OfficeTO> getOfficesByDistrict(String districtCode) {
+        return getOfficesByDistrict(districtCode, getLanguageCode());
+    }
+    
 
     @Override
     public List<DistrictTO> getDistricts(String languageCode) {
@@ -561,6 +578,4 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         } 
     }
-    
-    
 }

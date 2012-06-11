@@ -29,6 +29,7 @@
  */
 package org.sola.services.boundary.ws;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -400,19 +401,22 @@ public class Cadastre extends AbstractWebService {
     }
     
     @WebMethod(operationName = "executeQuery")
-    public void executeQuery(
+    public List<HashMap> executeQuery(
             @WebParam(name = "cmd") String cmd)
             throws SOLAFault, UnhandledFault {
 
         final String tmp_cmd = cmd;
-
+        final Object[] result={null};
+        
         runGeneralMethod(wsContext, new Runnable() {
             
             @Override
             public void run() {
-                cadastreEJB.executeQuery(tmp_cmd);
+                result[0] = cadastreEJB.executeQuery(tmp_cmd);
             }
         });
+        
+        return (List<HashMap>)result[0];
     }
     //--------------------------------------------------------------------------
     // </editor-fold>

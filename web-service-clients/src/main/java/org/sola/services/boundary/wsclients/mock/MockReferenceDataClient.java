@@ -49,7 +49,7 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     private static final String SERVICE_NAME = "ReferenceData.";
     public static final String CHECK_CONNECTION = SERVICE_NAME + "checkConnection";
     public static final String GET_COMMUNICATION_TYPES = SERVICE_NAME + "getCommunicationTypes";
-   public static final String GET_GENDER_TYPES = SERVICE_NAME + "getGenderTypes";
+    public static final String GET_GENDER_TYPES = SERVICE_NAME + "getGenderTypes";
     public static final String GET_REQUEST_TYPES = SERVICE_NAME + "getRequestTypes";
     public static final String GET_SOURCE_TYPES = SERVICE_NAME + "getSourceTypes";
     public static final String GET_APPLICATION_STATUS_TYPES = SERVICE_NAME 
@@ -423,6 +423,16 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
 
     @Override
     public VdcTO getVdcByName(String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<OfficeTO> getOfficesByDistrict(String districtCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<OfficeTO> getOfficesByDistrict(String districtCode, String languageCode) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
