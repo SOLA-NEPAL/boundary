@@ -282,10 +282,10 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
     }
 
     @Override
-    public List<UserSearchResultTO> getUsersWithAssignRightByOffice(String officeCode) throws WebServiceClientException {
+    public List<UserSearchResultTO> getUsersWithAssignRightByOffice() throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getUsersWithAssignRightByOffice";
         try {
-            return getPort().getUsersWithAssignRightByOffice(officeCode);
+            return getPort().getUsersWithAssignRightByOffice();
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;

@@ -11,7 +11,7 @@ public class DepartmentTO extends AbstractCodeTO {
 
     public String getOfficeCode() {
         return officeCode;
-    }
+}
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
