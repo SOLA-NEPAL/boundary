@@ -52,6 +52,7 @@ public class PartyTO extends AbstractIdTO {
     private List<PartyRoleTO> roleList;
     private boolean rightHolder;
     private AddressTO address;
+    private String street;
     //additional fields
     private String grandfatherName;
     private String grandFatherLastName;
@@ -62,6 +63,14 @@ public class PartyTO extends AbstractIdTO {
     private String rmks;
     private String issuingOfficeCode;
     private Date idIssueDate;
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
     public Date getIdIssueDate() {
         return idIssueDate;
