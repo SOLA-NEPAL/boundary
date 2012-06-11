@@ -139,6 +139,10 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<OfficeTO> getOffices(String languageCode);
 
     List<OfficeTO> getOffices();
+    
+    List<OfficeTO> getOfficesByDistrict(String districtCode);
+
+    List<OfficeTO> getOfficesByDistrict(String districtCode, String languageCode);
 
     List<DistrictTO> getDistricts(String languageCode);
 

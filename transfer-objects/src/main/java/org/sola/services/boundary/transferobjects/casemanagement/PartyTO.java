@@ -28,6 +28,7 @@
 package org.sola.services.boundary.transferobjects.casemanagement;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.sola.services.common.contracts.AbstractIdTO;
 
@@ -50,11 +51,92 @@ public class PartyTO extends AbstractIdTO {
     private String genderCode;
     private List<PartyRoleTO> roleList;
     private boolean rightHolder;
-    
     private AddressTO address;
+    //additional fields
+    private String grandfatherName;
+    private String grandFatherLastName;
+    private Date birthDate;
+    private String districtCode;
+    private String vdcCode;
+    private int wardNo;
+    private String rmks;
+    private String issuingOfficeCode;
+    private Date idIssueDate;
 
+    public Date getIdIssueDate() {
+        return idIssueDate;
+    }
+
+    public void setIdIssueDate(Date idIssueDate) {
+        this.idIssueDate = idIssueDate;
+    }
+
+    public String getIssuingOfficeCode() {
+        return issuingOfficeCode;
+    }
+
+    public void setIssuingOfficeCode(String issuingOfficeCode) {
+        this.issuingOfficeCode = issuingOfficeCode;
+    }
+
+    public String getDistrictCode() {
+        return districtCode;
+    }
+
+    public void setDistrictCode(String districtCode) {
+        this.districtCode = districtCode;
+    }
+    
     public PartyTO() {
         super();
+    }
+    
+    public Date getBirthDate(){
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getGrandFatherLastName() {
+        return grandFatherLastName;
+    }
+
+    public void setGrandFatherLastName(String grandFatherLastName) {
+        this.grandFatherLastName = grandFatherLastName;
+    }
+
+    public String getGrandfatherName() {
+        return grandfatherName;
+    }
+
+    public void setGrandfatherName(String grandfatherName) {
+        this.grandfatherName = grandfatherName;
+    }
+
+    public String getRmks() {
+        return rmks;
+    }
+
+    public void setRmks(String rmks) {
+        this.rmks = rmks;
+    }
+
+    public String getVdcCode() {
+        return vdcCode;
+    }
+
+    public void setVdcCode(String vdcCode) {
+        this.vdcCode = vdcCode;
+    }
+
+    public int getWardNo() {
+        return wardNo;
+    }
+
+    public void setWardNo(int wardNo) {
+        this.wardNo = wardNo;
     }
 
     public String getEmail() {
