@@ -31,13 +31,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import org.sola.services.boundary.wsclients.mock.MockCaseManagementClient;
-import org.sola.services.boundary.wsclients.mock.MockDigitalArchiveClient;
-import org.sola.services.boundary.wsclients.mock.MockReferenceDataClient;
-import org.sola.services.boundary.wsclients.mock.MockSearchClient;
-import org.sola.services.boundary.wsclients.mock.MockAdminClient;
-import org.sola.services.boundary.wsclients.mock.MockServiceManager;
-import org.sola.services.boundary.wsclients.mock.MockSpatialClient;
+import org.sola.services.boundary.wsclients.mock.*;
 
 /**
  * Provides factory methods for creating web service client classes. This includes creating

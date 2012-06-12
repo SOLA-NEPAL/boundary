@@ -1,33 +1,34 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO).
- * All rights reserved.
+ * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations
+ * (FAO). All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *    1. Redistributions of source code must retain the above copyright notice,this list
- *       of conditions and the following disclaimer.
- *    2. Redistributions in binary form must reproduce the above copyright notice,this list
- *       of conditions and the following disclaimer in the documentation and/or other
- *       materials provided with the distribution.
- *    3. Neither the name of FAO nor the names of its contributors may be used to endorse or
- *       promote products derived from this software without specific prior written permission.
+ * 1. Redistributions of source code must retain the above copyright notice,this
+ * list of conditions and the following disclaimer. 2. Redistributions in binary
+ * form must reproduce the above copyright notice,this list of conditions and
+ * the following disclaimer in the documentation and/or other materials provided
+ * with the distribution. 3. Neither the name of FAO nor the names of its
+ * contributors may be used to endorse or promote products derived from this
+ * software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
- * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT
- * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT,STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
 package org.sola.services.boundary.transferobjects.cadastre;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.sola.services.common.contracts.AbstractIdTO;
@@ -44,8 +45,71 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String statusCode;
     private String transactionId;
     private byte[] geomPolygon;
-    private List<SpatialValueAreaTO> spatialValueAreaList = new ArrayList<SpatialValueAreaTO>();
+    private int parcelno;
+    private int district;
+    private int vdc;
+    private String wardno;
+    private String grids1;
+    private String parcelNote;
+    private int parcelType;
+    private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
+
+    public int getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(int district) {
+        this.district = district;
+    }
+
+    public String getGrids1() {
+        return grids1;
+    }
+
+    public void setGrids1(String grids1) {
+        this.grids1 = grids1;
+    }
+
+    public String getParcelNote() {
+        return parcelNote;
+    }
+
+    public void setParcelNote(String parcelNote) {
+        this.parcelNote = parcelNote;
+    }
+
+    public int getParcelType() {
+        return parcelType;
+    }
+
+    public void setParcelType(int parcelType) {
+        this.parcelType = parcelType;
+    }
+
+    public int getParcelno() {
+        return parcelno;
+    }
+
+    public void setParcelno(int parcelno) {
+        this.parcelno = parcelno;
+    }
+
+    public int getVdc() {
+        return vdc;
+    }
+
+    public void setVdc(int vdc) {
+        this.vdc = vdc;
+    }
+
+    public String getWardno() {
+        return wardno;
+    }
+
+    public void setWardno(String wardno) {
+        this.wardno = wardno;
+    }
 
     public MapSheetTO getMapSheet() {
         return mapSheet;
@@ -61,8 +125,8 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setMapSheetCode(String mapSheetCode) {
         this.mapSheetCode = mapSheetCode;
-    }    
-            
+    }
+
     public CadastreObjectTO() {
         super();
     }
@@ -146,6 +210,4 @@ public class CadastreObjectTO extends AbstractIdTO {
     public void setSpatialValueAreaList(List<SpatialValueAreaTO> spatialValueAreaList) {
         this.spatialValueAreaList = spatialValueAreaList;
     }
-    
 }
-

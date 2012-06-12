@@ -38,6 +38,7 @@ import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.services.boundary.transferobjects.cadastre.MapSheetTO;
 import org.sola.services.boundary.transferobjects.cadastre.PropertySummaryTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
@@ -47,6 +48,8 @@ import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
 import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
+import org.sola.services.ejb.cadastre.repository.entities.CadastreObject;
+import org.sola.services.ejb.cadastre.repository.entities.MapSheet;
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreChange;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreRedefinition;
@@ -350,7 +353,108 @@ public class Cadastre extends AbstractWebService {
 
         return (TransactionCadastreRedefinitionTO) result[0];
     }
+
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //********************************************************************************************************************************
+    @WebMethod(operationName = "saveCadastreObject")
+    public CadastreObjectTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectTO cadastreObjectTO)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+        final Object[] result = {null};
+        final Object[] params = {cadastreObjectTO};
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                CadastreObjectTO cadTo = (CadastreObjectTO) params[0];
+                if (cadTo != null) {
+                    CadastreObject cadastreObjectEntity = cadastreEJB.getCadastreObject(cadTo.getId());
+                    cadTo = GenericTranslator.toTO(
+                            cadastreEJB.saveCadastreObject(
+                            GenericTranslator.fromTO(cadTo, CadastreObject.class, cadastreObjectEntity)), CadastreObjectTO.class);
+                    result[0] = cadTo;
+                }
+            }
+        });
+        return (CadastreObjectTO) result[0];
+    }
+
+    @WebMethod(operationName = "getMapSheet")
+    public MapSheetTO getMapSheet(
+            @WebParam(name = "id") String id)
+            throws SOLAFault, UnhandledFault {
+
+        final String IdTmp = id;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(
+                        cadastreEJB.getMapSheet(IdTmp), MapSheetTO.class);
+            }
+        });
+
+        return (MapSheetTO) result[0];
+    }
+
+    @WebMethod(operationName = "getMapSheetList")
+    public List<MapSheetTO> getMapSheetList()
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getMapSheetList(), MapSheetTO.class);
+            }
+        });
+
+        return (List<MapSheetTO>) result[0];
+    }
+
+    @WebMethod(operationName = "saveMapSheet")
+    public MapSheetTO saveMapSheet(@WebParam(name = "mapSheetTO") final MapSheetTO mapSheetTO)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+        final Object[] result = {null};
+        final Object[] params = {mapSheetTO};
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                MapSheetTO mapTo = (MapSheetTO) params[0];
+                if (mapTo != null) {
+                    MapSheet mapSheettEntity = cadastreEJB.getMapSheet(mapTo.getId());
+                    mapTo = GenericTranslator.toTO(
+                            cadastreEJB.saveMapSheet(
+                            GenericTranslator.fromTO(mapTo, MapSheet.class, mapSheettEntity)), MapSheetTO.class);
+                    result[0] = mapTo;
+                }
+            }
+        });
+        return (MapSheetTO) result[0];
+    }
     
+    @WebMethod(operationName = "loadCadastreObjectList")
+    public List<CadastreObjectTO> loadCadastreObjectList(@WebParam(name = "mapSheetCode") String mapSheetCode) throws SOLAFault, UnhandledFault {
+        final String mapSheetCodeTmp = mapSheetCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.loadCadastreObjectList(mapSheetCodeTmp), CadastreObjectTO.class);
+            }
+        });
+        return (List<CadastreObjectTO>) result[0];
+    }
+
+    //********************************************************************************************************************************
+    //</editor-fold>
     // <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
     @WebMethod(operationName = "GetCadastreObjectByIntersection")
@@ -361,21 +465,21 @@ public class Cadastre extends AbstractWebService {
 
         final String geomTmp = geom;
         final int sridTmp = srid;
-        final Object[] result={null};
+        final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-            
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getCadastreObjectBy_Intersection(geomTmp,sridTmp),
+                        cadastreEJB.getCadastreObjectBy_Intersection(geomTmp, sridTmp),
                         CadastreObjectTO.class);
             }
         });
 
-        return (List<CadastreObjectTO>)result[0];
+        return (List<CadastreObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "GetCadastreObjectByByteIntersection")
     public List<CadastreObjectTO> GetCadastreObjectByByteIntersection(
             @WebParam(name = "geom") String geom,
@@ -384,21 +488,21 @@ public class Cadastre extends AbstractWebService {
 
         final String geomTmp = geom;
         final int sridTmp = srid;
-        final Object[] result={null};
+        final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-            
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getCadastreObjectBy_ByteIntersection(geomTmp,sridTmp),
+                        cadastreEJB.getCadastreObjectBy_ByteIntersection(geomTmp, sridTmp),
                         CadastreObjectTO.class);
             }
         });
 
-        return (List<CadastreObjectTO>)result[0];
+        return (List<CadastreObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "executeQuery")
     public void executeQuery(
             @WebParam(name = "cmd") String cmd)
@@ -407,7 +511,7 @@ public class Cadastre extends AbstractWebService {
         final String tmp_cmd = cmd;
 
         runGeneralMethod(wsContext, new Runnable() {
-            
+
             @Override
             public void run() {
                 cadastreEJB.executeQuery(tmp_cmd);

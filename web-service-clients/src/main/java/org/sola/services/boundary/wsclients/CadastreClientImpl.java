@@ -38,6 +38,7 @@ import org.sola.webservices.cadastre.CadastreService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -210,6 +211,66 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
        }
     }
     
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //******************************************************************************************************
+    @Override
+    public CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject) throws WebServiceClientException{
+        final String inputService = SERVICE_NAME + "saveCadastreObject";
+        try {
+            return getPort().saveCadastreObject(cadastreObject);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService,e);
+            return null;
+        }
+    }
+    
+    @Override
+    public MapSheetTO getMapSheet(String id) throws WebServiceClientException{
+        final String inputService = SERVICE_NAME + "getMapSheet";
+        try {
+            MapSheetTO result = getPort().getMapSheet(id);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public MapSheetTO saveMapSheet(MapSheetTO mapSheet) throws WebServiceClientException{
+        final String inputService = SERVICE_NAME + "saveMapSheet";
+        try {
+            return getPort().saveMapSheet(mapSheet);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService,e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<MapSheetTO> getMapSheetList() throws WebServiceClientException{        
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getMapSheetList();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode) {
+      final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().loadCadastreObjectList(mapSheetCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    //******************************************************************************************************
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
     @Override
@@ -245,4 +306,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
     //--------------------------------------------------------------------------
     //</editor-fold>
+
+    
 }

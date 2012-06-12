@@ -11,7 +11,7 @@ import org.sola.services.common.contracts.AbstractIdTO;
  *
  * @author KumarKhadka
  */
-public class LOCTO extends AbstractIdTO{
+public class LocTO extends AbstractIdTO {
 
     private String mothId;
     private int panaNo;
@@ -19,14 +19,14 @@ public class LOCTO extends AbstractIdTO{
     private int propertyType;
     private int oshpType;
     private int transactionNo;
-    private List<BaUnitTO> baUnit;
+    private List<BaUnitTO> baUnits;
 
-    public List<BaUnitTO> getBaUnit() {
-        return baUnit;
+    public List<BaUnitTO> getBaUnits() {
+        return baUnits;
     }
 
-    public void setBaUnit(List<BaUnitTO> baUnit) {
-        this.baUnit = baUnit;
+    public void setBaUnits(List<BaUnitTO> baUnits) {
+        this.baUnits = baUnits;
     }
 
     public String getMothId() {
@@ -76,5 +76,4 @@ public class LOCTO extends AbstractIdTO{
     public void setTransactionNo(int transactionNo) {
         this.transactionNo = transactionNo;
     }
-    
 }

@@ -37,6 +37,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -73,6 +74,20 @@ public interface CadastreClient extends AbstractWSClient {
     List<ValidationResult> saveTransactionCadastreRedefinition(TransactionCadastreRedefinitionTO transactionTO);
 
     TransactionCadastreRedefinitionTO getTransactionCadastreRedefinition(String serviceId);
+    
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //********************************************************************************************
+    CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject);
+    
+    MapSheetTO getMapSheet(String id);
+    
+    MapSheetTO saveMapSheet(MapSheetTO mapSheet);
+    
+    List<MapSheetTO> getMapSheetList();
+    
+    List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode);
+    //************************************************************************************************
+    //</editor-fold>    
 
     //  <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
