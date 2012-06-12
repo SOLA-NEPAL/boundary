@@ -37,7 +37,9 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
+import org.sola.services.boundary.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
 import org.sola.services.boundary.transferobjects.administrative.BaUnitTO;
+import org.sola.services.boundary.transferobjects.administrative.LocTO;
 import org.sola.services.boundary.transferobjects.administrative.MothTO;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.GenericTranslator;
@@ -46,6 +48,8 @@ import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJBLocal;
 import org.sola.services.ejb.administrative.repository.entities.BaUnit;
+import org.sola.services.ejb.administrative.repository.entities.BaUnitContainsSpatialUnit;
+import org.sola.services.ejb.administrative.repository.entities.Loc;
 import org.sola.services.ejb.administrative.repository.entities.Moth;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
@@ -234,6 +238,9 @@ public class Administrative extends AbstractWebService {
 
         return (BaUnitTO) result[0];
     }
+
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //***********************************************************************************************************
     /**
      * save Moth
      */
@@ -261,12 +268,12 @@ public class Administrative extends AbstractWebService {
         return (MothTO) result[0];
     }
 
-    
     @WebMethod(operationName = "getMoth")
     public MothTO getMoth(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
         final String idTmp = id;
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getMoth(idTmp), MothTO.class);
@@ -274,11 +281,8 @@ public class Administrative extends AbstractWebService {
         });
         return (MothTO) result[0];
     }
-    
-   
-    
-    
-   @WebMethod(operationName = "getMoths")
+
+    @WebMethod(operationName = "getMoths")
     public List<MothTO> getMoths(@WebParam(name = "vdcCode") String vdcCode,
             @WebParam(name = "mothLuj") String mothLuj) throws SOLAFault, UnhandledFault {
         final String vdcCodeTmp = vdcCode;
@@ -286,15 +290,15 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
+
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(administrativeEJB.getMoths(vdcCodeTmp,mothLujTmp), MothTO.class);
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getMoths(vdcCodeTmp, mothLujTmp), MothTO.class);
             }
         });
         return (List<MothTO>) result[0];
-    } 
-    
-   
+    }
+
     @WebMethod(operationName = "getMothByVdcCodeMothLujAndMothLujNumber")
     public MothTO getMothByVdcCodeMothLujAndMothLujNumber(@WebParam(name = "vdcCode") String vdcCode,
             @WebParam(name = "mothLuj") String mothLuj, @WebParam(name = "mothLujNumber") String mothLujNumber) throws SOLAFault, UnhandledFault {
@@ -304,11 +308,136 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
+
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTO(administrativeEJB.getMoth(vdcCodeTmp,mothLujTmp,mothLujNumberTmp), MothTO.class);
+                result[0] = GenericTranslator.toTO(administrativeEJB.getMoth(vdcCodeTmp, mothLujTmp, mothLujNumberTmp), MothTO.class);
             }
         });
         return (MothTO) result[0];
-    } 
+    }
+
+    /**
+     * save Loc
+     */
+    @WebMethod(operationName = "saveLoc")
+    public LocTO saveLoc(@WebParam(name = "locTO") final LocTO locTO)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+
+        final Object[] result = {null};
+        final Object[] params = {locTO};
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                LocTO lcTo = (LocTO) params[0];
+                if (lcTo != null) {
+                    Loc locEntity = administrativeEJB.getLoc(lcTo.getId());
+                    lcTo = GenericTranslator.toTO(
+                            administrativeEJB.saveLoc(
+                            GenericTranslator.fromTO(lcTo, Loc.class, locEntity)), LocTO.class);
+                    result[0] = lcTo;
+                }
+            }
+        });
+        return (LocTO) result[0];
+    }
+
+    @WebMethod(operationName = "getLoc")
+    public LocTO getLoc(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
+        final String idTmp = id;
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(administrativeEJB.getLoc(idTmp), LocTO.class);
+            }
+        });
+        return (LocTO) result[0];
+    }
+
+    /**
+     * save Loc
+     */
+    @WebMethod(operationName = "saveBaUnitTest")
+    public BaUnitTO saveBaUnitTest(@WebParam(name = "baUnitTO") final BaUnitTO baUnitTO)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+
+        final Object[] result = {null};
+        final Object[] params = {baUnitTO};
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                BaUnitTO buTo = (BaUnitTO) params[0];
+                if (buTo != null) {
+                    //Moth mothEntity = partyEJB.getMoths(mthTo.getVdcSid(), mthTo.getMothLuj());
+                    BaUnit baUnitEntity = administrativeEJB.getBaUnitById(buTo.getId());
+                    buTo = GenericTranslator.toTO(
+                            administrativeEJB.saveBaUnit(
+                            GenericTranslator.fromTO(buTo, BaUnit.class, baUnitEntity)), BaUnitTO.class);
+                    result[0] = buTo;
+                }
+            }
+        });
+        return (BaUnitTO) result[0];
+    }
+
+    @WebMethod(operationName = "getLocByPageNoAndMothId")
+    public LocTO getLocByPageNoAndMothId(@WebParam(name = "panaNo") int panaNo,
+            @WebParam(name = "mothId") String mothId) throws SOLAFault, UnhandledFault {
+        final int panaNoTmp = panaNo;
+        final String mothIdTmp = mothId;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(administrativeEJB.getLocByPageNoAndMothId(panaNoTmp, mothIdTmp), LocTO.class);
+            }
+        });
+        return (LocTO) result[0];
+    }
+
+    @WebMethod(operationName = "saveBaUnitContainsSpatialUnit")
+    public BaUnitContainsSpatialUnitTO saveBaUnitContainsSpatialUnit(@WebParam(name = "baUnitContainsSpatialUnitTO") final BaUnitContainsSpatialUnitTO baUnitContainsSpatialUnitTO)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+
+        final Object[] result = {null};
+        final Object[] params = {baUnitContainsSpatialUnitTO};
+        runUpdateMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                BaUnitContainsSpatialUnitTO buTo = (BaUnitContainsSpatialUnitTO) params[0];
+                if (buTo != null) {
+                    //Moth mothEntity = partyEJB.getMoths(mthTo.getVdcSid(), mthTo.getMothLuj());
+                    BaUnitContainsSpatialUnit baUnitContainsSpatialUnitEntity = administrativeEJB.getBaUnitContainsSpatialUnit(buTo.getId());
+                    buTo = GenericTranslator.toTO(
+                            administrativeEJB.saveBaUnitContainsSpatialUnit(
+                            GenericTranslator.fromTO(buTo, BaUnitContainsSpatialUnit.class, baUnitContainsSpatialUnitEntity)), BaUnitContainsSpatialUnitTO.class);
+                    result[0] = buTo;
+                }
+            }
+        });
+        return (BaUnitContainsSpatialUnitTO) result[0];
+    }
+
+    @WebMethod(operationName = "getBaUnitContainsSpatialUnit")
+    public BaUnitContainsSpatialUnitTO getBaUnitContainsSpatialUnit(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
+        final String idTmp = id;
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(administrativeEJB.getBaUnitContainsSpatialUnit(idTmp), BaUnitContainsSpatialUnitTO.class);
+            }
+        });
+        return (BaUnitContainsSpatialUnitTO) result[0];
+    }
+    //***********************************************************************************************************
+    //</editor-fold>
 }

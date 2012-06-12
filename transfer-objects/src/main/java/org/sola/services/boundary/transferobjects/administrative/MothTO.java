@@ -9,7 +9,6 @@ package org.sola.services.boundary.transferobjects.administrative;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.common.contracts.AbstractIdTO;
-import org.sola.services.common.contracts.AbstractVersionedTO;
 
 /**
  *
@@ -23,7 +22,7 @@ public class MothTO extends AbstractIdTO{
     private String mothLuj;
     private int financialYear;
     private int lmocd;
-    private List<LOCTO> locList;
+    private List<LocTO> locList;
     private VdcTO vdc;
 
     public int getFinancialYear() {
@@ -82,11 +81,11 @@ public class MothTO extends AbstractIdTO{
         this.wardNo = wardNo;
     }
 
-    public List<LOCTO> getLocList() {
+    public List<LocTO> getLocList() {
         return locList;
     }
 
-    public void setLocList(List<LOCTO> locList) {
+    public void setLocList(List<LocTO> locList) {
         this.locList = locList;
     }
     

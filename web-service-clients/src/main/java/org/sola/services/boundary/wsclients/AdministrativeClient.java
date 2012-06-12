@@ -30,8 +30,11 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
+
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
+import org.sola.webservices.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
+import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
 
 public interface AdministrativeClient extends AbstractWSClient {
@@ -53,6 +56,8 @@ public interface AdministrativeClient extends AbstractWSClient {
 
     BaUnitTO terminateBaUnit(String baUnitId, String serviceId) throws WebServiceClientException;
 
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //*****************************************************************************************************************
     MothTO saveMoth(MothTO mothTo);
 
     MothTO getMoth(String id);
@@ -60,4 +65,18 @@ public interface AdministrativeClient extends AbstractWSClient {
     List<MothTO> getMoths(String vdcCode, String mothLuj);
 
     MothTO getMothByVdcCodeMothLujAndMothLujNumber(String vdcCode, String mothLuj, String mothLujNumber);
+
+    LocTO saveLoc(LocTO loc);
+
+    LocTO getLoc(String id);
+
+    LocTO getLocByPageNoAndMothId(int panaNo, String mothId);
+
+    BaUnitTO saveBaUnitTest(BaUnitTO baUnitTO);
+
+    BaUnitContainsSpatialUnitTO saveBaUnitContainsSpatialUnit(BaUnitContainsSpatialUnitTO baUnitContainsSpatialUnit);
+    
+    BaUnitContainsSpatialUnitTO getBaUnitContainsSpatialUnit(String id);
+    //*****************************************************************************************************************
+    //</editor-fold>
 }
