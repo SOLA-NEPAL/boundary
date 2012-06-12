@@ -30,7 +30,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.HashMap;
+
 import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;

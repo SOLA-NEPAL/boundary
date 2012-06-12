@@ -32,7 +32,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.HashMap;
+
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.cadastre.HashMap;
