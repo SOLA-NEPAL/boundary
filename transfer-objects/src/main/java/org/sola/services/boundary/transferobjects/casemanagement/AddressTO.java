@@ -42,7 +42,44 @@ public class AddressTO extends AbstractIdTO {
 
     private String description;
     private String extAddressId;
+    //Additional fields.
+    private String street;
+    private String districtCode;
+    private String vdcCode;
+    private String wardNo;
 
+    public String getWardNo() {
+        return wardNo;
+    }
+
+    public void setWardNo(String wardNo) {
+        this.wardNo = wardNo;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+    
+    public String getDistrictCode() {
+        return districtCode;
+    }
+
+    public void setDistrictCode(String districtCode) {
+        this.districtCode = districtCode;
+    }
+    
+    public String getVdcCode() {
+        return vdcCode;
+    }
+
+    public void setVdcCode(String vdcCode) {
+        this.vdcCode = vdcCode;
+    }
+    
     public AddressTO() {
         super();
     }
