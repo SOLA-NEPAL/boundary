@@ -438,7 +438,7 @@ public class Cadastre extends AbstractWebService {
         });
         return (MapSheetTO) result[0];
     }
-    
+
     @WebMethod(operationName = "loadCadastreObjectList")
     public List<CadastreObjectTO> loadCadastreObjectList(@WebParam(name = "mapSheetCode") String mapSheetCode) throws SOLAFault, UnhandledFault {
         final String mapSheetCodeTmp = mapSheetCode;
@@ -454,10 +454,74 @@ public class Cadastre extends AbstractWebService {
         return (List<CadastreObjectTO>) result[0];
     }
 
+    @WebMethod(operationName = "getCadastreObjectList")
+    public List<CadastreObjectTO> getCadastreObjectList(@WebParam(name = "vdcCode") String vdcCode, @WebParam(name = "wardNo") String wardNo) throws SOLAFault, UnhandledFault {
+        final String vdcCodeTmp = vdcCode;
+        final String wardNoTmp = wardNo;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getCadastreObjectList(vdcCodeTmp, wardNoTmp), CadastreObjectTO.class);
+            }
+        });
+        return (List<CadastreObjectTO>) result[0];
+    }
+
+    @WebMethod(operationName = "loadMapSheet")
+    public List<MapSheetTO> loadMapSheet(@WebParam(name = "mapSheetType") String mapSheetType) throws SOLAFault, UnhandledFault {
+        final String mapSheetTypeTmp = mapSheetType;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.loadMapSheet(mapSheetTypeTmp), MapSheetTO.class);
+            }
+        });
+        return (List<MapSheetTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getCadastreObjectByVdcWardParcel")
+    public CadastreObjectTO getCadastreObjectByVdcWardParcel(@WebParam(name = "vdcCode") String vdcCode, @WebParam(name = "wardNo") String wardNo, @WebParam(name = "parcelNo") int parcelNo) throws SOLAFault, UnhandledFault {
+        final String vdcCodeTmp = vdcCode;
+        final String wardNoTmp = wardNo;
+        final int parcelNoTmp = parcelNo;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(cadastreEJB.getCadastreObject(vdcCodeTmp, wardNoTmp, parcelNoTmp), CadastreObjectTO.class);
+            }
+        });
+        return (CadastreObjectTO) result[0];
+    }
+
+    @WebMethod(operationName = "getCadastreObjectByMapSheetParcel")
+    public CadastreObjectTO getCadastreObjectByMapSheetParcel(@WebParam(name = "mapSheetCode") String mapSheetCode, @WebParam(name = "parcelNo") int parcelNo) throws SOLAFault, UnhandledFault {
+        final String mapSheetCodeTmp = mapSheetCode;
+        final int parcelNoTmp = parcelNo;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(cadastreEJB.getCadastreObject(mapSheetCodeTmp, parcelNoTmp), CadastreObjectTO.class);
+            }
+        });
+        return (CadastreObjectTO) result[0];
+    }
     //********************************************************************************************************************************
     //</editor-fold>
     // <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
+
     @WebMethod(operationName = "GetCadastreObjectByIntersection")
     public List<CadastreObjectTO> GetCadastreObjectByIntersection(
             @WebParam(name = "geom") String geom,
@@ -510,8 +574,8 @@ public class Cadastre extends AbstractWebService {
             throws SOLAFault, UnhandledFault {
 
         final String tmp_cmd = cmd;
-        final Object[] result={null};
-        
+        final Object[] result = {null};
+
         runGeneralMethod(wsContext, new Runnable() {
 
             @Override
@@ -519,8 +583,8 @@ public class Cadastre extends AbstractWebService {
                 result[0] = cadastreEJB.executeQuery(tmp_cmd);
             }
         });
-        
-        return (List<HashMap>)result[0];
+
+        return (List<HashMap>) result[0];
     }
     //--------------------------------------------------------------------------
     // </editor-fold>

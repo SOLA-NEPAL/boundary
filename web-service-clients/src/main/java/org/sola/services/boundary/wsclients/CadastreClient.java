@@ -32,9 +32,9 @@
  */
 package org.sola.services.boundary.wsclients;
 
-
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
+
 import org.sola.webservices.cadastre.HashMap;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
@@ -76,29 +76,37 @@ public interface CadastreClient extends AbstractWSClient {
     List<ValidationResult> saveTransactionCadastreRedefinition(TransactionCadastreRedefinitionTO transactionTO);
 
     TransactionCadastreRedefinitionTO getTransactionCadastreRedefinition(String serviceId);
-    
+
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //********************************************************************************************
     CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject);
-    
+
     MapSheetTO getMapSheet(String id);
-    
+
     MapSheetTO saveMapSheet(MapSheetTO mapSheet);
-    
+
     List<MapSheetTO> getMapSheetList();
-    
+
     List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode);
+
+    List<CadastreObjectTO> getCadastreObjectList(String vdcCode, String wardNo);
+
+    List<MapSheetTO> loadMapSheet(String mapSheetType);
+    
+    CadastreObjectTO getCadastreObjectByVdcWardParcel(String vdcCode, String wardNo, int parcelNo);
+
+    CadastreObjectTO getCadastreObjectByMapSheetParcel(String mapSheetCode, int parcelNo); 
     //************************************************************************************************
     //</editor-fold>    
 
     //  <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
-    List<CadastreObjectTO> getCadastreObjectByIntersection(String geom,int srid)
+    List<CadastreObjectTO> getCadastreObjectByIntersection(String geom, int srid)
             throws WebServiceClientException;
-    
-    List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom,int srid)
+
+    List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom, int srid)
             throws WebServiceClientException;
-    
+
     List<HashMap> executeQuery(String cmd);
     //--------------------------------------------------------------------------
     //  </editor-fold>
