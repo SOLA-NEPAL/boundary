@@ -46,8 +46,8 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String transactionId;
     private byte[] geomPolygon;
     private int parcelno;
-    private int district;
-    private int vdc;
+    private String district;
+    private String vdc;
     private String wardno;
     private String grids1;
     private String parcelNote;
@@ -55,11 +55,11 @@ public class CadastreObjectTO extends AbstractIdTO {
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
 
-    public int getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(int district) {
+    public void setDistrict(String district) {
         this.district = district;
     }
 
@@ -95,11 +95,11 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.parcelno = parcelno;
     }
 
-    public int getVdc() {
+    public String getVdc() {
         return vdc;
     }
 
-    public void setVdc(int vdc) {
+    public void setVdc(String vdc) {
         this.vdc = vdc;
     }
 
