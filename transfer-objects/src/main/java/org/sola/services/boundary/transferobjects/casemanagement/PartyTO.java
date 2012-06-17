@@ -52,25 +52,13 @@ public class PartyTO extends AbstractIdTO {
     private List<PartyRoleTO> roleList;
     private boolean rightHolder;
     private AddressTO address;
-    private String street;
     //additional fields
     private String grandfatherName;
     private String grandFatherLastName;
     private Date birthDate;
-    private String districtCode;
-    private String vdcCode;
-    private int wardNo;
     private String rmks;
     private String issuingOfficeCode;
     private Date idIssueDate;
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
 
     public Date getIdIssueDate() {
         return idIssueDate;
@@ -86,14 +74,6 @@ public class PartyTO extends AbstractIdTO {
 
     public void setIssuingOfficeCode(String issuingOfficeCode) {
         this.issuingOfficeCode = issuingOfficeCode;
-    }
-
-    public String getDistrictCode() {
-        return districtCode;
-    }
-
-    public void setDistrictCode(String districtCode) {
-        this.districtCode = districtCode;
     }
     
     public PartyTO() {
@@ -130,22 +110,6 @@ public class PartyTO extends AbstractIdTO {
 
     public void setRmks(String rmks) {
         this.rmks = rmks;
-    }
-
-    public String getVdcCode() {
-        return vdcCode;
-    }
-
-    public void setVdcCode(String vdcCode) {
-        this.vdcCode = vdcCode;
-    }
-
-    public int getWardNo() {
-        return wardNo;
-    }
-
-    public void setWardNo(int wardNo) {
-        this.wardNo = wardNo;
     }
 
     public String getEmail() {

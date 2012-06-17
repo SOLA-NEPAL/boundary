@@ -486,7 +486,9 @@ public class Cadastre extends AbstractWebService {
     }
 
     @WebMethod(operationName = "getCadastreObjectByVdcWardParcel")
-    public CadastreObjectTO getCadastreObjectByVdcWardParcel(@WebParam(name = "vdcCode") String vdcCode, @WebParam(name = "wardNo") String wardNo, @WebParam(name = "parcelNo") int parcelNo) throws SOLAFault, UnhandledFault {
+    public CadastreObjectTO getCadastreObjectByVdcWardParcel(@WebParam(name = "vdcCode") String vdcCode, 
+                @WebParam(name = "wardNo") String wardNo, 
+                @WebParam(name = "parcelNo") int parcelNo) throws SOLAFault, UnhandledFault {
         final String vdcCodeTmp = vdcCode;
         final String wardNoTmp = wardNo;
         final int parcelNoTmp = parcelNo;

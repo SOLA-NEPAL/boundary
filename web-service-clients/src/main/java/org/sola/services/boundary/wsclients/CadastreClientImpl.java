@@ -296,7 +296,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
 
     @Override
     public CadastreObjectTO getCadastreObjectByVdcWardParcel(String vdcCode, String wardNo, int parcelNo) {
-        final String inputService = SERVICE_NAME + "saveMapSheet";
+        final String inputService = SERVICE_NAME + "getSearchedByAdminParcel";
         try {
             return getPort().getCadastreObjectByVdcWardParcel(vdcCode, wardNo, parcelNo);
         } catch (Throwable e) {
@@ -307,7 +307,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
 
     @Override
     public CadastreObjectTO getCadastreObjectByMapSheetParcel(String mapSheetCode, int parcelNo) {
-        final String inputService = SERVICE_NAME + "saveMapSheet";
+        final String inputService = SERVICE_NAME + "getSearchedByMapParcel";
         try {
             return getPort().getCadastreObjectByMapSheetParcel(mapSheetCode, parcelNo);
         } catch (Throwable e) {
