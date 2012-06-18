@@ -62,6 +62,7 @@ public class ApplicationTO extends AbstractIdTO {
     private List<ServiceTO> serviceList;
     private List<ApplicationPropertyTO> propertyList;
     private List<SourceTO> sourceList;
+    private String officeCode;
 
     public ApplicationTO() {
         super();
@@ -239,5 +240,12 @@ public class ApplicationTO extends AbstractIdTO {
     public void setSourceList(List<SourceTO> sourceList) {
         this.sourceList = sourceList;
     }
-    
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }
