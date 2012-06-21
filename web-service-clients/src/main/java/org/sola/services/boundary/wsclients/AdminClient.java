@@ -83,15 +83,19 @@ public interface AdminClient extends AbstractWSClient {
 
     BrTO saveBr(BrTO brTO) throws WebServiceClientException;
 
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //************************************************************************************************
     List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO);
-
+    
     List<NepaliMonthTO> getNepaliMonths(int nepYear);
-
+    
     List<Integer> getNepaliYear();
-
+    
     Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
-
+    
     String getNepaliDate(Date date) throws WebServiceClientException;
+    //************************************************************************************************
+    //</editor-fold>
     
     OfficeTO getCurrentOffice() throws WebServiceClientException;
 }

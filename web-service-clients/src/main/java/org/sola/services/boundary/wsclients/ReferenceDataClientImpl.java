@@ -546,6 +546,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         return getVdcs(districtCode, getLanguageCode());
     }
     
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //************************************************************************************************
     @Override
     public List<VdcTO> getVdcList() {
         final String inputService = SERVICE_NAME + "getVdcList";
@@ -556,26 +558,28 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-
+    
     @Override
     public VdcTO getVdcByCode(String id) {
-      final String inputService = SERVICE_NAME + "getVdcByCode";
+        final String inputService = SERVICE_NAME + "getVdcByCode";
         try {
             return getPort().getVdcByCode(id);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
-        }  
+        }
     }
-
+    
     @Override
     public VdcTO getVdcByName(String name) {
-       final String inputService = SERVICE_NAME + "getVdcByName";
+        final String inputService = SERVICE_NAME + "getVdcByName";
         try {
             return getPort().getVdcByName(name);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
-        } 
+        }
     }
+    //************************************************************************************************
+    //</editor-fold>
 }

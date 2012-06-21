@@ -18,8 +18,17 @@ public class LocTO extends AbstractIdTO {
     private int tmpPanaNo;
     private int propertyType;
     private int oshpType;
-    private int transactionNo;
+    private String transactionId;
     private List<BaUnitTO> baUnits;
+    private String officeCode;
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 
     public List<BaUnitTO> getBaUnits() {
         return baUnits;
@@ -69,11 +78,12 @@ public class LocTO extends AbstractIdTO {
         this.tmpPanaNo = tmpPanaNo;
     }
 
-    public int getTransactionNo() {
-        return transactionNo;
+    public String getTransactionId() {
+        return transactionId;
     }
 
-    public void setTransactionNo(int transactionNo) {
-        this.transactionNo = transactionNo;
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
+
 }

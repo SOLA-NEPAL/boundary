@@ -686,12 +686,14 @@ public class ReferenceData extends AbstractWebService {
         return (List<VdcTO>) result[0];
     }
 
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //************************************************************************************************
     @WebMethod(operationName = "getVdcList")
     public List<VdcTO> getVdcList()
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-
+            
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(adminEJB.getVdcList(), VdcTO.class);
@@ -699,39 +701,41 @@ public class ReferenceData extends AbstractWebService {
         });
         return (List<VdcTO>) result[0];
     }
-
+    
     @WebMethod(operationName = "getVdcByCode")
     public VdcTO getVdcByCode(@WebParam(name = "id") final String id)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
-
+        
         runGeneralMethod(wsContext, new Runnable() {
-
+            
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(adminEJB.getVdcByCode(
                         id), VdcTO.class);
             }
         });
-
+        
         return (VdcTO) result[0];
     }
     @WebMethod(operationName = "getVdcByName")
     public VdcTO getVdcByName(@WebParam(name = "name") final String name)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
-
+        
         runGeneralMethod(wsContext, new Runnable() {
-
+            
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(adminEJB.getVdcByName(
                         name), VdcTO.class);
             }
         });
-
+        
         return (VdcTO) result[0];
     }
+    //************************************************************************************************
+    //</editor-fold>
 
     @RolesAllowed(RolesConstants.ADMIN_MANAGE_REFDATA)
     @WebMethod(operationName = "saveReferenceData")

@@ -14,15 +14,15 @@ public class MapSheetTO extends AbstractIdTO {
 
     private String mapNumber;
     private int sheetType;
-    private String alpha_code;
+    //private String alpha_code;
 
-    public String getAlpha_code() {
-        return alpha_code;
-    }
-
-    public void setAlpha_code(String alpha_code) {
-        this.alpha_code = alpha_code;
-    }
+//    public String getAlpha_code() {
+//        return alpha_code;
+//    }
+//
+//    public void setAlpha_code(String alpha_code) {
+//        this.alpha_code = alpha_code;
+//    }
 
     public String getMapNumber() {
         return mapNumber;

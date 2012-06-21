@@ -37,6 +37,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
+import org.sola.services.boundary.transferobjects.administrative.BaUnitAsPartyTO;
 import org.sola.services.boundary.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
 import org.sola.services.boundary.transferobjects.administrative.BaUnitTO;
 import org.sola.services.boundary.transferobjects.administrative.LocTO;
@@ -47,10 +48,7 @@ import org.sola.services.common.faults.*;
 import org.sola.services.common.webservices.AbstractWebService;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJBLocal;
-import org.sola.services.ejb.administrative.repository.entities.BaUnit;
-import org.sola.services.ejb.administrative.repository.entities.BaUnitContainsSpatialUnit;
-import org.sola.services.ejb.administrative.repository.entities.Loc;
-import org.sola.services.ejb.administrative.repository.entities.Moth;
+import org.sola.services.ejb.administrative.repository.entities.*;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
@@ -438,6 +436,44 @@ public class Administrative extends AbstractWebService {
         });
         return (BaUnitContainsSpatialUnitTO) result[0];
     }
+
+//    @WebMethod(operationName = "saveBaUnitAsParty")
+//    public BaUnitAsPartyTO saveBaUnitAsParty(@WebParam(name = "baUnitAsPartyTO") final BaUnitAsPartyTO baUnitAsPartyTO)
+//            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+//
+//        final Object[] result = {null};
+//        final Object[] params = {baUnitAsPartyTO};
+//        runUpdateMethod(wsContext, new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                BaUnitAsPartyTO buTo = (BaUnitAsPartyTO) params[0];
+//                if (buTo != null) {
+//
+//                    BaUnitAsParty baUnitAsPartyEntity = administrativeEJB.getBaUnitAsParty(buTo.());
+//                    buTo = GenericTranslator.toTO(
+//                            administrativeEJB.saveBaUnitAsParty(
+//                            GenericTranslator.fromTO(buTo, BaUnitAsParty.class, baUnitAsPartyEntity)), BaUnitAsPartyTO.class);
+//                    result[0] = buTo;
+//                }
+//            }
+//        });
+//        return (BaUnitAsPartyTO) result[0];
+//    }
+//
+//    @WebMethod(operationName = "getBaUnitAsParty")
+//    public BaUnitAsPartyTO getBaUnitAsParty(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
+//        final String idTmp = id;
+//        final Object[] result = {null};
+//        runGeneralMethod(wsContext, new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                result[0] = GenericTranslator.toTO(administrativeEJB.getBaUnitAsParty(idTmp), BaUnitAsPartyTO.class);
+//            }
+//        });
+//        return (BaUnitAsPartyTO) result[0];
+//    }
     //***********************************************************************************************************
     //</editor-fold>
 }
