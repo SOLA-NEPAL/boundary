@@ -30,6 +30,7 @@ package org.sola.services.boundary.transferobjects.casemanagement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.sola.services.boundary.transferobjects.digitalarchive.DocumentTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 public class PartyTO extends AbstractIdTO {
@@ -59,7 +60,45 @@ public class PartyTO extends AbstractIdTO {
     private String rmks;
     private String issuingOfficeCode;
     private Date idIssueDate;
+    //variable for image fields.
+    private DocumentTO photoDoc;
+    private DocumentTO leftFingerDoc;
+    private DocumentTO rightFingerDoc;
+    private DocumentTO signatureDoc;
+    
     private String officeCode;
+
+    public DocumentTO getLeftFingerDoc() {
+        return leftFingerDoc;
+    }
+
+    public void setLeftFingerDoc(DocumentTO leftFingerDoc) {
+        this.leftFingerDoc = leftFingerDoc;
+    }
+
+    public DocumentTO getPhotoDoc() {
+        return photoDoc;
+    }
+
+    public void setPhotoDoc(DocumentTO photoDoc) {
+        this.photoDoc = photoDoc;
+    }
+
+    public DocumentTO getRightFingerDoc() {
+        return rightFingerDoc;
+    }
+
+    public void setRightFingerDoc(DocumentTO rightFingerDoc) {
+        this.rightFingerDoc = rightFingerDoc;
+    }
+
+    public DocumentTO getSignatureDoc() {
+        return signatureDoc;
+    }
+
+    public void setSignatureDoc(DocumentTO signatureDoc) {
+        this.signatureDoc = signatureDoc;
+    }
 
     public Date getIdIssueDate() {
         return idIssueDate;
@@ -225,10 +264,6 @@ public class PartyTO extends AbstractIdTO {
         this.typeCode = typeCode;
     }
 
-    public AddressTO getAddress() {
-        return address;
-    }
-
     public String getGenderCode() {
         return genderCode;
     }
@@ -237,6 +272,10 @@ public class PartyTO extends AbstractIdTO {
         this.genderCode = genderCode;
     }
 
+    public AddressTO getAddress() {
+        return address;
+    }
+    
     public void setAddress(AddressTO address) {
         this.address = address;
     }
