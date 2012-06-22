@@ -41,7 +41,8 @@ public class CadastreObjectSearchResultTO extends AbstractIdTO {
     
     private String label;
     private byte[] theGeom;
-
+    private String officeCode;
+    
     public String getLabel() {
         return label;
     }
@@ -56,5 +57,13 @@ public class CadastreObjectSearchResultTO extends AbstractIdTO {
 
     public void setTheGeom(byte[] theGeom) {
         this.theGeom = theGeom;
-    }    
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

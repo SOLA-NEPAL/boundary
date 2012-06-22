@@ -33,6 +33,7 @@ public class DocumentTO extends AbstractIdTO {
     private String nr;
     private String extension;
     private String description;
+    private String officeCode;
     
     public DocumentTO(){
         super();
@@ -61,5 +62,12 @@ public class DocumentTO extends AbstractIdTO {
     public void setNr(String nr) {
         this.nr = nr;
     }
-    
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

@@ -50,6 +50,7 @@ public class CadastreObjectTO extends AbstractIdTO {
     private int parcelType;
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
+    String officeCode;
 
     public String getParcelNote() {
         return parcelNote;
@@ -173,5 +174,13 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setSpatialValueAreaList(List<SpatialValueAreaTO> spatialValueAreaList) {
         this.spatialValueAreaList = spatialValueAreaList;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
     }
 }

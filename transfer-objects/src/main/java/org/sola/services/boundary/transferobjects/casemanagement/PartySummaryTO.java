@@ -35,7 +35,8 @@ public class PartySummaryTO extends AbstractIdTO {
     private String extId;
     private String lastName;
     private String typeCode;
-
+    private String officeCode;
+    
     public PartySummaryTO() {
         super();
     }
@@ -71,5 +72,12 @@ public class PartySummaryTO extends AbstractIdTO {
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
     }
-    
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

@@ -102,13 +102,6 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
 
     /** @return default = new ArrayList<ApplicationSummaryTO>() */
     @Override
-    public List<ApplicationSearchResultTO> getUnassignedApplications() throws WebServiceClientException {
-        List<ApplicationSearchResultTO> defaultResponse = new ArrayList<ApplicationSearchResultTO>();
-        return getManager().getResponse(GET_UNASSIGNED_APPLICATIONS, List.class, defaultResponse);
-    }
-
-    /** @return default = new ArrayList<ApplicationSummaryTO>() */
-    @Override
     public List<ApplicationSearchResultTO> searchApplications(
             ApplicationSearchParamsTO applicationSearchParamsTO) throws WebServiceClientException {
         List<ApplicationSearchResultTO> defaultResponse = new ArrayList<ApplicationSearchResultTO>();

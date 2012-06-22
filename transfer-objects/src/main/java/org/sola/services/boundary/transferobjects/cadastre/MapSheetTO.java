@@ -15,6 +15,7 @@ public class MapSheetTO extends AbstractIdTO {
     private String mapNumber;
     private int sheetType;
     private String alpha_code;
+    String officeCode;
 
     public String getAlpha_code() {
         return alpha_code;
@@ -38,5 +39,13 @@ public class MapSheetTO extends AbstractIdTO {
 
     public void setSheetType(int sheetType) {
         this.sheetType = sheetType;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
     }
 }

@@ -59,6 +59,7 @@ public class PartyTO extends AbstractIdTO {
     private String rmks;
     private String issuingOfficeCode;
     private Date idIssueDate;
+    private String officeCode;
 
     public Date getIdIssueDate() {
         return idIssueDate;
@@ -261,5 +262,13 @@ public class PartyTO extends AbstractIdTO {
 
     public void setRightHolder(boolean rightHolder) {
         this.rightHolder = rightHolder;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
     }
 }

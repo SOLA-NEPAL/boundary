@@ -90,26 +90,6 @@ public class Search extends AbstractWebService {
         return (PropertyVerifierTO) result[0];
     }
 
-    @WebMethod(operationName = "GetUnassignedApplications")
-    public List<ApplicationSearchResultTO> GetUnassignedApplications(
-            @WebParam(name = "locale") String locale) throws SOLAFault, UnhandledFault {
-
-        final String localeTmp = locale;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                List<ApplicationSearchResult> appList = searchEJB.getUnassignedApplications(localeTmp);
-                result[0] = GenericTranslator.toTOList(
-                        appList, ApplicationSearchResultTO.class);
-            }
-        });
-
-        return (List<ApplicationSearchResultTO>) result[0];
-    }
-
     @WebMethod(operationName = "GetAssignedApplications")
     public List<ApplicationSearchResultTO> GetAssignedApplications(@WebParam(name = "locale") String locale)
             throws SOLAFault, UnhandledFault {
@@ -225,8 +205,7 @@ public class Search extends AbstractWebService {
 
             @Override
             public void run() {
-                String officeCode = adminEJB.getCurrentUser().getDepartment().getOfficeCode();
-                List<UserSearchResult> users = searchEJB.getUsersByOffice(officeCode);
+                List<UserSearchResult> users = searchEJB.getUsersByOffice(adminEJB.getCurrentOfficeCode());
                 result[0] = GenericTranslator.toTOList(users, UserSearchResultTO.class);
             }
         });
@@ -245,7 +224,7 @@ public class Search extends AbstractWebService {
             @Override
             public void run() {
                 List<UserSearchResult> users = searchEJB.getUsersWithAssignRightByOffice(
-                        adminEJB.getCurrentOffice().getCode());
+                        adminEJB.getCurrentOfficeCode());
                 result[0] = GenericTranslator.toTOList(users, UserSearchResultTO.class);
             }
         });

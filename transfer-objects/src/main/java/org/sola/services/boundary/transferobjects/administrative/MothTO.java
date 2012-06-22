@@ -24,6 +24,7 @@ public class MothTO extends AbstractIdTO{
     private int lmocd;
     private List<LocTO> locList;
     private VdcTO vdc;
+    private String officeCode;
 
     public int getFinancialYear() {
         return financialYear;
@@ -88,6 +89,12 @@ public class MothTO extends AbstractIdTO{
     public void setLocList(List<LocTO> locList) {
         this.locList = locList;
     }
-    
-    
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

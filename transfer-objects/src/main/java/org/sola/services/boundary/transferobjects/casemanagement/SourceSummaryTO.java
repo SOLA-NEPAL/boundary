@@ -41,6 +41,7 @@ public class SourceSummaryTO extends AbstractBasicIdTO{
     private Date recordation;
     private Date submission;
     private String statusCode;
+    private String officeCode;
     
     public SourceSummaryTO(){
         super();
@@ -117,5 +118,12 @@ public class SourceSummaryTO extends AbstractBasicIdTO{
     public void setArchiveDocumentId(String archiveDocumentId) {
         this.archiveDocumentId = archiveDocumentId;
     }
-      
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

@@ -49,6 +49,7 @@ public class BaUnitTO extends AbstractIdTO {
     private List<RelatedBaUnitInfoTO> childBaUnits;
     private List<RelatedBaUnitInfoTO> parentBaUnits;
     private String pendingActionCode;
+    private String officeCode;
     
     public BaUnitTO(){
         super();
@@ -186,5 +187,12 @@ public class BaUnitTO extends AbstractIdTO {
     public void setLocId(String locId) {
         this.locId = locId;
     }
-    
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }
