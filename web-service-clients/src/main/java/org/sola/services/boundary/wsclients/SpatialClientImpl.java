@@ -31,17 +31,13 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
 import org.sola.webservices.spatial.MapDefinitionTO;
 import org.sola.webservices.spatial.QueryForNavigation;
 import org.sola.webservices.spatial.ResultForNavigationInfo;
-import org.sola.webservices.spatial.SOLAFault;
 import org.sola.webservices.spatial.Spatial;
 import org.sola.webservices.spatial.SpatialService;
-import org.sola.webservices.spatial.UnhandledFault;
 
 /**
  * Implementation class for the {@linkplain SpatialClient} interface. 
