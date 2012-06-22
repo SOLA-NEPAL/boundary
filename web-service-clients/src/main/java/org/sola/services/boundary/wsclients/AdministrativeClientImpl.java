@@ -265,6 +265,30 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             return null;
         }
     }
+    
+//    @Override
+//    public BaUnitAsPartyTO saveBaUnitAsPartyTO(BaUnitAsPartyTO baUnitAsPartyTO) {
+//        final String inputService = SERVICE_NAME + "saveBaUnitAsPartyTO";
+//        try {
+//            return getPort().saveBaUnitAsParty(baUnitAsPartyTO);
+//        } catch (Throwable e) {
+//            handleExceptionsMethod(inputService, e);
+//            return null;
+//        }
+//    }
+//
+//    @Override
+//    public BaUnitAsPartyTO getBaUnitAsPartyTO(String id) {
+//        final String inputService = SERVICE_NAME + "getBaUnitAsPartyTO";
+//        try {
+//            return getPort().getBaUnitAsParty(id);
+//        } catch (Throwable e) {
+//            handleExceptionsMethod(inputService, e);
+//            return null;
+//        }
+//    }
     //*************************************************************************************************************
     //</editor-fold>
+
+    
 }

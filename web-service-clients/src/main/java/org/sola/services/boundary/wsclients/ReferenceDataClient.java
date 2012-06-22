@@ -156,9 +156,13 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<VdcTO> getVdcs(String districtCode);
 
+    //<editor-fold defaultstate="collapsed" desc="By Kumar">
+    //************************************************************************************************
     List<VdcTO> getVdcList();
-
+    
     VdcTO getVdcByCode(String id);
-
+    
     VdcTO getVdcByName(String name);
+    //************************************************************************************************
+    //</editor-fold>
 }

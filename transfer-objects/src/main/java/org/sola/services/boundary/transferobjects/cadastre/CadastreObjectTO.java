@@ -50,7 +50,7 @@ public class CadastreObjectTO extends AbstractIdTO {
     private int parcelType;
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
-    String officeCode;
+    private String officeCode;
 
     public String getParcelNote() {
         return parcelNote;

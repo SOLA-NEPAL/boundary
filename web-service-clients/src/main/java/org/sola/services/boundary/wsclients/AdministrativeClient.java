@@ -30,7 +30,6 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
-
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
@@ -77,6 +76,10 @@ public interface AdministrativeClient extends AbstractWSClient {
     BaUnitContainsSpatialUnitTO saveBaUnitContainsSpatialUnit(BaUnitContainsSpatialUnitTO baUnitContainsSpatialUnit);
     
     BaUnitContainsSpatialUnitTO getBaUnitContainsSpatialUnit(String id);
+    
+//    BaUnitAsPartyTO saveBaUnitAsPartyTO(BaUnitAsPartyTO baUnitAsPartyTO);
+//    
+//    BaUnitAsPartyTO getBaUnitAsPartyTO(String id);
     //*****************************************************************************************************************
     //</editor-fold>
 }

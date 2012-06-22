@@ -4,17 +4,17 @@
  */
 package org.sola.services.boundary.transferobjects.administrative;
 
-import org.sola.services.common.contracts.AbstractIdTO;
+import org.sola.services.common.contracts.AbstractTO;
 
 /**
  *
  * @author KumarKhadka
  */
-public class BaUnitContainsSpatialUnitTO extends AbstractIdTO {
+public class BaUnitAsPartyTO extends AbstractTO {
 
     private String baUnitId;
-    private String spatialUnitId;
-   
+    private String partyId;
+    
     public String getBaUnitId() {
         return baUnitId;
     }
@@ -23,11 +23,13 @@ public class BaUnitContainsSpatialUnitTO extends AbstractIdTO {
         this.baUnitId = baUnitId;
     }
 
-    public String getSpatialUnitId() {
-        return spatialUnitId;
+    public String getPartyId() {
+        return partyId;
     }
 
-    public void setSpatialUnitId(String spatialUnitId) {
-        this.spatialUnitId = spatialUnitId;
+    public void setPartyId(String partyId) {
+        this.partyId = partyId;
     }
+    
+    
 }
