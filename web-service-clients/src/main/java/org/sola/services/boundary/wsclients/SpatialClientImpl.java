@@ -74,11 +74,11 @@ public class SpatialClientImpl extends AbstractWSClientImpl implements SpatialCl
     }
 
     @Override
-    public ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query)
+    public ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query, String officeCode)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getSpatialForNavigation";
         try {
-            ResultForNavigationInfo result = getPort().getSpatialForNavigation(query);
+            ResultForNavigationInfo result = getPort().getSpatialForNavigation(query, officeCode);
             return result;
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
