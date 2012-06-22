@@ -33,6 +33,15 @@ public class DocumentTO extends AbstractIdTO {
     private String nr;
     private String extension;
     private String description;
+    private byte[] body;
+
+    public byte[] getBody() {
+        return body;
+    }
+
+    public void setBody(byte[] body) {
+        this.body = body;
+    }
     
     public DocumentTO(){
         super();
