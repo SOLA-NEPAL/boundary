@@ -560,6 +560,11 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
     
     @Override
+    public List<VdcTO> getVdcs() {
+        return getVdcList();
+    }
+    
+    @Override
     public VdcTO getVdcByCode(String id) {
         final String inputService = SERVICE_NAME + "getVdcByCode";
         try {
@@ -582,4 +587,5 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
     //************************************************************************************************
     //</editor-fold>
+    
 }

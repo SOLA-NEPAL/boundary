@@ -86,6 +86,8 @@ public interface CadastreClient extends AbstractWSClient {
     MapSheetTO saveMapSheet(MapSheetTO mapSheet);
 
     List<MapSheetTO> getMapSheetList();
+    
+    List<MapSheetTO> getMapSheets();
 
     List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode);
 

@@ -163,6 +163,8 @@ public interface ReferenceDataClient extends AbstractWSClient {
     VdcTO getVdcByCode(String id);
     
     VdcTO getVdcByName(String name);
+    
+    List<VdcTO> getVdcs();
     //************************************************************************************************
     //</editor-fold>
 }

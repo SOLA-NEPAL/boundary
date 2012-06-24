@@ -435,4 +435,9 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public List<OfficeTO> getOfficesByDistrict(String districtCode, String languageCode) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<VdcTO> getVdcs() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
