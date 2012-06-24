@@ -71,7 +71,7 @@ public class MockSpatialClient extends AbstractMockWSClient implements SpatialCl
 
     /** @return default = new ResultForNavigationInfo() */
     @Override
-    public ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query)
+    public ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query, String officeCode)
             throws WebServiceClientException {
         ResultForNavigationInfo defaultResponse = new ResultForNavigationInfo();
         return getManager().getResponse(GET_SPATIAL_FOR_NAVIGATION,

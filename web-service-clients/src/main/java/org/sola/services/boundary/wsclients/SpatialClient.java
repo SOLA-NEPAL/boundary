@@ -45,7 +45,7 @@ public interface SpatialClient extends AbstractWSClient {
 
     boolean checkConnection() throws WebServiceClientException;
 
-    ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query) throws WebServiceClientException;
+    ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query, String officeCode) throws WebServiceClientException;
     
     MapDefinitionTO getMapDefinition() throws WebServiceClientException;
 }

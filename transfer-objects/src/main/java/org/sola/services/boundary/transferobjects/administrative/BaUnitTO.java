@@ -66,7 +66,6 @@ public class BaUnitTO extends AbstractIdTO {
     public void setParties(List<PartyTO> parties) {
         this.parties = parties;
     }
-
     
     public String getOfficeCode() {
         return officeCode;

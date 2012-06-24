@@ -22,14 +22,6 @@ public class LocTO extends AbstractIdTO {
     private List<BaUnitTO> baUnits;
     private String officeCode;
 
-    public String getOfficeCode() {
-        return officeCode;
-    }
-
-    public void setOfficeCode(String officeCode) {
-        this.officeCode = officeCode;
-    }
-
     public List<BaUnitTO> getBaUnits() {
         return baUnits;
     }
@@ -86,4 +78,11 @@ public class LocTO extends AbstractIdTO {
         this.transactionId = transactionId;
     }
 
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

@@ -569,25 +569,6 @@ public class Cadastre extends AbstractWebService {
 
         return (List<CadastreObjectTO>) result[0];
     }
-
-    @WebMethod(operationName = "executeQuery")
-    public List<HashMap> executeQuery(
-            @WebParam(name = "cmd") String cmd)
-            throws SOLAFault, UnhandledFault {
-
-        final String tmp_cmd = cmd;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = cadastreEJB.executeQuery(tmp_cmd);
-            }
-        });
-
-        return (List<HashMap>) result[0];
-    }
     //--------------------------------------------------------------------------
     // </editor-fold>
 }

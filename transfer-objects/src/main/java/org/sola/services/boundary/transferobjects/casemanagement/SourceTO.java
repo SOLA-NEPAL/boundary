@@ -48,7 +48,8 @@ public class SourceTO extends AbstractIdTO {
     private DocumentTO archiveDocument;
     private String transactionId;
     private boolean locked;
-
+    private String officeCode;
+    
     public SourceTO() {
         super();
     }
@@ -171,5 +172,13 @@ public class SourceTO extends AbstractIdTO {
 
     public void setLocked(boolean locked) {
         this.locked = locked;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
     }
 }

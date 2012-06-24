@@ -64,8 +64,6 @@ public interface SearchClient extends AbstractWSClient {
 
     List<ApplicationSearchResultTO> getAssignedApplications() throws WebServiceClientException;
 
-    List<ApplicationSearchResultTO> getUnassignedApplications() throws WebServiceClientException;
-
     List<ApplicationSearchResultTO> searchApplications(ApplicationSearchParamsTO applicationSearchParamsTO) throws WebServiceClientException;
 
     PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart) throws WebServiceClientException;

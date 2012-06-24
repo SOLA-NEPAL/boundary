@@ -37,6 +37,7 @@ public class BaUnitBasicTO extends AbstractTO {
     private String nameLastpart;
     private String statusCode;
     private String transactionId;
+    private String officeCode;
     
     public BaUnitBasicTO(){
         super();
@@ -96,5 +97,13 @@ public class BaUnitBasicTO extends AbstractTO {
 
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
     }
 }

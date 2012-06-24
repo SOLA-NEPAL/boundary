@@ -31,17 +31,13 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
 import org.sola.webservices.spatial.MapDefinitionTO;
 import org.sola.webservices.spatial.QueryForNavigation;
 import org.sola.webservices.spatial.ResultForNavigationInfo;
-import org.sola.webservices.spatial.SOLAFault;
 import org.sola.webservices.spatial.Spatial;
 import org.sola.webservices.spatial.SpatialService;
-import org.sola.webservices.spatial.UnhandledFault;
 
 /**
  * Implementation class for the {@linkplain SpatialClient} interface. 
@@ -74,11 +70,11 @@ public class SpatialClientImpl extends AbstractWSClientImpl implements SpatialCl
     }
 
     @Override
-    public ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query)
+    public ResultForNavigationInfo getSpatialForNavigation(QueryForNavigation query, String officeCode)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getSpatialForNavigation";
         try {
-            ResultForNavigationInfo result = getPort().getSpatialForNavigation(query);
+            ResultForNavigationInfo result = getPort().getSpatialForNavigation(query, officeCode);
             return result;
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);

@@ -39,6 +39,7 @@ public class ApplicationSummaryTO extends AbstractBasicIdTO {
     private Date assignedDatetime;
     private String agentId;
     private String contactPersonId;
+    private String officeCode;
     private boolean feePaid;
     
     public ApplicationSummaryTO() {
@@ -92,7 +93,15 @@ public class ApplicationSummaryTO extends AbstractBasicIdTO {
     public void setLodgingDatetime(Date lodgingDatetime) {
         this.lodgingDatetime = lodgingDatetime;
     }
+    
+    public String getOfficeCode() {
+        return officeCode;
+    }
 
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
+    
     public String getNr() {
         return nr;
     }

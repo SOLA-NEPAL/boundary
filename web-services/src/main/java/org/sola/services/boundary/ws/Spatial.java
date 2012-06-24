@@ -114,8 +114,8 @@ public class Spatial extends AbstractWebService {
     }
 
     @WebMethod(operationName = "GetSpatialForNavigation")
-    public ResultForNavigationInfo GetSpatialForNavigation(QueryForNavigation spatialQuery)
-            throws SOLAFault, UnhandledFault {
+    public ResultForNavigationInfo GetSpatialForNavigation(QueryForNavigation spatialQuery,
+            @WebParam(name = "officeCode") final String officeCode) throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
         final QueryForNavigation spatialQueryTmp = spatialQuery;
@@ -124,10 +124,10 @@ public class Spatial extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = searchEJB.getSpatialResult(spatialQueryTmp);
+                result[0] = searchEJB.getSpatialResult(spatialQueryTmp, officeCode);
             }
         });
-        
-        return (ResultForNavigationInfo)result[0];
+
+        return (ResultForNavigationInfo) result[0];
     }
 }

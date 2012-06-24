@@ -96,18 +96,6 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
     }
 
     @Override
-    public List<ApplicationSearchResultTO> getUnassignedApplications() throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getUnassignedApplications";
-        try {
-            List<ApplicationSearchResultTO> result = getPort().getUnassignedApplications(getLanguageCode());
-            return result;
-        } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
-        }
-    }
-
-    @Override
     public List<ApplicationSearchResultTO> getAssignedApplications() throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getAssignedApplications";
         try {

@@ -34,6 +34,7 @@ public class BrSearchResultTO extends AbstractTO{
     private String displayName;
     private String technicalTypeCode;
     private String feedback;
+    private String officeCode;
     
     public BrSearchResultTO(){
         super();
@@ -69,5 +70,13 @@ public class BrSearchResultTO extends AbstractTO{
 
     public void setTechnicalTypeCode(String technicalTypeCode) {
         this.technicalTypeCode = technicalTypeCode;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
     }
 }

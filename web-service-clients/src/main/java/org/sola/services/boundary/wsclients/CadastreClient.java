@@ -34,8 +34,6 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-
-import org.sola.webservices.cadastre.HashMap;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
@@ -108,8 +106,6 @@ public interface CadastreClient extends AbstractWSClient {
 
     List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom, int srid)
             throws WebServiceClientException;
-
-    List<HashMap> executeQuery(String cmd);
     //--------------------------------------------------------------------------
     //  </editor-fold>
 }
