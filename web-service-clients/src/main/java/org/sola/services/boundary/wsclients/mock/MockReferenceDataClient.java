@@ -437,7 +437,49 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     }
 
     @Override
+<<<<<<< HEAD
     public List<VdcTO> getVdcs() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+=======
+    public List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionReasonTO> getRestrictionReasons(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+  
+>>>>>>> dateTestBranch
 }
