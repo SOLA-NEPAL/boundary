@@ -588,17 +588,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-    //************************************************************************************************
-    //</editor-fold>
-<<<<<<< HEAD
-    
-=======
+   
 
+
+    //<editor-fold defaultstate="collapsed" desc="Dinesh">
     @Override
     public List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException {
         return getRestrictionTypes(getLanguageCode());
     }
-
+    
     @Override
     public List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRestrictionTypes";
@@ -609,12 +607,12 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-
+    
     @Override
     public List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException {
         return getRestrictionReasons(getLanguageCode());
     }
-
+    
     @Override
     public List<RestrictionReasonTO> getRestrictionReasons(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRestrictionReasons";
@@ -625,12 +623,12 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-
+    
     @Override
     public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons() throws WebServiceClientException {
         return getRestrictionReleaseReasons(getLanguageCode());
     }
-
+    
     @Override
     public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRestrictionReleaseReasons";
@@ -641,12 +639,12 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-
+    
     @Override
     public List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException {
         return getRestrictionOffices(getLanguageCode());
     }
-
+    
     @Override
     public List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRestrictionOffices";
@@ -657,5 +655,5 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
->>>>>>> dateTestBranch
+    //</editor-fold>
 }
