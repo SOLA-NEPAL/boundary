@@ -60,9 +60,7 @@ import org.sola.services.ejb.source.repository.entities.AvailabilityStatus;
 import org.sola.services.ejb.source.repository.entities.PresentationFormType;
 import org.sola.services.ejb.source.repository.entities.SourceType;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
-import org.sola.services.ejb.system.repository.entities.BrSeverityType;
-import org.sola.services.ejb.system.repository.entities.BrTechnicalType;
-import org.sola.services.ejb.system.repository.entities.BrValidationTargetType;
+import org.sola.services.ejb.system.repository.entities.*;
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.RegistrationStatusType;
 import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
@@ -614,7 +612,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<OfficeTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getOfficesByDistrict")
     public List<OfficeTO> getOfficesByDistrict(
             @WebParam(name = "districtCode") final String districtCode,
@@ -693,7 +691,7 @@ public class ReferenceData extends AbstractWebService {
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-            
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(adminEJB.getVdcList(), VdcTO.class);
@@ -701,37 +699,38 @@ public class ReferenceData extends AbstractWebService {
         });
         return (List<VdcTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getVdcByCode")
     public VdcTO getVdcByCode(@WebParam(name = "id") final String id)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
-        
+
         runGeneralMethod(wsContext, new Runnable() {
-            
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(adminEJB.getVdcByCode(
                         id), VdcTO.class);
             }
         });
-        
+
         return (VdcTO) result[0];
     }
+
     @WebMethod(operationName = "getVdcByName")
     public VdcTO getVdcByName(@WebParam(name = "name") final String name)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
-        
+
         runGeneralMethod(wsContext, new Runnable() {
-            
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(adminEJB.getVdcByName(
                         name), VdcTO.class);
             }
         });
-        
+
         return (VdcTO) result[0];
     }
     //************************************************************************************************
@@ -864,6 +863,22 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = adminEJB.getCodeEntity(Department.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, Department.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof RestrictionTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(RestrictionType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionType.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof RestrictionReasonTO) {
+                    codeEntity = systemEJB.getCodeEntity(RestrictionReason.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionReason.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof RestrictionReleaseReasonTO) {
+                    codeEntity = systemEJB.getCodeEntity(RestrictionReleaseReason.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionReleaseReason.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof RestrictionOfficeTO) {
+                    codeEntity = systemEJB.getCodeEntity(RestrictionOffice.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionOffice.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
                 }
 
                 result = GenericTranslator.toTO(codeEntity, refDataTO.getClass());
@@ -883,4 +898,86 @@ public class ReferenceData extends AbstractWebService {
             cleanUp();
         }
     }
+
+    //<editor-fold defaultstate="collapsed" desc="Dinesh">
+    @WebMethod(operationName = "getRestrictionTypes")
+    public List<RestrictionTypeTO> getRestrictionTypes(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getRestrictionTypes(languageCodeTmp),
+                        TypeActionTO.class);
+            }
+        });
+
+        return (List<RestrictionTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getRestrictionReasons")
+    public List<RestrictionReasonTO> getRestrictionReasons(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getRestrictionReasons(languageCodeTmp),
+                        RestrictionReasonTO.class);
+            }
+        });
+
+        return (List<RestrictionReasonTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getRestrictionReleaseReasons")
+    public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getRestrictionReleaseReasons(languageCodeTmp),
+                        RestrictionReleaseReasonTO.class);
+            }
+        });
+
+        return (List<RestrictionReleaseReasonTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getRestrictionOffices")
+    public List<RestrictionOfficeTO> getRestrictionOffices(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getRestrictionOffices(languageCodeTmp),
+                        RestrictionOfficeTO.class);
+            }
+        });
+
+        return (List<RestrictionOfficeTO>) result[0];
+    }
+    //</editor-fold>
 }

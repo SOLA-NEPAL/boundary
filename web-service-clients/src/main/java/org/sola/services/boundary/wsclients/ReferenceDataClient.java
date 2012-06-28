@@ -139,7 +139,7 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<OfficeTO> getOffices(String languageCode);
 
     List<OfficeTO> getOffices();
-    
+
     List<OfficeTO> getOfficesByDistrict(String districtCode);
 
     List<OfficeTO> getOfficesByDistrict(String districtCode, String languageCode);
@@ -159,10 +159,28 @@ public interface ReferenceDataClient extends AbstractWSClient {
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //************************************************************************************************
     List<VdcTO> getVdcList();
-    
+
     VdcTO getVdcByCode(String id);
-    
+
     VdcTO getVdcByName(String name);
     //************************************************************************************************
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="Dinesh">
+    List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException;
+
+    List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException;
+
+    List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException;
+
+    List<RestrictionReasonTO> getRestrictionReasons(String lang) throws WebServiceClientException;
+
+    List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons() throws WebServiceClientException;
+
+    List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons(String lang) throws WebServiceClientException;
+
+    List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException;
+    
+    List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException;
     //</editor-fold>
 }
