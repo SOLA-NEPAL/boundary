@@ -31,7 +31,7 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.webservices.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
+import org.sola.webservices.transferobjects.administrative.BaUnitAsPartyTO;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
@@ -72,14 +72,11 @@ public interface AdministrativeClient extends AbstractWSClient {
     LocTO getLocByPageNoAndMothId(int panaNo, String mothId);
 
     BaUnitTO saveBaUnitTest(BaUnitTO baUnitTO);
+    
+    List<LocTO> getLocList(String mothId);
 
-    BaUnitContainsSpatialUnitTO saveBaUnitContainsSpatialUnit(BaUnitContainsSpatialUnitTO baUnitContainsSpatialUnit);
-    
-    BaUnitContainsSpatialUnitTO getBaUnitContainsSpatialUnit(String id);
-    
-//    BaUnitAsPartyTO saveBaUnitAsPartyTO(BaUnitAsPartyTO baUnitAsPartyTO);
-//    
-//    BaUnitAsPartyTO getBaUnitAsPartyTO(String id);
+    List<BaUnitAsPartyTO> getBaUnitAsPartyList(String partyId);  
+   
     //*****************************************************************************************************************
     //</editor-fold>
 }

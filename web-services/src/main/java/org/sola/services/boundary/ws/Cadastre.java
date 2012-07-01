@@ -29,7 +29,6 @@
  */
 package org.sola.services.boundary.ws;
 
-import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -471,8 +470,8 @@ public class Cadastre extends AbstractWebService {
     }
 
     @WebMethod(operationName = "loadMapSheet")
-    public List<MapSheetTO> loadMapSheet(@WebParam(name = "mapSheetType") String mapSheetType) throws SOLAFault, UnhandledFault {
-        final String mapSheetTypeTmp = mapSheetType;
+    public List<MapSheetTO> loadMapSheet(@WebParam(name = "mapSheetType") int mapSheetType) throws SOLAFault, UnhandledFault {
+        final int mapSheetTypeTmp = mapSheetType;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {

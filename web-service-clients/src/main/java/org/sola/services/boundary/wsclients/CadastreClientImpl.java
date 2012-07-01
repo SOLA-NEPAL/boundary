@@ -287,7 +287,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
 
     @Override
-    public List<MapSheetTO> loadMapSheet(String mapSheetType) {
+    public List<MapSheetTO> loadMapSheet(int mapSheetType) {
         final String inputService = SERVICE_NAME + "loadMapSheet";
         try {
             return getPort().loadMapSheet(mapSheetType);

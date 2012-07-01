@@ -34,7 +34,8 @@ import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.administrative.Administrative;
 import org.sola.webservices.administrative.AdministrativeService;
-import org.sola.webservices.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
+import org.sola.webservices.transferobjects.administrative.BaUnitAsPartyTO;
+
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
@@ -232,29 +233,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         }
     }
 
-    @Override
-    public BaUnitContainsSpatialUnitTO saveBaUnitContainsSpatialUnit(BaUnitContainsSpatialUnitTO baUnitContainsSpatialUnit) {
-        final String inputService = SERVICE_NAME + "saveBaUnitContainsSpatialUnit";
-        try {
-            return getPort().saveBaUnitContainsSpatialUnit(baUnitContainsSpatialUnit);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public BaUnitContainsSpatialUnitTO getBaUnitContainsSpatialUnit(String id) {
-        final String inputService = SERVICE_NAME + "getBaUnitContainsSpatialUnit";
-        try {
-            BaUnitContainsSpatialUnitTO result = getPort().getBaUnitContainsSpatialUnit(id);
-            return result;
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-    
+       
     @Override
     public BaUnitTO saveBaUnitTest(BaUnitTO baUnitTO) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "saveBaUnitTest";
@@ -265,30 +244,31 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             return null;
         }
     }
+    @Override
+    public List<LocTO> getLocList(String mothId) {
+       final String inputService = SERVICE_NAME + "getLocList";
+        try {
+            return getPort().getLocList(mothId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     
-//    @Override
-//    public BaUnitAsPartyTO saveBaUnitAsPartyTO(BaUnitAsPartyTO baUnitAsPartyTO) {
-//        final String inputService = SERVICE_NAME + "saveBaUnitAsPartyTO";
-//        try {
-//            return getPort().saveBaUnitAsParty(baUnitAsPartyTO);
-//        } catch (Throwable e) {
-//            handleExceptionsMethod(inputService, e);
-//            return null;
-//        }
-//    }
-//
-//    @Override
-//    public BaUnitAsPartyTO getBaUnitAsPartyTO(String id) {
-//        final String inputService = SERVICE_NAME + "getBaUnitAsPartyTO";
-//        try {
-//            return getPort().getBaUnitAsParty(id);
-//        } catch (Throwable e) {
-//            handleExceptionsMethod(inputService, e);
-//            return null;
-//        }
-//    }
+ @Override
+    public List<BaUnitAsPartyTO> getBaUnitAsPartyList(String partyId) {
+       final String inputService = SERVICE_NAME + "getLocList";
+        try {
+            return getPort().getBaUnitAsPartyList(partyId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     //*************************************************************************************************************
     //</editor-fold>
+
+    
 
     
 }

@@ -398,82 +398,36 @@ public class Administrative extends AbstractWebService {
         });
         return (LocTO) result[0];
     }
-
-    @WebMethod(operationName = "saveBaUnitContainsSpatialUnit")
-    public BaUnitContainsSpatialUnitTO saveBaUnitContainsSpatialUnit(@WebParam(name = "baUnitContainsSpatialUnitTO") final BaUnitContainsSpatialUnitTO baUnitContainsSpatialUnitTO)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
-
+     @WebMethod(operationName = "getLocList")
+    public List<LocTO> getLocList(@WebParam(name = "mothId") String mothId ) throws SOLAFault, UnhandledFault {
+        final String mothIdTmp = mothId;
         final Object[] result = {null};
-        final Object[] params = {baUnitContainsSpatialUnitTO};
-        runUpdateMethod(wsContext, new Runnable() {
 
-            @Override
-            public void run() {
-                BaUnitContainsSpatialUnitTO buTo = (BaUnitContainsSpatialUnitTO) params[0];
-                if (buTo != null) {
-                    //Moth mothEntity = partyEJB.getMoths(mthTo.getVdcSid(), mthTo.getMothLuj());
-                    BaUnitContainsSpatialUnit baUnitContainsSpatialUnitEntity = administrativeEJB.getBaUnitContainsSpatialUnit(buTo.getId());
-                    buTo = GenericTranslator.toTO(
-                            administrativeEJB.saveBaUnitContainsSpatialUnit(
-                            GenericTranslator.fromTO(buTo, BaUnitContainsSpatialUnit.class, baUnitContainsSpatialUnitEntity)), BaUnitContainsSpatialUnitTO.class);
-                    result[0] = buTo;
-                }
-            }
-        });
-        return (BaUnitContainsSpatialUnitTO) result[0];
-    }
-
-    @WebMethod(operationName = "getBaUnitContainsSpatialUnit")
-    public BaUnitContainsSpatialUnitTO getBaUnitContainsSpatialUnit(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
-        final String idTmp = id;
-        final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTO(administrativeEJB.getBaUnitContainsSpatialUnit(idTmp), BaUnitContainsSpatialUnitTO.class);
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getLocList(mothIdTmp), LocTO.class);
             }
         });
-        return (BaUnitContainsSpatialUnitTO) result[0];
+        return (List<LocTO>) result[0];
     }
+    
+ @WebMethod(operationName = "getBaUnitAsPartyList")
+    public List<BaUnitAsPartyTO> getBaUnitAsPartyList(@WebParam(name = "partyId") String partyId ) throws SOLAFault, UnhandledFault {
+        final String partyIdTmp = partyId;
+        final Object[] result = {null};
 
-//    @WebMethod(operationName = "saveBaUnitAsParty")
-//    public BaUnitAsPartyTO saveBaUnitAsParty(@WebParam(name = "baUnitAsPartyTO") final BaUnitAsPartyTO baUnitAsPartyTO)
-//            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
-//
-//        final Object[] result = {null};
-//        final Object[] params = {baUnitAsPartyTO};
-//        runUpdateMethod(wsContext, new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                BaUnitAsPartyTO buTo = (BaUnitAsPartyTO) params[0];
-//                if (buTo != null) {
-//
-//                    BaUnitAsParty baUnitAsPartyEntity = administrativeEJB.getBaUnitAsParty(buTo.());
-//                    buTo = GenericTranslator.toTO(
-//                            administrativeEJB.saveBaUnitAsParty(
-//                            GenericTranslator.fromTO(buTo, BaUnitAsParty.class, baUnitAsPartyEntity)), BaUnitAsPartyTO.class);
-//                    result[0] = buTo;
-//                }
-//            }
-//        });
-//        return (BaUnitAsPartyTO) result[0];
-//    }
-//
-//    @WebMethod(operationName = "getBaUnitAsParty")
-//    public BaUnitAsPartyTO getBaUnitAsParty(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
-//        final String idTmp = id;
-//        final Object[] result = {null};
-//        runGeneralMethod(wsContext, new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                result[0] = GenericTranslator.toTO(administrativeEJB.getBaUnitAsParty(idTmp), BaUnitAsPartyTO.class);
-//            }
-//        });
-//        return (BaUnitAsPartyTO) result[0];
-//    }
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getBaUnitAsPartyList(partyIdTmp), BaUnitAsPartyTO.class);
+            }
+        });
+        return (List<BaUnitAsPartyTO>) result[0];
+    }
+   
     //***********************************************************************************************************
     //</editor-fold>
 }
