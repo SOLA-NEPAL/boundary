@@ -428,6 +428,20 @@ public class Administrative extends AbstractWebService {
         return (List<BaUnitAsPartyTO>) result[0];
     }
    
+ @WebMethod(operationName = "getBaUnitContainsSpatialUnitsList")
+    public List<BaUnitContainsSpatialUnitTO> getBaUnitContainsSpatialUnitsList(@WebParam(name = "spatiaUnitId") String spatiaUnitId ) throws SOLAFault, UnhandledFault {
+        final String spatiaUnitIdTmp = spatiaUnitId;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getBaUnitContainsSpatialUnitsList(spatiaUnitIdTmp), BaUnitContainsSpatialUnitTO.class);
+            }
+        });
+        return (List<BaUnitContainsSpatialUnitTO>) result[0];
+    }
     //***********************************************************************************************************
     //</editor-fold>
 }
