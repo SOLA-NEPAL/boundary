@@ -1,28 +1,30 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO).
- * All rights reserved.
+ * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations
+ * (FAO). All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *    1. Redistributions of source code must retain the above copyright notice,this list
- *       of conditions and the following disclaimer.
- *    2. Redistributions in binary form must reproduce the above copyright notice,this list
- *       of conditions and the following disclaimer in the documentation and/or other
- *       materials provided with the distribution.
- *    3. Neither the name of FAO nor the names of its contributors may be used to endorse or
- *       promote products derived from this software without specific prior written permission.
+ * 1. Redistributions of source code must retain the above copyright notice,this
+ * list of conditions and the following disclaimer. 2. Redistributions in binary
+ * form must reproduce the above copyright notice,this list of conditions and
+ * the following disclaimer in the documentation and/or other materials provided
+ * with the distribution. 3. Neither the name of FAO nor the names of its
+ * contributors may be used to endorse or promote products derived from this
+ * software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
- * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT
- * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT,STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
 package org.sola.services.boundary.wsclients;
@@ -34,8 +36,10 @@ import org.sola.webservices.referencedata.ReferenceData;
 import org.sola.webservices.referencedata.ReferencedataService;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
+
 /**
- * Implementation class for the {@linkplain ReferenceDataClient} interface. 
+ * Implementation class for the {@linkplain ReferenceDataClient} interface.
+ *
  * @author amcdowell
  */
 public class ReferenceDataClientImpl extends AbstractWSClientImpl implements ReferenceDataClient {
@@ -59,8 +63,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             boolean result = getPort().checkConnection();
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return  false;
+            handleExceptionsMethod(inputService, e);
+            return false;
         }
     }
 
@@ -71,8 +75,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             List<CommunicationTypeTO> result = getPort().getCommunicationTypes(lang);
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -91,9 +95,9 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         final String inputService = SERVICE_NAME + "getGenderTypes";
         try {
             return getPort().getGenderTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -108,8 +112,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getRequestTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -124,8 +128,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getSourceTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -133,15 +137,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<ApplicationStatusTypeTO> getApplicationStatusTypes() throws WebServiceClientException {
         return getApplicationStatusTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<ApplicationStatusTypeTO> getApplicationStatusTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getApplicationStatusTypes";
         try {
             return getPort().getApplicationStatusTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -149,15 +153,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<ServiceStatusTypeTO> getServiceStatusTypes() throws WebServiceClientException {
         return getServiceStatusTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<ServiceStatusTypeTO> getServiceStatusTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getServiceStatusTypes";
         try {
             return getPort().getServiceStatusTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -165,15 +169,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<ServiceActionTypeTO> getServiceActionTypes() throws WebServiceClientException {
         return getServiceActionTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<ServiceActionTypeTO> getServiceActionTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getServiceActionTypes";
         try {
             return getPort().getServiceActionTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -188,24 +192,24 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getApplicationActionTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
-    
+
     @Override
     public List<PartyTypeTO> getPartyTypes() throws WebServiceClientException {
         return getPartyTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<PartyTypeTO> getPartyTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getPartyTypes";
         try {
             return getPort().getPartyTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -213,15 +217,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<PartyRoleTypeTO> getPartyRoles() throws WebServiceClientException {
         return getPartyRoles(getLanguageCode());
     }
-    
+
     @Override
     public List<PartyRoleTypeTO> getPartyRoles(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getPartyRoles";
         try {
             return getPort().getPartyRoles(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -229,15 +233,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<IdTypeTO> getIdTypes() throws WebServiceClientException {
         return getIdTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<IdTypeTO> getIdTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getIdTypes";
         try {
             return getPort().getIdTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -245,15 +249,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<ChangeStatusTypeTO> getChangeStatusTypes() throws WebServiceClientException {
         return getChangeStatusTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<ChangeStatusTypeTO> getChangeStatusTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getChangeStatusTypes";
         try {
             return getPort().getChangeStatuTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -269,8 +273,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             List<BaUnitTypeTO> result = getPort().getBaUnitTypes(lang);
             return result;
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -278,15 +282,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<MortgageTypeTO> getMortgageTypes() throws WebServiceClientException {
         return getMortgageTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<MortgageTypeTO> getMortgageTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getMortgageTypes";
         try {
             return getPort().getMortgageTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -294,15 +298,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<RrrGroupTypeTO> getRrrGroupTypes() throws WebServiceClientException {
         return getRrrGroupTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<RrrGroupTypeTO> getRrrGroupTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRrrGroupTypes";
         try {
             return getPort().getRRRGroupTypes(lang);
-       } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -310,15 +314,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<RrrTypeTO> getRrrTypes() throws WebServiceClientException {
         return getRrrTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<RrrTypeTO> getRrrTypes(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getRrrTypes";
         try {
             return getPort().getRRRTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -327,7 +331,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             throws WebServiceClientException {
         return getRegistrationStatusTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<RegistrationStatusTypeTO> getRegistrationStatusTypes(String lang)
             throws WebServiceClientException {
@@ -335,8 +339,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getRegistrationStatusTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -345,7 +349,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             throws WebServiceClientException {
         return getCadastreObjectTypes(getLanguageCode());
     }
-    
+
     @Override
     public List<CadastreObjectTypeTO> getCadastreObjectTypes(String lang)
             throws WebServiceClientException {
@@ -353,8 +357,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getCadastreObjectTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -362,15 +366,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<TypeActionTO> getTypeActions() throws WebServiceClientException {
         return getTypeActions(getLanguageCode());
     }
-    
+
     @Override
     public List<TypeActionTO> getTypeActions(String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getTypeActions";
         try {
             return getPort().getTypeActions(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -380,8 +384,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().saveReferenceData(refDataTO);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -396,8 +400,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getRequestCategoryTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -412,8 +416,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getBrTechnicalTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -428,8 +432,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getBrValidationTargetTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -444,8 +448,8 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             return getPort().getBrSeverityTypes(lang);
         } catch (Throwable e) {
-           handleExceptionsMethod(inputService,e);
-           return null;
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 
@@ -480,7 +484,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<OfficeTO> getOffices() {
         return getOffices(getLanguageCode());
     }
-    
+
     @Override
     public List<OfficeTO> getOfficesByDistrict(String districtCode, String languageCode) {
         final String inputService = SERVICE_NAME + "getDepartments";
@@ -496,7 +500,6 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<OfficeTO> getOfficesByDistrict(String districtCode) {
         return getOfficesByDistrict(districtCode, getLanguageCode());
     }
-    
 
     @Override
     public List<DistrictTO> getDistricts(String languageCode) {
@@ -545,7 +548,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public List<VdcTO> getVdcs(String districtCode) {
         return getVdcs(districtCode, getLanguageCode());
     }
-    
+
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //************************************************************************************************
     @Override
@@ -558,6 +561,11 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
+
+    @Override
+    public List<VdcTO> getVdcs() {
+        return getVdcList();
+    }
     
     @Override
     public VdcTO getVdcByCode(String id) {
@@ -569,7 +577,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-    
+
     @Override
     public VdcTO getVdcByName(String name) {
         final String inputService = SERVICE_NAME + "getVdcByName";
@@ -580,6 +588,72 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-    //************************************************************************************************
+   
+
+
+    //<editor-fold defaultstate="collapsed" desc="Dinesh">
+    @Override
+    public List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException {
+        return getRestrictionTypes(getLanguageCode());
+    }
+    
+    @Override
+    public List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getRestrictionTypes";
+        try {
+            return getPort().getRestrictionTypes(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException {
+        return getRestrictionReasons(getLanguageCode());
+    }
+    
+    @Override
+    public List<RestrictionReasonTO> getRestrictionReasons(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getRestrictionReasons";
+        try {
+            return getPort().getRestrictionReasons(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons() throws WebServiceClientException {
+        return getRestrictionReleaseReasons(getLanguageCode());
+    }
+    
+    @Override
+    public List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getRestrictionReleaseReasons";
+        try {
+            return getPort().getRestrictionReleaseReasons(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException {
+        return getRestrictionOffices(getLanguageCode());
+    }
+    
+    @Override
+    public List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getRestrictionOffices";
+        try {
+            return getPort().getRestrictionOffices(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     //</editor-fold>
 }
