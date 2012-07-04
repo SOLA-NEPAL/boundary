@@ -106,6 +106,9 @@ public interface CadastreClient extends AbstractWSClient {
 
     List<CadastreObjectTO> getCadastreObjectByByteIntersection(String geom, int srid)
             throws WebServiceClientException;
+    
+    List<CadastreObjectTO> getPendingParcelsByParts(String searchString)
+            throws WebServiceClientException;
     //--------------------------------------------------------------------------
     //  </editor-fold>
 }
