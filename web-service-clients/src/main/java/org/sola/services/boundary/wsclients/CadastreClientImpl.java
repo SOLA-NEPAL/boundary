@@ -87,6 +87,20 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
 
     }
+    
+     @Override
+    public List<CadastreObjectTO> getPendingParcelsByParts(String searchString)
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "GetCadastreObjectByParts";
+        try {
+            List<CadastreObjectTO> result = getPort().getPendingParcelByParts(searchString);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+
+    }
 
     @Override
     public CadastreObjectTO getCadastreObjectByPoint(double x, double y, int srid)
