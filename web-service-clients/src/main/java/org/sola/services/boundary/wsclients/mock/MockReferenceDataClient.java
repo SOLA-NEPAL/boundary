@@ -31,6 +31,7 @@ import java.util.List;
 import org.sola.services.boundary.wsclients.ReferenceDataClient;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
+import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
@@ -478,6 +479,16 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
 
     @Override
     public List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ParcelTypeTO> getParcelTypes(String languageCode) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ParcelTypeTO> getParcelTypes() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

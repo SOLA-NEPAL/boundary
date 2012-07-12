@@ -32,6 +32,7 @@ package org.sola.services.boundary.wsclients;
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
+import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 public interface ReferenceDataClient extends AbstractWSClient {
@@ -185,4 +186,8 @@ public interface ReferenceDataClient extends AbstractWSClient {
     
     List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException;
     //</editor-fold>
+    
+    List<ParcelTypeTO> getParcelTypes(String languageCode);
+    
+    List<ParcelTypeTO> getParcelTypes();
 }

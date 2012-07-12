@@ -35,6 +35,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.referencedata.ReferenceData;
 import org.sola.webservices.referencedata.ReferencedataService;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
+import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
@@ -656,4 +657,20 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
     }
     //</editor-fold>
+
+    @Override
+    public List<ParcelTypeTO> getParcelTypes() {
+        return getParcelTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<ParcelTypeTO> getParcelTypes(String languageCode) {
+        final String inputService = SERVICE_NAME + "getParcelTypes";
+        try {
+            return getPort().getParcelTypes(languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

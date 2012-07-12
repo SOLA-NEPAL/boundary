@@ -47,7 +47,7 @@ public class CadastreObjectTO extends AbstractIdTO {
     private byte[] geomPolygon;
     private int parcelno;
     private String parcelNote;
-    private int parcelType;
+    private String parcelType;
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
     private String officeCode;
@@ -60,11 +60,11 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.parcelNote = parcelNote;
     }
 
-    public int getParcelType() {
+    public String getParcelType() {
         return parcelType;
     }
 
-    public void setParcelType(int parcelType) {
+    public void setParcelType(String parcelType) {
         this.parcelType = parcelType;
     }
 

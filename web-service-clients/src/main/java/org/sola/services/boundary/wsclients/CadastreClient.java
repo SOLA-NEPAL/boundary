@@ -38,6 +38,7 @@ import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
+import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 

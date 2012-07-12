@@ -38,6 +38,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.common.RolesConstants;
+import org.sola.services.boundary.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.services.boundary.transferobjects.referencedata.*;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.AbstractCodeTO;
@@ -682,6 +683,22 @@ public class ReferenceData extends AbstractWebService {
         });
 
         return (List<VdcTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getParcelTypes")
+    public List<ParcelTypeTO> getParcelTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getParcelTypeList(languageCode), ParcelTypeTO.class);
+            }
+        });
+
+        return (List<ParcelTypeTO>) result[0];
     }
 
     //<editor-fold defaultstate="collapsed" desc="By Kumar">

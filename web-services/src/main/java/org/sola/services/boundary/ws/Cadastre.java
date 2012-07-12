@@ -36,10 +36,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
-import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectNodeTO;
-import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
-import org.sola.services.boundary.transferobjects.cadastre.MapSheetTO;
-import org.sola.services.boundary.transferobjects.cadastre.PropertySummaryTO;
+import org.sola.services.boundary.transferobjects.cadastre.*;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -116,28 +113,6 @@ public class Cadastre extends AbstractWebService {
 
         return (List<CadastreObjectTO>) result[0];
     }
-    
-    @WebMethod(operationName = "getPendingParcelByParts")
-    public List<CadastreObjectTO> GetPendingParcelByParts(
-            @WebParam(name = "searchString") String searchString)
-            throws SOLAFault, UnhandledFault {
-
-        final String searchStringTmp = searchString;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getPendingParcelByParts(searchStringTmp),
-                        CadastreObjectTO.class);
-            }
-        });
-
-        return (List<CadastreObjectTO>) result[0];
-    }
-
 
     @WebMethod(operationName = "GetCadastreObjectByPoint")
     public CadastreObjectTO GetCadastreObjectByPoint(
@@ -542,6 +517,7 @@ public class Cadastre extends AbstractWebService {
     }
     //********************************************************************************************************************************
     //</editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
 
@@ -584,6 +560,27 @@ public class Cadastre extends AbstractWebService {
             public void run() {
                 result[0] = GenericTranslator.toTOList(
                         cadastreEJB.getCadastreObjectBy_ByteIntersection(geomTmp, sridTmp),
+                        CadastreObjectTO.class);
+            }
+        });
+
+        return (List<CadastreObjectTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getPendingParcelByParts")
+    public List<CadastreObjectTO> GetPendingParcelByParts(
+            @WebParam(name = "searchString") String searchString)
+            throws SOLAFault, UnhandledFault {
+
+        final String searchStringTmp = searchString;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getPendingParcelByParts(searchStringTmp),
                         CadastreObjectTO.class);
             }
         });
