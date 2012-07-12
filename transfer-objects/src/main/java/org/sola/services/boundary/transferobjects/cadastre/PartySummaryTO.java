@@ -31,11 +31,12 @@ import org.sola.services.common.contracts.AbstractBasicIdTO;
 
 public class PartySummaryTO extends AbstractBasicIdTO {
     
-      private String name;
+    private String name;
     private String extId;
     private String lastName;
     private String typeCode;
-
+    private String officeCode;
+    
     public PartySummaryTO() {
         super();
     }
@@ -71,5 +72,12 @@ public class PartySummaryTO extends AbstractBasicIdTO {
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
     }
-    
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

@@ -170,41 +170,10 @@ public class CaseManagement extends AbstractWebService {
             public void run() {
                 PartyTO party = (PartyTO) params[0];
                 if (party != null) {
-                    //Added by Kabindra for temporary correction of wrong byte mapping.
-                    //should be remove if mapping works correctly.
-                    Party orgParty= partyEJB.getParty(party.getId());
-                    Party newParty=GenericTranslator.fromTO(party, Party.class,orgParty);
-                    if (orgParty!=null){
-                        newParty=party_with_refreshed_Documents(newParty,party);
-                    }
-                    Party savedParty = partyEJB.saveParty(newParty);
+                    Party savedParty = partyEJB.saveParty(GenericTranslator
+                            .fromTO(party, Party.class, partyEJB.getParty(party.getId())));
                     result[0] = GenericTranslator.toTO(savedParty, PartyTO.class);
                 }
-            }
-            
-            private Party party_with_refreshed_Documents(Party orgParty,PartyTO party){
-               orgParty.setPhotoDoc(get_refreshed_Document(
-                       orgParty.getPhotoDoc(),party.getPhotoDoc()));
-               orgParty.setLeftFingerDoc(get_refreshed_Document(
-                       orgParty.getLeftFingerDoc(),party.getLeftFingerDoc()));
-               orgParty.setRightFingerDoc(get_refreshed_Document(
-                       orgParty.getRightFingerDoc(),party.getRightFingerDoc()));
-               orgParty.setSignatureDoc(get_refreshed_Document(
-                       orgParty.getSignatureDoc(),party.getSignatureDoc()));
-               
-               return orgParty;
-            }  
-            
-            private Document get_refreshed_Document(Document orgdoc,DocumentTO doc){
-                Document newdoc= GenericTranslator.fromTO(
-                        doc, Document.class, null);
-                if (newdoc!=null){
-                    if (orgdoc!=null){//if old document exist.
-                        newdoc.setEntityAction(EntityAction.UPDATE);
-                    }
-                }
-                
-                return newdoc;
             }
         });
 

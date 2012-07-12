@@ -41,7 +41,6 @@ import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
-import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -261,6 +260,18 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
     }
 
+     @Override
+    public List<MapSheetTO> getMapSheetListByOffice(String officeCode, String lang) {
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getMapSheetListByOffice(officeCode,lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    
     @Override
     public List<MapSheetTO> getMapSheets() {
         return getMapSheetList();
@@ -360,4 +371,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
     //--------------------------------------------------------------------------
     //</editor-fold>
+
+   
 }

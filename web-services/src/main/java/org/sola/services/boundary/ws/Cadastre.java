@@ -36,7 +36,11 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
-import org.sola.services.boundary.transferobjects.cadastre.*;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectNodeTO;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.services.boundary.transferobjects.cadastre.MapSheetTO;
+import org.sola.services.boundary.transferobjects.cadastre.PropertySummaryTO;
+import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -412,6 +416,26 @@ public class Cadastre extends AbstractWebService {
 
         return (List<MapSheetTO>) result[0];
     }
+    
+ 
+    @WebMethod(operationName = "getMapSheetListByOffice")
+    public List<MapSheetTO> getMapSheetListByOffice(@WebParam(name = "officeCode") final String officeCode,
+            @WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getMapSheetListByOffice(officeCode, languageCode), MapSheetTO.class);
+            }
+        });
+
+        return (List<MapSheetTO>) result[0];
+    }
 
     @WebMethod(operationName = "saveMapSheet")
     public MapSheetTO saveMapSheet(@WebParam(name = "mapSheetTO") final MapSheetTO mapSheetTO)
@@ -482,9 +506,9 @@ public class Cadastre extends AbstractWebService {
     }
 
     @WebMethod(operationName = "getCadastreObjectByVdcWardParcel")
-    public CadastreObjectTO getCadastreObjectByVdcWardParcel(@WebParam(name = "vdcCode") String vdcCode, 
-                @WebParam(name = "wardNo") String wardNo, 
-                @WebParam(name = "parcelNo") int parcelNo) throws SOLAFault, UnhandledFault {
+    public CadastreObjectTO getCadastreObjectByVdcWardParcel(@WebParam(name = "vdcCode") String vdcCode,
+            @WebParam(name = "wardNo") String wardNo,
+            @WebParam(name = "parcelNo") int parcelNo) throws SOLAFault, UnhandledFault {
         final String vdcCodeTmp = vdcCode;
         final String wardNoTmp = wardNo;
         final int parcelNoTmp = parcelNo;
