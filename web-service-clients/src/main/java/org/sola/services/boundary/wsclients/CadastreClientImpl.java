@@ -276,6 +276,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     public List<MapSheetTO> getMapSheets() {
         return getMapSheetList();
     }
+    
     @Override
     public List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode) {
         final String inputService = SERVICE_NAME + "getMapSheetList";
@@ -369,8 +370,17 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
+    
+    @Override
+    public List<CadastreObjectTO> getCadastreObjectListMem(List<String> mapSheetCode) {
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getCadastreObjectListMem(mapSheetCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     //--------------------------------------------------------------------------
     //</editor-fold>
-
-   
 }
