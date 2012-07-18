@@ -113,6 +113,8 @@ public interface CadastreClient extends AbstractWSClient {
     
     List<CadastreObjectTO> getPendingParcelsByParts(String searchString)
             throws WebServiceClientException;
+    
+    List<CadastreObjectTO> getCadastreObjectListMem(List<String> mapSheetCode);
     //--------------------------------------------------------------------------
     //  </editor-fold>
 }

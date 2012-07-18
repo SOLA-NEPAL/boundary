@@ -40,7 +40,6 @@ import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.services.boundary.transferobjects.cadastre.MapSheetTO;
 import org.sola.services.boundary.transferobjects.cadastre.PropertySummaryTO;
-import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -609,6 +608,21 @@ public class Cadastre extends AbstractWebService {
             }
         });
 
+        return (List<CadastreObjectTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getCadastreObjectListMem")
+    public List<CadastreObjectTO> GetCadastreObjectListMem(@WebParam(name = "mapSheetCode") List<String> mapSheetCode) throws SOLAFault, UnhandledFault {
+        final List<String> mapSheetCodeTmp = mapSheetCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getCadastreObjectListMem(mapSheetCodeTmp), CadastreObjectTO.class);
+            }
+        });
         return (List<CadastreObjectTO>) result[0];
     }
     //--------------------------------------------------------------------------
