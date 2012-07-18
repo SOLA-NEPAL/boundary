@@ -4,7 +4,6 @@
  */
 package org.sola.services.boundary.transferobjects.administrative;
 
-import java.util.List;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
@@ -16,19 +15,7 @@ public class LocTO extends AbstractIdTO {
     private String mothId;
     private int panaNo;
     private int tmpPanaNo;
-    private int propertyType;
-    private int oshpType;
-    private String transactionId;
-    private List<BaUnitTO> baUnits;
     private String officeCode;
-
-    public List<BaUnitTO> getBaUnits() {
-        return baUnits;
-    }
-
-    public void setBaUnits(List<BaUnitTO> baUnits) {
-        this.baUnits = baUnits;
-    }
 
     public String getMothId() {
         return mothId;
@@ -36,14 +23,6 @@ public class LocTO extends AbstractIdTO {
 
     public void setMothId(String mothId) {
         this.mothId = mothId;
-    }
-
-    public int getOshpType() {
-        return oshpType;
-    }
-
-    public void setOshpType(int oshpType) {
-        this.oshpType = oshpType;
     }
 
     public int getPanaNo() {
@@ -54,28 +33,12 @@ public class LocTO extends AbstractIdTO {
         this.panaNo = panaNo;
     }
 
-    public int getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(int propertyType) {
-        this.propertyType = propertyType;
-    }
-
     public int getTmpPanaNo() {
         return tmpPanaNo;
     }
 
     public void setTmpPanaNo(int tmpPanaNo) {
         this.tmpPanaNo = tmpPanaNo;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
     }
 
     public String getOfficeCode() {

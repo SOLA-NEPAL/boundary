@@ -45,16 +45,16 @@ public class RrrTO extends AbstractIdTO {
     private Date registrationDate;
     private String transactionId;
     private Date expirationDate;
-    private Double share;
     private BigDecimal mortgageAmount;
     private BigDecimal mortgageInterestRate;
     private Integer mortgageRanking;
     private String mortgageTypeCode;
     private boolean locked;
     private List<SourceTO> sourceList;
-    private List<RrrShareTO> rrrShareList;
     private BaUnitNotationTO notation;
     private List<PartySummaryTO> rightHolderList;
+    private String locId;
+    private LocTO loc;
     
     public RrrTO(){
         super();
@@ -142,13 +142,21 @@ public class RrrTO extends AbstractIdTO {
         }
         rightHolderList.add(partySummaryTO);
     }
-    
-    public Double getShare() {
-        return share;
+
+    public LocTO getLoc() {
+        return loc;
     }
 
-    public void setShare(Double share) {
-        this.share = share;
+    public void setLoc(LocTO loc) {
+        this.loc = loc;
+    }
+
+    public String getLocId() {
+        return locId;
+    }
+
+    public void setLocId(String locId) {
+        this.locId = locId;
     }
 
     public String getTransactionId() {
@@ -172,21 +180,6 @@ public class RrrTO extends AbstractIdTO {
             sourceList = new ArrayList<SourceTO>();
         }
         sourceList.add(source);
-    }
-    
-    public List<RrrShareTO> getRrrShareList() {
-        return rrrShareList;
-    }
-
-    public void setRrrShareList(List<RrrShareTO> rrrSharesList) {
-        this.rrrShareList = rrrSharesList;
-    }
-
-    public void addRrrShare(RrrShareTO rrrShareTO) {
-        if (rrrShareList == null) {
-            rrrShareList = new ArrayList<RrrShareTO>();
-        }
-        rrrShareList.add(rrrShareTO);
     }
     
     public String getStatusCode() {

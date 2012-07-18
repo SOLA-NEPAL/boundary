@@ -32,14 +32,12 @@ package org.sola.services.boundary.transferobjects.administrative;
 import java.util.ArrayList;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
-import org.sola.services.boundary.transferobjects.casemanagement.PartyTO;
 import org.sola.services.boundary.transferobjects.casemanagement.SourceTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 public class BaUnitTO extends AbstractIdTO {
 
     private String typeCode;
-    private String locId;
     private String name;
     private String nameFirstpart;
     private String nameLastpart;
@@ -47,26 +45,17 @@ public class BaUnitTO extends AbstractIdTO {
     private boolean locked;
     private List<RrrTO> rrrList;
     private List<BaUnitNotationTO> baUnitNotationList;
-    private List<CadastreObjectTO> cadastreObjectList;
+    private CadastreObjectTO cadastreObject;
     private List<SourceTO> sourceList;
     private List<RelatedBaUnitInfoTO> childBaUnits;
     private List<RelatedBaUnitInfoTO> parentBaUnits;
     private String pendingActionCode;
     private String officeCode;
-    private List<PartyTO> parties;
 
     public BaUnitTO() {
         super();
     }
 
-    public List<PartyTO> getParties() {
-        return parties;
-    }
-
-    public void setParties(List<PartyTO> parties) {
-        this.parties = parties;
-    }
-    
     public String getOfficeCode() {
         return officeCode;
     }
@@ -89,11 +78,12 @@ public class BaUnitTO extends AbstractIdTO {
         rrrList.add(rrr);
     }
 
-    public void addCadastreObjectList(CadastreObjectTO cadastreObject) {
-        if (cadastreObjectList == null) {
-            cadastreObjectList = new ArrayList<CadastreObjectTO>();
-        }
-        cadastreObjectList.add(cadastreObject);
+    public CadastreObjectTO getCadastreObject() {
+        return cadastreObject;
+    }
+
+    public void setCadastreObject(CadastreObjectTO cadastreObject) {
+        this.cadastreObject = cadastreObject;
     }
 
     public List<BaUnitNotationTO> getBaUnitNotationList() {
@@ -102,14 +92,6 @@ public class BaUnitTO extends AbstractIdTO {
 
     public void setBaUnitNotationList(List<BaUnitNotationTO> baUnitNotationList) {
         this.baUnitNotationList = baUnitNotationList;
-    }
-
-    public List<CadastreObjectTO> getCadastreObjectList() {
-        return cadastreObjectList;
-    }
-
-    public void setCadastreObjectList(List<CadastreObjectTO> cadastreObjectList) {
-        this.cadastreObjectList = cadastreObjectList;
     }
 
     public String getName() {
@@ -198,13 +180,5 @@ public class BaUnitTO extends AbstractIdTO {
 
     public void setPendingActionCode(String pendingActionCode) {
         this.pendingActionCode = pendingActionCode;
-    }
-
-    public String getLocId() {
-        return locId;
-    }
-
-    public void setLocId(String locId) {
-        this.locId = locId;
     }
 }

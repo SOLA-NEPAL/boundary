@@ -38,7 +38,6 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.administrative.BaUnitAsPartyTO;
-import org.sola.services.boundary.transferobjects.administrative.BaUnitContainsSpatialUnitTO;
 import org.sola.services.boundary.transferobjects.administrative.BaUnitTO;
 import org.sola.services.boundary.transferobjects.administrative.LocTO;
 import org.sola.services.boundary.transferobjects.administrative.MothTO;
@@ -411,36 +410,6 @@ public class Administrative extends AbstractWebService {
             }
         });
         return (List<LocTO>) result[0];
-    }
-    
- @WebMethod(operationName = "getBaUnitAsPartyList")
-    public List<BaUnitAsPartyTO> getBaUnitAsPartyList(@WebParam(name = "partyId") String partyId ) throws SOLAFault, UnhandledFault {
-        final String partyIdTmp = partyId;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(administrativeEJB.getBaUnitAsPartyList(partyIdTmp), BaUnitAsPartyTO.class);
-            }
-        });
-        return (List<BaUnitAsPartyTO>) result[0];
-    }
-   
- @WebMethod(operationName = "getBaUnitContainsSpatialUnitsList")
-    public List<BaUnitContainsSpatialUnitTO> getBaUnitContainsSpatialUnitsList(@WebParam(name = "spatiaUnitId") String spatiaUnitId ) throws SOLAFault, UnhandledFault {
-        final String spatiaUnitIdTmp = spatiaUnitId;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(administrativeEJB.getBaUnitContainsSpatialUnitsList(spatiaUnitIdTmp), BaUnitContainsSpatialUnitTO.class);
-            }
-        });
-        return (List<BaUnitContainsSpatialUnitTO>) result[0];
     }
     //***********************************************************************************************************
     //</editor-fold>

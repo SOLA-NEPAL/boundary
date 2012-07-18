@@ -34,7 +34,9 @@ import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.administrative.Administrative;
 import org.sola.webservices.administrative.AdministrativeService;
-import org.sola.webservices.transferobjects.administrative.*;
+import org.sola.webservices.transferobjects.administrative.BaUnitTO;
+import org.sola.webservices.transferobjects.administrative.LocTO;
+import org.sola.webservices.transferobjects.administrative.MothTO;
 
 public class AdministrativeClientImpl extends AbstractWSClientImpl
         implements AdministrativeClient {
@@ -250,28 +252,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             return null;
         }
     }
-    
- @Override
-    public List<BaUnitAsPartyTO> getBaUnitAsPartyList(String partyId) {
-       final String inputService = SERVICE_NAME + "getBaUnitAsPartyList";
-        try {
-            return getPort().getBaUnitAsPartyList(partyId);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
  
-  @Override
-    public List<BaUnitContainsSpatialUnitTO> getBaUnitContainsSpatialUnitsList(String spatiaUnitId) {
-        final String inputService = SERVICE_NAME + "getBaUnitContainsSpatialUnitsList";
-        try {
-            return getPort().getBaUnitContainsSpatialUnitsList(spatiaUnitId);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
     //*************************************************************************************************************
     //</editor-fold>
     
