@@ -54,7 +54,7 @@ public class RrrTO extends AbstractIdTO {
     private BaUnitNotationTO notation;
     private List<PartySummaryTO> rightHolderList;
     private String locId;
-    private LocTO loc;
+    private LocWithMothTO loc;
     
     public RrrTO(){
         super();
@@ -143,11 +143,11 @@ public class RrrTO extends AbstractIdTO {
         rightHolderList.add(partySummaryTO);
     }
 
-    public LocTO getLoc() {
+    public LocWithMothTO getLoc() {
         return loc;
     }
 
-    public void setLoc(LocTO loc) {
+    public void setLoc(LocWithMothTO loc) {
         this.loc = loc;
     }
 
