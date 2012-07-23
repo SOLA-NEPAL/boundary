@@ -50,6 +50,10 @@ public class RrrTO extends AbstractIdTO {
     private BigDecimal mortgageInterestRate;
     private Integer mortgageRanking;
     private String mortgageTypeCode;
+    private String locId;
+    private String restrictionOfficeCode;
+    private String restrictionReasonCode;
+    private Boolean isTerminating;
     private boolean locked;
     private List<SourceTO> sourceList;
     private List<RrrShareTO> rrrShareList;
@@ -110,6 +114,38 @@ public class RrrTO extends AbstractIdTO {
 
     public void setMortgageTypeCode(String mortgageTypeCode) {
         this.mortgageTypeCode = mortgageTypeCode;
+    }
+
+    public Boolean getIsTerminating() {
+        return isTerminating;
+    }
+
+    public void setIsTerminating(Boolean isTerminating) {
+        this.isTerminating = isTerminating;
+    }
+
+    public String getLocId() {
+        return locId;
+    }
+
+    public void setLocId(String locId) {
+        this.locId = locId;
+    }
+
+    public String getRestrictionOfficeCode() {
+        return restrictionOfficeCode;
+    }
+
+    public void setRestrictionOfficeCode(String restrictionOfficeCode) {
+        this.restrictionOfficeCode = restrictionOfficeCode;
+    }
+
+    public String getRestrictionReasonCode() {
+        return restrictionReasonCode;
+    }
+
+    public void setRestrictionReasonCode(String restrictionReasonCode) {
+        this.restrictionReasonCode = restrictionReasonCode;
     }
 
     public BaUnitNotationTO getNotation() {
