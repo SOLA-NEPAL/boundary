@@ -37,10 +37,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
-import org.sola.services.boundary.transferobjects.administrative.BaUnitAsPartyTO;
-import org.sola.services.boundary.transferobjects.administrative.BaUnitTO;
-import org.sola.services.boundary.transferobjects.administrative.LocTO;
-import org.sola.services.boundary.transferobjects.administrative.MothTO;
+import org.sola.services.boundary.transferobjects.administrative.*;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
@@ -353,6 +350,19 @@ public class Administrative extends AbstractWebService {
         });
         return (LocTO) result[0];
     }
+    
+    @WebMethod(operationName = "getLocWithMoth")
+    public LocWithMothTO getLocWithMoth(@WebParam(name = "id") final String id) throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(administrativeEJB.getLocWithMoth(id), LocWithMothTO.class);
+            }
+        });
+        return (LocWithMothTO) result[0];
+    }
 
     /**
      * save Loc
@@ -381,21 +391,21 @@ public class Administrative extends AbstractWebService {
         return (BaUnitTO) result[0];
     }
 
-    @WebMethod(operationName = "getLocByPageNoAndMothId")
-    public LocTO getLocByPageNoAndMothId(@WebParam(name = "panaNo") int panaNo,
-            @WebParam(name = "mothId") String mothId) throws SOLAFault, UnhandledFault {
-        final int panaNoTmp = panaNo;
-        final String mothIdTmp = mothId;
+    @WebMethod(operationName = "getLocByPageNoAndMoth")
+    public LocWithMothTO getLocByPageNoAndMothId(@WebParam(name = "searchParams") final LocSearchByMothParamsTO searchParams) 
+            throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTO(administrativeEJB.getLocByPageNoAndMothId(panaNoTmp, mothIdTmp), LocTO.class);
+                result[0] = GenericTranslator.toTO(administrativeEJB.getLocByPageNoAndMoth(
+                        GenericTranslator.fromTO(searchParams, LocSearchByMothParams.class, null)), 
+                        LocWithMothTO.class);
             }
         });
-        return (LocTO) result[0];
+        return (LocWithMothTO) result[0];
     }
      @WebMethod(operationName = "getLocList")
     public List<LocTO> getLocList(@WebParam(name = "mothId") String mothId ) throws SOLAFault, UnhandledFault {

@@ -142,25 +142,24 @@ public class Cadastre extends AbstractWebService {
         return (CadastreObjectTO) result[0];
     }
 
-    @WebMethod(operationName = "GetCadastreObjectsByBaUnit")
-    public List<CadastreObjectTO> GetCadastreObjectsByBaUnit(
-            @WebParam(name = "baUnitId") String baUnitId)
+    @WebMethod(operationName = "GetCadastreObjectByBaUnit")
+    public CadastreObjectTO GetCadastreObjectByBaUnit(
+            @WebParam(name = "baUnitId") final String baUnitId)
             throws SOLAFault, UnhandledFault {
 
-        final String baUnitIdTmp = baUnitId;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getCadastreObjectsByBaUnit(baUnitIdTmp),
+                result[0] = GenericTranslator.toTO(
+                        cadastreEJB.getCadastreObjectByBaUnit(baUnitId),
                         CadastreObjectTO.class);
             }
         });
 
-        return (List<CadastreObjectTO>) result[0];
+        return (CadastreObjectTO) result[0];
     }
 
     @WebMethod(operationName = "GetCadastreObjectsByService")

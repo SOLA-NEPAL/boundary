@@ -1,30 +1,30 @@
 /**
- * ******************************************************************************************
- * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO).
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *    1. Redistributions of source code must retain the above copyright notice,this list
- *       of conditions and the following disclaimer.
- *    2. Redistributions in binary form must reproduce the above copyright notice,this list
- *       of conditions and the following disclaimer in the documentation and/or other
- *       materials provided with the distribution.
- *    3. Neither the name of FAO nor the names of its contributors may be used to endorse or
- *       promote products derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
- * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT
- * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * *********************************************************************************************
- */
+* ******************************************************************************************
+* Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO).
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without modification,
+* are permitted provided that the following conditions are met:
+*
+* 1. Redistributions of source code must retain the above copyright notice,this list
+* of conditions and the following disclaimer.
+* 2. Redistributions in binary form must reproduce the above copyright notice,this list
+* of conditions and the following disclaimer in the documentation and/or other
+* materials provided with the distribution.
+* 3. Neither the name of FAO nor the names of its contributors may be used to endorse or
+* promote products derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+* SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT
+* OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+* EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+* *********************************************************************************************
+*/
 package org.sola.services.boundary.transferobjects.administrative;
 
 import java.math.BigDecimal;
@@ -49,16 +49,12 @@ public class RrrTO extends AbstractIdTO {
     private BigDecimal mortgageInterestRate;
     private Integer mortgageRanking;
     private String mortgageTypeCode;
-    private String locId;
-    private String restrictionOfficeCode;
-    private String restrictionReasonCode;
-    private Boolean isTerminating;
     private boolean locked;
     private List<SourceTO> sourceList;
     private BaUnitNotationTO notation;
     private List<PartySummaryTO> rightHolderList;
     private String locId;
-    private LocTO loc;
+    private LocWithMothTO loc;
     
     public RrrTO(){
         super();
@@ -116,38 +112,6 @@ public class RrrTO extends AbstractIdTO {
         this.mortgageTypeCode = mortgageTypeCode;
     }
 
-    public Boolean getIsTerminating() {
-        return isTerminating;
-    }
-
-    public void setIsTerminating(Boolean isTerminating) {
-        this.isTerminating = isTerminating;
-    }
-
-    public String getLocId() {
-        return locId;
-    }
-
-    public void setLocId(String locId) {
-        this.locId = locId;
-    }
-
-    public String getRestrictionOfficeCode() {
-        return restrictionOfficeCode;
-    }
-
-    public void setRestrictionOfficeCode(String restrictionOfficeCode) {
-        this.restrictionOfficeCode = restrictionOfficeCode;
-    }
-
-    public String getRestrictionReasonCode() {
-        return restrictionReasonCode;
-    }
-
-    public void setRestrictionReasonCode(String restrictionReasonCode) {
-        this.restrictionReasonCode = restrictionReasonCode;
-    }
-
     public BaUnitNotationTO getNotation() {
         return notation;
     }
@@ -179,11 +143,11 @@ public class RrrTO extends AbstractIdTO {
         rightHolderList.add(partySummaryTO);
     }
 
-    public LocTO getLoc() {
+    public LocWithMothTO getLoc() {
         return loc;
     }
 
-    public void setLoc(LocTO loc) {
+    public void setLoc(LocWithMothTO loc) {
         this.loc = loc;
     }
 

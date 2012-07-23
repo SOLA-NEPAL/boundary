@@ -1,33 +1,21 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package org.sola.services.boundary.transferobjects.administrative;
 
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
- *
- * @author KumarKhadka
- */
+*
+* @author KumarKhadka
+*/
 public class LocTO extends AbstractIdTO {
 
     private String mothId;
-    private int panaNo;
-    private int tmpPanaNo;
-    private int propertyType;
-    private int oshpType;
-    private List<BaUnitTO> baUnits;
+    private String panaNo;
+    private String tmpPanaNo;
     private String officeCode;
-    private String statusCode;
-
-    public String getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(String statusCode) {
-        this.statusCode = statusCode;
-    }
 
     public String getMothId() {
         return mothId;
@@ -37,19 +25,19 @@ public class LocTO extends AbstractIdTO {
         this.mothId = mothId;
     }
 
-    public int getPanaNo() {
+    public String getPanaNo() {
         return panaNo;
     }
 
-    public void setPanaNo(int panaNo) {
+    public void setPanaNo(String panaNo) {
         this.panaNo = panaNo;
     }
 
-    public int getTmpPanaNo() {
+    public String getTmpPanaNo() {
         return tmpPanaNo;
     }
 
-    public void setTmpPanaNo(int tmpPanaNo) {
+    public void setTmpPanaNo(String tmpPanaNo) {
         this.tmpPanaNo = tmpPanaNo;
     }
 
