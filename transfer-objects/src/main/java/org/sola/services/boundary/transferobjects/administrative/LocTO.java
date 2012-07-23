@@ -15,7 +15,19 @@ public class LocTO extends AbstractIdTO {
     private String mothId;
     private int panaNo;
     private int tmpPanaNo;
+    private int propertyType;
+    private int oshpType;
+    private List<BaUnitTO> baUnits;
     private String officeCode;
+    private String statusCode;
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
+    }
 
     public String getMothId() {
         return mothId;

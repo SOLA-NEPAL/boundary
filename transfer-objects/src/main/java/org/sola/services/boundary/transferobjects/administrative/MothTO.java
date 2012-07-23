@@ -18,10 +18,18 @@ public class MothTO extends AbstractIdTO {
     private String vdcCode;
     private String mothLuj;
     private String financialYear;
-    private String transactionId;
     private List<LocTO> locList;
     private VdcTO vdc;
     private String officeCode;
+    private String statusCode;
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
+    }
 
     public String getOfficeCode() {
         return officeCode;
@@ -37,14 +45,6 @@ public class MothTO extends AbstractIdTO {
 
     public void setFinancialYear(String financialYear) {
         this.financialYear = financialYear;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
     }
 
     public String getMothLuj() {

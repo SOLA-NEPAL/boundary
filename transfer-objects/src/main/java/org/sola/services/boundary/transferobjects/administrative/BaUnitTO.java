@@ -37,7 +37,7 @@ import org.sola.services.common.contracts.AbstractIdTO;
 
 public class BaUnitTO extends AbstractIdTO {
 
-    private String typeCode;
+    private String typeCode; 
     private String name;
     private String nameFirstpart;
     private String nameLastpart;
