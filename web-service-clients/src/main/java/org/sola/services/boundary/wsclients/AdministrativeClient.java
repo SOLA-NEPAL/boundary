@@ -30,10 +30,13 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
+import org.sola.webservices.transferobjects.administrative.LocSearchByMothParamsTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
+import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
+
 
 public interface AdministrativeClient extends AbstractWSClient {
 
@@ -67,8 +70,10 @@ public interface AdministrativeClient extends AbstractWSClient {
     LocTO saveLoc(LocTO loc);
 
     LocTO getLoc(String id);
+    
+    LocWithMothTO getLocWithMoth(String id);
 
-    LocTO getLocByPageNoAndMothId(int panaNo, String mothId);
+    LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
 
     BaUnitTO saveBaUnitTest(BaUnitTO baUnitTO);
     

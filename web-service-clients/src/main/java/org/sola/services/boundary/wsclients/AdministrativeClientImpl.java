@@ -31,12 +31,15 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import javax.xml.namespace.QName;
+import org.sola.webservices.transferobjects.administrative.LocSearchByMothParamsTO;
+import org.sola.webservices.transferobjects.administrative.MothTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.administrative.Administrative;
 import org.sola.webservices.administrative.AdministrativeService;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
-import org.sola.webservices.transferobjects.administrative.MothTO;
+import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
+
 
 public class AdministrativeClientImpl extends AbstractWSClientImpl
         implements AdministrativeClient {
@@ -221,10 +224,11 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
     }
 
     @Override
-    public LocTO getLocByPageNoAndMothId(int panaNo, String mothId) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getLocByPageNoAndMothId";
+    public LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams) 
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getLocByPageNoAndMoth";
         try {
-            return getPort().getLocByPageNoAndMothId(panaNo, mothId);
+            return getPort().getLocByPageNoAndMoth(searchParams);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -255,5 +259,17 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
  
     //*************************************************************************************************************
     //</editor-fold>
+
+    @Override
+    public LocWithMothTO getLocWithMoth(String id) {
+        final String inputService = SERVICE_NAME + "getLocWithMoth";
+        try {
+            LocWithMothTO result = getPort().getLocWithMoth(id);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     
 }

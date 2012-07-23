@@ -101,11 +101,11 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
 
     @Override
-    public List<CadastreObjectTO> getCadastreObjectsByBaUnit(String baUnitId)
+    public CadastreObjectTO getCadastreObjectByBaUnit(String baUnitId)
             throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getCadastreObjectsByBaUnit";
+        final String inputService = SERVICE_NAME + "getCadastreObjectByBaUnit";
         try {
-            return getPort().getCadastreObjectsByBaUnit(baUnitId);
+            return getPort().getCadastreObjectByBaUnit(baUnitId);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

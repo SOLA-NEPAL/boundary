@@ -13,8 +13,8 @@ import org.sola.services.common.contracts.AbstractIdTO;
 public class LocTO extends AbstractIdTO {
 
     private String mothId;
-    private int panaNo;
-    private int tmpPanaNo;
+    private String panaNo;
+    private String tmpPanaNo;
     private String officeCode;
 
     public String getMothId() {
@@ -25,19 +25,19 @@ public class LocTO extends AbstractIdTO {
         this.mothId = mothId;
     }
 
-    public int getPanaNo() {
+    public String getPanaNo() {
         return panaNo;
     }
 
-    public void setPanaNo(int panaNo) {
+    public void setPanaNo(String panaNo) {
         this.panaNo = panaNo;
     }
 
-    public int getTmpPanaNo() {
+    public String getTmpPanaNo() {
         return tmpPanaNo;
     }
 
-    public void setTmpPanaNo(int tmpPanaNo) {
+    public void setTmpPanaNo(String tmpPanaNo) {
         this.tmpPanaNo = tmpPanaNo;
     }
 

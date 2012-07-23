@@ -13,7 +13,6 @@ public class MothBasicTO extends AbstractIdTO {
     private String vdcCode;
     private String mothLuj;
     private String financialYear;
-    private String transactionId;
     private VdcTO vdc;
     private String officeCode;
 
@@ -31,14 +30,6 @@ public class MothBasicTO extends AbstractIdTO {
 
     public void setFinancialYear(String financialYear) {
         this.financialYear = financialYear;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
     }
 
     public String getMothLuj() {

@@ -56,7 +56,7 @@ public interface CadastreClient extends AbstractWSClient {
     CadastreObjectTO getCadastreObjectByPoint(double x, double y, int srid)
             throws WebServiceClientException;
 
-    List<CadastreObjectTO> getCadastreObjectsByBaUnit(String baUnitId);
+    CadastreObjectTO getCadastreObjectByBaUnit(String baUnitId);
 
     List<CadastreObjectTO> getCadastreObjectsByService(String serviceId);
 
