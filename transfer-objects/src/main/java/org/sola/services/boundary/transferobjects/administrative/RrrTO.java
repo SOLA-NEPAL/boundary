@@ -55,6 +55,7 @@ public class RrrTO extends AbstractIdTO {
     private List<PartySummaryTO> rightHolderList;
     private String locId;
     private LocWithMothTO loc;
+    private String officeCode;
     
     public RrrTO(){
         super();
@@ -64,6 +65,10 @@ public class RrrTO extends AbstractIdTO {
         return baUnitId;
     }
 
+    public void setBaUnitId(String baUnitId) {
+        this.baUnitId = baUnitId;
+    }
+    
     public Date getRegistrationDate() {
         return registrationDate;
     }
@@ -214,4 +219,11 @@ public class RrrTO extends AbstractIdTO {
         this.locked = locked;
     }
 
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
 }

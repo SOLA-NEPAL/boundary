@@ -36,13 +36,12 @@ import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
+import org.sola.webservices.transferobjects.administrative.RrrLocTO;
 
 
 public interface AdministrativeClient extends AbstractWSClient {
 
     boolean CheckConnection();
-
-    BaUnitTO CreateBaUnit(String serviceId, BaUnitTO baUnitTO) throws WebServiceClientException;
 
     BaUnitTO SaveBaUnit(String serviceId, BaUnitTO baUnitTO) throws WebServiceClientException;
 
@@ -56,6 +55,8 @@ public interface AdministrativeClient extends AbstractWSClient {
     BaUnitTO cancelBaUnitTermination(String baUnitId) throws WebServiceClientException;
 
     BaUnitTO terminateBaUnit(String baUnitId, String serviceId) throws WebServiceClientException;
+    
+    List<RrrLocTO> getRrrLocs(String locId) throws WebServiceClientException;
 
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //*****************************************************************************************************************
@@ -75,8 +76,6 @@ public interface AdministrativeClient extends AbstractWSClient {
 
     LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
 
-    BaUnitTO saveBaUnitTest(BaUnitTO baUnitTO);
-    
     List<LocTO> getLocList(String mothId);
     //*****************************************************************************************************************
     //</editor-fold>

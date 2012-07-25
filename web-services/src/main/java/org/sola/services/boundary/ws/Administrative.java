@@ -75,31 +75,6 @@ public class Administrative extends AbstractWebService {
         return true;
     }
 
-    @WebMethod(operationName = "CreateBaUnit")
-    public BaUnitTO CreateBaUnit(
-            @WebParam(name = "serviceId") String serviceId,
-            @WebParam(name = "baUnitTO") BaUnitTO baUnitTO)
-            throws SOLAFault, UnhandledFault {
-
-        final String serviceIdTmp = serviceId;
-        final BaUnitTO baUnitTOTmp = baUnitTO;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                BaUnit newBaUnit = administrativeEJB.createBaUnit(
-                        serviceIdTmp,
-                        GenericTranslator.fromTO(baUnitTOTmp, BaUnit.class,
-                        administrativeEJB.getBaUnitById(baUnitTOTmp.getId())));
-                result[0] = GenericTranslator.toTO(newBaUnit, BaUnitTO.class);
-            }
-        });
-
-        return (BaUnitTO) result[0];
-    }
-
     @WebMethod(operationName = "SaveBaUnit")
     public BaUnitTO SaveBaUnit(
             @WebParam(name = "serviceId") String serviceId,
@@ -115,10 +90,10 @@ public class Administrative extends AbstractWebService {
             @Override
             public void run() {
                 if (baUnitTOTmp != null) {
+                    BaUnit currentBaUnit = administrativeEJB.getBaUnitById(baUnitTOTmp.getId());
                     BaUnit newBaUnit = administrativeEJB.saveBaUnit(
                             serviceIdTmp,
-                            GenericTranslator.fromTO(baUnitTOTmp, BaUnit.class,
-                            administrativeEJB.getBaUnitById(baUnitTOTmp.getId())));
+                            GenericTranslator.fromTO(baUnitTOTmp, BaUnit.class, currentBaUnit));
                     result[0] = GenericTranslator.toTO(newBaUnit, BaUnitTO.class);
                 }
             }
@@ -350,7 +325,20 @@ public class Administrative extends AbstractWebService {
         });
         return (LocTO) result[0];
     }
-    
+
+    @WebMethod(operationName = "getRrrLocs")
+    public List<RrrLocTO> getRrrLocs(@WebParam(name = "locId") final String locId) throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getRrrLocsById(locId), RrrLocTO.class);
+            }
+        });
+        return (List<RrrLocTO>) result[0];
+    }
+
     @WebMethod(operationName = "getLocWithMoth")
     public LocWithMothTO getLocWithMoth(@WebParam(name = "id") final String id) throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
@@ -364,35 +352,8 @@ public class Administrative extends AbstractWebService {
         return (LocWithMothTO) result[0];
     }
 
-    /**
-     * save Loc
-     */
-    @WebMethod(operationName = "saveBaUnitTest")
-    public BaUnitTO saveBaUnitTest(@WebParam(name = "baUnitTO") final BaUnitTO baUnitTO)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
-
-        final Object[] result = {null};
-        final Object[] params = {baUnitTO};
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                BaUnitTO buTo = (BaUnitTO) params[0];
-                if (buTo != null) {
-                    //Moth mothEntity = partyEJB.getMoths(mthTo.getVdcSid(), mthTo.getMothLuj());
-                    BaUnit baUnitEntity = administrativeEJB.getBaUnitById(buTo.getId());
-                    buTo = GenericTranslator.toTO(
-                            administrativeEJB.saveBaUnit(
-                            GenericTranslator.fromTO(buTo, BaUnit.class, baUnitEntity)), BaUnitTO.class);
-                    result[0] = buTo;
-                }
-            }
-        });
-        return (BaUnitTO) result[0];
-    }
-
     @WebMethod(operationName = "getLocByPageNoAndMoth")
-    public LocWithMothTO getLocByPageNoAndMothId(@WebParam(name = "searchParams") final LocSearchByMothParamsTO searchParams) 
+    public LocWithMothTO getLocByPageNoAndMothId(@WebParam(name = "searchParams") final LocSearchByMothParamsTO searchParams)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
 
@@ -401,14 +362,15 @@ public class Administrative extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getLocByPageNoAndMoth(
-                        GenericTranslator.fromTO(searchParams, LocSearchByMothParams.class, null)), 
+                        GenericTranslator.fromTO(searchParams, LocSearchByMothParams.class, null)),
                         LocWithMothTO.class);
             }
         });
         return (LocWithMothTO) result[0];
     }
-     @WebMethod(operationName = "getLocList")
-    public List<LocTO> getLocList(@WebParam(name = "mothId") String mothId ) throws SOLAFault, UnhandledFault {
+
+    @WebMethod(operationName = "getLocList")
+    public List<LocTO> getLocList(@WebParam(name = "mothId") String mothId) throws SOLAFault, UnhandledFault {
         final String mothIdTmp = mothId;
         final Object[] result = {null};
 

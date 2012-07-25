@@ -39,6 +39,7 @@ import org.sola.webservices.administrative.AdministrativeService;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
+import org.sola.webservices.transferobjects.administrative.RrrLocTO;
 
 
 public class AdministrativeClientImpl extends AbstractWSClientImpl
@@ -54,19 +55,6 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
 
     private Administrative getPort() {
         return getPort(Administrative.class, AdministrativeService.class);
-    }
-
-    @Override
-    public BaUnitTO CreateBaUnit(
-            String serviceId, BaUnitTO baUnitTO) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "createBaUnit";
-        try {
-            BaUnitTO result = getPort().createBaUnit(serviceId, baUnitTO);
-            return result;
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
     }
 
     @Override
@@ -235,17 +223,6 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         }
     }
 
-       
-    @Override
-    public BaUnitTO saveBaUnitTest(BaUnitTO baUnitTO) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "saveBaUnitTest";
-        try {
-            return getPort().saveBaUnitTest(baUnitTO);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
     @Override
     public List<LocTO> getLocList(String mothId) {
        final String inputService = SERVICE_NAME + "getLocList";
@@ -271,5 +248,15 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             return null;
         }
     }
-    
+
+    @Override
+    public List<RrrLocTO> getRrrLocs(String locId) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getRrrLocs";
+        try {
+            return getPort().getRrrLocs(locId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }   
 }
