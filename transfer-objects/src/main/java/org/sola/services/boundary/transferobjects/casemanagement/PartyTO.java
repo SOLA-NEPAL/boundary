@@ -30,7 +30,7 @@ package org.sola.services.boundary.transferobjects.casemanagement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.sola.services.boundary.transferobjects.digitalarchive.DocumentTO;
+import org.sola.services.boundary.transferobjects.digitalarchive.DocumentBinaryTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 public class PartyTO extends AbstractIdTO {
@@ -61,42 +61,42 @@ public class PartyTO extends AbstractIdTO {
     private String issuingOfficeCode;
     private Date idIssueDate;
     //variable for image fields.
-    private DocumentTO photoDoc;
-    private DocumentTO leftFingerDoc;
-    private DocumentTO rightFingerDoc;
-    private DocumentTO signatureDoc;
+    private DocumentBinaryTO photoDoc;
+    private DocumentBinaryTO leftFingerDoc;
+    private DocumentBinaryTO rightFingerDoc;
+    private DocumentBinaryTO signatureDoc;
     
     private String officeCode;
 
-    public DocumentTO getLeftFingerDoc() {
+    public DocumentBinaryTO getLeftFingerDoc() {
         return leftFingerDoc;
     }
 
-    public void setLeftFingerDoc(DocumentTO leftFingerDoc) {
+    public void setLeftFingerDoc(DocumentBinaryTO leftFingerDoc) {
         this.leftFingerDoc = leftFingerDoc;
     }
 
-    public DocumentTO getPhotoDoc() {
+    public DocumentBinaryTO getPhotoDoc() {
         return photoDoc;
     }
 
-    public void setPhotoDoc(DocumentTO photoDoc) {
+    public void setPhotoDoc(DocumentBinaryTO photoDoc) {
         this.photoDoc = photoDoc;
     }
 
-    public DocumentTO getRightFingerDoc() {
+    public DocumentBinaryTO getRightFingerDoc() {
         return rightFingerDoc;
     }
 
-    public void setRightFingerDoc(DocumentTO rightFingerDoc) {
+    public void setRightFingerDoc(DocumentBinaryTO rightFingerDoc) {
         this.rightFingerDoc = rightFingerDoc;
     }
 
-    public DocumentTO getSignatureDoc() {
+    public DocumentBinaryTO getSignatureDoc() {
         return signatureDoc;
     }
 
-    public void setSignatureDoc(DocumentTO signatureDoc) {
+    public void setSignatureDoc(DocumentBinaryTO signatureDoc) {
         this.signatureDoc = signatureDoc;
     }
 

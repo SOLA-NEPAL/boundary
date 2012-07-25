@@ -28,8 +28,17 @@
 package org.sola.services.boundary.transferobjects.digitalarchive;
 
 public class DocumentBinaryTO extends DocumentTO {
+    private byte[] body;
     
     public DocumentBinaryTO(){
         super();
+    }
+
+    public byte[] getBody() {
+        return body;
+    }
+
+    public void setBody(byte[] body) {
+        this.body = body;
     }
 }
