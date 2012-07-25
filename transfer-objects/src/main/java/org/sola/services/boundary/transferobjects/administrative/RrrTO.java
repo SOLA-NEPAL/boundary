@@ -56,6 +56,7 @@ public class RrrTO extends AbstractIdTO {
     private String locId;
     private LocWithMothTO loc;
     private String officeCode;
+    private boolean terminating;
     
     public RrrTO(){
         super();
@@ -225,5 +226,13 @@ public class RrrTO extends AbstractIdTO {
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
+    }
+
+    public boolean isTerminating() {
+        return terminating;
+    }
+
+    public void setTerminating(boolean terminating) {
+        this.terminating = terminating;
     }
 }
