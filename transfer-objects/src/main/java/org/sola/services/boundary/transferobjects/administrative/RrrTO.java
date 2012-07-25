@@ -55,9 +55,27 @@ public class RrrTO extends AbstractIdTO {
     private List<PartySummaryTO> rightHolderList;
     private String locId;
     private LocWithMothTO loc;
+    private String restrictionReasonCode;
+    private String restictionOfficeCode;
     
     public RrrTO(){
         super();
+    }
+
+    public String getRestictionOfficeCode() {
+        return restictionOfficeCode;
+    }
+
+    public void setRestictionOfficeCode(String restictionOfficeCode) {
+        this.restictionOfficeCode = restictionOfficeCode;
+    }
+
+    public String getRestrictionReasonCode() {
+        return restrictionReasonCode;
+    }
+
+    public void setRestrictionReasonCode(String restrictionReasonCode) {
+        this.restrictionReasonCode = restrictionReasonCode;
     }
 
     public String getBaUnitId() {
