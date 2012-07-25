@@ -55,20 +55,34 @@ public class RrrTO extends AbstractIdTO {
     private List<PartySummaryTO> rightHolderList;
     private String locId;
     private LocWithMothTO loc;
+    private String restrictionReasonCode;
+    private String restictionOfficeCode;
     private String officeCode;
     
     public RrrTO(){
         super();
     }
 
+    public String getRestictionOfficeCode() {
+        return restictionOfficeCode;
+    }
+
+    public void setRestictionOfficeCode(String restictionOfficeCode) {
+        this.restictionOfficeCode = restictionOfficeCode;
+    }
+
+    public String getRestrictionReasonCode() {
+        return restrictionReasonCode;
+    }
+
+    public void setRestrictionReasonCode(String restrictionReasonCode) {
+        this.restrictionReasonCode = restrictionReasonCode;
+    }
+
     public String getBaUnitId() {
         return baUnitId;
     }
 
-    public void setBaUnitId(String baUnitId) {
-        this.baUnitId = baUnitId;
-    }
-    
     public Date getRegistrationDate() {
         return registrationDate;
     }
@@ -226,4 +240,6 @@ public class RrrTO extends AbstractIdTO {
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
     }
+    
+
 }
