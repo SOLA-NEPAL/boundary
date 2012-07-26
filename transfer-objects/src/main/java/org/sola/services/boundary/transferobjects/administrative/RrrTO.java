@@ -60,8 +60,9 @@ public class RrrTO extends AbstractIdTO {
     private String restrictionReasonCode;
     private String restictionOfficeCode;
     private String officeCode;
-
-    public RrrTO() {
+    private boolean terminating;
+    
+    public RrrTO(){
         super();
     }
 
@@ -241,5 +242,13 @@ public class RrrTO extends AbstractIdTO {
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
+    }
+
+    public boolean isTerminating() {
+        return terminating;
+    }
+
+    public void setTerminating(boolean terminating) {
+        this.terminating = terminating;
     }
 }
