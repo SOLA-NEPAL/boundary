@@ -11,6 +11,7 @@ public class RrrLocTO extends AbstractTO {
     private String typeCode;
     private Date registrationDate;
     private String statusCode;
+    private String notationText;
     
     private List<SourceTO> sourceList;
     private List<PartySummaryTO> rightHolderList;
@@ -65,5 +66,13 @@ public class RrrLocTO extends AbstractTO {
 
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
+    }
+
+    public String getNotationText() {
+        return notationText;
+    }
+
+    public void setNotationText(String notationText) {
+        this.notationText = notationText;
     }
 }
