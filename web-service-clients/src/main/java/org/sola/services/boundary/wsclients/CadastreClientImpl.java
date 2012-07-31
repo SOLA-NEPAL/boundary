@@ -40,6 +40,7 @@ import org.sola.webservices.cadastre.CadastreService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.webservices.transferobjects.cadastre.ConstructionObjectTO;
 import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
@@ -85,7 +86,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             handleExceptionsMethod(inputService, e);
             return null;
         }
-
     }
     
     @Override
@@ -270,6 +270,17 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
+     
+    @Override
+    public List<MapSheetTO> getMapSheetListByOffice() {
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getMapSheetListByDefaultOffice(this.getLanguageCode());
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     
     
     @Override
@@ -381,6 +392,86 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
+    
+    @Override
+    public List<ConstructionObjectTO> getConstructionObjectListMem(List<String> mapSheetCode) {
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getConstructionObjectListMem(mapSheetCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<CadastreObjectTO> getCadastreObjectByExactParts(String firstpart,String lastpart)
+            throws WebServiceClientException{
+        final String inputService = SERVICE_NAME + "GetCadastreObjectByParts";
+        try {
+            List<CadastreObjectTO> result = getPort().getCadastreObjectByExactParts(
+                    firstpart,lastpart);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<MapSheetTO> loadWardMapSheet(int mapSheetType, String vdccode, String wardno) {
+        final String inputService = SERVICE_NAME + "loadWardMapSheet";
+        try {
+            return getPort().loadWardMapSheet(mapSheetType,vdccode,wardno);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<MapSheetTO> loadVDCMapSheet(int mapSheetType, String vdccode) {
+        final String inputService = SERVICE_NAME + "loadVDCMapSheet";
+        try {
+            return getPort().loadVdcMapSheet(mapSheetType,vdccode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<String> getWardlist(String vdccode) {
+        final String inputService = SERVICE_NAME + "getWardlist";
+        try {
+            return getPort().getWardList(vdccode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     //--------------------------------------------------------------------------
     //</editor-fold>
+
+    @Override
+    public List<MapSheetTO> getMapSheetListByOffice(String officeCode) {
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getMapSheetListByOffice(officeCode,this.getLanguageCode());
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<MapSheetTO> getMapSheetListByDefaultOffice() {
+        final String inputService = SERVICE_NAME + "getMapSheetList";
+        try {
+            return getPort().getMapSheetListByDefaultOffice(this.getLanguageCode());
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

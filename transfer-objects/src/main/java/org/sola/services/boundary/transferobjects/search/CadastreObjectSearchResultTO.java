@@ -42,6 +42,16 @@ public class CadastreObjectSearchResultTO extends AbstractIdTO {
     private String label;
     private byte[] theGeom;
     private String officeCode;
+//    private MapSheetTO mapSheet;
+//
+//    public MapSheetTO getMapSheet() {
+//        return mapSheet;
+//    }
+//
+//    public void setMapSheet(MapSheetTO mapSheet) {
+//        this.mapSheet = mapSheet;
+//    }
+    
     
     public String getLabel() {
         return label;
