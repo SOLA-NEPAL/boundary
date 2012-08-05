@@ -36,6 +36,7 @@ public class BaUnitNotationTO extends AbstractIdTO {
     private String notationText;
     private String statusCode;
     private String referenceNr;
+    private String rrrId;
     private boolean locked;
 
     
@@ -90,5 +91,12 @@ public class BaUnitNotationTO extends AbstractIdTO {
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
-    
+
+    public String getRrrId() {
+        return rrrId;
+    }
+
+    public void setRrrId(String rrrId) {
+        this.rrrId = rrrId;
+    }
 }

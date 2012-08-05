@@ -37,8 +37,8 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
 import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.webservices.transferobjects.cadastre.ConstructionObjectTO;
 import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
-import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -87,6 +87,12 @@ public interface CadastreClient extends AbstractWSClient {
     List<MapSheetTO> getMapSheetList();
 
     List<MapSheetTO> getMapSheetListByOffice(String officeCode, String lang);
+    
+    List<MapSheetTO> getMapSheetListByOffice(String officeCode);
+    
+    List<MapSheetTO> getMapSheetListByDefaultOffice();
+    
+    List<MapSheetTO> getMapSheetListByOffice();
 
     List<MapSheetTO> getMapSheets();
 
@@ -115,6 +121,17 @@ public interface CadastreClient extends AbstractWSClient {
             throws WebServiceClientException;
     
     List<CadastreObjectTO> getCadastreObjectListMem(List<String> mapSheetCode);
+    
+    List<ConstructionObjectTO> getConstructionObjectListMem(List<String> mapSheetCode);
+    
+    List<CadastreObjectTO> getCadastreObjectByExactParts(String firstpart,String lastpart)
+            throws WebServiceClientException;
+    
+    List<MapSheetTO> loadWardMapSheet(int mapSheetType,String vdccode,String wardno);
+    
+    List<MapSheetTO> loadVDCMapSheet(int mapSheetType,String vdccode);
+    
+    List<String> getWardlist(String vdccode);
     //--------------------------------------------------------------------------
     //  </editor-fold>
 }

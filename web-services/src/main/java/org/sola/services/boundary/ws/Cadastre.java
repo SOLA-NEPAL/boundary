@@ -29,6 +29,8 @@
  */
 package org.sola.services.boundary.ws;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -36,10 +38,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
-import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectNodeTO;
-import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
-import org.sola.services.boundary.transferobjects.cadastre.MapSheetTO;
-import org.sola.services.boundary.transferobjects.cadastre.PropertySummaryTO;
+import org.sola.services.boundary.transferobjects.cadastre.*;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -434,6 +433,25 @@ public class Cadastre extends AbstractWebService {
 
         return (List<MapSheetTO>) result[0];
     }
+    
+    @WebMethod(operationName = "getMapSheetListByDefaultOffice")
+    public List<MapSheetTO> getMapSheetListByDefaultOffice(
+            @WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getMapSheetListByOffice(languageCode), MapSheetTO.class);
+            }
+        });
+
+        return (List<MapSheetTO>) result[0];
+    }
 
     @WebMethod(operationName = "saveMapSheet")
     public MapSheetTO saveMapSheet(@WebParam(name = "mapSheetTO") final MapSheetTO mapSheetTO)
@@ -623,6 +641,103 @@ public class Cadastre extends AbstractWebService {
             }
         });
         return (List<CadastreObjectTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getConstructionObjectListMem")
+    public List<ConstructionObjectTO> getConstructionObjectListMem(@WebParam(name = "mapSheetCode") List<String> mapSheetCode) throws SOLAFault, UnhandledFault {
+        final List<String> mapSheetCodeTmp = mapSheetCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getConstructionObjectListMem(mapSheetCodeTmp), ConstructionObjectTO.class);
+            }
+        });
+        return (List<ConstructionObjectTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "GetCadastreObjectByExactParts")
+    public List<CadastreObjectTO> GetCadastreObjectByExactParts(
+            @WebParam(name = "firstpart") String firstpart,
+            @WebParam(name = "lastpart") String lastpart)
+            throws SOLAFault, UnhandledFault {
+
+        final String tmpfirstpart = firstpart;
+        final String tmplastpart = lastpart;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getCadastreObjectByExactParts(tmpfirstpart,tmplastpart),
+                        CadastreObjectTO.class);
+            }
+        });
+
+        return (List<CadastreObjectTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "loadWardMapSheet")
+    public List<MapSheetTO> loadWardMapSheet(@WebParam(name = "mapSheetType") int mapSheetType,
+                @WebParam(name = "vdccode") String vdccode,
+                @WebParam(name = "wardno") String wardno) throws SOLAFault, UnhandledFault {
+        final int mapSheetTypeTmp = mapSheetType;
+        final String tmpVdccode=vdccode;
+        final String tmpWardno=wardno;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.loadWardMapSheet(
+                        mapSheetTypeTmp, tmpVdccode, tmpWardno), MapSheetTO.class);
+            }
+        });
+        return (List<MapSheetTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "loadVdcMapSheet")
+    public List<MapSheetTO> loadVdcMapSheet(@WebParam(name = "mapSheetType") int mapSheetType,
+                @WebParam(name = "vdccode") String vdccode) throws SOLAFault, UnhandledFault {
+        final int mapSheetTypeTmp = mapSheetType;
+        final String tmpVdccode=vdccode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.loadVDCMapSheet(
+                        mapSheetTypeTmp, tmpVdccode), MapSheetTO.class);
+            }
+        });
+        return (List<MapSheetTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getWardList")
+    public List<String> getWardList(@WebParam(name = "vdccode") String vdccode)  
+        throws SOLAFault, UnhandledFault {
+        final String tmpVdccode=vdccode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                List<HashMap> wardHash = cadastreEJB.getWardList(tmpVdccode);
+                List<String> wards=new ArrayList<String>();
+                for (HashMap ward:wardHash){
+                    wards.add(ward.values().toArray()[0].toString());
+                }
+                result[0]=wards;
+            }
+        });
+        return (List<String>) result[0];
     }
     //--------------------------------------------------------------------------
     // </editor-fold>
