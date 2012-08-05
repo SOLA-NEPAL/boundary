@@ -1,28 +1,30 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO).
- * All rights reserved.
+ * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations
+ * (FAO). All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *    1. Redistributions of source code must retain the above copyright notice,this list
- *       of conditions and the following disclaimer.
- *    2. Redistributions in binary form must reproduce the above copyright notice,this list
- *       of conditions and the following disclaimer in the documentation and/or other
- *       materials provided with the distribution.
- *    3. Neither the name of FAO nor the names of its contributors may be used to endorse or
- *       promote products derived from this software without specific prior written permission.
+ * 1. Redistributions of source code must retain the above copyright notice,this
+ * list of conditions and the following disclaimer. 2. Redistributions in binary
+ * form must reproduce the above copyright notice,this list of conditions and
+ * the following disclaimer in the documentation and/or other materials provided
+ * with the distribution. 3. Neither the name of FAO nor the names of its
+ * contributors may be used to endorse or promote products derived from this
+ * software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
- * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT
- * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT,STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
 package org.sola.services.boundary.wsclients.mock;
@@ -35,13 +37,15 @@ import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
- * Provides a mock implementation for the 
- * {@linkplain org.sola.services.boundary.wsclients.ReferenceDataClient} interface. Uses the 
- * {@linkplain MockServiceManager} to obtain the appropriate mock response for each web method. 
- * <p>Each method mocked by this class has a public constant defined that can be used to reference 
- * a mock response object from the {@linkplain MockServiceManager}. To set a response object
- * for a web method, use the {@linkplain MockServiceManager#setResponse(String, Object)} method
- * referencing the appropriate web method constant from this class.</p>
+ * Provides a mock implementation for the
+ * {@linkplain org.sola.services.boundary.wsclients.ReferenceDataClient}
+ * interface. Uses the
+ * {@linkplain MockServiceManager} to obtain the appropriate mock response for
+ * each web method. <p>Each method mocked by this class has a public constant
+ * defined that can be used to reference a mock response object from the {@linkplain MockServiceManager}.
+ * To set a response object for a web method, use the {@linkplain MockServiceManager#setResponse(String, Object)}
+ * method referencing the appropriate web method constant from this class.</p>
+ *
  * @author amcdowell
  * @see MockResponse
  */
@@ -53,87 +57,101 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public static final String GET_GENDER_TYPES = SERVICE_NAME + "getGenderTypes";
     public static final String GET_REQUEST_TYPES = SERVICE_NAME + "getRequestTypes";
     public static final String GET_SOURCE_TYPES = SERVICE_NAME + "getSourceTypes";
-    public static final String GET_APPLICATION_STATUS_TYPES = SERVICE_NAME 
+    public static final String GET_APPLICATION_STATUS_TYPES = SERVICE_NAME
             + "getApplicationStatusTypes";
-    public static final String GET_APPLICATION_ACTION_TYPES = SERVICE_NAME 
+    public static final String GET_APPLICATION_ACTION_TYPES = SERVICE_NAME
             + "getApplicationActionTypes";
     public static final String GET_REQUEST_TYPE_SOURCE_TYPES =
             SERVICE_NAME + "getRequestTypeSourceTypes";
-    public static final String GET_SERVICE_STATUS_TYPES = SERVICE_NAME 
+    public static final String GET_SERVICE_STATUS_TYPES = SERVICE_NAME
             + "getServiceStatusTypes";
-    public static final String GET_SERVICE_ACTION_TYPES = SERVICE_NAME 
+    public static final String GET_SERVICE_ACTION_TYPES = SERVICE_NAME
             + "getServiceActionTypes";
-    public static final String GET_PARTY_TYPES = SERVICE_NAME 
+    public static final String GET_PARTY_TYPES = SERVICE_NAME
             + "getPartyTypes";
-    public static final String GET_PARTY_ROLES = SERVICE_NAME 
+    public static final String GET_PARTY_ROLES = SERVICE_NAME
             + "getPartyRoles";
-    public static final String GET_ID_TYPES = SERVICE_NAME 
+    public static final String GET_ID_TYPES = SERVICE_NAME
             + "getIdTypes";
-    public static final String GET_BA_UNIT_TYPES = SERVICE_NAME 
+    public static final String GET_BA_UNIT_TYPES = SERVICE_NAME
             + "getBaUnitTypes";
-    public static final String GET_CHANGE_STATUS_TYPES = SERVICE_NAME 
+    public static final String GET_CHANGE_STATUS_TYPES = SERVICE_NAME
             + "getChangeStatusTypes";
-    public static final String GET_MORTGAGE_TYPES = SERVICE_NAME 
+    public static final String GET_MORTGAGE_TYPES = SERVICE_NAME
             + "getMortgageTypes";
-    public static final String GET_RRR_GROUP_TYPES = SERVICE_NAME 
+    public static final String GET_RRR_GROUP_TYPES = SERVICE_NAME
             + "getRRRGroupTypes";
-    public static final String GET_RRR_TYPES = SERVICE_NAME 
+    public static final String GET_RRR_TYPES = SERVICE_NAME
             + "GetRRRTypes";
-    public static final String GET_SOURCE_BA_UNIT_RELATION_TYPES = SERVICE_NAME 
+    public static final String GET_SOURCE_BA_UNIT_RELATION_TYPES = SERVICE_NAME
             + "GetSourceBaUnitRelationTypes";
-    public static final String GET_REGISTRATION_STATUS_TYPES = SERVICE_NAME 
+    public static final String GET_REGISTRATION_STATUS_TYPES = SERVICE_NAME
             + "GetRegistrationStatusTypes";
-    public static final String GET_CADASTRE_OBJECT_TYPES = SERVICE_NAME 
+    public static final String GET_CADASTRE_OBJECT_TYPES = SERVICE_NAME
             + "GetCadastreObjectTypes";
-    public static final String GET_RRR_TYPE_ACTIONS = SERVICE_NAME 
+    public static final String GET_RRR_TYPE_ACTIONS = SERVICE_NAME
             + "GetRrrTypeActions";
-    
+
     public MockReferenceDataClient(String url) {
         super(url, null);
     }
 
-    /** @return default = true */
+    /**
+     * @return default = true
+     */
     @Override
     public boolean checkConnection() throws WebServiceClientException {
         return getManager().getResponse(CHECK_CONNECTION, Boolean.class, true);
     }
 
-    /** @return default = MockTOFactory.createCommunicationTypes()*/
+    /**
+     * @return default = MockTOFactory.createCommunicationTypes()
+     */
     @Override
     public List<CommunicationTypeTO> getCommunicationTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_COMMUNICATION_TYPES, List.class,
                 MockTOFactory.createCommunicationTypes());
     }
-    
-    /** @return default = MockTOFactory.createCommunicationTypes()*/
+
+    /**
+     * @return default = MockTOFactory.createCommunicationTypes()
+     */
     @Override
     public List<CommunicationTypeTO> getCommunicationTypes(String lang) throws WebServiceClientException {
         return getManager().getResponse(GET_COMMUNICATION_TYPES, List.class,
                 MockTOFactory.createCommunicationTypes());
     }
-    
-/** @return default = MockTOFactory.createGenderTypes()*/
+
+    /**
+     * @return default = MockTOFactory.createGenderTypes()
+     */
     @Override
     public List<GenderTypeTO> getGenderTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_GENDER_TYPES, List.class,
                 MockTOFactory.createGenderTypes());
     }
-    
-    /** @return default = MockTOFactory.createRequestTypes()*/
+
+    /**
+     * @return default = MockTOFactory.createRequestTypes()
+     */
     @Override
     public List<RequestTypeTO> getRequestTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_REQUEST_TYPES, List.class,
                 MockTOFactory.createRequestTypes());
     }
 
-    /** @return default = MockTOFactory.createSourceTypes()*/
+    /**
+     * @return default = MockTOFactory.createSourceTypes()
+     */
     @Override
     public List<SourceTypeTO> getSourceTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_SOURCE_TYPES, List.class,
                 MockTOFactory.createSourceTypes());
     }
 
-    /** @return default = MockTOFactory.getApplicationStatusTypes()*/
+    /**
+     * @return default = MockTOFactory.getApplicationStatusTypes()
+     */
     @Override
     public List<ApplicationStatusTypeTO> getApplicationStatusTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_APPLICATION_STATUS_TYPES, List.class,
@@ -145,15 +163,19 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
         return getManager().getResponse(GET_APPLICATION_ACTION_TYPES, List.class,
                 MockTOFactory.createApplicationActionTypes());
     }
-    
-    /** @return default = MockTOFactory.getServiceStatusTypes()*/
+
+    /**
+     * @return default = MockTOFactory.getServiceStatusTypes()
+     */
     @Override
     public List<ServiceStatusTypeTO> getServiceStatusTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_SERVICE_STATUS_TYPES, List.class,
                 MockTOFactory.createServiceStatusTypes());
     }
 
-    /** @return default = MockTOFactory.getServiceActionTypes()*/
+    /**
+     * @return default = MockTOFactory.getServiceActionTypes()
+     */
     @Override
     public List<ServiceActionTypeTO> getServiceActionTypes() throws WebServiceClientException {
         return getManager().getResponse(GET_SERVICE_ACTION_TYPES, List.class,
@@ -165,7 +187,7 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
         return getManager().getResponse(GET_PARTY_TYPES, List.class,
                 MockTOFactory.createPartyTypes());
     }
-    
+
     @Override
     public List<PartyRoleTypeTO> getPartyRoles() throws WebServiceClientException {
         return getManager().getResponse(GET_PARTY_ROLES, List.class,
@@ -189,7 +211,7 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
         return getManager().getResponse(GET_BA_UNIT_TYPES, List.class,
                 MockTOFactory.createBaUnitTypes());
     }
-    
+
     @Override
     public List<BaUnitTypeTO> getBaUnitTypes(String lang) throws WebServiceClientException {
         return getManager().getResponse(GET_BA_UNIT_TYPES, List.class,
@@ -437,12 +459,12 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-   
     @Override
     public List<VdcTO> getVdcs() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
     public List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -492,4 +514,33 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public List<OwnershipTypeTO> getOwnerShipTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<OwnershipTypeTO> getOwnerShipTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ShareTypeTO> getShareTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ShareTypeTO> getShareTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<TenantTypeTO> getTenantTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

@@ -60,9 +60,27 @@ public class RrrTO extends AbstractIdTO {
     private String restrictionReasonCode;
     private String restictionOfficeCode;
     private String officeCode;
+    private String ownershipTypeCode;
+    private String shareTypeCode;
 
     public RrrTO() {
         super();
+    }
+
+    public String getOwnershipTypeCode() {
+        return ownershipTypeCode;
+    }
+
+    public void setOwnershipTypeCode(String ownershipTypeCode) {
+        this.ownershipTypeCode = ownershipTypeCode;
+    }
+
+    public String getShareTypeCode() {
+        return shareTypeCode;
+    }
+
+    public void setShareTypeCode(String shareTypeCode) {
+        this.shareTypeCode = shareTypeCode;
     }
 
     public String getRestictionOfficeCode() {

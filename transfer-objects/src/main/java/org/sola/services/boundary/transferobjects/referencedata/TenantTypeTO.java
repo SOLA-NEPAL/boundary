@@ -8,11 +8,11 @@ import org.sola.services.common.contracts.AbstractCodeTO;
 
 /**
  *
- * @author Dinesh
+ * @author KumarKhadka
  */
-public class RestrictionReasonTO extends AbstractCodeTO {
+public class TenantTypeTO extends AbstractCodeTO {
 
-    public RestrictionReasonTO() {
+    public TenantTypeTO() {
         super();
     }
 }

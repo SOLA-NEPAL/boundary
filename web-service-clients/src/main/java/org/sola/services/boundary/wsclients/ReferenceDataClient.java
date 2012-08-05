@@ -166,6 +166,18 @@ public interface ReferenceDataClient extends AbstractWSClient {
     VdcTO getVdcByName(String name);
     
     List<VdcTO> getVdcs();
+    
+    List<OwnershipTypeTO> getOwnerShipTypes() throws WebServiceClientException;
+
+    List<OwnershipTypeTO> getOwnerShipTypes(String lang) throws WebServiceClientException;
+    
+    List<ShareTypeTO> getShareTypes() throws WebServiceClientException;
+
+    List<ShareTypeTO> getShareTypes(String lang) throws WebServiceClientException;
+    
+    List<TenantTypeTO> getTenantTypes() throws WebServiceClientException;
+
+    List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException;
     //************************************************************************************************
     //</editor-fold>
 

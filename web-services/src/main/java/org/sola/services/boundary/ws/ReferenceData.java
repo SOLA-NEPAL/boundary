@@ -684,7 +684,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<VdcTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getParcelTypes")
     public List<ParcelTypeTO> getParcelTypes(@WebParam(name = "languageCode") final String languageCode)
             throws SOLAFault, UnhandledFault {
@@ -749,6 +749,66 @@ public class ReferenceData extends AbstractWebService {
         });
 
         return (VdcTO) result[0];
+    }
+
+    @WebMethod(operationName = "getOwnerShipTypes")
+    public List<OwnershipTypeTO> getOwnerShipTypes(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getOwnerShipTypes(languageCodeTmp),
+                        OwnershipTypeTO.class);
+            }
+        });
+
+        return (List<OwnershipTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getShareTypes")
+    public List<ShareTypeTO> getShareTypes(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getShareTypes(languageCodeTmp),
+                        ShareTypeTO.class);
+            }
+        });
+
+        return (List<ShareTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getTenantTypes")
+    public List<TenantTypeTO> getTenantTypes(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getTenantTypes(languageCodeTmp),
+                        TenantTypeTO.class);
+            }
+        });
+
+        return (List<TenantTypeTO>) result[0];
     }
     //************************************************************************************************
     //</editor-fold>
@@ -896,6 +956,18 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = systemEJB.getCodeEntity(RestrictionOffice.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionOffice.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof OwnershipTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(OwnershipType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, OwnershipType.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof ShareTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(ShareType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, ShareType.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof TenantTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(TenantType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, TenantType.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
                 }
 
                 result = GenericTranslator.toTO(codeEntity, refDataTO.getClass());
@@ -976,7 +1048,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<RestrictionReleaseReasonTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getRestrictionOffices")
     public List<RestrictionOfficeTO> getRestrictionOffices(String languageCode)
             throws SOLAFault, UnhandledFault {
