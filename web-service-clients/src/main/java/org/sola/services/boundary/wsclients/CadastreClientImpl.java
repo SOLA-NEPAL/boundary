@@ -38,10 +38,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.cadastre.Cadastre;
 import org.sola.webservices.cadastre.CadastreService;
 import org.sola.webservices.transferobjects.ValidationResult;
-import org.sola.webservices.transferobjects.cadastre.CadastreObjectNodeTO;
-import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
-import org.sola.webservices.transferobjects.cadastre.ConstructionObjectTO;
-import org.sola.webservices.transferobjects.cadastre.MapSheetTO;
+import org.sola.webservices.transferobjects.cadastre.*;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -87,7 +84,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
+
     @Override
     public CadastreObjectTO getCadastreObjectByPoint(double x, double y, int srid)
             throws WebServiceClientException {
@@ -260,17 +257,17 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
     }
 
-     @Override
+    @Override
     public List<MapSheetTO> getMapSheetListByOffice(String officeCode, String lang) {
         final String inputService = SERVICE_NAME + "getMapSheetList";
         try {
-            return getPort().getMapSheetListByOffice(officeCode,lang);
+            return getPort().getMapSheetListByOffice(officeCode, lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
         }
     }
-     
+
     @Override
     public List<MapSheetTO> getMapSheetListByOffice() {
         final String inputService = SERVICE_NAME + "getMapSheetList";
@@ -281,13 +278,12 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
-    
+
     @Override
     public List<MapSheetTO> getMapSheets() {
         return getMapSheetList();
     }
-    
+
     @Override
     public List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode) {
         final String inputService = SERVICE_NAME + "getMapSheetList";
@@ -342,6 +338,17 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
+
+    @Override
+    public SpatialUnitAddressTO getSpatialUnitAddress(String spatialUnitId) {
+        final String inputService = SERVICE_NAME + "getSpatialUnitAddress";
+        try {
+            return getPort().getSpatialUnitAddress(spatialUnitId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     //******************************************************************************************************
     //</editor-fold>
 
@@ -368,7 +375,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
+
     @Override
     public List<CadastreObjectTO> getPendingParcelsByParts(String searchString)
             throws WebServiceClientException {
@@ -381,7 +388,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
+
     @Override
     public List<CadastreObjectTO> getCadastreObjectListMem(List<String> mapSheetCode) {
         final String inputService = SERVICE_NAME + "getMapSheetList";
@@ -392,7 +399,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
+
     @Override
     public List<ConstructionObjectTO> getConstructionObjectListMem(List<String> mapSheetCode) {
         final String inputService = SERVICE_NAME + "getMapSheetList";
@@ -403,26 +410,26 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
+
     @Override
-    public List<CadastreObjectTO> getCadastreObjectByExactParts(String firstpart,String lastpart)
-            throws WebServiceClientException{
+    public List<CadastreObjectTO> getCadastreObjectByExactParts(String firstpart, String lastpart)
+            throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "GetCadastreObjectByParts";
         try {
             List<CadastreObjectTO> result = getPort().getCadastreObjectByExactParts(
-                    firstpart,lastpart);
+                    firstpart, lastpart);
             return result;
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
         }
     }
-    
+
     @Override
     public List<MapSheetTO> loadWardMapSheet(int mapSheetType, String vdccode, String wardno) {
         final String inputService = SERVICE_NAME + "loadWardMapSheet";
         try {
-            return getPort().loadWardMapSheet(mapSheetType,vdccode,wardno);
+            return getPort().loadWardMapSheet(mapSheetType, vdccode, wardno);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -433,7 +440,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     public List<MapSheetTO> loadVDCMapSheet(int mapSheetType, String vdccode) {
         final String inputService = SERVICE_NAME + "loadVDCMapSheet";
         try {
-            return getPort().loadVdcMapSheet(mapSheetType,vdccode);
+            return getPort().loadVdcMapSheet(mapSheetType, vdccode);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -457,13 +464,13 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     public List<MapSheetTO> getMapSheetListByOffice(String officeCode) {
         final String inputService = SERVICE_NAME + "getMapSheetList";
         try {
-            return getPort().getMapSheetListByOffice(officeCode,this.getLanguageCode());
+            return getPort().getMapSheetListByOffice(officeCode, this.getLanguageCode());
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
         }
     }
-    
+
     @Override
     public List<MapSheetTO> getMapSheetListByDefaultOffice() {
         final String inputService = SERVICE_NAME + "getMapSheetList";

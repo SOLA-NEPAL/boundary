@@ -35,7 +35,6 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.referencedata.ReferenceData;
 import org.sola.webservices.referencedata.ReferencedataService;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
-import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
@@ -637,6 +636,70 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
+
+    @Override
+    public List<ParcelTypeTO> getParcelTypes() {
+        return getParcelTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<ParcelTypeTO> getParcelTypes(String lang) {
+        final String inputService = SERVICE_NAME + "getParcelTypes";
+        try {
+            return getPort().getParcelTypes(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<LandClassTO> getLandClasses() throws WebServiceClientException {
+        return getLandClasses(getLanguageCode());
+    }
+
+    @Override
+    public List<LandClassTO> getLandClasses(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getLandClasses";
+        try {
+            return getPort().getLandClasses(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<LandUseTO> getLandUses() throws WebServiceClientException {
+        return getLandUses(getLanguageCode());
+    }
+
+    @Override
+    public List<LandUseTO> getLandUses(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getLandUses";
+        try {
+            return getPort().getLandUses(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<GuthiNameTO> getGuthiNames() throws WebServiceClientException {
+        return getGuthiNames(getLanguageCode());
+    }
+
+    @Override
+    public List<GuthiNameTO> getGuthiNames(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getGuthiNames";
+        try {
+            return getPort().getGuthiNames(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Dinesh">
@@ -704,20 +767,4 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
     }
     //</editor-fold>
-
-    @Override
-    public List<ParcelTypeTO> getParcelTypes() {
-        return getParcelTypes(getLanguageCode());
-    }
-
-    @Override
-    public List<ParcelTypeTO> getParcelTypes(String languageCode) {
-        final String inputService = SERVICE_NAME + "getParcelTypes";
-        try {
-            return getPort().getParcelTypes(languageCode);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
 }

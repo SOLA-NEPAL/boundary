@@ -33,7 +33,6 @@ import java.util.List;
 import org.sola.services.boundary.wsclients.ReferenceDataClient;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
-import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 /**
@@ -541,6 +540,36 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
 
     @Override
     public List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<LandClassTO> getLandClasses() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<LandClassTO> getLandClasses(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<LandUseTO> getLandUses() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<LandUseTO> getLandUses(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<GuthiNameTO> getGuthiNames() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<GuthiNameTO> getGuthiNames(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

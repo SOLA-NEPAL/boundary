@@ -32,7 +32,6 @@ package org.sola.services.boundary.wsclients;
 import java.util.List;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
-import org.sola.webservices.transferobjects.cadastre.ParcelTypeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
 
 public interface ReferenceDataClient extends AbstractWSClient {
@@ -164,23 +163,39 @@ public interface ReferenceDataClient extends AbstractWSClient {
     VdcTO getVdcByCode(String id);
 
     VdcTO getVdcByName(String name);
-    
+
     List<VdcTO> getVdcs();
-    
+
     List<OwnershipTypeTO> getOwnerShipTypes() throws WebServiceClientException;
 
     List<OwnershipTypeTO> getOwnerShipTypes(String lang) throws WebServiceClientException;
-    
+
     List<ShareTypeTO> getShareTypes() throws WebServiceClientException;
 
     List<ShareTypeTO> getShareTypes(String lang) throws WebServiceClientException;
-    
+
     List<TenantTypeTO> getTenantTypes() throws WebServiceClientException;
 
     List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException;
+
+    List<ParcelTypeTO> getParcelTypes() throws WebServiceClientException;
+
+    List<ParcelTypeTO> getParcelTypes(String lang) throws WebServiceClientException;
+
+    List<LandClassTO> getLandClasses() throws WebServiceClientException;
+
+    List<LandClassTO> getLandClasses(String lang) throws WebServiceClientException;
+
+    List<LandUseTO> getLandUses() throws WebServiceClientException;
+
+    List<LandUseTO> getLandUses(String lang) throws WebServiceClientException;
+
+    List<GuthiNameTO> getGuthiNames() throws WebServiceClientException;
+
+    List<GuthiNameTO> getGuthiNames(String lang) throws WebServiceClientException;
+
     //************************************************************************************************
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Dinesh">
     List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException;
 
@@ -195,11 +210,7 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<RestrictionReleaseReasonTO> getRestrictionReleaseReasons(String lang) throws WebServiceClientException;
 
     List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException;
-    
+
     List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException;
     //</editor-fold>
-    
-    List<ParcelTypeTO> getParcelTypes(String languageCode);
-    
-    List<ParcelTypeTO> getParcelTypes();
 }

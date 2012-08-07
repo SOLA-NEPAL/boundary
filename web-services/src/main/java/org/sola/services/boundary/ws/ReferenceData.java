@@ -38,7 +38,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.common.RolesConstants;
-import org.sola.services.boundary.transferobjects.cadastre.ParcelTypeTO;
+import org.sola.services.boundary.transferobjects.referencedata.ParcelTypeTO;
 import org.sola.services.boundary.transferobjects.referencedata.*;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.AbstractCodeTO;
@@ -685,22 +685,6 @@ public class ReferenceData extends AbstractWebService {
         return (List<VdcTO>) result[0];
     }
 
-    @WebMethod(operationName = "getParcelTypes")
-    public List<ParcelTypeTO> getParcelTypes(@WebParam(name = "languageCode") final String languageCode)
-            throws SOLAFault, UnhandledFault {
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(cadastreEJB.getParcelTypeList(languageCode), ParcelTypeTO.class);
-            }
-        });
-
-        return (List<ParcelTypeTO>) result[0];
-    }
-
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //************************************************************************************************
     @WebMethod(operationName = "getVdcList")
@@ -810,9 +794,85 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<TenantTypeTO>) result[0];
     }
+
+    @WebMethod(operationName = "getParcelTypes")
+    public List<ParcelTypeTO> getParcelTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(systemEJB.getParcelTypes(languageCode), ParcelTypeTO.class);
+            }
+        });
+
+        return (List<ParcelTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getLandUses")
+    public List<LandUseTO> getLandUses(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getLandUses(languageCodeTmp),
+                        LandUseTO.class);
+            }
+        });
+
+        return (List<LandUseTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getLandClasses")
+    public List<LandClassTO> getLandClasses(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getLandClasses(languageCodeTmp),
+                        LandClassTO.class);
+            }
+        });
+
+        return (List<LandClassTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getGuthiNames")
+    public List<GuthiNameTO> getGuthiNames(String languageCode)
+            throws SOLAFault, UnhandledFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        systemEJB.getGuthiNames(languageCodeTmp),
+                        GuthiNameTO.class);
+            }
+        });
+
+        return (List<GuthiNameTO>) result[0];
+    }
+
     //************************************************************************************************
     //</editor-fold>
-
     @RolesAllowed(RolesConstants.ADMIN_MANAGE_REFDATA)
     @WebMethod(operationName = "saveReferenceData")
     public AbstractCodeTO saveReferenceData(AbstractCodeTO refDataTO)
@@ -967,6 +1027,22 @@ public class ReferenceData extends AbstractWebService {
                 } else if (refDataTO instanceof TenantTypeTO) {
                     codeEntity = systemEJB.getCodeEntity(TenantType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, TenantType.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof ParcelTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(ParcelType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, ParcelType.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof LandUseTO) {
+                    codeEntity = systemEJB.getCodeEntity(LandUse.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, LandUse.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof LandClassTO) {
+                    codeEntity = systemEJB.getCodeEntity(LandClass.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, LandClass.class, codeEntity);
+                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof GuthiNameTO) {
+                    codeEntity = systemEJB.getCodeEntity(GuthiName.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, GuthiName.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 }
 

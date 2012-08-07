@@ -47,7 +47,10 @@ public class CadastreObjectTO extends AbstractIdTO {
     private byte[] geomPolygon;
     private int parcelno;
     private String parcelNote;
-    private String parcelType;
+    private String parcelTypeCode;
+    private String landUseCode;
+    private String landClassCode;
+    private String guthiNameCode;
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
     private String officeCode;
@@ -58,14 +61,6 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setParcelNote(String parcelNote) {
         this.parcelNote = parcelNote;
-    }
-
-    public String getParcelType() {
-        return parcelType;
-    }
-
-    public void setParcelType(String parcelType) {
-        this.parcelType = parcelType;
     }
 
     public int getParcelno() {
@@ -158,6 +153,38 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setGeomPolygon(byte[] geomPolygon) {
         this.geomPolygon = geomPolygon;
+    }
+
+    public String getGuthiNameCode() {
+        return guthiNameCode;
+    }
+
+    public void setGuthiNameCode(String guthiNameCode) {
+        this.guthiNameCode = guthiNameCode;
+    }
+
+    public String getLandClassCode() {
+        return landClassCode;
+    }
+
+    public void setLandClassCode(String landClassCode) {
+        this.landClassCode = landClassCode;
+    }
+
+    public String getLandUseCode() {
+        return landUseCode;
+    }
+
+    public void setLandUseCode(String landUseCode) {
+        this.landUseCode = landUseCode;
+    }
+
+    public String getParcelTypeCode() {
+        return parcelTypeCode;
+    }
+
+    public void setParcelTypeCode(String parcelTypeCode) {
+        this.parcelTypeCode = parcelTypeCode;
     }
 
     public String getTransactionId() {
