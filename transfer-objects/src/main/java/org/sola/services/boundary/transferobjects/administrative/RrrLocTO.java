@@ -9,6 +9,8 @@ import org.sola.services.common.contracts.AbstractTO;
 public class RrrLocTO extends AbstractTO {
     private String locId;
     private String typeCode;
+    private String ownerTypeCode;
+    private String shareTypeCode;
     private Date registrationDate;
     private String statusCode;
     private String notationText;
@@ -66,6 +68,22 @@ public class RrrLocTO extends AbstractTO {
 
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
+    }
+
+    public String getOwnerTypeCode() {
+        return ownerTypeCode;
+    }
+
+    public void setOwnerTypeCode(String ownerTypeCode) {
+        this.ownerTypeCode = ownerTypeCode;
+    }
+
+    public String getShareTypeCode() {
+        return shareTypeCode;
+    }
+
+    public void setShareTypeCode(String shareTypeCode) {
+        this.shareTypeCode = shareTypeCode;
     }
 
     public String getNotationText() {

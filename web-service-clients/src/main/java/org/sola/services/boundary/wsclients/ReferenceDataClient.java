@@ -166,9 +166,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<VdcTO> getVdcs();
 
-    List<OwnershipTypeTO> getOwnerShipTypes() throws WebServiceClientException;
+    List<OwnerTypeTO> getOwnerTypes() throws WebServiceClientException;
 
-    List<OwnershipTypeTO> getOwnerShipTypes(String lang) throws WebServiceClientException;
+    List<OwnerTypeTO> getOwnerTypes(String lang) throws WebServiceClientException;
 
     List<ShareTypeTO> getShareTypes() throws WebServiceClientException;
 
@@ -190,17 +190,6 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<LandUseTO> getLandUses(String lang) throws WebServiceClientException;
 
-    List<GuthiNameTO> getGuthiNames() throws WebServiceClientException;
-
-    List<GuthiNameTO> getGuthiNames(String lang) throws WebServiceClientException;
-
-    //************************************************************************************************
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Dinesh">
-    List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException;
-
-    List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException;
-
     List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException;
 
     List<RestrictionReasonTO> getRestrictionReasons(String lang) throws WebServiceClientException;
@@ -212,5 +201,4 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException;
 
     List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException;
-    //</editor-fold>
 }

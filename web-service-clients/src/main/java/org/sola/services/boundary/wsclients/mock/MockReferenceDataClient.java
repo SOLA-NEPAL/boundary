@@ -464,16 +464,6 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     }
 
     @Override
-    public List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -514,12 +504,12 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     }
 
     @Override
-    public List<OwnershipTypeTO> getOwnerShipTypes() throws WebServiceClientException {
+    public List<OwnerTypeTO> getOwnerTypes() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<OwnershipTypeTO> getOwnerShipTypes(String lang) throws WebServiceClientException {
+    public List<OwnerTypeTO> getOwnerTypes(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -560,16 +550,6 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
 
     @Override
     public List<LandUseTO> getLandUses(String lang) throws WebServiceClientException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<GuthiNameTO> getGuthiNames() throws WebServiceClientException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<GuthiNameTO> getGuthiNames(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

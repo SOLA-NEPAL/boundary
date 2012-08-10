@@ -10,9 +10,9 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  *
  * @author KumarKhadka
  */
-public class GuthiNameTO extends AbstractCodeTO {
+public class OwnerTypeTO extends AbstractCodeTO {
 
-    public GuthiNameTO() {
+    public OwnerTypeTO() {
         super();
     }
 }

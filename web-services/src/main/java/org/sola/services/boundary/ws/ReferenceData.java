@@ -29,6 +29,11 @@
  */
 package org.sola.services.boundary.ws;
 
+import org.sola.services.ejb.administrative.repository.entities.RestrictionReason;
+import org.sola.services.ejb.administrative.repository.entities.RestrictionOffice;
+import org.sola.services.ejb.administrative.repository.entities.ShareType;
+import org.sola.services.ejb.administrative.repository.entities.TenantType;
+import org.sola.services.ejb.administrative.repository.entities.RestrictionReleaseReason;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;
@@ -735,8 +740,8 @@ public class ReferenceData extends AbstractWebService {
         return (VdcTO) result[0];
     }
 
-    @WebMethod(operationName = "getOwnerShipTypes")
-    public List<OwnershipTypeTO> getOwnerShipTypes(String languageCode)
+    @WebMethod(operationName = "getOwnerTypes")
+    public List<OwnerTypeTO> getOwnerTypes(String languageCode)
             throws SOLAFault, UnhandledFault {
 
         final String languageCodeTmp = languageCode;
@@ -747,12 +752,12 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getOwnerShipTypes(languageCodeTmp),
-                        OwnershipTypeTO.class);
+                        administrativeEJB.getOwnerTypes(languageCodeTmp),
+                        OwnerTypeTO.class);
             }
         });
 
-        return (List<OwnershipTypeTO>) result[0];
+        return (List<OwnerTypeTO>) result[0];
     }
 
     @WebMethod(operationName = "getShareTypes")
@@ -767,7 +772,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getShareTypes(languageCodeTmp),
+                        administrativeEJB.getShareTypes(languageCodeTmp),
                         ShareTypeTO.class);
             }
         });
@@ -787,7 +792,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getTenantTypes(languageCodeTmp),
+                        administrativeEJB.getTenantTypes(languageCodeTmp),
                         TenantTypeTO.class);
             }
         });
@@ -849,26 +854,6 @@ public class ReferenceData extends AbstractWebService {
         });
 
         return (List<LandClassTO>) result[0];
-    }
-
-    @WebMethod(operationName = "getGuthiNames")
-    public List<GuthiNameTO> getGuthiNames(String languageCode)
-            throws SOLAFault, UnhandledFault {
-
-        final String languageCodeTmp = languageCode;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        systemEJB.getGuthiNames(languageCodeTmp),
-                        GuthiNameTO.class);
-            }
-        });
-
-        return (List<GuthiNameTO>) result[0];
     }
 
     //************************************************************************************************
@@ -1000,10 +985,6 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = adminEJB.getCodeEntity(Department.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, Department.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof RestrictionTypeTO) {
-                    codeEntity = systemEJB.getCodeEntity(RestrictionType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionType.class, codeEntity);
-                    systemEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof RestrictionReasonTO) {
                     codeEntity = systemEJB.getCodeEntity(RestrictionReason.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionReason.class, codeEntity);
@@ -1016,9 +997,9 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = systemEJB.getCodeEntity(RestrictionOffice.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionOffice.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof OwnershipTypeTO) {
-                    codeEntity = systemEJB.getCodeEntity(OwnershipType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, OwnershipType.class, codeEntity);
+                } else if (refDataTO instanceof OwnerTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(OwnerType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, OwnerType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof ShareTypeTO) {
                     codeEntity = systemEJB.getCodeEntity(ShareType.class, refDataTO.getCode());
@@ -1039,10 +1020,6 @@ public class ReferenceData extends AbstractWebService {
                 } else if (refDataTO instanceof LandClassTO) {
                     codeEntity = systemEJB.getCodeEntity(LandClass.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, LandClass.class, codeEntity);
-                    systemEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof GuthiNameTO) {
-                    codeEntity = systemEJB.getCodeEntity(GuthiName.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, GuthiName.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 }
 
@@ -1065,26 +1042,6 @@ public class ReferenceData extends AbstractWebService {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Dinesh">
-    @WebMethod(operationName = "getRestrictionTypes")
-    public List<RestrictionTypeTO> getRestrictionTypes(String languageCode)
-            throws SOLAFault, UnhandledFault {
-
-        final String languageCodeTmp = languageCode;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        systemEJB.getRestrictionTypes(languageCodeTmp),
-                        TypeActionTO.class);
-            }
-        });
-
-        return (List<RestrictionTypeTO>) result[0];
-    }
-
     @WebMethod(operationName = "getRestrictionReasons")
     public List<RestrictionReasonTO> getRestrictionReasons(String languageCode)
             throws SOLAFault, UnhandledFault {
@@ -1097,7 +1054,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getRestrictionReasons(languageCodeTmp),
+                        administrativeEJB.getRestrictionReasons(languageCodeTmp),
                         RestrictionReasonTO.class);
             }
         });
@@ -1117,7 +1074,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getRestrictionReleaseReasons(languageCodeTmp),
+                        administrativeEJB.getRestrictionReleaseReasons(languageCodeTmp),
                         RestrictionReleaseReasonTO.class);
             }
         });
@@ -1137,7 +1094,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getRestrictionOffices(languageCodeTmp),
+                        administrativeEJB.getRestrictionOffices(languageCodeTmp),
                         RestrictionOfficeTO.class);
             }
         });

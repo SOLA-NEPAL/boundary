@@ -590,15 +590,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
 
     @Override
-    public List<OwnershipTypeTO> getOwnerShipTypes() throws WebServiceClientException {
-        return getOwnerShipTypes(getLanguageCode());
+    public List<OwnerTypeTO> getOwnerTypes() throws WebServiceClientException {
+        return getOwnerTypes(getLanguageCode());
     }
 
     @Override
-    public List<OwnershipTypeTO> getOwnerShipTypes(String lang) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getOwnerShipTypes";
+    public List<OwnerTypeTO> getOwnerTypes(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getOwnerTypes";
         try {
-            return getPort().getOwnerShipTypes(lang);
+            return getPort().getOwnerTypes(lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -686,40 +686,6 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
 
     @Override
-    public List<GuthiNameTO> getGuthiNames() throws WebServiceClientException {
-        return getGuthiNames(getLanguageCode());
-    }
-
-    @Override
-    public List<GuthiNameTO> getGuthiNames(String lang) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getGuthiNames";
-        try {
-            return getPort().getGuthiNames(lang);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Dinesh">
-    @Override
-    public List<RestrictionTypeTO> getRestrictionTypes() throws WebServiceClientException {
-        return getRestrictionTypes(getLanguageCode());
-    }
-
-    @Override
-    public List<RestrictionTypeTO> getRestrictionTypes(String lang) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getRestrictionTypes";
-        try {
-            return getPort().getRestrictionTypes(lang);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
     public List<RestrictionReasonTO> getRestrictionReasons() throws WebServiceClientException {
         return getRestrictionReasons(getLanguageCode());
     }
@@ -766,5 +732,4 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
-    //</editor-fold>
 }
