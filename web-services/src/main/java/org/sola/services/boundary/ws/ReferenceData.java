@@ -1017,8 +1017,8 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = GenericTranslator.fromTO(refDataTO, RestrictionOffice.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof OwnershipTypeTO) {
-                    codeEntity = systemEJB.getCodeEntity(OwnershipType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, OwnershipType.class, codeEntity);
+                    codeEntity = systemEJB.getCodeEntity(OwnerType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, OwnerType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof ShareTypeTO) {
                     codeEntity = systemEJB.getCodeEntity(ShareType.class, refDataTO.getCode());
