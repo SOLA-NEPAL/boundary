@@ -554,21 +554,7 @@ public class Cadastre extends AbstractWebService {
             }
         });
         return (CadastreObjectTO) result[0];
-    }
-    @WebMethod(operationName = "getSpatialUnitAddress")
-    public SpatialUnitAddressTO getSpatialUnitAddress(@WebParam(name = "spatialUnitId") String spatialUnitId) throws SOLAFault, UnhandledFault {
-        final String spatialUnitIdTmp = spatialUnitId;        
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTO(cadastreEJB.getSpatialUnitAddress(spatialUnitIdTmp), SpatialUnitAddressTO.class);
-            }
-        });
-        return (SpatialUnitAddressTO) result[0];
-    }
+    }   
     //********************************************************************************************************************************
     //</editor-fold>
     

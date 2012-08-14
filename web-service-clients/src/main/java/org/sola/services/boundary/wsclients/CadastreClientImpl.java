@@ -339,19 +339,8 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
     }
 
-    @Override
-    public SpatialUnitAddressTO getSpatialUnitAddress(String spatialUnitId) {
-        final String inputService = SERVICE_NAME + "getSpatialUnitAddress";
-        try {
-            return getPort().getSpatialUnitAddress(spatialUnitId);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
     //******************************************************************************************************
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
     @Override

@@ -29,6 +29,9 @@
  */
 package org.sola.services.boundary.ws;
 
+import org.sola.services.ejb.cadastre.repository.entities.LandClass;
+import org.sola.services.ejb.cadastre.repository.entities.ParcelType;
+import org.sola.services.ejb.cadastre.repository.entities.LandUse;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionReason;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionOffice;
 import org.sola.services.ejb.administrative.repository.entities.ShareType;
@@ -809,7 +812,7 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(systemEJB.getParcelTypes(languageCode), ParcelTypeTO.class);
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getParcelTypes(languageCode), ParcelTypeTO.class);
             }
         });
 
@@ -828,7 +831,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getLandUses(languageCodeTmp),
+                        cadastreEJB.getLandUses(languageCodeTmp),
                         LandUseTO.class);
             }
         });
@@ -848,7 +851,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        systemEJB.getLandClasses(languageCodeTmp),
+                        cadastreEJB.getLandClasses(languageCodeTmp),
                         LandClassTO.class);
             }
         });

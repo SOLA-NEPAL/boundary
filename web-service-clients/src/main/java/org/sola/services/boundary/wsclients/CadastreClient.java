@@ -103,10 +103,8 @@ public interface CadastreClient extends AbstractWSClient {
 
     CadastreObjectTO getCadastreObjectByMapSheetParcel(String mapSheetCode, int parcelNo);
 
-    SpatialUnitAddressTO getSpatialUnitAddress(String spatialUnitId);
     //************************************************************************************************
     //</editor-fold>    
-
     //  <editor-fold defaultstate="collapsed" desc="By Kabindra">
     //--------------------------------------------------------------------------
     List<CadastreObjectTO> getCadastreObjectByIntersection(String geom, int srid)
