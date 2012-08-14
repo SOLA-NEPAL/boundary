@@ -31,6 +31,7 @@ package org.sola.services.boundary.transferobjects.cadastre;
 
 import java.util.Date;
 import java.util.List;
+import org.sola.services.boundary.transferobjects.casemanagement.AddressTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 public class CadastreObjectTO extends AbstractIdTO {
@@ -44,6 +45,7 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String nameLastpart;
     private String statusCode;
     private String transactionId;
+    private String addressId;
     private byte[] geomPolygon;
     private int parcelno;
     private String parcelNote;
@@ -51,6 +53,7 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String landUseCode;
     private String landClassCode;
     private String guthiNameCode;
+    private AddressTO address;
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
     private String officeCode;
@@ -195,6 +198,14 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.transactionId = transactionId;
     }
 
+    public AddressTO getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressTO address) {
+        this.address = address;
+    }
+
     public List<SpatialValueAreaTO> getSpatialValueAreaList() {
         return spatialValueAreaList;
     }
@@ -209,5 +220,13 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
+    }
+
+    public String getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(String addressId) {
+        this.addressId = addressId;
     }
 }
