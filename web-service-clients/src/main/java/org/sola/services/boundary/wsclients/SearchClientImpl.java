@@ -51,6 +51,8 @@ import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
 import org.sola.webservices.transferobjects.search.UserSearchResultTO;
 import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
+import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
+import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
 
 /**
  * Implementation class for the {@linkplain SearchClient} interface. 
@@ -274,6 +276,17 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         final String inputService = SERVICE_NAME + "getUsersWithAssignRightByOffice";
         try {
             return getPort().getUsersWithAssignRightByOffice();
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+
+    @Override
+    public List<ParcelSearchResultTO> searchParcels(ParcelSearchParamsTO searchParams) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchParcels";
+        try {
+            return getPort().searchParcels(searchParams);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;

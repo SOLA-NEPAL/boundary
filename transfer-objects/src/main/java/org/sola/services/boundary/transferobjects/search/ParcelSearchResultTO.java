@@ -4,10 +4,15 @@
  */
 package org.sola.services.boundary.transferobjects.search;
 
+import org.sola.services.boundary.transferobjects.cadastre.ParcelSummaryTO;
+
 /**
  *
  * @author Kumar
  */
-public class ParcelSearchResultTO {
-    
+public class ParcelSearchResultTO extends ParcelSummaryTO {
+
+    public ParcelSearchResultTO() {
+        super();
+    }
 }

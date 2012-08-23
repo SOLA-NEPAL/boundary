@@ -38,6 +38,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.search.ResultForSelectionInfo;
+import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
 import org.sola.webservices.transferobjects.search.ApplicationSearchParamsTO;
 import org.sola.webservices.transferobjects.search.ApplicationSearchResultTO;
 import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
@@ -45,6 +46,8 @@ import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
 import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
 import org.sola.webservices.transferobjects.search.BrSearchResultTO;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
+import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
+import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
 import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
 import org.sola.webservices.transferobjects.search.PartySearchResultTO;
 import org.sola.webservices.transferobjects.search.PropertyVerifierTO;
@@ -53,7 +56,6 @@ import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
 import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
 import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
 import org.sola.webservices.transferobjects.search.UserSearchResultTO;
-import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
 
 /**
  * Provides a mock implementation for the 
@@ -73,7 +75,8 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     public static final String GET_ASSIGNED_APPLICATIONS = SERVICE_NAME + "getAssignedApplications";
     public static final String GET_UNASSIGNED_APPLICATIONS = SERVICE_NAME + "getUnassignedApplications";
     public static final String SEARCH_APPLICATIONS = SERVICE_NAME + "searchApplications";
-    public static final String SEARCH_PARTIES = SERVICE_NAME + "searchParties";
+    public static final String SEARCH_PARCELS = SERVICE_NAME + "searchParcels";            
+    public static final String SEARCH_PARTIES = SERVICE_NAME + "searchParties"; 
     public static final String VERIFY_APPLICATION_PROPERTY = SERVICE_NAME + "verifyApplicationProperty";
     public static final String SELECT = SERVICE_NAME + "select";
     public static final String SEARCH_CADASTREOBJECTS_WITH_GEOMETRY =
@@ -195,4 +198,12 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     public List<UserSearchResultTO> getUsersWithAssignRightByOffice() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<ParcelSearchResultTO> searchParcels(ParcelSearchParamsTO searchParams) throws WebServiceClientException {
+        List<ParcelSearchResultTO> defaultResponse = new ArrayList<ParcelSearchResultTO>();
+        return getManager().getResponse(SEARCH_PARCELS, List.class, defaultResponse,
+                searchParams);
+    }
+    
 }

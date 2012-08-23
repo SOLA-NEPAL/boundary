@@ -39,6 +39,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.cadastre.*;
+import org.sola.services.boundary.transferobjects.casemanagement.PartyTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -738,6 +739,23 @@ public class Cadastre extends AbstractWebService {
             }
         });
         return (List<String>) result[0];
+    }
+    
+    @WebMethod(operationName = "getCadastreObject")
+    public CadastreObjectTO getCadastreObject(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
+
+        final String idTmp = id;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(cadastreEJB.getCadastreObject(idTmp), CadastreObjectTO.class);
+            }
+        });
+
+        return (CadastreObjectTO) result[0];
     }
     //--------------------------------------------------------------------------
     // </editor-fold>

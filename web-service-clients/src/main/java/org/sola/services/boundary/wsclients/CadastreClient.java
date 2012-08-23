@@ -102,6 +102,9 @@ public interface CadastreClient extends AbstractWSClient {
     CadastreObjectTO getCadastreObjectByVdcWardParcel(String vdcCode, String wardNo, int parcelNo);
 
     CadastreObjectTO getCadastreObjectByMapSheetParcel(String mapSheetCode, int parcelNo);
+    
+    CadastreObjectTO getCadastreObject(String id);
+
 
     //************************************************************************************************
     //</editor-fold>    

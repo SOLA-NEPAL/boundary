@@ -15,6 +15,7 @@ public class ParcelSummaryTO extends AbstractBasicIdTO {
     private String mapsheetId;
     private String firstName;
     private String lastName;
+    private int parcelno;
 
     public ParcelSummaryTO() {
         super();
@@ -42,5 +43,13 @@ public class ParcelSummaryTO extends AbstractBasicIdTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getParcelno() {
+        return parcelno;
+    }
+
+    public void setParcelno(int parcelno) {
+        this.parcelno = parcelno;
     }
 }

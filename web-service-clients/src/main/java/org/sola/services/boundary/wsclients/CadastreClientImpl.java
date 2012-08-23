@@ -338,6 +338,18 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
+    
+     @Override
+    public CadastreObjectTO getCadastreObject(String id) {
+      final String inputService = SERVICE_NAME + "getCadastreObject";
+        try {
+            CadastreObjectTO result = getPort().getCadastreObject(id);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }  
+    }
 
     //******************************************************************************************************
     //</editor-fold>
@@ -469,5 +481,5 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             handleExceptionsMethod(inputService, e);
             return null;
         }
-    }
+    }  
 }

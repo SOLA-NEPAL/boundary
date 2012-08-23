@@ -36,8 +36,16 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.search.ResultForSelectionInfo;
+import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
 import org.sola.webservices.transferobjects.search.ApplicationSearchParamsTO;
 import org.sola.webservices.transferobjects.search.ApplicationSearchResultTO;
+import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
+import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
+import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
+import org.sola.webservices.transferobjects.search.BrSearchResultTO;
+import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
+import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
+import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
 import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
 import org.sola.webservices.transferobjects.search.PartySearchResultTO;
 import org.sola.webservices.transferobjects.search.PropertyVerifierTO;
@@ -46,12 +54,6 @@ import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
 import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
 import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
 import org.sola.webservices.transferobjects.search.UserSearchResultTO;
-import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
-import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BrSearchResultTO;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
 
 /**
  * Interface for the Search Service. Implemented by {@linkplain SearchClientImpl}
@@ -95,4 +97,6 @@ public interface SearchClient extends AbstractWSClient {
     List<UserSearchResultTO> getUsersWithAssignRightByDepartment(String departmentCode) throws WebServiceClientException;
     
     List<UserSearchResultTO> getUsersWithAssignRightByOffice() throws WebServiceClientException;
+    
+    List<ParcelSearchResultTO> searchParcels(ParcelSearchParamsTO searchParams) throws WebServiceClientException;
 }
