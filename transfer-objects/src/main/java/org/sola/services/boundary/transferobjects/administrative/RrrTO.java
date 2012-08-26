@@ -42,6 +42,7 @@ public class RrrTO extends AbstractIdTO {
     private String baUnitId;
     private String typeCode;
     private String nr;
+    private String sn;
     private String statusCode;
     private boolean primary;
     private Date registrationDate;
@@ -58,22 +59,20 @@ public class RrrTO extends AbstractIdTO {
     private String locId;
     private LocWithMothTO loc;
     private String restrictionReasonCode;
-    private String restictionOfficeCode;
+    private String restrictionOfficeName;
+    private String restrictionReleaseOfficeName;
+    private String restrictionOfficeAddress;
+    private String restrictionReleaseReasonCode;
     private String officeCode;
     private boolean terminating;
     private String ownerTypeCode;
     private String shareTypeCode;
+    private String tenancyTypeCode;
+    private String bundleNumber;
+    private String bundlePageNo;
 
     public RrrTO() {
         super();
-    }
-
-    public String getRestictionOfficeCode() {
-        return restictionOfficeCode;
-    }
-
-    public void setRestictionOfficeCode(String restictionOfficeCode) {
-        this.restictionOfficeCode = restictionOfficeCode;
     }
 
     public String getRestrictionReasonCode() {
@@ -268,5 +267,69 @@ public class RrrTO extends AbstractIdTO {
 
     public void setShareTypeCode(String shareTypeCode) {
         this.shareTypeCode = shareTypeCode;
+    }
+
+    public String getSn() {
+        return sn;
+    }
+
+    public void setSn(String sn) {
+        this.sn = sn;
+    }
+
+    public String getRestrictionOfficeName() {
+        return restrictionOfficeName;
+    }
+
+    public void setRestrictionOfficeName(String restrictionOfficeName) {
+        this.restrictionOfficeName = restrictionOfficeName;
+    }
+
+    public String getRestrictionReleaseOfficeName() {
+        return restrictionReleaseOfficeName;
+    }
+
+    public void setRestrictionReleaseOfficeName(String restrictionReleaseOfficeName) {
+        this.restrictionReleaseOfficeName = restrictionReleaseOfficeName;
+    }
+
+    public String getRestrictionOfficeAddress() {
+        return restrictionOfficeAddress;
+    }
+
+    public void setRestrictionOfficeAddress(String restrictionOfficeAddress) {
+        this.restrictionOfficeAddress = restrictionOfficeAddress;
+    }
+
+    public String getRestrictionReleaseReasonCode() {
+        return restrictionReleaseReasonCode;
+    }
+
+    public void setRestrictionReleaseReasonCode(String restrictionReleaseReasonCode) {
+        this.restrictionReleaseReasonCode = restrictionReleaseReasonCode;
+    }
+
+    public String getTenancyTypeCode() {
+        return tenancyTypeCode;
+    }
+
+    public void setTenancyTypeCode(String tenancyTypeCode) {
+        this.tenancyTypeCode = tenancyTypeCode;
+    }
+
+    public String getBundleNumber() {
+        return bundleNumber;
+    }
+
+    public void setBundleNumber(String bundleNumber) {
+        this.bundleNumber = bundleNumber;
+    }
+
+    public String getBundlePageNo() {
+        return bundlePageNo;
+    }
+
+    public void setBundlePageNo(String bundlePageNo) {
+        this.bundlePageNo = bundlePageNo;
     }
 }
