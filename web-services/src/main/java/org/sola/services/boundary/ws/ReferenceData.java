@@ -56,6 +56,7 @@ import org.sola.services.common.faults.SOLAFault;
 import org.sola.services.common.faults.UnhandledFault;
 import org.sola.services.common.repository.entities.AbstractCodeEntity;
 import org.sola.services.common.webservices.AbstractWebService;
+import org.sola.services.ejb.address.businesslogic.AddressEJBLocal;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJBLocal;
 import org.sola.services.ejb.administrative.repository.entities.*;
 import org.sola.services.ejb.application.businesslogic.ApplicationEJBLocal;
@@ -74,9 +75,9 @@ import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.RegistrationStatusType;
 import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Department;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.District;
+import org.sola.services.ejb.address.repository.entities.District;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Office;
-import org.sola.services.ejbs.admin.businesslogic.repository.entities.Vdc;
+import org.sola.services.ejb.address.repository.entities.Vdc;
 
 @WebService(serviceName = "referencedata-service", targetNamespace = ServiceConstants.REF_DATA_WS_NAMESPACE)
 public class ReferenceData extends AbstractWebService {
@@ -97,6 +98,9 @@ public class ReferenceData extends AbstractWebService {
     SystemEJBLocal systemEJB;
     @EJB
     AdminEJBLocal adminEJB;
+    @EJB
+    AddressEJBLocal addressEJB;
+    
     @Resource
     private WebServiceContext wsContext;
 
@@ -651,7 +655,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
-                result[0] = GenericTranslator.toTOList(adminEJB.getCodeEntityList(
+                result[0] = GenericTranslator.toTOList(addressEJB.getCodeEntityList(
                         District.class, languageCode), DistrictTO.class);
             }
         });
@@ -686,15 +690,13 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(adminEJB.getVdcs(districtCode, languageCode), VdcTO.class);
+                result[0] = GenericTranslator.toTOList(addressEJB.getVdcs(districtCode, languageCode), VdcTO.class);
             }
         });
 
         return (List<VdcTO>) result[0];
     }
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //************************************************************************************************
     @WebMethod(operationName = "getVdcList")
     public List<VdcTO> getVdcList()
             throws SOLAFault, UnhandledFault {
@@ -703,7 +705,7 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(adminEJB.getVdcList(), VdcTO.class);
+                result[0] = GenericTranslator.toTOList(addressEJB.getVdcList(), VdcTO.class);
             }
         });
         return (List<VdcTO>) result[0];
@@ -718,7 +720,7 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTO(adminEJB.getVdcByCode(
+                result[0] = GenericTranslator.toTO(addressEJB.getVdcByCode(
                         id), VdcTO.class);
             }
         });
@@ -735,7 +737,7 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTO(adminEJB.getVdcByName(
+                result[0] = GenericTranslator.toTO(addressEJB.getVdcByName(
                         name), VdcTO.class);
             }
         });
@@ -973,7 +975,7 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = GenericTranslator.fromTO(refDataTO, BaUnitRelType.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof VdcTO) {
-                    codeEntity = adminEJB.getCodeEntity(Vdc.class, refDataTO.getCode());
+                    codeEntity = addressEJB.getCodeEntity(Vdc.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, Vdc.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof OfficeTO) {
@@ -981,7 +983,7 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = GenericTranslator.fromTO(refDataTO, Office.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof DistrictTO) {
-                    codeEntity = adminEJB.getCodeEntity(District.class, refDataTO.getCode());
+                    codeEntity = addressEJB.getCodeEntity(District.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, District.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof DepartmentTO) {

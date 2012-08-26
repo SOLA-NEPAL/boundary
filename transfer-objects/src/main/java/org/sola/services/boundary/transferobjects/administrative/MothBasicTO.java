@@ -1,9 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sola.services.boundary.transferobjects.administrative;
 
+import java.util.Date;
 import org.sola.services.boundary.transferobjects.referencedata.VdcTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
@@ -12,7 +9,7 @@ public class MothBasicTO extends AbstractIdTO {
     private String mothlujNumber;
     private String vdcCode;
     private String mothLuj;
-    private String financialYear;
+    private Date creationDate;
     private VdcTO vdc;
     private String officeCode;
 
@@ -24,12 +21,12 @@ public class MothBasicTO extends AbstractIdTO {
         this.officeCode = officeCode;
     }
 
-    public String getFinancialYear() {
-        return financialYear;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setFinancialYear(String financialYear) {
-        this.financialYear = financialYear;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public String getMothLuj() {

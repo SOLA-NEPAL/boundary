@@ -41,6 +41,7 @@ public class ApplicationSummaryTO extends AbstractBasicIdTO {
     private String contactPersonId;
     private String officeCode;
     private boolean feePaid;
+    private String fiscalYearCode;
     
     public ApplicationSummaryTO() {
         super();
@@ -108,5 +109,13 @@ public class ApplicationSummaryTO extends AbstractBasicIdTO {
 
     public void setNr(String nr) {
         this.nr = nr;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }

@@ -48,7 +48,6 @@ public class ApplicationTO extends AbstractIdTO {
     private Date expectedCompletionDate;
     private String assigneeId;
     private Date assignedDatetime;
-    private byte[] location;
     private String statusCode;
     private BigDecimal servicesFee;
     private BigDecimal tax;
@@ -57,12 +56,13 @@ public class ApplicationTO extends AbstractIdTO {
     private boolean feePaid;
     private String actionCode;
     private String actionNotes;
-    private PartyTO contactPerson;
+    private PartySummaryTO contactPerson;
     private PartySummaryTO agent;
     private List<ServiceTO> serviceList;
     private List<ApplicationPropertyTO> propertyList;
     private List<SourceTO> sourceList;
     private String officeCode;
+    private String fiscalYearCode;
 
     public ApplicationTO() {
         super();
@@ -76,11 +76,11 @@ public class ApplicationTO extends AbstractIdTO {
         this.assignedDatetime = assignedDatetime;
     }
 
-    public PartyTO getContactPerson() {
+    public PartySummaryTO getContactPerson() {
         return contactPerson;
     }
 
-    public void setContactPerson(PartyTO contactPerson) {
+    public void setContactPerson(PartySummaryTO contactPerson) {
         this.contactPerson = contactPerson;
     }
 
@@ -130,14 +130,6 @@ public class ApplicationTO extends AbstractIdTO {
 
     public void setFeePaid(boolean feePaid) {
         this.feePaid = feePaid;
-    }
-
-    public byte[] getLocation() {
-        return location;
-    }
-
-    public void setLocation(byte[] location) {
-        this.location = location;
     }
 
     public BigDecimal getServicesFee() {
@@ -247,5 +239,13 @@ public class ApplicationTO extends AbstractIdTO {
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }

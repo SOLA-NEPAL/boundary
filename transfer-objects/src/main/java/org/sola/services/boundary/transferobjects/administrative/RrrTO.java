@@ -63,7 +63,8 @@ public class RrrTO extends AbstractIdTO {
     private boolean terminating;
     private String ownerTypeCode;
     private String shareTypeCode;
-
+    private String fiscalYearCode;
+    
     public RrrTO() {
         super();
     }
@@ -268,5 +269,13 @@ public class RrrTO extends AbstractIdTO {
 
     public void setShareTypeCode(String shareTypeCode) {
         this.shareTypeCode = shareTypeCode;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }

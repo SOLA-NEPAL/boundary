@@ -38,6 +38,7 @@ public class BaUnitBasicTO extends AbstractTO {
     private String statusCode;
     private String transactionId;
     private String officeCode;
+    private String fiscalYearCode;
     
     public BaUnitBasicTO(){
         super();
@@ -105,5 +106,13 @@ public class BaUnitBasicTO extends AbstractTO {
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }
