@@ -36,6 +36,7 @@ public class BaUnitSearchResultTO extends AbstractTO {
     private String nameLastPart;
     private String statusCode;
     private String rightholders;
+    private String fiscalYearCode;
     
     public BaUnitSearchResultTO(){
         super();
@@ -87,5 +88,13 @@ public class BaUnitSearchResultTO extends AbstractTO {
 
     public void setStatusCode(String statusCode) {
         this.statusCode = statusCode;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }

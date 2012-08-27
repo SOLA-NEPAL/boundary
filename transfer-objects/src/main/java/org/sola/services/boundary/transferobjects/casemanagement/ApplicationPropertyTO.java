@@ -25,19 +25,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sola.services.boundary.transferobjects.casemanagement;
 
 import java.math.BigDecimal;
 import org.sola.services.common.contracts.AbstractIdTO;
 
-/**
- *
- * @author soladev
- */
 public class ApplicationPropertyTO extends AbstractIdTO {
 
     private String applicationId; 
@@ -48,7 +40,9 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private BigDecimal totalValue;
     private boolean verifiedExists;
     private boolean verifiedHasOwners;
-    private boolean verifiedLocation; 
+    private boolean verifiedLocation;
+    private String mothNo;
+    private String pageNo;
     
     public ApplicationPropertyTO() {
         super();
@@ -125,5 +119,20 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     public void setVerifiedLocation(boolean verifiedLocation) {
         this.verifiedLocation = verifiedLocation;
     }
-    
+
+    public String getMothNo() {
+        return mothNo;
+    }
+
+    public void setMothNo(String mothNo) {
+        this.mothNo = mothNo;
+    }
+
+    public String getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(String pageNo) {
+        this.pageNo = pageNo;
+    }
 }

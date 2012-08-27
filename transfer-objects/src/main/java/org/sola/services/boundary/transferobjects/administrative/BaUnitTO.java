@@ -52,6 +52,7 @@ public class BaUnitTO extends AbstractIdTO {
     private List<RelatedBaUnitInfoTO> parentBaUnits;
     private String pendingActionCode;
     private String officeCode;
+    private String fiscalYearCode;
 
     public BaUnitTO() {
         super();
@@ -189,5 +190,13 @@ public class BaUnitTO extends AbstractIdTO {
 
     public void setPendingActionCode(String pendingActionCode) {
         this.pendingActionCode = pendingActionCode;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }

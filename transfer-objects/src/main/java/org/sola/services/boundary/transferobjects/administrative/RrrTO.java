@@ -70,6 +70,7 @@ public class RrrTO extends AbstractIdTO {
     private String tenancyTypeCode;
     private String bundleNumber;
     private String bundlePageNo;
+    private String fiscalYearCode;
 
     public RrrTO() {
         super();
@@ -331,5 +332,13 @@ public class RrrTO extends AbstractIdTO {
 
     public void setBundlePageNo(String bundlePageNo) {
         this.bundlePageNo = bundlePageNo;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }

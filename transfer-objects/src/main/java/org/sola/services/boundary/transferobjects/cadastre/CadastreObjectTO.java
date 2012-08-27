@@ -57,7 +57,8 @@ public class CadastreObjectTO extends AbstractIdTO {
     private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
     private String officeCode;
-
+    private String fiscalYearCode;
+    
     public String getParcelNote() {
         return parcelNote;
     }
@@ -228,5 +229,13 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setAddressId(String addressId) {
         this.addressId = addressId;
+    }
+
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
+    }
+
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
 }
