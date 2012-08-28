@@ -71,6 +71,9 @@ public class RrrTO extends AbstractIdTO {
     private String bundleNumber;
     private String bundlePageNo;
     private String fiscalYearCode;
+    private String registrationNumber;
+    private double valuationAmount;
+    private double taxAmount;
 
     public RrrTO() {
         super();
@@ -340,5 +343,29 @@ public class RrrTO extends AbstractIdTO {
 
     public void setFiscalYearCode(String fiscalYearCode) {
         this.fiscalYearCode = fiscalYearCode;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public double getValuationAmount() {
+        return valuationAmount;
+    }
+
+    public void setValuationAmount(double valuationAmount) {
+        this.valuationAmount = valuationAmount;
+    }
+
+    public double getTaxAmount() {
+        return taxAmount;
+    }
+
+    public void setTaxAmount(double taxAmount) {
+        this.taxAmount = taxAmount;
     }
 }
