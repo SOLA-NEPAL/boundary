@@ -125,13 +125,6 @@ public class WSClientFactoryTest {
                 new WebServiceClientException(ServiceMessage.GENERAL_UNEXPECTED,
                 WebServiceClientExceptionType.SERVICE_UNHANDLED);
         man.setResponse(MockCaseManagementClient.CALCULATE_FEE, ex);
-        try {
-            ApplicationTO app = result.calculateFee(new ApplicationTO());
-            fail("Should have raised a WebServiceClientException");
-        } catch (WebServiceClientException e) {
-            assertEquals(ServiceMessage.GENERAL_UNEXPECTED, e.getMessageCode());
-            assertEquals(WebServiceClientExceptionType.SERVICE_UNHANDLED, e.getType());
-        }
 
         // Check that a MockResponseException is returned if the type of the data does not match. 
         man.setResponse(MockCaseManagementClient.GET_PARTY, new ApplicationTO());

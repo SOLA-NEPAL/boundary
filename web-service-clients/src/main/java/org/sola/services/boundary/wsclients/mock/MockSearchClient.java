@@ -50,7 +50,6 @@ import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
 import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
 import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
 import org.sola.webservices.transferobjects.search.PartySearchResultTO;
-import org.sola.webservices.transferobjects.search.PropertyVerifierTO;
 import org.sola.webservices.transferobjects.search.SourceSearchParamsTO;
 import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
 import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
@@ -110,15 +109,6 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
         List<ApplicationSearchResultTO> defaultResponse = new ArrayList<ApplicationSearchResultTO>();
         return getManager().getResponse(SEARCH_APPLICATIONS, List.class, defaultResponse,
                 applicationSearchParamsTO);
-    }
-
-    /** @return default = new PropertyVerifierTO() */
-    @Override
-    public PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart)
-            throws WebServiceClientException {
-        PropertyVerifierTO defaultResponse = new PropertyVerifierTO();
-        return getManager().getResponse(VERIFY_APPLICATION_PROPERTY, PropertyVerifierTO.class,
-                defaultResponse, firstPart, lastPart);
     }
 
     /** @return default = new ArrayList<ResultForSelectionInfo>() */

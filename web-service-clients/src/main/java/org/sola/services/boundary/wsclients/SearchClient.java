@@ -48,7 +48,6 @@ import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
 import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
 import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
 import org.sola.webservices.transferobjects.search.PartySearchResultTO;
-import org.sola.webservices.transferobjects.search.PropertyVerifierTO;
 import org.sola.webservices.transferobjects.search.SourceSearchParamsTO;
 import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
 import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
@@ -67,8 +66,6 @@ public interface SearchClient extends AbstractWSClient {
     List<ApplicationSearchResultTO> getAssignedApplications() throws WebServiceClientException;
 
     List<ApplicationSearchResultTO> searchApplications(ApplicationSearchParamsTO applicationSearchParamsTO) throws WebServiceClientException;
-
-    PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart) throws WebServiceClientException;
 
     public List<ResultForSelectionInfo> select(List<QueryForSelect> queries)
             throws WebServiceClientException;

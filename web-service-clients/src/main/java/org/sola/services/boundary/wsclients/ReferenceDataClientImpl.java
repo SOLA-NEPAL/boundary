@@ -569,9 +569,14 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
 
     @Override
     public VdcTO getVdcByCode(String id) {
+        return getVdcByCode(getLanguageCode(), id);
+    }
+    
+    @Override
+    public VdcTO getVdcByCode(String languageCode, String id) {
         final String inputService = SERVICE_NAME + "getVdcByCode";
         try {
-            return getPort().getVdcByCode(id);
+            return getPort().getVdcByCode(languageCode, id);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

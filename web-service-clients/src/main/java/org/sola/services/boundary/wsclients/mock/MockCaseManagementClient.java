@@ -147,14 +147,6 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
         return getManager().getResponse(GET_AGENTS, List.class, defaultResponse);
     }
 
-    /** @return default = application */
-    @Override
-    public ApplicationTO calculateFee(ApplicationTO application) {
-        ApplicationTO defaultResponse = application;
-        return getManager().getResponse(CALCULATE_FEE, ApplicationTO.class, defaultResponse,
-                application);
-    }
-
     @Override
     public PartyTO saveParty(PartyTO party) {
         PartyTO defaultResponse = party;

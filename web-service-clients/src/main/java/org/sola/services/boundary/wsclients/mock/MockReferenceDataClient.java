@@ -552,4 +552,9 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public List<LandUseTO> getLandUses(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public VdcTO getVdcByCode(String languageCode, String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

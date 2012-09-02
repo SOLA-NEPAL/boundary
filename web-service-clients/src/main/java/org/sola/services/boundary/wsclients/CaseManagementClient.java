@@ -46,11 +46,6 @@ import org.sola.webservices.transferobjects.casemanagement.*;
  */
 public interface CaseManagementClient extends AbstractWSClient {
 
-    ApplicationTO calculateFee(ApplicationTO application) throws WebServiceClientException;
-
-    /**
-     * Some Stuff
-     */
     boolean checkConnection() throws WebServiceClientException;
 
     ApplicationTO createApplication(ApplicationTO application) throws WebServiceClientException;

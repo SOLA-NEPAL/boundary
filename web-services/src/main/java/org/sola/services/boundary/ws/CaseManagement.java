@@ -314,27 +314,6 @@ public class CaseManagement extends AbstractWebService {
         return (List<ApplicationLogTO>) result[0];
     }
 
-    @WebMethod(operationName = "CalculateFee")
-    public ApplicationTO CalculateFee(@WebParam(name = "application") ApplicationTO application)
-            throws SOLAFault, UnhandledFault {
-
-        final ApplicationTO applicationTmp = application;
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                Application app = GenericTranslator.fromTO(applicationTmp,
-                        Application.class, null);
-                result[0] = GenericTranslator.toTO(
-                        applicationEJB.calculateFeesAndDates(app), ApplicationTO.class);
-            }
-        });
-
-        return (ApplicationTO) result[0];
-    }
-
     @WebMethod(operationName = "AttachSourceToTransaction")
     public SourceTO AttachSourceToTransaction(
             @WebParam(name = "serviceId") String serviceId,

@@ -177,18 +177,6 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
     }
 
     @Override
-    public ApplicationTO calculateFee(ApplicationTO application) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "calculateFee";
-        try {
-            ApplicationTO result = getPort().calculateFee(application);
-            return result;
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
     public PartyTO saveParty(PartyTO party)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "saveParty";

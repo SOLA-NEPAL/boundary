@@ -36,7 +36,17 @@ public class BaUnitSearchResultTO extends AbstractTO {
     private String nameLastPart;
     private String statusCode;
     private String rightholders;
+    private String officeCode;
     private String fiscalYearCode;
+    private boolean locId;
+    private boolean mothId;
+    private boolean panaNo;
+    private boolean mothNo;
+    private String wardNo;
+    private String vdcCode;
+    private String parcelNo;
+    private String mapNumber;
+    private String mapSheetId;
     
     public BaUnitSearchResultTO(){
         super();
@@ -96,5 +106,85 @@ public class BaUnitSearchResultTO extends AbstractTO {
 
     public void setFiscalYearCode(String fiscalYearCode) {
         this.fiscalYearCode = fiscalYearCode;
+    }
+
+    public boolean isLocId() {
+        return locId;
+    }
+
+    public void setLocId(boolean locId) {
+        this.locId = locId;
+    }
+
+    public String getMapNumber() {
+        return mapNumber;
+    }
+
+    public void setMapNumber(String mapNumber) {
+        this.mapNumber = mapNumber;
+    }
+
+    public String getMapSheetId() {
+        return mapSheetId;
+    }
+
+    public void setMapSheetId(String mapSheetId) {
+        this.mapSheetId = mapSheetId;
+    }
+
+    public boolean isMothId() {
+        return mothId;
+    }
+
+    public void setMothId(boolean mothId) {
+        this.mothId = mothId;
+    }
+
+    public boolean isMothNo() {
+        return mothNo;
+    }
+
+    public void setMothNo(boolean mothNo) {
+        this.mothNo = mothNo;
+    }
+
+    public String getOfficeCode() {
+        return officeCode;
+    }
+
+    public void setOfficeCode(String officeCode) {
+        this.officeCode = officeCode;
+    }
+
+    public boolean isPanaNo() {
+        return panaNo;
+    }
+
+    public void setPanaNo(boolean panaNo) {
+        this.panaNo = panaNo;
+    }
+
+    public String getParcelNo() {
+        return parcelNo;
+    }
+
+    public void setParcelNo(String parcelNo) {
+        this.parcelNo = parcelNo;
+    }
+
+    public String getVdcCode() {
+        return vdcCode;
+    }
+
+    public void setVdcCode(String vdcCode) {
+        this.vdcCode = vdcCode;
+    }
+
+    public String getWardNo() {
+        return wardNo;
+    }
+
+    public void setWardNo(String wardNo) {
+        this.wardNo = wardNo;
     }
 }

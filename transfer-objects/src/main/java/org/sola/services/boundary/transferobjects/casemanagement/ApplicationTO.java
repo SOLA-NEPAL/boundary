@@ -35,6 +35,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.sola.services.boundary.transferobjects.search.BaUnitSearchResultTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
@@ -51,19 +52,23 @@ public class ApplicationTO extends AbstractIdTO {
     private String statusCode;
     private BigDecimal servicesFee;
     private BigDecimal tax;
-    private BigDecimal totalFee;
+    private BigDecimal valuationAmount;
     private BigDecimal totalAmountPaid;
+    private String receiptNumber;
+    private Date receiptDate;
+    private String paymentRemarks;
     private boolean feePaid;
     private String actionCode;
     private String actionNotes;
     private PartySummaryTO contactPerson;
     private PartySummaryTO agent;
     private List<ServiceTO> serviceList;
-    private List<ApplicationPropertyTO> propertyList;
+    private List<BaUnitSearchResultTO> propertyList;
     private List<SourceTO> sourceList;
     private String officeCode;
     private String fiscalYearCode;
-
+    private Date statusChangeDate;
+    
     public ApplicationTO() {
         super();
     }
@@ -144,6 +149,14 @@ public class ApplicationTO extends AbstractIdTO {
         return tax;
     }
 
+    public Date getStatusChangeDate() {
+        return statusChangeDate;
+    }
+
+    public void setStatusChangeDate(Date statusChangeDate) {
+        this.statusChangeDate = statusChangeDate;
+    }
+
     public void setTax(BigDecimal tax) {
         this.tax = tax;
     }
@@ -156,12 +169,36 @@ public class ApplicationTO extends AbstractIdTO {
         this.totalAmountPaid = totalAmountPaid;
     }
 
-    public BigDecimal getTotalFee() {
-        return totalFee;
+    public BigDecimal getValuationAmount() {
+        return valuationAmount;
     }
 
-    public void setTotalFee(BigDecimal totalFee) {
-        this.totalFee = totalFee;
+    public void setValuationAmount(BigDecimal valuationAmount) {
+        this.valuationAmount = valuationAmount;
+    }
+
+    public String getPaymentRemarks() {
+        return paymentRemarks;
+    }
+
+    public void setPaymentRemarks(String paymentRemarks) {
+        this.paymentRemarks = paymentRemarks;
+    }
+
+    public Date getReceiptDate() {
+        return receiptDate;
+    }
+
+    public void setReceiptDate(Date receiptDate) {
+        this.receiptDate = receiptDate;
+    }
+
+    public String getReceiptNumber() {
+        return receiptNumber;
+    }
+
+    public void setReceiptNumber(String receiptNumber) {
+        this.receiptNumber = receiptNumber;
     }
 
     public List<ServiceTO> getServiceList() {
@@ -170,27 +207,6 @@ public class ApplicationTO extends AbstractIdTO {
 
     public void setServiceList(List<ServiceTO> serviceList) {
         this.serviceList = serviceList;
-    }
-
-    public void addService(ServiceTO service) {
-        if (serviceList == null) {
-            serviceList = new ArrayList<ServiceTO>();
-        }
-        serviceList.add(service);
-    }
-
-    public void addApplicationProperty(ApplicationPropertyTO appProperty) {
-        if (propertyList == null) {
-            propertyList = new ArrayList<ApplicationPropertyTO>();
-        }
-        propertyList.add(appProperty);
-    }
-
-    public void addSource(SourceTO source) {
-        if (sourceList == null) {
-            sourceList = new ArrayList<SourceTO>();
-        }
-        sourceList.add(source);
     }
 
     public PartySummaryTO getAgent() {
@@ -217,11 +233,11 @@ public class ApplicationTO extends AbstractIdTO {
         this.actionNotes = actionNotes;
     }
 
-    public List<ApplicationPropertyTO> getPropertyList() {
+    public List<BaUnitSearchResultTO> getPropertyList() {
         return propertyList;
     }
 
-    public void setPropertyList(List<ApplicationPropertyTO> propertyList) {
+    public void setPropertyList(List<BaUnitSearchResultTO> propertyList) {
         this.propertyList = propertyList;
     }
 

@@ -161,6 +161,8 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<VdcTO> getVdcList();
 
     VdcTO getVdcByCode(String id);
+    
+    VdcTO getVdcByCode(String languageCode, String id);
 
     VdcTO getVdcByName(String name);
 

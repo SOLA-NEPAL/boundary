@@ -100,7 +100,6 @@ public class ReferenceData extends AbstractWebService {
     AdminEJBLocal adminEJB;
     @EJB
     AddressEJBLocal addressEJB;
-    
     @Resource
     private WebServiceContext wsContext;
 
@@ -712,16 +711,16 @@ public class ReferenceData extends AbstractWebService {
     }
 
     @WebMethod(operationName = "getVdcByCode")
-    public VdcTO getVdcByCode(@WebParam(name = "id") final String id)
-            throws SOLAFault, UnhandledFault {
+    public VdcTO getVdcByCode(@WebParam(name = "languageCode") final String languageCode,
+            @WebParam(name = "id") final String id) throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTO(addressEJB.getVdcByCode(
-                        id), VdcTO.class);
+                result[0] = GenericTranslator.toTO(
+                        addressEJB.getVdcByCode(languageCode, id), VdcTO.class);
             }
         });
 
