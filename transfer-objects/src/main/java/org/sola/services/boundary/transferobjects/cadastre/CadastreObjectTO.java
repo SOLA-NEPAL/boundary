@@ -40,7 +40,6 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String mapSheetCode;
     private Date approvalDatetime;
     private Date historicDatetime;
-    private String sourceReference;
     private String nameFirstpart;
     private String nameLastpart;
     private String statusCode;
@@ -125,14 +124,6 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setNameLastpart(String nameLastpart) {
         this.nameLastpart = nameLastpart;
-    }
-
-    public String getSourceReference() {
-        return sourceReference;
-    }
-
-    public void setSourceReference(String sourceReference) {
-        this.sourceReference = sourceReference;
     }
 
     public String getStatusCode() {
