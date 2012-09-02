@@ -170,9 +170,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<OwnerTypeTO> getOwnerTypes(String lang) throws WebServiceClientException;
 
-    List<ShareTypeTO> getShareTypes() throws WebServiceClientException;
+    List<OwnershipTypeTO> getOwnershipTypes() throws WebServiceClientException;
 
-    List<ShareTypeTO> getShareTypes(String lang) throws WebServiceClientException;
+    List<OwnershipTypeTO> getOwnershipTypes(String lang) throws WebServiceClientException;
 
     List<TenantTypeTO> getTenantTypes() throws WebServiceClientException;
 

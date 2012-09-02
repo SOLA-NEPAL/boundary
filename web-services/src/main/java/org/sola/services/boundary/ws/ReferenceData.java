@@ -34,7 +34,7 @@ import org.sola.services.ejb.cadastre.repository.entities.ParcelType;
 import org.sola.services.ejb.cadastre.repository.entities.LandUse;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionReason;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionOffice;
-import org.sola.services.ejb.administrative.repository.entities.ShareType;
+import org.sola.services.ejb.administrative.repository.entities.OwnershipType;
 import org.sola.services.ejb.administrative.repository.entities.TenantType;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionReleaseReason;
 import java.util.List;
@@ -765,8 +765,8 @@ public class ReferenceData extends AbstractWebService {
         return (List<OwnerTypeTO>) result[0];
     }
 
-    @WebMethod(operationName = "getShareTypes")
-    public List<ShareTypeTO> getShareTypes(String languageCode)
+    @WebMethod(operationName = "getOwnershipTypes")
+    public List<OwnershipTypeTO> getOwnershipTypes(String languageCode)
             throws SOLAFault, UnhandledFault {
 
         final String languageCodeTmp = languageCode;
@@ -777,12 +777,12 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        administrativeEJB.getShareTypes(languageCodeTmp),
-                        ShareTypeTO.class);
+                        administrativeEJB.getOwnershipTypes(languageCodeTmp),
+                        OwnershipTypeTO.class);
             }
         });
 
-        return (List<ShareTypeTO>) result[0];
+        return (List<OwnershipTypeTO>) result[0];
     }
 
     @WebMethod(operationName = "getTenantTypes")
@@ -1006,9 +1006,9 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = systemEJB.getCodeEntity(OwnerType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, OwnerType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof ShareTypeTO) {
-                    codeEntity = systemEJB.getCodeEntity(ShareType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, ShareType.class, codeEntity);
+                } else if (refDataTO instanceof OwnershipTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(OwnershipType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, OwnershipType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof TenantTypeTO) {
                     codeEntity = systemEJB.getCodeEntity(TenantType.class, refDataTO.getCode());

@@ -10,9 +10,9 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  *
  * @author KumarKhadka
  */
-public class ShareTypeTO extends AbstractCodeTO {
+public class OwnershipTypeTO extends AbstractCodeTO {
 
-    public ShareTypeTO() {
+    public OwnershipTypeTO() {
         super();
     }
 }
