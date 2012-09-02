@@ -611,15 +611,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
 
     @Override
-    public List<ShareTypeTO> getShareTypes() throws WebServiceClientException {
-        return getShareTypes(getLanguageCode());
+    public List<OwnershipTypeTO> getOwnershipTypes() throws WebServiceClientException {
+        return getOwnershipTypes(getLanguageCode());
     }
 
     @Override
-    public List<ShareTypeTO> getShareTypes(String lang) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getShareTypes";
+    public List<OwnershipTypeTO> getOwnershipTypes(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getOwnershipTypes";
         try {
-            return getPort().getShareTypes(lang);
+            return getPort().getOwnershipTypes(lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

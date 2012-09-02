@@ -33,24 +33,24 @@ package org.sola.services.boundary.wsclients;
  */
 
 
-import org.sola.webservices.transferobjects.referencedata.RequestTypeTO;
-import org.sola.services.boundary.wsclients.mock.MockResponse;
-import org.sola.services.boundary.wsclients.exception.MockResponseException;
-import org.sola.webservices.transferobjects.casemanagement.ApplicationTO;
-import org.sola.webservices.transferobjects.casemanagement.PartySummaryTO;
 import java.util.List;
-import org.sola.webservices.transferobjects.casemanagement.PartyTO;
-import org.sola.services.boundary.wsclients.mock.MockServiceManager;
-import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sola.common.messaging.ServiceMessage;
+import org.sola.services.boundary.wsclients.exception.MockResponseException;
+import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientExceptionType;
 import org.sola.services.boundary.wsclients.mock.MockCaseManagementClient;
-import static org.junit.Assert.*;
+import org.sola.services.boundary.wsclients.mock.MockResponse;
+import org.sola.services.boundary.wsclients.mock.MockServiceManager;
+import org.sola.webservices.transferobjects.casemanagement.ApplicationTO;
+import org.sola.webservices.transferobjects.casemanagement.PartySummaryTO;
+import org.sola.webservices.transferobjects.casemanagement.PartyTO;
+import org.sola.webservices.transferobjects.referencedata.RequestTypeTO;
 
 /**
  *

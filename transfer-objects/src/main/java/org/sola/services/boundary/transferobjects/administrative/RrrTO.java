@@ -66,7 +66,7 @@ public class RrrTO extends AbstractIdTO {
     private String officeCode;
     private boolean terminating;
     private String ownerTypeCode;
-    private String shareTypeCode;
+    private String ownershipTypeCode;
     private String tenancyTypeCode;
     private String bundleNumber;
     private String bundlePageNo;
@@ -265,12 +265,12 @@ public class RrrTO extends AbstractIdTO {
         this.ownerTypeCode = ownerTypeCode;
     }
 
-    public String getShareTypeCode() {
-        return shareTypeCode;
+    public String getOwnershipTypeCode() {
+        return ownershipTypeCode;
     }
 
-    public void setShareTypeCode(String shareTypeCode) {
-        this.shareTypeCode = shareTypeCode;
+    public void setOwnershipTypeCode(String ownershipTypeCode) {
+        this.ownershipTypeCode = ownershipTypeCode;
     }
 
     public String getSn() {
