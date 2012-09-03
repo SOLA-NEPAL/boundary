@@ -643,15 +643,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
 
     @Override
-    public List<ParcelTypeTO> getParcelTypes() {
-        return getParcelTypes(getLanguageCode());
+    public List<LandTypeTO> getLandTypes() {
+        return getLandTypes(getLanguageCode());
     }
 
     @Override
-    public List<ParcelTypeTO> getParcelTypes(String lang) {
-        final String inputService = SERVICE_NAME + "getParcelTypes";
+    public List<LandTypeTO> getLandTypes(String lang) {
+        final String inputService = SERVICE_NAME + "getLandTypes";
         try {
-            return getPort().getParcelTypes(lang);
+            return getPort().getLandTypes(lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

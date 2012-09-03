@@ -180,9 +180,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException;
 
-    List<ParcelTypeTO> getParcelTypes() throws WebServiceClientException;
+    List<LandTypeTO> getLandTypes() throws WebServiceClientException;
 
-    List<ParcelTypeTO> getParcelTypes(String lang) throws WebServiceClientException;
+    List<LandTypeTO> getLandTypes(String lang) throws WebServiceClientException;
 
     List<LandClassTO> getLandClasses() throws WebServiceClientException;
 

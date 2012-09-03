@@ -30,7 +30,7 @@
 package org.sola.services.boundary.ws;
 
 import org.sola.services.ejb.cadastre.repository.entities.LandClass;
-import org.sola.services.ejb.cadastre.repository.entities.ParcelType;
+import org.sola.services.ejb.cadastre.repository.entities.LandType;
 import org.sola.services.ejb.cadastre.repository.entities.LandUse;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionReason;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionOffice;
@@ -46,7 +46,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.common.RolesConstants;
-import org.sola.services.boundary.transferobjects.referencedata.ParcelTypeTO;
+import org.sola.services.boundary.transferobjects.referencedata.LandTypeTO;
 import org.sola.services.boundary.transferobjects.referencedata.*;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.AbstractCodeTO;
@@ -804,8 +804,8 @@ public class ReferenceData extends AbstractWebService {
         return (List<TenantTypeTO>) result[0];
     }
 
-    @WebMethod(operationName = "getParcelTypes")
-    public List<ParcelTypeTO> getParcelTypes(@WebParam(name = "languageCode") final String languageCode)
+    @WebMethod(operationName = "getLandTypes")
+    public List<LandTypeTO> getLandTypes(@WebParam(name = "languageCode") final String languageCode)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
 
@@ -813,11 +813,11 @@ public class ReferenceData extends AbstractWebService {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(cadastreEJB.getParcelTypes(languageCode), ParcelTypeTO.class);
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getLandTypes(languageCode), LandTypeTO.class);
             }
         });
 
-        return (List<ParcelTypeTO>) result[0];
+        return (List<LandTypeTO>) result[0];
     }
 
     @WebMethod(operationName = "getLandUses")
@@ -1013,9 +1013,9 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = systemEJB.getCodeEntity(TenantType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, TenantType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof ParcelTypeTO) {
-                    codeEntity = systemEJB.getCodeEntity(ParcelType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, ParcelType.class, codeEntity);
+                } else if (refDataTO instanceof LandTypeTO) {
+                    codeEntity = systemEJB.getCodeEntity(LandType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, LandType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof LandUseTO) {
                     codeEntity = systemEJB.getCodeEntity(LandUse.class, refDataTO.getCode());

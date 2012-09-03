@@ -10,9 +10,9 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  *
  * @author ShresthaKabin
  */
-public class ParcelTypeTO extends AbstractCodeTO {
+public class LandTypeTO extends AbstractCodeTO {
 
-    public ParcelTypeTO() {
+    public LandTypeTO() {
         super();
     }
 }

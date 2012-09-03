@@ -72,8 +72,8 @@ public class RrrTO extends AbstractIdTO {
     private String bundlePageNo;
     private String fiscalYearCode;
     private String registrationNumber;
-    private double valuationAmount;
-    private double taxAmount;
+    private BigDecimal valuationAmount;
+    private BigDecimal taxAmount;
 
     public RrrTO() {
         super();
@@ -353,19 +353,19 @@ public class RrrTO extends AbstractIdTO {
         this.registrationNumber = registrationNumber;
     }
 
-    public double getValuationAmount() {
+    public BigDecimal getValuationAmount() {
         return valuationAmount;
     }
 
-    public void setValuationAmount(double valuationAmount) {
+    public void setValuationAmount(BigDecimal valuationAmount) {
         this.valuationAmount = valuationAmount;
     }
 
-    public double getTaxAmount() {
+    public BigDecimal getTaxAmount() {
         return taxAmount;
     }
 
-    public void setTaxAmount(double taxAmount) {
+    public void setTaxAmount(BigDecimal taxAmount) {
         this.taxAmount = taxAmount;
     }
 }

@@ -494,12 +494,12 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     }
 
     @Override
-    public List<ParcelTypeTO> getParcelTypes(String languageCode) {
+    public List<LandTypeTO> getLandTypes(String languageCode) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<ParcelTypeTO> getParcelTypes() {
+    public List<LandTypeTO> getLandTypes() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

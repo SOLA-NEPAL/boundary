@@ -52,7 +52,7 @@ public class ApplicationTO extends AbstractIdTO {
     private String statusCode;
     private BigDecimal servicesFee;
     private BigDecimal tax;
-    private BigDecimal valuationAmount;
+   private BigDecimal valuationAmount;
     private BigDecimal totalAmountPaid;
     private String receiptNumber;
     private Date receiptDate;
