@@ -571,7 +571,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     public VdcTO getVdcByCode(String id) {
         return getVdcByCode(getLanguageCode(), id);
     }
-    
+
     @Override
     public VdcTO getVdcByCode(String languageCode, String id) {
         final String inputService = SERVICE_NAME + "getVdcByCode";
@@ -732,6 +732,38 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         final String inputService = SERVICE_NAME + "getRestrictionOffices";
         try {
             return getPort().getRestrictionOffices(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<AreaUnitTypeTO> getAreaUnitTypes() throws WebServiceClientException {
+        return getAreaUnitTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<AreaUnitTypeTO> getAreaUnitTypes(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getAreaUnitTypes";
+        try {
+            return getPort().getAreaUnitTypes(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BuildingUnitTypeTO> getBuildingUnitTypes() throws WebServiceClientException {
+        return getBuildingUnitTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<BuildingUnitTypeTO> getBuildingUnitTypes(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getBuildingUnitTypes";
+        try {
+            return getPort().getBuildingUnitTypes(lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

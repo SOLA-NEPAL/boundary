@@ -119,7 +119,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -139,7 +138,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -159,7 +157,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -178,7 +175,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -197,7 +193,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -216,7 +211,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -234,7 +228,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -253,7 +246,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -273,7 +265,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -293,7 +284,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -313,7 +303,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -332,7 +321,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -350,7 +338,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -368,7 +355,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -386,7 +372,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -404,7 +389,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -423,7 +407,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -441,7 +424,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -459,7 +441,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -478,7 +459,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -498,7 +478,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -518,7 +497,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -537,7 +515,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -556,7 +533,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -575,7 +551,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -594,7 +569,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -613,7 +587,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -633,7 +606,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(adminEJB.getOfficesByDistrict(districtCode, languageCode), OfficeTO.class);
@@ -650,7 +622,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -669,7 +640,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(adminEJB.getDepartments(officeCode, languageCode), DepartmentTO.class);
@@ -686,7 +656,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(addressEJB.getVdcs(districtCode, languageCode), VdcTO.class);
@@ -701,7 +670,6 @@ public class ReferenceData extends AbstractWebService {
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(addressEJB.getVdcList(), VdcTO.class);
@@ -716,7 +684,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -733,7 +700,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(addressEJB.getVdcByName(
@@ -752,7 +718,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -772,7 +737,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -792,7 +756,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -810,7 +773,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(cadastreEJB.getLandTypes(languageCode), LandTypeTO.class);
@@ -828,7 +790,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -848,7 +809,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -1045,7 +1005,6 @@ public class ReferenceData extends AbstractWebService {
         }
     }
 
-    //<editor-fold defaultstate="collapsed" desc="Dinesh">
     @WebMethod(operationName = "getRestrictionReasons")
     public List<RestrictionReasonTO> getRestrictionReasons(String languageCode)
             throws SOLAFault, UnhandledFault {
@@ -1054,7 +1013,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -1074,7 +1032,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -1094,7 +1051,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -1105,5 +1061,34 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<RestrictionOfficeTO>) result[0];
     }
-    //</editor-fold>
+
+    @WebMethod(operationName = "getAreaUnitTypes")
+    public List<AreaUnitTypeTO> getAreaUnitTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getAreaUnitTypes(languageCode), AreaUnitTypeTO.class);
+            }
+        });
+
+        return (List<AreaUnitTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getBuildingUnitTypes")
+    public List<BuildingUnitTypeTO> getBuildingUnitTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getBuildingUnitTypes(languageCode), BuildingUnitTypeTO.class);
+            }
+        });
+
+        return (List<BuildingUnitTypeTO>) result[0];
+    }
 }

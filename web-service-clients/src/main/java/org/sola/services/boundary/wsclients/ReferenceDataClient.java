@@ -156,12 +156,10 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<VdcTO> getVdcs(String districtCode);
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //************************************************************************************************
     List<VdcTO> getVdcList();
 
     VdcTO getVdcByCode(String id);
-    
+
     VdcTO getVdcByCode(String languageCode, String id);
 
     VdcTO getVdcByName(String name);
@@ -203,4 +201,12 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<RestrictionOfficeTO> getRestrictionOffices() throws WebServiceClientException;
 
     List<RestrictionOfficeTO> getRestrictionOffices(String lang) throws WebServiceClientException;
+
+    List<AreaUnitTypeTO> getAreaUnitTypes() throws WebServiceClientException;
+
+    List<AreaUnitTypeTO> getAreaUnitTypes(String lang) throws WebServiceClientException;
+
+    List<BuildingUnitTypeTO> getBuildingUnitTypes() throws WebServiceClientException;
+
+    List<BuildingUnitTypeTO> getBuildingUnitTypes(String lang) throws WebServiceClientException;
 }

@@ -557,4 +557,24 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public VdcTO getVdcByCode(String languageCode, String id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<AreaUnitTypeTO> getAreaUnitTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<AreaUnitTypeTO> getAreaUnitTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BuildingUnitTypeTO> getBuildingUnitTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BuildingUnitTypeTO> getBuildingUnitTypes(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

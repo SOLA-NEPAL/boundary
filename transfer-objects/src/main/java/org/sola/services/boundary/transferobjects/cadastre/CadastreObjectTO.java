@@ -29,6 +29,7 @@
  */
 package org.sola.services.boundary.transferobjects.cadastre;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.casemanagement.AddressTO;
@@ -37,7 +38,10 @@ import org.sola.services.common.contracts.AbstractIdTO;
 public class CadastreObjectTO extends AbstractIdTO {
 
     private String typeCode;
-    private String mapSheetCode;
+    private String mapSheetId;
+    private String mapSheetId2;
+    private String mapSheetId3;
+    private String mapSheetId4;
     private Date approvalDatetime;
     private Date historicDatetime;
     private String nameFirstpart;
@@ -48,16 +52,18 @@ public class CadastreObjectTO extends AbstractIdTO {
     private byte[] geomPolygon;
     private int parcelno;
     private String parcelNote;
-    private String parcelTypeCode;
+    private String landTypeCode;
     private String landUseCode;
     private String landClassCode;
-    private String guthiNameCode;
+    private String guthiName;
     private AddressTO address;
-    private List<SpatialValueAreaTO> spatialValueAreaList;
     private MapSheetTO mapSheet;
     private String officeCode;
     private String fiscalYearCode;
-    
+    private String buildingUnitTypeCode;
+    private String areaUnitTypeCode;
+    private BigDecimal officialArea;
+
     public String getParcelNote() {
         return parcelNote;
     }
@@ -82,12 +88,12 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.mapSheet = mapSheet;
     }
 
-    public String getMapSheetCode() {
-        return mapSheetCode;
+    public String getMapSheetId() {
+        return mapSheetId;
     }
 
-    public void setMapSheetCode(String mapSheetCode) {
-        this.mapSheetCode = mapSheetCode;
+    public void setMapSheetId(String mapSheetId) {
+        this.mapSheetId = mapSheetId;
     }
 
     public CadastreObjectTO() {
@@ -150,12 +156,12 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.geomPolygon = geomPolygon;
     }
 
-    public String getGuthiNameCode() {
-        return guthiNameCode;
+    public String getGuthiName() {
+        return guthiName;
     }
 
-    public void setGuthiNameCode(String guthiNameCode) {
-        this.guthiNameCode = guthiNameCode;
+    public void setGuthiName(String guthiName) {
+        this.guthiName = guthiName;
     }
 
     public String getLandClassCode() {
@@ -174,12 +180,12 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.landUseCode = landUseCode;
     }
 
-    public String getParcelTypeCode() {
-        return parcelTypeCode;
+    public String getLandTypeCode() {
+        return landTypeCode;
     }
 
-    public void setParcelTypeCode(String parcelTypeCode) {
-        this.parcelTypeCode = parcelTypeCode;
+    public void setLandTypeCode(String landTypeCode) {
+        this.landTypeCode = landTypeCode;
     }
 
     public String getTransactionId() {
@@ -196,14 +202,6 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setAddress(AddressTO address) {
         this.address = address;
-    }
-
-    public List<SpatialValueAreaTO> getSpatialValueAreaList() {
-        return spatialValueAreaList;
-    }
-
-    public void setSpatialValueAreaList(List<SpatialValueAreaTO> spatialValueAreaList) {
-        this.spatialValueAreaList = spatialValueAreaList;
     }
 
     public String getOfficeCode() {
@@ -228,5 +226,53 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setFiscalYearCode(String fiscalYearCode) {
         this.fiscalYearCode = fiscalYearCode;
+    }
+
+    public String getMapSheetId2() {
+        return mapSheetId2;
+    }
+
+    public void setMapSheetId2(String mapSheetId2) {
+        this.mapSheetId2 = mapSheetId2;
+    }
+
+    public String getMapSheetId3() {
+        return mapSheetId3;
+    }
+
+    public void setMapSheetId3(String mapSheetId3) {
+        this.mapSheetId3 = mapSheetId3;
+    }
+
+    public String getMapSheetId4() {
+        return mapSheetId4;
+    }
+
+    public void setMapSheetId4(String mapSheetId4) {
+        this.mapSheetId4 = mapSheetId4;
+    }
+
+    public String getBuildingUnitTypeCode() {
+        return buildingUnitTypeCode;
+    }
+
+    public void setBuildingUnitTypeCode(String buildingUnitTypeCode) {
+        this.buildingUnitTypeCode = buildingUnitTypeCode;
+    }
+
+    public String getAreaUnitTypeCode() {
+        return areaUnitTypeCode;
+    }
+
+    public void setAreaUnitTypeCode(String areaUnitTypeCode) {
+        this.areaUnitTypeCode = areaUnitTypeCode;
+    }
+
+    public BigDecimal getOfficialArea() {
+        return officialArea;
+    }
+
+    public void setOfficialArea(BigDecimal officialArea) {
+        this.officialArea = officialArea;
     }
 }
