@@ -209,4 +209,8 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<BuildingUnitTypeTO> getBuildingUnitTypes() throws WebServiceClientException;
 
     List<BuildingUnitTypeTO> getBuildingUnitTypes(String lang) throws WebServiceClientException;
+
+    List<FiscalYearTO> getFiscalYears() throws WebServiceClientException;
+
+    List<FiscalYearTO> getFiscalYears(String lang) throws WebServiceClientException;
 }

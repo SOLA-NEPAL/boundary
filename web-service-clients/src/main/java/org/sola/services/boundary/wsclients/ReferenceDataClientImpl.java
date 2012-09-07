@@ -769,4 +769,20 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
+
+    @Override
+    public List<FiscalYearTO> getFiscalYears() throws WebServiceClientException {
+        return getFiscalYears(getLanguageCode());
+    }
+
+    @Override
+    public List<FiscalYearTO> getFiscalYears(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getFiscalYears";
+        try {
+            return getPort().getFiscalYears(lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

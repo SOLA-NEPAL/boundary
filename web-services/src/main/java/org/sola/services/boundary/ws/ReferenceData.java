@@ -78,6 +78,7 @@ import org.sola.services.ejbs.admin.businesslogic.repository.entities.Department
 import org.sola.services.ejb.address.repository.entities.District;
 import org.sola.services.ejbs.admin.businesslogic.repository.entities.Office;
 import org.sola.services.ejb.address.repository.entities.Vdc;
+import org.sola.services.ejbs.admin.businesslogic.repository.entities.FiscalYear;
 
 @WebService(serviceName = "referencedata-service", targetNamespace = ServiceConstants.REF_DATA_WS_NAMESPACE)
 public class ReferenceData extends AbstractWebService {
@@ -985,7 +986,12 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = systemEJB.getCodeEntity(LandClass.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, LandClass.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof FiscalYearTO) {
+                    codeEntity = adminEJB.getCodeEntity(FiscalYear.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, FiscalYear.class, codeEntity);
+                    adminEJB.saveCodeEntity(codeEntity);
                 }
+
 
                 result = GenericTranslator.toTO(codeEntity, refDataTO.getClass());
                 commitTransaction();
@@ -1090,5 +1096,20 @@ public class ReferenceData extends AbstractWebService {
         });
 
         return (List<BuildingUnitTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getFiscalYears")
+    public List<FiscalYearTO> getFiscalYears(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(adminEJB.getFiscalYears(languageCode), FiscalYearTO.class);
+            }
+        });
+
+        return (List<FiscalYearTO>) result[0];
     }
 }
