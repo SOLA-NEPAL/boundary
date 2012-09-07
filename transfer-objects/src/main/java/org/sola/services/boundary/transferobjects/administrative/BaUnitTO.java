@@ -31,6 +31,7 @@ package org.sola.services.boundary.transferobjects.administrative;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectSummaryTO;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.services.boundary.transferobjects.casemanagement.SourceTO;
 import org.sola.services.common.contracts.AbstractIdTO;
@@ -45,7 +46,7 @@ public class BaUnitTO extends AbstractIdTO {
     private boolean locked;
     private List<RrrTO> rrrList;
     private List<BaUnitNotationTO> baUnitNotationList;
-    private CadastreObjectTO cadastreObject;
+    private CadastreObjectSummaryTO cadastreObject;
     private String cadastreObjectId;
     private List<SourceTO> sourceList;
     private List<RelatedBaUnitInfoTO> childBaUnits;
@@ -80,11 +81,11 @@ public class BaUnitTO extends AbstractIdTO {
         rrrList.add(rrr);
     }
 
-    public CadastreObjectTO getCadastreObject() {
+    public CadastreObjectSummaryTO getCadastreObject() {
         return cadastreObject;
     }
 
-    public void setCadastreObject(CadastreObjectTO cadastreObject) {
+    public void setCadastreObject(CadastreObjectSummaryTO cadastreObject) {
         this.cadastreObject = cadastreObject;
     }
 

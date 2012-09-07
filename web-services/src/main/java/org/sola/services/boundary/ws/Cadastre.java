@@ -54,6 +54,7 @@ import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreChange;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreRedefinition;
 import org.sola.services.ejb.transaction.repository.entities.TransactionType;
+import org.sola.services.ejbs.admin.businesslogic.AdminEJBLocal;
 
 /**
  *
@@ -66,6 +67,8 @@ public class Cadastre extends AbstractWebService {
     private CadastreEJBLocal cadastreEJB;
     @EJB
     private TransactionEJBLocal transactionEJB;
+    @EJB
+    private AdminEJBLocal adminEJB;
     @Resource
     private WebServiceContext wsContext;
 
@@ -179,7 +182,6 @@ public class Cadastre extends AbstractWebService {
                         CadastreObjectTO.class);
             }
         });
-
         return (List<CadastreObjectTO>) result[0];
     }
 
@@ -356,7 +358,7 @@ public class Cadastre extends AbstractWebService {
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //********************************************************************************************************************************
     @WebMethod(operationName = "saveCadastreObject")
-    public CadastreObjectTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectTO cadastreObjectTO)
+    public CadastreObjectSummaryTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectSummaryTO cadastreObjectTO)
             throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
         final Object[] result = {null};
         final Object[] params = {cadastreObjectTO};
@@ -364,12 +366,12 @@ public class Cadastre extends AbstractWebService {
 
             @Override
             public void run() {
-                CadastreObjectTO cadTo = (CadastreObjectTO) params[0];
+                CadastreObjectSummaryTO cadTo = (CadastreObjectTO) params[0];
                 if (cadTo != null) {
                     CadastreObject cadastreObjectEntity = cadastreEJB.getCadastreObject(cadTo.getId());
                     cadTo = GenericTranslator.toTO(
                             cadastreEJB.saveCadastreObject(
-                            GenericTranslator.fromTO(cadTo, CadastreObject.class, cadastreObjectEntity)), CadastreObjectTO.class);
+                            GenericTranslator.fromTO(cadTo, CadastreObject.class, cadastreObjectEntity)), CadastreObjectSummaryTO.class);
                     result[0] = cadTo;
                 }
             }
@@ -397,8 +399,8 @@ public class Cadastre extends AbstractWebService {
         return (MapSheetTO) result[0];
     }
 
-    @WebMethod(operationName = "getMapSheetList")
-    public List<MapSheetTO> getMapSheetList()
+    @WebMethod(operationName = "getMapSheetsByOffice")
+    public List<MapSheetTO> getMapSheetsByOffice(@WebParam(name = "officeCode") final String officeCode)
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
@@ -408,18 +410,15 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getMapSheetList(), MapSheetTO.class);
+                        cadastreEJB.getMapSheetsByOffice(officeCode), MapSheetTO.class);
             }
         });
 
         return (List<MapSheetTO>) result[0];
     }
     
- 
-    @WebMethod(operationName = "getMapSheetListByOffice")
-    public List<MapSheetTO> getMapSheetListByOffice(@WebParam(name = "officeCode") final String officeCode,
-            @WebParam(name = "languageCode") final String languageCode)
-            throws SOLAFault, UnhandledFault {
+    @WebMethod(operationName = "getMapSheetsByDefaultOffice")
+    public List<MapSheetTO> getMapSheetsByDefaultOffice() throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
 
@@ -428,26 +427,7 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getMapSheetListByOffice(officeCode, languageCode), MapSheetTO.class);
-            }
-        });
-
-        return (List<MapSheetTO>) result[0];
-    }
-    
-    @WebMethod(operationName = "getMapSheetListByDefaultOffice")
-    public List<MapSheetTO> getMapSheetListByDefaultOffice(
-            @WebParam(name = "languageCode") final String languageCode)
-            throws SOLAFault, UnhandledFault {
-
-        final Object[] result = {null};
-
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getMapSheetListByOffice(languageCode), MapSheetTO.class);
+                        cadastreEJB.getMapSheetsByOffice(adminEJB.getCurrentOfficeCode()), MapSheetTO.class);
             }
         });
 

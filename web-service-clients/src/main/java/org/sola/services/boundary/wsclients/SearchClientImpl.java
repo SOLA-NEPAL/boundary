@@ -29,6 +29,8 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import javax.xml.namespace.QName;
+import org.sola.webservices.transferobjects.search.CadastreObjectSearchParamsTO;
+import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultExtTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
@@ -50,8 +52,6 @@ import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
 import org.sola.webservices.transferobjects.search.UserSearchResultTO;
 import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
-import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
-import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
 
 /**
  * Implementation class for the {@linkplain SearchClient} interface. 
@@ -269,10 +269,10 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
     }
 
     @Override
-    public List<ParcelSearchResultTO> searchParcels(ParcelSearchParamsTO searchParams) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "searchParcels";
+    public List<CadastreObjectSearchResultExtTO> searchCadastreObjects(CadastreObjectSearchParamsTO searchParams) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchCadastreObjects";
         try {
-            return getPort().searchParcels(searchParams);
+            return getPort().searchCadastreObecjts(getLanguageCode(), searchParams);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;
