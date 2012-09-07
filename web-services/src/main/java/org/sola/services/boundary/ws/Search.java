@@ -361,24 +361,25 @@ public class Search extends AbstractWebService {
         return (GenericResult) result[0];
     }
 
-    @WebMethod(operationName = "searchParcels")
-    public List<ParcelSearchResultTO> searchParcels(
-            @WebParam(name = "searchParams") ParcelSearchParamsTO searchParams)
+    @WebMethod(operationName = "searchCadastreObecjts")
+    public List<CadastreObjectSearchResultExtTO> searchCadastreObecjts(
+            @WebParam(name = "langCode") final String langCode,
+            @WebParam(name = "searchParams") CadastreObjectSearchParamsTO searchParams)
             throws SOLAFault, UnhandledFault {
 
-        final ParcelSearchParamsTO searchParamsTmp = searchParams;
+        final CadastreObjectSearchParamsTO searchParamsTmp = searchParams;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
             @Override
             public void run() {
-                ParcelSearchParams params = GenericTranslator.fromTO(searchParamsTmp,
-                        ParcelSearchParams.class, null);
+                CadastreObjectSearchParams params = GenericTranslator.fromTO(searchParamsTmp,
+                        CadastreObjectSearchParams.class, null);
                 result[0] = GenericTranslator.toTOList(
-                        searchEJB.searchParcels(params), ParcelSearchResultTO.class);
+                        searchEJB.searchCadastreObjects(langCode, params), CadastreObjectSearchResultExtTO.class);
             }
         });
 
-        return (List<ParcelSearchResultTO>) result[0];
+        return (List<CadastreObjectSearchResultExtTO>) result[0];
     }
 }

@@ -213,7 +213,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //******************************************************************************************************
     @Override
-    public CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject) throws WebServiceClientException {
+    public CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "saveCadastreObject";
         try {
             return getPort().saveCadastreObject(cadastreObject);
@@ -247,10 +247,10 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
 
     @Override
-    public List<MapSheetTO> getMapSheetList() throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getMapSheetList";
+    public List<MapSheetTO> getMapSheetsByOffice(String officeCode) {
+        final String inputService = SERVICE_NAME + "getMapSheetsByOffice";
         try {
-            return getPort().getMapSheetList();
+            return getPort().getMapSheetsByOffice(officeCode);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
@@ -258,30 +258,14 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
 
     @Override
-    public List<MapSheetTO> getMapSheetListByOffice(String officeCode, String lang) {
-        final String inputService = SERVICE_NAME + "getMapSheetList";
+    public List<MapSheetTO> getMapSheetsByOffice() {
+        final String inputService = SERVICE_NAME + "getMapSheetsByOffice";
         try {
-            return getPort().getMapSheetListByOffice(officeCode, lang);
+            return getPort().getMapSheetsByDefaultOffice();
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
         }
-    }
-
-    @Override
-    public List<MapSheetTO> getMapSheetListByOffice() {
-        final String inputService = SERVICE_NAME + "getMapSheetList";
-        try {
-            return getPort().getMapSheetListByDefaultOffice(this.getLanguageCode());
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<MapSheetTO> getMapSheets() {
-        return getMapSheetList();
     }
 
     @Override
@@ -460,26 +444,4 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
     }
     //--------------------------------------------------------------------------
     //</editor-fold>
-
-    @Override
-    public List<MapSheetTO> getMapSheetListByOffice(String officeCode) {
-        final String inputService = SERVICE_NAME + "getMapSheetList";
-        try {
-            return getPort().getMapSheetListByOffice(officeCode, this.getLanguageCode());
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<MapSheetTO> getMapSheetListByDefaultOffice() {
-        final String inputService = SERVICE_NAME + "getMapSheetList";
-        try {
-            return getPort().getMapSheetListByDefaultOffice(this.getLanguageCode());
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }  
 }

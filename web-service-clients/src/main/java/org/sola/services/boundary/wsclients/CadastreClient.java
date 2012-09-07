@@ -75,23 +75,15 @@ public interface CadastreClient extends AbstractWSClient {
 
     //<editor-fold defaultstate="collapsed" desc="By Kumar">
     //********************************************************************************************
-    CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject);
+    CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject);
 
     MapSheetTO getMapSheet(String id);
 
     MapSheetTO saveMapSheet(MapSheetTO mapSheet);
 
-    List<MapSheetTO> getMapSheetList();
+    List<MapSheetTO> getMapSheetsByOffice(String officeCode);
 
-    List<MapSheetTO> getMapSheetListByOffice(String officeCode, String lang);
-
-    List<MapSheetTO> getMapSheetListByOffice(String officeCode);
-
-    List<MapSheetTO> getMapSheetListByDefaultOffice();
-
-    List<MapSheetTO> getMapSheetListByOffice();
-
-    List<MapSheetTO> getMapSheets();
+    List<MapSheetTO> getMapSheetsByOffice();
 
     List<CadastreObjectTO> loadCadastreObjectList(String mapSheetCode);
 

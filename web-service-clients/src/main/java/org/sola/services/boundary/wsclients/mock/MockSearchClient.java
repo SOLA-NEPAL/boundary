@@ -38,23 +38,7 @@ import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.search.ResultForSelectionInfo;
-import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
-import org.sola.webservices.transferobjects.search.ApplicationSearchParamsTO;
-import org.sola.webservices.transferobjects.search.ApplicationSearchResultTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
-import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BrSearchResultTO;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
-import org.sola.webservices.transferobjects.search.ParcelSearchParamsTO;
-import org.sola.webservices.transferobjects.search.ParcelSearchResultTO;
-import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
-import org.sola.webservices.transferobjects.search.PartySearchResultTO;
-import org.sola.webservices.transferobjects.search.SourceSearchParamsTO;
-import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
-import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
-import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
-import org.sola.webservices.transferobjects.search.UserSearchResultTO;
+import org.sola.webservices.transferobjects.search.*;
 
 /**
  * Provides a mock implementation for the 
@@ -190,8 +174,8 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     }
 
     @Override
-    public List<ParcelSearchResultTO> searchParcels(ParcelSearchParamsTO searchParams) throws WebServiceClientException {
-        List<ParcelSearchResultTO> defaultResponse = new ArrayList<ParcelSearchResultTO>();
+    public List<CadastreObjectSearchResultExtTO> searchCadastreObjects(CadastreObjectSearchParamsTO searchParams) throws WebServiceClientException {
+        List<CadastreObjectSearchResultExtTO> defaultResponse = new ArrayList<CadastreObjectSearchResultExtTO>();
         return getManager().getResponse(SEARCH_PARCELS, List.class, defaultResponse,
                 searchParams);
     }
