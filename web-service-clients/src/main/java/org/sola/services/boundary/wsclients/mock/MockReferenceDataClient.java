@@ -577,4 +577,14 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public List<BuildingUnitTypeTO> getBuildingUnitTypes(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<FiscalYearTO> getFiscalYears() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<FiscalYearTO> getFiscalYears(String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
