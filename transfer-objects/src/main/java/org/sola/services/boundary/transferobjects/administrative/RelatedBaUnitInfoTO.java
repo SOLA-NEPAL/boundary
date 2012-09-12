@@ -27,6 +27,7 @@
  */
 package org.sola.services.boundary.transferobjects.administrative;
 
+import org.sola.services.boundary.transferobjects.search.BaUnitSearchResultTO;
 import org.sola.services.common.contracts.AbstractVersionedTO;
 
 public class RelatedBaUnitInfoTO extends AbstractVersionedTO {
@@ -34,7 +35,7 @@ public class RelatedBaUnitInfoTO extends AbstractVersionedTO {
     private String baUnitId;
     private String relatedBaUnitId;
     private String relationCode;
-    private BaUnitBasicTO relatedBaUnit;
+    private BaUnitSearchResultTO relatedBaUnit;
     
     public RelatedBaUnitInfoTO() {
         super();
@@ -48,11 +49,11 @@ public class RelatedBaUnitInfoTO extends AbstractVersionedTO {
         this.baUnitId = baUnitId;
     }
 
-    public BaUnitBasicTO getRelatedBaUnit() {
+    public BaUnitSearchResultTO getRelatedBaUnit() {
         return relatedBaUnit;
     }
 
-    public void setRelatedBaUnit(BaUnitBasicTO relatedBaUnit) {
+    public void setRelatedBaUnit(BaUnitSearchResultTO relatedBaUnit) {
         this.relatedBaUnit = relatedBaUnit;
     }
 

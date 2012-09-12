@@ -9,8 +9,8 @@ public class MothBasicTO extends AbstractIdTO {
     private String mothlujNumber;
     private String vdcCode;
     private String mothLuj;
-    private Date creationDate;
-    private VdcTO vdc;
+    private String fiscalYearCode;
+    private String wardNumber;
     private String officeCode;
 
     public String getOfficeCode() {
@@ -21,13 +21,22 @@ public class MothBasicTO extends AbstractIdTO {
         this.officeCode = officeCode;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public String getFiscalYearCode() {
+        return fiscalYearCode;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setFiscalYearCode(String fiscalYearCode) {
+        this.fiscalYearCode = fiscalYearCode;
     }
+
+    public String getWardNumber() {
+        return wardNumber;
+    }
+
+    public void setWardNumber(String wardNumber) {
+        this.wardNumber = wardNumber;
+    }
+
 
     public String getMothLuj() {
         return mothLuj;
@@ -43,14 +52,6 @@ public class MothBasicTO extends AbstractIdTO {
 
     public void setMothlujNumber(String mothlujNumber) {
         this.mothlujNumber = mothlujNumber;
-    }
-
-    public VdcTO getVdc() {
-        return vdc;
-    }
-
-    public void setVdc(VdcTO vdc) {
-        this.vdc = vdc;
     }
 
     public String getVdcCode() {

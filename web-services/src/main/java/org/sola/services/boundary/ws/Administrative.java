@@ -91,6 +91,7 @@ public class Administrative extends AbstractWebService {
             public void run() {
                 if (baUnitTOTmp != null) {
                     BaUnit currentBaUnit = administrativeEJB.getBaUnitById(baUnitTOTmp.getId());
+                    // Check cadastre object
                     BaUnit newBaUnit = administrativeEJB.saveBaUnit(
                             serviceIdTmp,
                             GenericTranslator.fromTO(baUnitTOTmp, BaUnit.class, currentBaUnit));

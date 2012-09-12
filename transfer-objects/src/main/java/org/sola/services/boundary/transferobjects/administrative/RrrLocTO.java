@@ -1,21 +1,15 @@
 package org.sola.services.boundary.transferobjects.administrative;
 
-import java.util.Date;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.casemanagement.PartySummaryTO;
-import org.sola.services.boundary.transferobjects.casemanagement.SourceTO;
 import org.sola.services.common.contracts.AbstractTO;
 
 public class RrrLocTO extends AbstractTO {
     private String locId;
     private String typeCode;
     private String ownerTypeCode;
-    private String shareTypeCode;
-    private Date registrationDate;
+    private String ownershipTypeCode;
     private String statusCode;
-    private String notationText;
-    
-    private List<SourceTO> sourceList;
     private List<PartySummaryTO> rightHolderList;
     
     public RrrLocTO(){
@@ -30,28 +24,12 @@ public class RrrLocTO extends AbstractTO {
         this.locId = locId;
     }
 
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
     public List<PartySummaryTO> getRightHolderList() {
         return rightHolderList;
     }
 
     public void setRightHolderList(List<PartySummaryTO> rightHolderList) {
         this.rightHolderList = rightHolderList;
-    }
-
-    public List<SourceTO> getSourceList() {
-        return sourceList;
-    }
-
-    public void setSourceList(List<SourceTO> sourceList) {
-        this.sourceList = sourceList;
     }
 
     public String getStatusCode() {
@@ -78,19 +56,11 @@ public class RrrLocTO extends AbstractTO {
         this.ownerTypeCode = ownerTypeCode;
     }
 
-    public String getShareTypeCode() {
-        return shareTypeCode;
+    public String getOwnershipTypeCode() {
+        return ownershipTypeCode;
     }
 
-    public void setShareTypeCode(String shareTypeCode) {
-        this.shareTypeCode = shareTypeCode;
-    }
-
-    public String getNotationText() {
-        return notationText;
-    }
-
-    public void setNotationText(String notationText) {
-        this.notationText = notationText;
+    public void setOwnershipTypeCode(String ownershipTypeCode) {
+        this.ownershipTypeCode = ownershipTypeCode;
     }
 }

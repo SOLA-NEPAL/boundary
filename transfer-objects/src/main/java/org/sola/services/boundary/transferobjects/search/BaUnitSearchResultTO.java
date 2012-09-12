@@ -27,9 +27,9 @@
  */
 package org.sola.services.boundary.transferobjects.search;
 
-import org.sola.services.common.contracts.AbstractTO;
+import org.sola.services.common.contracts.AbstractReadWriteTO;
 
-public class BaUnitSearchResultTO extends AbstractTO {
+public class BaUnitSearchResultTO extends AbstractReadWriteTO {
     private String id;
     private String name;
     private String nameFirstPart;
@@ -38,10 +38,10 @@ public class BaUnitSearchResultTO extends AbstractTO {
     private String rightholders;
     private String officeCode;
     private String fiscalYearCode;
-    private boolean locId;
-    private boolean mothId;
-    private boolean panaNo;
-    private boolean mothNo;
+    private String locId;
+    private String mothId;
+    private String panaNo;
+    private String mothNo;
     private String wardNo;
     private String vdcCode;
     private String parcelNo;
@@ -108,14 +108,6 @@ public class BaUnitSearchResultTO extends AbstractTO {
         this.fiscalYearCode = fiscalYearCode;
     }
 
-    public boolean isLocId() {
-        return locId;
-    }
-
-    public void setLocId(boolean locId) {
-        this.locId = locId;
-    }
-
     public String getMapNumber() {
         return mapNumber;
     }
@@ -132,22 +124,6 @@ public class BaUnitSearchResultTO extends AbstractTO {
         this.mapSheetId = mapSheetId;
     }
 
-    public boolean isMothId() {
-        return mothId;
-    }
-
-    public void setMothId(boolean mothId) {
-        this.mothId = mothId;
-    }
-
-    public boolean isMothNo() {
-        return mothNo;
-    }
-
-    public void setMothNo(boolean mothNo) {
-        this.mothNo = mothNo;
-    }
-
     public String getOfficeCode() {
         return officeCode;
     }
@@ -156,11 +132,35 @@ public class BaUnitSearchResultTO extends AbstractTO {
         this.officeCode = officeCode;
     }
 
-    public boolean isPanaNo() {
+    public String getLocId() {
+        return locId;
+    }
+
+    public void setLocId(String locId) {
+        this.locId = locId;
+    }
+
+    public String getMothId() {
+        return mothId;
+    }
+
+    public void setMothId(String mothId) {
+        this.mothId = mothId;
+    }
+
+    public String getMothNo() {
+        return mothNo;
+    }
+
+    public void setMothNo(String mothNo) {
+        this.mothNo = mothNo;
+    }
+
+    public String getPanaNo() {
         return panaNo;
     }
 
-    public void setPanaNo(boolean panaNo) {
+    public void setPanaNo(String panaNo) {
         this.panaNo = panaNo;
     }
 
