@@ -79,7 +79,7 @@ public class Administrative extends AbstractWebService {
     public BaUnitTO SaveBaUnit(
             @WebParam(name = "serviceId") String serviceId,
             @WebParam(name = "baUnitTO") BaUnitTO baUnitTO)
-            throws SOLAFault, UnhandledFault {
+            throws SOLAFault, UnhandledFault, OptimisticLockingFault {
 
         final String serviceIdTmp = serviceId;
         final BaUnitTO baUnitTOTmp = baUnitTO;
@@ -209,8 +209,19 @@ public class Administrative extends AbstractWebService {
         return (BaUnitTO) result[0];
     }
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //***********************************************************************************************************
+    @WebMethod(operationName = "deletePendingBaUnit")
+    public void deletePendingBaUnit(@WebParam(name = "baUnitId") final String baUnitId)
+            throws SOLAFault, UnhandledFault {
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                administrativeEJB.deletePendingBaUnit(baUnitId);
+            }
+        });
+    }
+
     /**
      * save Moth
      */
@@ -384,6 +395,4 @@ public class Administrative extends AbstractWebService {
         });
         return (List<LocTO>) result[0];
     }
-    //***********************************************************************************************************
-    //</editor-fold>
 }

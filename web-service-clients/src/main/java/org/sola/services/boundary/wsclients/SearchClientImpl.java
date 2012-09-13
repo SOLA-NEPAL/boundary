@@ -29,29 +29,9 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import javax.xml.namespace.QName;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchParamsTO;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultExtTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.webservices.search.GenericResult;
-import org.sola.webservices.search.QueryForSelect;
-import org.sola.webservices.search.ResultForSelectionInfo;
-import org.sola.webservices.search.Search;
-import org.sola.webservices.search.SearchService;
-import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
-import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BrSearchResultTO;
-import org.sola.webservices.transferobjects.search.ApplicationSearchParamsTO;
-import org.sola.webservices.transferobjects.search.ApplicationSearchResultTO;
-import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
-import org.sola.webservices.transferobjects.search.PartySearchResultTO;
-import org.sola.webservices.transferobjects.search.SourceSearchParamsTO;
-import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
-import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
-import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
-import org.sola.webservices.transferobjects.search.UserSearchResultTO;
-import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
+import org.sola.webservices.search.*;
+import org.sola.webservices.transferobjects.search.*;
 
 /**
  * Implementation class for the {@linkplain SearchClient} interface. 
@@ -273,6 +253,17 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         final String inputService = SERVICE_NAME + "searchCadastreObjects";
         try {
             return getPort().searchCadastreObecjts(getLanguageCode(), searchParams);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> getAllBaUnitsByService(String serviceId) {
+        final String inputService = SERVICE_NAME + "getAllBaUnitsByService";
+        try {
+            return getPort().getAllBaUnitsByService(serviceId);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;

@@ -91,6 +91,10 @@ public class RrrTO extends AbstractIdTO {
         return baUnitId;
     }
 
+    public void setBaUnitId(String baUnitId) {
+        this.baUnitId = baUnitId;
+    }
+
     public Date getRegistrationDate() {
         return registrationDate;
     }

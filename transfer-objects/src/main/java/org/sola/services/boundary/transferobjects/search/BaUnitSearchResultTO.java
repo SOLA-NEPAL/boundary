@@ -47,6 +47,7 @@ public class BaUnitSearchResultTO extends AbstractReadWriteTO {
     private String parcelNo;
     private String mapNumber;
     private String mapSheetId;
+    private String action;
     
     public BaUnitSearchResultTO(){
         super();
@@ -186,5 +187,13 @@ public class BaUnitSearchResultTO extends AbstractReadWriteTO {
 
     public void setWardNo(String wardNo) {
         this.wardNo = wardNo;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 }

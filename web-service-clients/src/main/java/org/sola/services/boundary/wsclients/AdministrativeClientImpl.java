@@ -258,5 +258,15 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             handleExceptionsMethod(inputService, e);
             return null;
         }
-    }   
+    }
+
+    @Override
+    public void deletePendingBaUnit(String baUnitId) {
+        final String inputService = SERVICE_NAME + "deletePendingBaUnit";
+        try {
+            getPort().deletePendingBaUnit(baUnitId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+        }
+    }
 }

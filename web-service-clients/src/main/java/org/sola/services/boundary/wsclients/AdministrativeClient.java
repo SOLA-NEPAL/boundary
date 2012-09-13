@@ -58,8 +58,6 @@ public interface AdministrativeClient extends AbstractWSClient {
     
     List<RrrLocTO> getRrrLocs(String locId) throws WebServiceClientException;
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //*****************************************************************************************************************
     MothTO saveMoth(MothTO mothTo);
 
     MothTO getMoth(String id);
@@ -77,6 +75,6 @@ public interface AdministrativeClient extends AbstractWSClient {
     LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
 
     List<LocTO> getLocList(String mothId);
-    //*****************************************************************************************************************
-    //</editor-fold>
+    
+    void deletePendingBaUnit(String baUnitId);
 }

@@ -32,6 +32,7 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
+import javax.jws.WebParam;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchParamsTO;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultExtTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
@@ -96,4 +97,6 @@ public interface SearchClient extends AbstractWSClient {
     List<UserSearchResultTO> getUsersWithAssignRightByOffice() throws WebServiceClientException;
     
     List<CadastreObjectSearchResultExtTO> searchCadastreObjects(CadastreObjectSearchParamsTO searchParams) throws WebServiceClientException;
+    
+    List<BaUnitSearchResultTO> getAllBaUnitsByService(String serviceId);
 }

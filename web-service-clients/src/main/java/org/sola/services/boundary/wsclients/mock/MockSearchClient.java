@@ -179,5 +179,10 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
         return getManager().getResponse(SEARCH_PARCELS, List.class, defaultResponse,
                 searchParams);
     }
+
+    @Override
+    public List<BaUnitSearchResultTO> getAllBaUnitsByService(String serviceId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }
