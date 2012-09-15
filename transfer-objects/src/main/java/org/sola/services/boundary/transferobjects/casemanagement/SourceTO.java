@@ -49,6 +49,12 @@ public class SourceTO extends AbstractIdTO {
     private String transactionId;
     private boolean locked;
     private String officeCode;
+    private String owner;
+    private String description;
+    private String packetNumber;
+    private String tameliNumber;
+    private String likhatRegistrationNumber;
+    private String pageNumber;
     
     public SourceTO() {
         super();
@@ -180,5 +186,53 @@ public class SourceTO extends AbstractIdTO {
 
     public void setOfficeCode(String officeCode) {
         this.officeCode = officeCode;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLikhatRegistrationNumber() {
+        return likhatRegistrationNumber;
+    }
+
+    public void setLikhatRegistrationNumber(String likhatRegistrationNumber) {
+        this.likhatRegistrationNumber = likhatRegistrationNumber;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getPacketNumber() {
+        return packetNumber;
+    }
+
+    public void setPacketNumber(String packetNumber) {
+        this.packetNumber = packetNumber;
+    }
+
+    public String getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(String pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+    public String getTameliNumber() {
+        return tameliNumber;
+    }
+
+    public void setTameliNumber(String tameliNumber) {
+        this.tameliNumber = tameliNumber;
     }
 }
