@@ -524,12 +524,12 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     }
 
     @Override
-    public List<TenantTypeTO> getTenantTypes() throws WebServiceClientException {
+    public List<TenancyTypeTO> getTenancyTypes() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException {
+    public List<TenancyTypeTO> getTenancyTypes(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

@@ -35,7 +35,7 @@ import org.sola.services.ejb.cadastre.repository.entities.LandUse;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionReason;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionOffice;
 import org.sola.services.ejb.administrative.repository.entities.OwnershipType;
-import org.sola.services.ejb.administrative.repository.entities.TenantType;
+import org.sola.services.ejb.administrative.repository.entities.TenancyType;
 import org.sola.services.ejb.administrative.repository.entities.RestrictionReleaseReason;
 import java.util.List;
 import javax.annotation.Resource;
@@ -749,8 +749,8 @@ public class ReferenceData extends AbstractWebService {
         return (List<OwnershipTypeTO>) result[0];
     }
 
-    @WebMethod(operationName = "getTenantTypes")
-    public List<TenantTypeTO> getTenantTypes(String languageCode)
+    @WebMethod(operationName = "getTenancyTypes")
+    public List<TenancyTypeTO> getTenancyTypes(String languageCode)
             throws SOLAFault, UnhandledFault {
 
         final String languageCodeTmp = languageCode;
@@ -760,12 +760,12 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        administrativeEJB.getTenantTypes(languageCodeTmp),
-                        TenantTypeTO.class);
+                        administrativeEJB.getTenancyTypes(languageCodeTmp),
+                        TenancyTypeTO.class);
             }
         });
 
-        return (List<TenantTypeTO>) result[0];
+        return (List<TenancyTypeTO>) result[0];
     }
 
     @WebMethod(operationName = "getLandTypes")
@@ -970,10 +970,10 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = systemEJB.getCodeEntity(OwnershipType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, OwnershipType.class, codeEntity);
                     systemEJB.saveCodeEntity(codeEntity);
-                } else if (refDataTO instanceof TenantTypeTO) {
-                    codeEntity = systemEJB.getCodeEntity(TenantType.class, refDataTO.getCode());
-                    codeEntity = GenericTranslator.fromTO(refDataTO, TenantType.class, codeEntity);
-                    systemEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof TenancyTypeTO) {
+                    codeEntity = administrativeEJB.getCodeEntity(TenancyType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, TenancyType.class, codeEntity);
+                    administrativeEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof LandTypeTO) {
                     codeEntity = systemEJB.getCodeEntity(LandType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, LandType.class, codeEntity);

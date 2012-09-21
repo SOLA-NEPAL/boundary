@@ -10,9 +10,9 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  *
  * @author KumarKhadka
  */
-public class TenantTypeTO extends AbstractCodeTO {
+public class TenancyTypeTO extends AbstractCodeTO {
 
-    public TenantTypeTO() {
+    public TenancyTypeTO() {
         super();
     }
 }

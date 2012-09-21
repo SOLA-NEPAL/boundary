@@ -627,15 +627,15 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
     }
 
     @Override
-    public List<TenantTypeTO> getTenantTypes() throws WebServiceClientException {
-        return getTenantTypes(getLanguageCode());
+    public List<TenancyTypeTO> getTenancyTypes() throws WebServiceClientException {
+        return getTenancyTypes(getLanguageCode());
     }
 
     @Override
-    public List<TenantTypeTO> getTenantTypes(String lang) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "getTenantTypes";
+    public List<TenancyTypeTO> getTenancyTypes(String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getTenancyTypes";
         try {
-            return getPort().getTenantTypes(lang);
+            return getPort().getTenancyTypes(lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
