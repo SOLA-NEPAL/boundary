@@ -785,4 +785,36 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
+
+    @Override
+    public List<IdOfficeTypeTO> getIdOfficeTypes() throws WebServiceClientException {
+        return getIdOfficeTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<IdOfficeTypeTO> getIdOfficeTypes(String languageCode) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getIdOfficeTypes";
+        try {
+            return getPort().getIdOfficeTypes(languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<GrandFatherTypeTO> getGrandFatherTypes() throws WebServiceClientException {
+        return getGrandFatherTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<GrandFatherTypeTO> getGrandFatherTypes(String languageCode) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getGrandFatherTypes";
+        try {
+            return getPort().getGrandFatherTypes(languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

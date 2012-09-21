@@ -1112,4 +1112,34 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<FiscalYearTO>) result[0];
     }
+
+    @WebMethod(operationName = "getIdOfficeTypes")
+    public List<IdOfficeTypeTO> getIdOfficeTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(partyEJB.getIdOfficeTypes(languageCode), IdOfficeTypeTO.class);
+            }
+        });
+
+        return (List<IdOfficeTypeTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getGrandFatherTypes")
+    public List<GrandFatherTypeTO> getGrandFatherTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(partyEJB.getGrandFatherTypes(languageCode), GrandFatherTypeTO.class);
+            }
+        });
+
+        return (List<GrandFatherTypeTO>) result[0];
+    }
 }

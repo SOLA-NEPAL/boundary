@@ -213,4 +213,12 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<FiscalYearTO> getFiscalYears() throws WebServiceClientException;
 
     List<FiscalYearTO> getFiscalYears(String lang) throws WebServiceClientException;
+
+    List<IdOfficeTypeTO> getIdOfficeTypes() throws WebServiceClientException;
+
+    List<IdOfficeTypeTO> getIdOfficeTypes(String languageCode) throws WebServiceClientException;
+
+    List<GrandFatherTypeTO> getGrandFatherTypes() throws WebServiceClientException;
+
+    List<GrandFatherTypeTO> getGrandFatherTypes(String languageCode) throws WebServiceClientException;
 }

@@ -587,4 +587,24 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public List<FiscalYearTO> getFiscalYears(String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<IdOfficeTypeTO> getIdOfficeTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<IdOfficeTypeTO> getIdOfficeTypes(String languageCode) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<GrandFatherTypeTO> getGrandFatherTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<GrandFatherTypeTO> getGrandFatherTypes(String languageCode) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
