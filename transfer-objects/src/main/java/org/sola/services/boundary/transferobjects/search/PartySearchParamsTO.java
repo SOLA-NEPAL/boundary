@@ -36,7 +36,7 @@ public class PartySearchParamsTO extends AbstractTO {
     private String name;
     private String typeCode;
     private String roleTypeCode;
-    private boolean child;
+    //private boolean child;
 
     public PartySearchParamsTO() {
         super();
@@ -66,11 +66,11 @@ public class PartySearchParamsTO extends AbstractTO {
         this.typeCode = typeCode;
     }
 
-    public boolean isChild() {
-        return child;
-    }
-
-    public void setChild(boolean child) {
-        this.child = child;
-    }
+//    public boolean isChild() {
+//        return child;
+//    }
+//
+//    public void setChild(boolean child) {
+//        this.child = child;
+//    }
 }
