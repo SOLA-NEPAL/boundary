@@ -32,6 +32,7 @@
 package org.sola.services.boundary.transferobjects.cadastre;
 
 import java.math.BigDecimal;
+import org.sola.services.boundary.transferobjects.casemanagement.PartySummaryTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**

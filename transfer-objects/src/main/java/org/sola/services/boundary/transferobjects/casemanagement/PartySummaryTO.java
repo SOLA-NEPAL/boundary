@@ -39,7 +39,17 @@ public class PartySummaryTO extends AbstractIdTO {
     private String typeCode;
     private String officeCode;
     private boolean child;
-
+    private String idOfficeTypeCode;
+    private Integer idIssueDate;
+    private String idNumber;
+    private String fatherTypeCode;
+    private String fatherName;
+    private String grandfatherTypeCode;
+    private String grandfatherName;
+    private String genderCode;
+    private boolean rightHolder;
+    private String parentId;
+    
     public PartySummaryTO() {
         super();
     }
@@ -68,6 +78,14 @@ public class PartySummaryTO extends AbstractIdTO {
         this.name = name;
     }
 
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+    
     public String getTypeCode() {
         return typeCode;
     }
@@ -90,5 +108,77 @@ public class PartySummaryTO extends AbstractIdTO {
 
     public void setChild(boolean child) {
         this.child = child;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
+    }
+
+    public String getFatherTypeCode() {
+        return fatherTypeCode;
+    }
+
+    public void setFatherTypeCode(String fatherTypeCode) {
+        this.fatherTypeCode = fatherTypeCode;
+    }
+
+    public String getGenderCode() {
+        return genderCode;
+    }
+
+    public void setGenderCode(String genderCode) {
+        this.genderCode = genderCode;
+    }
+
+    public String getGrandfatherName() {
+        return grandfatherName;
+    }
+
+    public void setGrandfatherName(String grandfatherName) {
+        this.grandfatherName = grandfatherName;
+    }
+
+    public String getGrandfatherTypeCode() {
+        return grandfatherTypeCode;
+    }
+
+    public void setGrandfatherTypeCode(String grandfatherTypeCode) {
+        this.grandfatherTypeCode = grandfatherTypeCode;
+    }
+
+    public Integer getIdIssueDate() {
+        return idIssueDate;
+    }
+
+    public void setIdIssueDate(Integer idIssueDate) {
+        this.idIssueDate = idIssueDate;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getIdOfficeTypeCode() {
+        return idOfficeTypeCode;
+    }
+
+    public void setIdOfficeTypeCode(String idOfficeTypeCode) {
+        this.idOfficeTypeCode = idOfficeTypeCode;
+    }
+
+    public boolean isRightHolder() {
+        return rightHolder;
+    }
+
+    public void setRightHolder(boolean rightHolder) {
+        this.rightHolder = rightHolder;
     }
 }

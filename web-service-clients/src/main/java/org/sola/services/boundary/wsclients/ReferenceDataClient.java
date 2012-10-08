@@ -221,4 +221,8 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<GrandFatherTypeTO> getGrandFatherTypes() throws WebServiceClientException;
 
     List<GrandFatherTypeTO> getGrandFatherTypes(String languageCode) throws WebServiceClientException;
+    
+    List<FatherTypeTO> getFatherTypes() throws WebServiceClientException;
+    
+    List<FatherTypeTO> getFatherTypes(String languageCode) throws WebServiceClientException;
 }

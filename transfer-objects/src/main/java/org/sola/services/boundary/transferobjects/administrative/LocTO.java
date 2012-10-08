@@ -16,7 +16,7 @@ public class LocTO extends AbstractIdTO {
     private String panaNo;
     private String tmpPanaNo;
     private String officeCode;
-
+    
     public LocTO() {
         super();
     }

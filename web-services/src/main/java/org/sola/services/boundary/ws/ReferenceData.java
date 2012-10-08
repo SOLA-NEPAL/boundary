@@ -990,6 +990,10 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = adminEJB.getCodeEntity(FiscalYear.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, FiscalYear.class, codeEntity);
                     adminEJB.saveCodeEntity(codeEntity);
+                }else if (refDataTO instanceof FatherTypeTO) {
+                    codeEntity = adminEJB.getCodeEntity(FatherType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, FatherType.class, codeEntity);
+                    adminEJB.saveCodeEntity(codeEntity);
                 }
 
 
@@ -1126,6 +1130,21 @@ public class ReferenceData extends AbstractWebService {
         });
 
         return (List<IdOfficeTypeTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getFatherTypes")
+    public List<FatherTypeTO> getFatherTypes(@WebParam(name = "languageCode") final String languageCode)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(partyEJB.getFatherTypes(languageCode), FatherTypeTO.class);
+            }
+        });
+
+        return (List<FatherTypeTO>) result[0];
     }
 
     @WebMethod(operationName = "getGrandFatherTypes")
