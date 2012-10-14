@@ -45,9 +45,9 @@ public class RrrTO extends AbstractIdTO {
     private String sn;
     private String statusCode;
     private boolean primary;
-    private Date registrationDate;
+    private Integer registrationDate;
     private String transactionId;
-    private Date expirationDate;
+    private Integer expirationDate;
     private BigDecimal mortgageAmount;
     private BigDecimal mortgageInterestRate;
     private Integer mortgageRanking;
@@ -95,19 +95,19 @@ public class RrrTO extends AbstractIdTO {
         this.baUnitId = baUnitId;
     }
 
-    public Date getRegistrationDate() {
+    public Integer getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(Integer registrationDate) {
         this.registrationDate = registrationDate;
     }
 
-    public Date getExpirationDate() {
+    public Integer getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(Integer expirationDate) {
         this.expirationDate = expirationDate;
     }
 

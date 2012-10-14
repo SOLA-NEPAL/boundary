@@ -32,7 +32,6 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
-import javax.jws.WebParam;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchParamsTO;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultExtTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
@@ -47,6 +46,9 @@ import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
 import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
 import org.sola.webservices.transferobjects.search.BrSearchResultTO;
 import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
+import org.sola.webservices.transferobjects.search.LocDetailsTO;
+import org.sola.webservices.transferobjects.search.LocSearchParamsTO;
+import org.sola.webservices.transferobjects.search.LocSearchResultTO;
 import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
 import org.sola.webservices.transferobjects.search.PartySearchResultTO;
 import org.sola.webservices.transferobjects.search.SourceSearchParamsTO;
@@ -98,5 +100,11 @@ public interface SearchClient extends AbstractWSClient {
     
     List<CadastreObjectSearchResultExtTO> searchCadastreObjects(CadastreObjectSearchParamsTO searchParams) throws WebServiceClientException;
     
-    List<BaUnitSearchResultTO> getAllBaUnitsByService(String serviceId);
+    List<BaUnitSearchResultTO> getAllBaUnitsByService(String serviceId) throws WebServiceClientException;
+    
+    LocDetailsTO getLocDetails(String locId) throws WebServiceClientException;
+    
+    LocDetailsTO getLocDetails(String locId, String lang) throws WebServiceClientException;
+    
+    List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams);
 }

@@ -402,4 +402,34 @@ public class Search extends AbstractWebService {
 
         return (List<CadastreObjectSearchResultExtTO>) result[0];
     }
+    
+    @WebMethod(operationName = "getLocDetails")
+    public LocDetailsTO getLocDetails(@WebParam(name = "id") final String id, 
+            @WebParam(name = "lang") final String lang) 
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(searchEJB.getLocDetails(id, lang), LocDetailsTO.class);
+            }
+        });
+        return (LocDetailsTO) result[0];
+    }
+    
+    @WebMethod(operationName = "searchLocs")
+    public List<LocSearchResultTO> searchLocs(@WebParam(name = "searchParams") final LocSearchParamsTO searchParams) 
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLocs(
+                        GenericTranslator.fromTO(searchParams, LocSearchParams.class, null)), 
+                        LocSearchResultTO.class);
+            }
+        });
+        return (List<LocSearchResultTO>) result[0];
+    }
 }
