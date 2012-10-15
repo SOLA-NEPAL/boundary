@@ -817,4 +817,20 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
             return null;
         }
     }
+
+    @Override
+    public List<FatherTypeTO> getFatherTypes(String languageCode) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getFatherTypes";
+        try {
+            return getPort().getFatherTypes(languageCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<FatherTypeTO> getFatherTypes() throws WebServiceClientException {
+        return getFatherTypes(getLanguageCode());
+    }
 }

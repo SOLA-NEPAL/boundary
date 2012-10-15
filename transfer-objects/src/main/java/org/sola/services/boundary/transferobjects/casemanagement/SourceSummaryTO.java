@@ -28,9 +28,9 @@
 package org.sola.services.boundary.transferobjects.casemanagement;
 
 import java.util.Date;
-import org.sola.services.common.contracts.AbstractBasicIdTO;
+import org.sola.services.common.contracts.AbstractIdTO;
 
-public class SourceSummaryTO extends AbstractBasicIdTO{
+public class SourceSummaryTO extends AbstractIdTO{
     
     private String laNr;
     private String referenceNr;
@@ -38,7 +38,7 @@ public class SourceSummaryTO extends AbstractBasicIdTO{
     private String archiveDocumentId;
     private String typeCode;
     private Date acceptance;
-    private Date recordation;
+    private Integer recordation;
     private Date submission;
     private String statusCode;
     private String officeCode;
@@ -71,11 +71,11 @@ public class SourceSummaryTO extends AbstractBasicIdTO{
         this.laNr = laNr;
     }
 
-    public Date getRecordation() {
+    public Integer getRecordation() {
         return recordation;
     }
 
-    public void setRecordation(Date recordation) {
+    public void setRecordation(Integer recordation) {
         this.recordation = recordation;
     }
 

@@ -27,28 +27,16 @@
  */
 package org.sola.services.boundary.transferobjects.casemanagement;
 
-import java.util.Date;
 import org.sola.services.boundary.transferobjects.digitalarchive.DocumentTO;
-import org.sola.services.common.contracts.AbstractIdTO;
 
-public class SourceTO extends AbstractIdTO {
+public class SourceTO extends SourceSummaryTO {
 
-    private String laNr;
-    private String referenceNr;
-    private String archiveId;
-    private String archiveDocumentId;
-    private String typeCode;
-    private Date acceptance;
-    private Date recordation;
-    private Date submission;
-    private String statusCode;
     private String mainType;
     private String availabilityStatusCode;
     private String content;
     private DocumentTO archiveDocument;
     private String transactionId;
     private boolean locked;
-    private String officeCode;
     private String owner;
     private String description;
     private String packetNumber;
@@ -99,78 +87,6 @@ public class SourceTO extends AbstractIdTO {
     public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
-
-    public Date getAcceptance() {
-        return acceptance;
-    }
-
-    public void setAcceptance(Date acceptance) {
-        this.acceptance = acceptance;
-    }
-
-    public String getArchiveDocumentId() {
-        return archiveDocumentId;
-    }
-
-    public void setArchiveDocumentId(String archiveDocumentId) {
-        this.archiveDocumentId = archiveDocumentId;
-    }
-
-    public String getArchiveId() {
-        return archiveId;
-    }
-
-    public void setArchiveId(String archiveId) {
-        this.archiveId = archiveId;
-    }
-
-    public String getLaNr() {
-        return laNr;
-    }
-
-    public void setLaNr(String laNr) {
-        this.laNr = laNr;
-    }
-
-    public Date getRecordation() {
-        return recordation;
-    }
-
-    public void setRecordation(Date recordation) {
-        this.recordation = recordation;
-    }
-
-    public String getReferenceNr() {
-        return referenceNr;
-    }
-
-    public void setReferenceNr(String referenceNr) {
-        this.referenceNr = referenceNr;
-    }
-
-    public String getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(String statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public Date getSubmission() {
-        return submission;
-    }
-
-    public void setSubmission(Date submission) {
-        this.submission = submission;
-    }
-
-    public String getTypeCode() {
-        return typeCode;
-    }
-
-    public void setTypeCode(String typeCode) {
-        this.typeCode = typeCode;
-    }
     
     public boolean isLocked() {
         return locked;
@@ -178,14 +94,6 @@ public class SourceTO extends AbstractIdTO {
 
     public void setLocked(boolean locked) {
         this.locked = locked;
-    }
-
-    public String getOfficeCode() {
-        return officeCode;
-    }
-
-    public void setOfficeCode(String officeCode) {
-        this.officeCode = officeCode;
     }
 
     public String getDescription() {

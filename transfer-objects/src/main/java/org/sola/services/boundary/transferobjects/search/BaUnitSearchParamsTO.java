@@ -27,39 +27,37 @@
  */
 package org.sola.services.boundary.transferobjects.search;
 
-import org.sola.services.common.contracts.AbstractTO;
-
-public class BaUnitSearchParamsTO extends AbstractTO {
+public class BaUnitSearchParamsTO extends CadastreObjectSearchParamsTO {
     
-    private String nameFirstPart;
-    private String nameLastPart;
-    private String ownerName;
+    private String moth;
+    private String loc;
+    private String rightHolderId;
     
     public BaUnitSearchParamsTO(){
         super();
     }
 
-    public String getNameFirstPart() {
-        return nameFirstPart;
+    public String getLoc() {
+        return loc;
     }
 
-    public void setNameFirstPart(String nameFirstPart) {
-        this.nameFirstPart = nameFirstPart;
+    public void setLoc(String loc) {
+        this.loc = loc;
     }
 
-    public String getNameLastPart() {
-        return nameLastPart;
+    public String getMoth() {
+        return moth;
     }
 
-    public void setNameLastPart(String nameLastPart) {
-        this.nameLastPart = nameLastPart;
+    public void setMoth(String moth) {
+        this.moth = moth;
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public String getRightHolderId() {
+        return rightHolderId;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+    public void setRightHolderId(String rightHolderId) {
+        this.rightHolderId = rightHolderId;
     }
 }

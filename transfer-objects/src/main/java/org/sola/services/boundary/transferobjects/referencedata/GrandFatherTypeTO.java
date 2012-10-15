@@ -6,10 +6,6 @@ package org.sola.services.boundary.transferobjects.referencedata;
 
 import org.sola.services.common.contracts.AbstractCodeTO;
 
-/**
- *
- * @author Kumar
- */
 public class GrandFatherTypeTO extends AbstractCodeTO {
 
     public GrandFatherTypeTO() {

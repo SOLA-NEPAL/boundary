@@ -30,133 +30,44 @@
 package org.sola.services.boundary.transferobjects.casemanagement;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.digitalarchive.DocumentBinaryTO;
-import org.sola.services.common.contracts.AbstractIdTO;
 
-public class PartyTO extends AbstractIdTO {
+public class PartyTO extends PartySummaryTO {
 
-    private boolean child;
-    private String parentId;
-    private String extId;
-    private String typeCode;
-    private String name;
-    private String lastName;
-    private String fatherTypeCode;
-    private String fatherName;
-    private String grandfatherTypeCode;
-    private String grandfatherName;
+    private PartySummaryTO parent;
     private String alias;
-    private String genderCode;
     private String addressId;
     private String idTypeCode;
-    private String idNumber;
-    private Date idIssueDate;
-    private String idOfficeTypeCode;
     private String idOfficeDistrictCode;
     private String email;
     private String mobile;
     private String phone;
     private String fax;
     private String preferredCommunicationCode;
-    private Date birthDate;
+    private Integer birthDate;
     private String remarks;
-    private String officeCode;
     private String photoId;
     private String leftFingerId;
     private String rightFingerId;
     private String signatureId;
     private List<PartyRoleTO> roleList;
-    private boolean rightHolder;
     private AddressTO address;
     private DocumentBinaryTO photoDoc;
     private DocumentBinaryTO leftFingerDoc;
     private DocumentBinaryTO rightFingerDoc;
     private DocumentBinaryTO signatureDoc;
-
+    
     public PartyTO() {
         super();
     }
 
-    public boolean isChild() {
-        return child;
+    public PartySummaryTO getParent() {
+        return parent;
     }
 
-    public void setChild(boolean child) {
-        this.child = child;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getExtId() {
-        return extId;
-    }
-
-    public void setExtId(String extId) {
-        this.extId = extId;
-    }
-
-    public String getTypeCode() {
-        return typeCode;
-    }
-
-    public void setTypeCode(String typeCode) {
-        this.typeCode = typeCode;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getFatherTypeCode() {
-        return fatherTypeCode;
-    }
-
-    public void setFatherTypeCode(String fatherTypeCode) {
-        this.fatherTypeCode = fatherTypeCode;
-    }
-
-    public String getFatherName() {
-        return fatherName;
-    }
-
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
-    }
-
-    public String getGrandfatherTypeCode() {
-        return grandfatherTypeCode;
-    }
-
-    public void setGrandfatherTypeCode(String grandfatherTypeCode) {
-        this.grandfatherTypeCode = grandfatherTypeCode;
-    }
-
-    public String getGrandfatherName() {
-        return grandfatherName;
-    }
-
-    public void setGrandfatherName(String grandfatherName) {
-        this.grandfatherName = grandfatherName;
+    public void setParent(PartySummaryTO parent) {
+        this.parent = parent;
     }
 
     public String getAlias() {
@@ -165,14 +76,6 @@ public class PartyTO extends AbstractIdTO {
 
     public void setAlias(String alias) {
         this.alias = alias;
-    }
-
-    public String getGenderCode() {
-        return genderCode;
-    }
-
-    public void setGenderCode(String genderCode) {
-        this.genderCode = genderCode;
     }
 
     public String getAddressId() {
@@ -189,30 +92,6 @@ public class PartyTO extends AbstractIdTO {
 
     public void setIdTypeCode(String idTypeCode) {
         this.idTypeCode = idTypeCode;
-    }
-
-    public String getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
-    }
-
-    public Date getIdIssueDate() {
-        return idIssueDate;
-    }
-
-    public void setIdIssueDate(Date idIssueDate) {
-        this.idIssueDate = idIssueDate;
-    }
-
-    public String getIdOfficeTypeCode() {
-        return idOfficeTypeCode;
-    }
-
-    public void setIdOfficeTypeCode(String idOfficeTypeCode) {
-        this.idOfficeTypeCode = idOfficeTypeCode;
     }
 
     public String getIdOfficeDistrictCode() {
@@ -263,11 +142,11 @@ public class PartyTO extends AbstractIdTO {
         this.preferredCommunicationCode = preferredCommunicationCode;
     }
 
-    public Date getBirthDate() {
+    public Integer getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(Integer birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -277,14 +156,6 @@ public class PartyTO extends AbstractIdTO {
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
-    }
-
-    public String getOfficeCode() {
-        return officeCode;
-    }
-
-    public void setOfficeCode(String officeCode) {
-        this.officeCode = officeCode;
     }
 
     public String getPhotoId() {
@@ -325,14 +196,6 @@ public class PartyTO extends AbstractIdTO {
 
     public void setRoleList(List<PartyRoleTO> roleList) {
         this.roleList = roleList;
-    }
-
-    public boolean isRightHolder() {
-        return rightHolder;
-    }
-
-    public void setRightHolder(boolean rightHolder) {
-        this.rightHolder = rightHolder;
     }
 
     public AddressTO getAddress() {

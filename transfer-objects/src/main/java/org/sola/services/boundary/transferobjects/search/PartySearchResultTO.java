@@ -27,20 +27,48 @@
  */
 package org.sola.services.boundary.transferobjects.search;
 
-import org.sola.services.boundary.transferobjects.cadastre.PartySummaryTO;
+import org.sola.services.boundary.transferobjects.casemanagement.PartySummaryTO;
 
 public class PartySearchResultTO extends PartySummaryTO {
-    private boolean rightHolder;
+    
+    private String vdcCode;
+    private String vdcName;
+    private String wardNo;
+    private String street;
     
     public PartySearchResultTO(){
         super();
     }
 
-    public boolean isRightHolder() {
-        return rightHolder;
+    public String getStreet() {
+        return street;
     }
 
-    public void setRightHolder(boolean rightHolder) {
-        this.rightHolder = rightHolder;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getVdcCode() {
+        return vdcCode;
+    }
+
+    public void setVdcCode(String vdcCode) {
+        this.vdcCode = vdcCode;
+    }
+
+    public String getVdcName() {
+        return vdcName;
+    }
+
+    public void setVdcName(String vdcName) {
+        this.vdcName = vdcName;
+    }
+
+    public String getWardNo() {
+        return wardNo;
+    }
+
+    public void setWardNo(String wardNo) {
+        this.wardNo = wardNo;
     }
 }

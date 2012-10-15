@@ -607,4 +607,14 @@ public class MockReferenceDataClient extends AbstractMockWSClient implements Ref
     public List<GrandFatherTypeTO> getGrandFatherTypes(String languageCode) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<FatherTypeTO> getFatherTypes() throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<FatherTypeTO> getFatherTypes(String languageCode) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
