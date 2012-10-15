@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+   
     <system systemId="http://localhost:8080/sola/cadastre-service?wsdl" uri="wsdl/localhost_8080/sola/cadastre-service.wsdl"/>
     <system systemId="http://localhost:8080/sola/cadastre-service?xsd=1" uri="wsdl/localhost_8080/sola/cadastre-service.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/sola/cadastre-service?xsd=2" uri="wsdl/localhost_8080/sola/cadastre-service.xsd_2.xsd"/>
@@ -50,4 +51,5 @@
     <system systemId="http://localhost:8080/sola/webservices/admin-service?xsd=3" uri="wsdl/localhost_8080/sola/webservices/admin-service.xsd_3.xsd"/>
     <system systemId="http://localhost:8080/sola/webservices/admin-service?xsd=4" uri="wsdl/localhost_8080/sola/webservices/admin-service.xsd_4.xsd"/>
     <system systemId="http://localhost:8080/sola/webservices/admin-service?xsd=5" uri="wsdl/localhost_8080/sola/webservices/admin-service.xsd_5.xsd"/>
+    
 </catalog>
