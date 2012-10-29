@@ -32,30 +32,11 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchParamsTO;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultExtTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.search.ResultForSelectionInfo;
-import org.sola.webservices.transferobjects.search.ApplicationLogResultTO;
-import org.sola.webservices.transferobjects.search.ApplicationSearchParamsTO;
-import org.sola.webservices.transferobjects.search.ApplicationSearchResultTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BaUnitSearchResultTO;
-import org.sola.webservices.transferobjects.search.BrSearchParamsTO;
-import org.sola.webservices.transferobjects.search.BrSearchResultTO;
-import org.sola.webservices.transferobjects.search.CadastreObjectSearchResultTO;
-import org.sola.webservices.transferobjects.search.LocDetailsTO;
-import org.sola.webservices.transferobjects.search.LocSearchParamsTO;
-import org.sola.webservices.transferobjects.search.LocSearchResultTO;
-import org.sola.webservices.transferobjects.search.PartySearchParamsTO;
-import org.sola.webservices.transferobjects.search.PartySearchResultTO;
-import org.sola.webservices.transferobjects.search.SourceSearchParamsTO;
-import org.sola.webservices.transferobjects.search.SourceSearchResultTO;
-import org.sola.webservices.transferobjects.search.UserSearchAdvancedResultTO;
-import org.sola.webservices.transferobjects.search.UserSearchParamsTO;
-import org.sola.webservices.transferobjects.search.UserSearchResultTO;
+import org.sola.webservices.transferobjects.search.*;
 
 /**
  * Interface for the Search Service. Implemented by {@linkplain SearchClientImpl}
@@ -106,5 +87,7 @@ public interface SearchClient extends AbstractWSClient {
     
     LocDetailsTO getLocDetails(String locId, String lang) throws WebServiceClientException;
     
-    List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams);
+    List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams) throws WebServiceClientException;
+    
+    List<RestrictionSearchResultTO> searchRestrictions(RestrictionSearchParamsTO searchParams) throws WebServiceClientException;
 }

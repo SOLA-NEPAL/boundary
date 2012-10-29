@@ -287,10 +287,23 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
     }
 
     @Override
-    public List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams) {
+    public List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams)
+            throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "searchLocs";
         try {
             return getPort().searchLocs(searchParams);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
+
+    @Override
+    public List<RestrictionSearchResultTO> searchRestrictions(RestrictionSearchParamsTO searchParams) 
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchRestrictions";
+        try {
+            return getPort().searchRestrictions(searchParams);
         } catch (Throwable e) {
            handleExceptionsMethod(inputService,e);
            return null;
