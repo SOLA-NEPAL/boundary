@@ -86,7 +86,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 if (baUnitTOTmp != null) {
@@ -112,7 +111,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String baUnitId = (String) params[0];
@@ -132,7 +130,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String baUnitId = (String) params[0];
@@ -151,7 +148,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -170,7 +166,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {new ArrayList<BaUnitTO>()};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String serviceId = (String) params[0];
@@ -197,7 +192,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -214,7 +208,6 @@ public class Administrative extends AbstractWebService {
             throws SOLAFault, UnhandledFault {
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 administrativeEJB.deletePendingBaUnit(baUnitId);
@@ -232,7 +225,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
         final Object[] params = {mothsTO};
         runUpdateMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 MothTO mthTo = (MothTO) params[0];
@@ -254,7 +246,6 @@ public class Administrative extends AbstractWebService {
         final String idTmp = id;
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getMoth(idTmp), MothTO.class);
@@ -271,7 +262,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(administrativeEJB.getMoths(vdcCodeTmp, mothLujTmp), MothTO.class);
@@ -289,7 +279,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getMoth(vdcCodeTmp, mothLujTmp, mothLujNumberTmp), MothTO.class);
@@ -308,7 +297,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
         final Object[] params = {locTO};
         runUpdateMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 LocTO lcTo = (LocTO) params[0];
@@ -329,7 +317,6 @@ public class Administrative extends AbstractWebService {
         final String idTmp = id;
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getLoc(idTmp), LocTO.class);
@@ -342,7 +329,6 @@ public class Administrative extends AbstractWebService {
     public List<RrrLocTO> getRrrLocs(@WebParam(name = "locId") final String locId) throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(administrativeEJB.getRrrLocsById(locId), RrrLocTO.class);
@@ -355,7 +341,6 @@ public class Administrative extends AbstractWebService {
     public LocWithMothTO getLocWithMoth(@WebParam(name = "id") final String id) throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getLocWithMoth(id), LocWithMothTO.class);
@@ -370,7 +355,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(administrativeEJB.getLocByPageNoAndMoth(
@@ -387,12 +371,29 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(administrativeEJB.getLocList(mothIdTmp), LocTO.class);
             }
         });
         return (List<LocTO>) result[0];
+    }
+
+    @WebMethod(operationName = "getRrr")
+    public RrrTO getRrr(@WebParam(name = "id") String id)
+            throws SOLAFault, UnhandledFault {
+
+        final String idTmp = id;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(
+                        administrativeEJB.getRrr(idTmp), RrrTO.class);
+            }
+        });
+
+        return (RrrTO) result[0];
     }
 }
