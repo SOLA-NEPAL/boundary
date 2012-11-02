@@ -448,4 +448,21 @@ public class Search extends AbstractWebService {
         });
         return (List<RestrictionSearchResultTO>) result[0];
     }
+    
+    @WebMethod(operationName = "searchRestrictionInfo")
+    public List<RestrictionInfoTO> searchRestrictionInfo(
+            @WebParam(name = "searchParams") final RestrictionInfoParamsTO searchParams) 
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchRestrictionInfo(
+                        GenericTranslator.fromTO(searchParams, RestrictionInfoParams.class, null)), 
+                        RestrictionInfoTO.class);
+            }
+        });
+        return (List<RestrictionInfoTO>) result[0];
+    }
 }

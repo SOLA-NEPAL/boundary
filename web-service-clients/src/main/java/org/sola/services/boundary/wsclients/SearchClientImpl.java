@@ -309,4 +309,15 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
            return null;
         }
     }
+
+    @Override
+    public List<RestrictionInfoTO> searchRestrictionInfo(RestrictionInfoParamsTO searchParams) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchRestrictionInfo";
+        try {
+            return getPort().searchRestrictionInfo(searchParams);
+        } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
+    }
 }

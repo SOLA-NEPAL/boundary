@@ -90,4 +90,6 @@ public interface SearchClient extends AbstractWSClient {
     List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams) throws WebServiceClientException;
     
     List<RestrictionSearchResultTO> searchRestrictions(RestrictionSearchParamsTO searchParams) throws WebServiceClientException;
+    
+    List<RestrictionInfoTO> searchRestrictionInfo(RestrictionInfoParamsTO searchParams) throws WebServiceClientException;
 }
