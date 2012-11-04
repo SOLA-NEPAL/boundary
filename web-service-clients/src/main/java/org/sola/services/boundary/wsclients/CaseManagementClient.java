@@ -91,13 +91,7 @@ public interface CaseManagementClient extends AbstractWSClient {
     List<ValidationResult> serviceActionCancel(
             String serviceId, int rowVersion) throws WebServiceClientException;
 
-    List<ValidationResult> applicationActionWithdraw(
-            String applicationId, int rowVersion) throws WebServiceClientException;
-
     List<ValidationResult> applicationActionCancel(
-            String applicationId, int rowVersion) throws WebServiceClientException;
-
-    List<ValidationResult> applicationActionRequisition(
             String applicationId, int rowVersion) throws WebServiceClientException;
 
     List<ValidationResult> applicationActionValidate(
@@ -107,15 +101,6 @@ public interface CaseManagementClient extends AbstractWSClient {
             String applicationId, int rowVersion) throws WebServiceClientException;
 
     List<ValidationResult> applicationActionArchive(
-            String applicationId, int rowVersion) throws WebServiceClientException;
-
-    List<ValidationResult> applicationActionDespatch(
-            String applicationId, int rowVersion) throws WebServiceClientException;
-
-    List<ValidationResult> applicationActionLapse(
-            String applicationId, int rowVersion) throws WebServiceClientException;
-
-    List<ValidationResult> applicationActionUnassign(
             String applicationId, int rowVersion) throws WebServiceClientException;
 
     List<ValidationResult> applicationActionAssign(
@@ -129,9 +114,6 @@ public interface CaseManagementClient extends AbstractWSClient {
 
     List<ValidationResult> applicationActionTransferBulk(
             List<ActionedApplicationTO> actionedApplications, String userId) throws WebServiceClientException;
-
-    List<ValidationResult> applicationActionResubmit(
-            String applicationId, int rowVersion) throws WebServiceClientException;
 
     ServiceTO saveInformationService(ServiceTO service) throws WebServiceClientException;
 

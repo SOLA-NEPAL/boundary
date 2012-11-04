@@ -201,19 +201,7 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     }
 
     @Override
-    public List<ValidationResult> applicationActionWithdraw(
-            String applicationId, int rowVersion) throws WebServiceClientException {
-        return new ArrayList<ValidationResult>();
-    }
-
-    @Override
     public List<ValidationResult> applicationActionCancel(
-            String applicationId, int rowVersion) throws WebServiceClientException {
-        return new ArrayList<ValidationResult>();
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionRequisition(
             String applicationId, int rowVersion) throws WebServiceClientException {
         return new ArrayList<ValidationResult>();
     }
@@ -237,32 +225,8 @@ public class MockCaseManagementClient extends AbstractMockWSClient implements Ca
     }
 
     @Override
-    public List<ValidationResult> applicationActionDespatch(
-            String applicationId, int rowVersion) throws WebServiceClientException {
-        return new ArrayList<ValidationResult>();
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionLapse(
-            String applicationId, int rowVersion) throws WebServiceClientException {
-        return new ArrayList<ValidationResult>();
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionUnassign(
-            String applicationId, int rowVersion) throws WebServiceClientException {
-        return new ArrayList<ValidationResult>();
-    }
-
-    @Override
     public List<ValidationResult> applicationActionAssign(
             String applicationId, String userId, int rowVersion) throws WebServiceClientException {
-        return new ArrayList<ValidationResult>();
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionResubmit(
-            String applicationId, int rowVersion) throws WebServiceClientException {
         return new ArrayList<ValidationResult>();
     }
 
