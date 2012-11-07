@@ -31,7 +31,17 @@ import org.sola.services.common.contracts.AbstractCodeTO;
 
 public class PartyTypeTO extends AbstractCodeTO {
 
+    private boolean individual;
+    
     public PartyTypeTO() {
         super();
+    }
+
+    public boolean isIndividual() {
+        return individual;
+    }
+
+    public void setIndividual(boolean individual) {
+        this.individual = individual;
     }
 }

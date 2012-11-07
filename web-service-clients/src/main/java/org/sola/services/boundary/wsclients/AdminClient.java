@@ -71,6 +71,8 @@ public interface AdminClient extends AbstractWSClient {
 
     boolean changePassword(String userName, String password) throws WebServiceClientException;
 
+    boolean changeCurrentUserPassword(String oldPassword, String newPassword);
+    
     boolean isUserAdmin() throws WebServiceClientException;
 
     List<LanguageTO> getLanguages() throws WebServiceClientException;
