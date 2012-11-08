@@ -5,6 +5,7 @@ import org.sola.services.common.contracts.AbstractTO;
 public class CadastreObjectSearchResultExtTO extends AbstractTO {
 
     private String id;
+    private String baUnitId;
     private String mapsheetId;
     private String mapsheetId2;
     private String mapsheetId3;
@@ -22,6 +23,14 @@ public class CadastreObjectSearchResultExtTO extends AbstractTO {
     
     public CadastreObjectSearchResultExtTO() {
         super();
+    }
+
+    public String getBaUnitId() {
+        return baUnitId;
+    }
+
+    public void setBaUnitId(String baUnitId) {
+        this.baUnitId = baUnitId;
     }
 
     public String getFirstName() {
