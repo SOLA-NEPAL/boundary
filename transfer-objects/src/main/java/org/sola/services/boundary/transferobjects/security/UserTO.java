@@ -34,6 +34,7 @@ public class UserTO extends UserSummaryTO {
     private String userName;
     private String pasword;
     private List<UserGroupTO> userGroups;
+    private List<UserVdcTO> vdcs;
     private boolean active;
     private DepartmentTO department;
     
@@ -79,5 +80,13 @@ public class UserTO extends UserSummaryTO {
 
     public void setDepartment(DepartmentTO department) {
         this.department = department;
+    }
+
+    public List<UserVdcTO> getVdcs() {
+        return vdcs;
+    }
+
+    public void setVdcs(List<UserVdcTO> vdcs) {
+        this.vdcs = vdcs;
     }
 }
