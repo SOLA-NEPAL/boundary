@@ -73,8 +73,6 @@ public interface CadastreClient extends AbstractWSClient {
 
     TransactionCadastreRedefinitionTO getTransactionCadastreRedefinition(String serviceId);
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //********************************************************************************************
     CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject);
 
     MapSheetTO getMapSheet(String id);
@@ -97,11 +95,6 @@ public interface CadastreClient extends AbstractWSClient {
     
     CadastreObjectTO getCadastreObject(String id);
 
-
-    //************************************************************************************************
-    //</editor-fold>    
-    //  <editor-fold defaultstate="collapsed" desc="By Kabindra">
-    //--------------------------------------------------------------------------
     List<CadastreObjectTO> getCadastreObjectByIntersection(String geom, int srid)
             throws WebServiceClientException;
 
@@ -123,6 +116,8 @@ public interface CadastreClient extends AbstractWSClient {
     List<MapSheetTO> loadVDCMapSheet(int mapSheetType, String vdccode);
 
     List<String> getWardlist(String vdccode);
-    //--------------------------------------------------------------------------
-    //  </editor-fold>
+    
+    List<DatasetTO> getDatasetsByCurrentOffice() throws WebServiceClientException;
+    
+    List<DatasetTO> getDatasetsByCurrentUser()  throws WebServiceClientException;
 }
