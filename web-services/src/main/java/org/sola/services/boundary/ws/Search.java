@@ -29,6 +29,7 @@
  */
 package org.sola.services.boundary.ws;
 
+import org.sola.services.boundary.transferobjects.administrative.MothSearchParamsTO;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -321,7 +322,7 @@ public class Search extends AbstractWebService {
 
         return (List<BaUnitSearchResultTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getAllBaUnitsByService")
     public List<BaUnitSearchResultTO> getAllBaUnitsByService(@WebParam(name = "serviceId") final String serviceId)
             throws SOLAFault, UnhandledFault, SOLAAccessFault {
@@ -402,10 +403,10 @@ public class Search extends AbstractWebService {
 
         return (List<CadastreObjectSearchResultExtTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getLocDetails")
-    public LocDetailsTO getLocDetails(@WebParam(name = "id") final String id, 
-            @WebParam(name = "lang") final String lang) 
+    public LocDetailsTO getLocDetails(@WebParam(name = "id") final String id,
+            @WebParam(name = "lang") final String lang)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
@@ -416,9 +417,9 @@ public class Search extends AbstractWebService {
         });
         return (LocDetailsTO) result[0];
     }
-    
+
     @WebMethod(operationName = "searchLocs")
-    public List<LocSearchResultTO> searchLocs(@WebParam(name = "searchParams") final LocSearchParamsTO searchParams) 
+    public List<LocSearchResultTO> searchLocs(@WebParam(name = "searchParams") final LocSearchParamsTO searchParams)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
@@ -426,15 +427,15 @@ public class Search extends AbstractWebService {
             public void run() {
                 result[0] = GenericTranslator.toTOList(
                         searchEJB.searchLocs(
-                        GenericTranslator.fromTO(searchParams, LocSearchParams.class, null)), 
+                        GenericTranslator.fromTO(searchParams, LocSearchParams.class, null)),
                         LocSearchResultTO.class);
             }
         });
         return (List<LocSearchResultTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "searchRestrictions")
-    public List<RestrictionSearchResultTO> searchRestrictions(@WebParam(name = "searchParams") final RestrictionSearchParamsTO searchParams) 
+    public List<RestrictionSearchResultTO> searchRestrictions(@WebParam(name = "searchParams") final RestrictionSearchParamsTO searchParams)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
@@ -442,16 +443,16 @@ public class Search extends AbstractWebService {
             public void run() {
                 result[0] = GenericTranslator.toTOList(
                         searchEJB.searchRestrictions(
-                        GenericTranslator.fromTO(searchParams, RestrictionSearchParams.class, null)), 
+                        GenericTranslator.fromTO(searchParams, RestrictionSearchParams.class, null)),
                         RestrictionSearchResultTO.class);
             }
         });
         return (List<RestrictionSearchResultTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "searchRestrictionInfo")
     public List<RestrictionInfoTO> searchRestrictionInfo(
-            @WebParam(name = "searchParams") final RestrictionInfoParamsTO searchParams) 
+            @WebParam(name = "searchParams") final RestrictionInfoParamsTO searchParams)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
@@ -459,7 +460,7 @@ public class Search extends AbstractWebService {
             public void run() {
                 result[0] = GenericTranslator.toTOList(
                         searchEJB.searchRestrictionInfo(
-                        GenericTranslator.fromTO(searchParams, RestrictionInfoParams.class, null)), 
+                        GenericTranslator.fromTO(searchParams, RestrictionInfoParams.class, null)),
                         RestrictionInfoTO.class);
             }
         });

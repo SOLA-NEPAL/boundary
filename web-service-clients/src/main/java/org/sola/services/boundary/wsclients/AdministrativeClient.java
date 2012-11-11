@@ -35,6 +35,7 @@ import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocSearchByMothParamsTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
+import org.sola.webservices.transferobjects.administrative.MothSearchParamsTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
 import org.sola.webservices.transferobjects.administrative.RrrLocTO;
 import org.sola.webservices.transferobjects.administrative.RrrTO;
@@ -79,4 +80,8 @@ public interface AdministrativeClient extends AbstractWSClient {
     void deletePendingBaUnit(String baUnitId);
 
     RrrTO getRrr(String id);
+
+    List<LocWithMothTO> getLocListByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
+
+    List<MothTO> searchMoths(MothSearchParamsTO searchParams) throws WebServiceClientException;
 }

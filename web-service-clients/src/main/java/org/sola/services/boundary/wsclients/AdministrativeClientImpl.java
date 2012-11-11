@@ -39,6 +39,7 @@ import org.sola.webservices.administrative.AdministrativeService;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
+import org.sola.webservices.transferobjects.administrative.MothSearchParamsTO;
 import org.sola.webservices.transferobjects.administrative.RrrLocTO;
 import org.sola.webservices.transferobjects.administrative.RrrTO;
 
@@ -234,8 +235,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         }
     }
 
-    //*************************************************************************************************************
-    //</editor-fold>
+    
     @Override
     public LocWithMothTO getLocWithMoth(String id) {
         final String inputService = SERVICE_NAME + "getLocWithMoth";
@@ -275,6 +275,29 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         try {
             RrrTO result = getPort().getRrr(id);
             return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<LocWithMothTO> getLocListByPageNoAndMoth(LocSearchByMothParamsTO searchParams) {
+        final String inputService = SERVICE_NAME + "getLocListByPageNoAndMoth";
+        try {
+            return getPort().getLocListByPageNoAndMoth(searchParams);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<MothTO> searchMoths(MothSearchParamsTO searchParams)
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchMoths";
+        try {
+            return getPort().searchMoths(searchParams);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

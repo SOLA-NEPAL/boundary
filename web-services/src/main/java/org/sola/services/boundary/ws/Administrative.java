@@ -396,4 +396,38 @@ public class Administrative extends AbstractWebService {
 
         return (RrrTO) result[0];
     }
+
+    @WebMethod(operationName = "getLocListByPageNoAndMoth")
+    public List<LocWithMothTO> getLocListByPageNoAndMoth(@WebParam(name = "searchParams") final LocSearchByMothParamsTO searchParams)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getLocListByPageNoAndMoth(
+                        GenericTranslator.fromTO(searchParams, LocSearchByMothParams.class, null)),
+                        LocWithMothTO.class);
+            }
+        });
+        return (List<LocWithMothTO>) result[0];
+    }
+    
+    
+
+    @WebMethod(operationName = "searchMoths")
+    public List<MothTO> searchMoths(@WebParam(name = "searchMoths") final MothSearchParamsTO searchParams)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        administrativeEJB.searchMoths(
+                        GenericTranslator.fromTO(searchParams, MothSearchParams.class, null)),
+                        MothTO.class);
+            }
+        });
+        return (List<MothTO>) result[0];
+    }
 }
