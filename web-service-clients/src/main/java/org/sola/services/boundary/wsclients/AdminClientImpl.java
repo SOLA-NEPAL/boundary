@@ -319,4 +319,15 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             return null;
         }
     }
+
+    @Override
+    public boolean changeCurrentUserPassword(String oldPassword, String newPassword) {
+        final String inputService = SERVICE_NAME + "changeCurrentUserPassword";
+        try {
+            return getPort().changeCurrentUserPassword(oldPassword, newPassword);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return false;
+        }
+    }
 }

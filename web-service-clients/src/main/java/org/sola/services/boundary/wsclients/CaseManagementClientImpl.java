@@ -336,89 +336,11 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
     }
 
     @Override
-    public List<ValidationResult> applicationActionDespatch(String applicationId, int rowVersion)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "applicationActionDespatch";
-        try {
-            return getPort().applicationActionDespatch(
-                    applicationId, this.getLanguageCode(), rowVersion);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionLapse(String applicationId, int rowVersion)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "applicationActionLapse";
-        try {
-            return getPort().applicationActionLapse(
-                    applicationId, this.getLanguageCode(), rowVersion);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionRequisition(String applicationId, int rowVersion)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "applicationActionRequisition";
-        try {
-            return getPort().applicationActionRequisition(
-                    applicationId, this.getLanguageCode(), rowVersion);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionResubmit(String applicationId, int rowVersion)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "applicationActionResubmit";
-        try {
-            return getPort().applicationActionResubmit(
-                    applicationId, this.getLanguageCode(), rowVersion);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionUnassign(String applicationId, int rowVersion)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "applicationActionUnassign";
-        try {
-            return getPort().applicationActionUnassign(
-                    applicationId, this.getLanguageCode(), rowVersion);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
     public List<ValidationResult> applicationActionValidate(String applicationId, int rowVersion)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "applicationActionValidate";
         try {
             return getPort().applicationActionValidate(
-                    applicationId, this.getLanguageCode(), rowVersion);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<ValidationResult> applicationActionWithdraw(String applicationId, int rowVersion)
-            throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "applicationActionWithdraw";
-        try {
-            return getPort().applicationActionWithdraw(
                     applicationId, this.getLanguageCode(), rowVersion);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);

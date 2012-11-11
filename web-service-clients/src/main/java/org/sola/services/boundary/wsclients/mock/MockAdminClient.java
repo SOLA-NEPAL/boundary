@@ -196,4 +196,9 @@ public class MockAdminClient extends AbstractMockWSClient implements AdminClient
     public OfficeTO getCurrentOffice() throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public boolean changeCurrentUserPassword(String oldPassword, String newPassword) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

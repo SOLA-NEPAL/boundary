@@ -517,31 +517,6 @@ public class CaseManagement extends AbstractWebService {
         return (List<ValidationResult>) result[0];
     }
 
-    @WebMethod(operationName = "ApplicationActionWithdraw")
-    public List<ValidationResult> ApplicationActionWithdraw(
-            @WebParam(name = "applicationId") String applicationId,
-            @WebParam(name = "languageCode") String languageCode,
-            @WebParam(name = "rowVersion") int rowVersion)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault,
-            OptimisticLockingFault, SOLAValidationFault {
-
-        final String applicationIdTmp = applicationId;
-        final String languageCodeTmp = languageCode;
-        final int rowVersionTmp = rowVersion;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = applicationEJB.applicationActionWithdraw(
-                        applicationIdTmp, languageCodeTmp, rowVersionTmp);
-            }
-        });
-
-        return (List<ValidationResult>) result[0];
-    }
-
     @WebMethod(operationName = "ApplicationActionCancel")
     public List<ValidationResult> ApplicationActionCancel(
             @WebParam(name = "applicationId") String applicationId,
@@ -560,31 +535,6 @@ public class CaseManagement extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionCancel(
-                        applicationIdTmp, languageCodeTmp, rowVersionTmp);
-            }
-        });
-
-        return (List<ValidationResult>) result[0];
-    }
-
-    @WebMethod(operationName = "ApplicationActionRequisition")
-    public List<ValidationResult> ApplicationActionRequisition(
-            @WebParam(name = "applicationId") String applicationId,
-            @WebParam(name = "languageCode") String languageCode,
-            @WebParam(name = "rowVersion") int rowVersion)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault,
-            OptimisticLockingFault, SOLAValidationFault {
-
-        final String applicationIdTmp = applicationId;
-        final String languageCodeTmp = languageCode;
-        final int rowVersionTmp = rowVersion;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = applicationEJB.applicationActionRequisition(
                         applicationIdTmp, languageCodeTmp, rowVersionTmp);
             }
         });
@@ -660,81 +610,6 @@ public class CaseManagement extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionArchive(
-                        applicationIdTmp, languageCodeTmp, rowVersionTmp);
-            }
-        });
-
-        return (List<ValidationResult>) result[0];
-    }
-
-    @WebMethod(operationName = "ApplicationActionDespatch")
-    public List<ValidationResult> ApplicationActionDespatch(
-            @WebParam(name = "applicationId") String applicationId,
-            @WebParam(name = "languageCode") String languageCode,
-            @WebParam(name = "rowVersion") int rowVersion)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault,
-            OptimisticLockingFault, SOLAValidationFault {
-
-        final String applicationIdTmp = applicationId;
-        final String languageCodeTmp = languageCode;
-        final int rowVersionTmp = rowVersion;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = applicationEJB.applicationActionDespatch(
-                        applicationIdTmp, languageCodeTmp, rowVersionTmp);
-            }
-        });
-
-        return (List<ValidationResult>) result[0];
-    }
-
-    @WebMethod(operationName = "ApplicationActionLapse")
-    public List<ValidationResult> ApplicationActionLapse(
-            @WebParam(name = "applicationId") String applicationId,
-            @WebParam(name = "languageCode") String languageCode,
-            @WebParam(name = "rowVersion") int rowVersion)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault,
-            OptimisticLockingFault, SOLAValidationFault {
-
-        final String applicationIdTmp = applicationId;
-        final String languageCodeTmp = languageCode;
-        final int rowVersionTmp = rowVersion;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = applicationEJB.applicationActionLapse(
-                        applicationIdTmp, languageCodeTmp, rowVersionTmp);
-            }
-        });
-
-        return (List<ValidationResult>) result[0];
-    }
-
-    @WebMethod(operationName = "ApplicationActionUnassign")
-    public List<ValidationResult> ApplicationActionUnassign(
-            @WebParam(name = "applicationId") String applicationId,
-            @WebParam(name = "languageCode") String languageCode,
-            @WebParam(name = "rowVersion") int rowVersion)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault,
-            OptimisticLockingFault, SOLAValidationFault {
-
-        final String applicationIdTmp = applicationId;
-        final String languageCodeTmp = languageCode;
-        final int rowVersionTmp = rowVersion;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = applicationEJB.applicationActionUnassign(
                         applicationIdTmp, languageCodeTmp, rowVersionTmp);
             }
         });
@@ -829,31 +704,6 @@ public class CaseManagement extends AbstractWebService {
                         userId, languageCode);
             }
         });
-        return (List<ValidationResult>) result[0];
-    }
-    
-    @WebMethod(operationName = "ApplicationActionResubmit")
-    public List<ValidationResult> ApplicationActionResubmit(
-            @WebParam(name = "applicationId") String applicationId,
-            @WebParam(name = "languageCode") String languageCode,
-            @WebParam(name = "rowVersion") int rowVersion)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault,
-            OptimisticLockingFault, SOLAValidationFault {
-
-        final String applicationIdTmp = applicationId;
-        final String languageCodeTmp = languageCode;
-        final int rowVersionTmp = rowVersion;
-        final Object[] result = {null};
-
-        runUpdateMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = applicationEJB.applicationActionResubmit(
-                        applicationIdTmp, languageCodeTmp, rowVersionTmp);
-            }
-        });
-
         return (List<ValidationResult>) result[0];
     }
 
