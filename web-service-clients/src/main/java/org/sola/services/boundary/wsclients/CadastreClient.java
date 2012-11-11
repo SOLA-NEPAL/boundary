@@ -120,4 +120,8 @@ public interface CadastreClient extends AbstractWSClient {
     List<DatasetTO> getDatasetsByCurrentOffice() throws WebServiceClientException;
     
     List<DatasetTO> getDatasetsByCurrentUser()  throws WebServiceClientException;
+    
+    List<DatasetTO> getDatasetsByVdc(String vdcCode)  throws WebServiceClientException;
+    
+    DatasetTO getDataset(String id)  throws WebServiceClientException;
 }

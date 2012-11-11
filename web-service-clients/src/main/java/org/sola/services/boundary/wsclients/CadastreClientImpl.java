@@ -454,4 +454,26 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
+    
+    @Override
+    public List<DatasetTO> getDatasetsByVdc(String vdcCode)  throws WebServiceClientException{
+        final String inputService = SERVICE_NAME + "getDatasetsByVdc";
+        try {
+            return getPort().getDatasetsByVdc(vdcCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public DatasetTO getDataset(String id) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getDataset";
+        try {
+            return getPort().getDataset(id);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

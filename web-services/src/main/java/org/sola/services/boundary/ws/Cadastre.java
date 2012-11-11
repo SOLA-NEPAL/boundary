@@ -766,4 +766,39 @@ public class Cadastre extends AbstractWebService {
 
         return (List<DatasetTO>) result[0];
     }
+    
+    @WebMethod(operationName = "getDatasetsByVdc")
+    public List<DatasetTO> getDatasetsByVdc(@WebParam(name="vdcCode") final String vdcCode) 
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getDatasetsByVdc(vdcCode), DatasetTO.class);
+            }
+        });
+
+        return (List<DatasetTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDataset")
+    public DatasetTO getDataset(@WebParam(name="id") final String id) 
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(cadastreEJB.getDataset(id), DatasetTO.class);
+            }
+        });
+
+        return (DatasetTO) result[0];
+    }
 }
