@@ -355,8 +355,6 @@ public class Cadastre extends AbstractWebService {
         return (TransactionCadastreRedefinitionTO) result[0];
     }
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //********************************************************************************************************************************
     @WebMethod(operationName = "saveCadastreObject")
     public CadastreObjectSummaryTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectSummaryTO cadastreObjectTO)
             throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
@@ -536,12 +534,7 @@ public class Cadastre extends AbstractWebService {
         });
         return (CadastreObjectTO) result[0];
     }   
-    //********************************************************************************************************************************
-    //</editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="By Kabindra">
-    //--------------------------------------------------------------------------
-
     @WebMethod(operationName = "GetCadastreObjectByIntersection")
     public List<CadastreObjectTO> GetCadastreObjectByIntersection(
             @WebParam(name = "geom") String geom,
@@ -737,6 +730,75 @@ public class Cadastre extends AbstractWebService {
 
         return (CadastreObjectTO) result[0];
     }
-    //--------------------------------------------------------------------------
-    // </editor-fold>
+
+    @WebMethod(operationName = "getDatasetsByCurrentOffice")
+    public List<DatasetTO> getDatasetsByCurrentOffice() throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getDatasetsByCurrentOffice(),
+                        DatasetTO.class);
+            }
+        });
+
+        return (List<DatasetTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDatasetsByCurrentUser")
+    public List<DatasetTO> getDatasetsByCurrentUser() throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getDatasetsByCurrentUser(),
+                        DatasetTO.class);
+            }
+        });
+
+        return (List<DatasetTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDatasetsByVdc")
+    public List<DatasetTO> getDatasetsByVdc(@WebParam(name="vdcCode") final String vdcCode) 
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getDatasetsByVdc(vdcCode), DatasetTO.class);
+            }
+        });
+
+        return (List<DatasetTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getDataset")
+    public DatasetTO getDataset(@WebParam(name="id") final String id) 
+            throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(cadastreEJB.getDataset(id), DatasetTO.class);
+            }
+        });
+
+        return (DatasetTO) result[0];
+    }
 }

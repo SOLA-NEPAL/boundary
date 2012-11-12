@@ -130,4 +130,20 @@ public class Spatial extends AbstractWebService {
 
         return (ResultForNavigationInfo) result[0];
     }
+    
+    @WebMethod(operationName = "getCrs")
+    public String getCrs(@WebParam(name = "srid") final int srid) throws SOLAFault, UnhandledFault {
+
+        final Object[] result = {null};
+
+        runGeneralMethodNoUser(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = searchEJB.getCrs(srid);
+            }
+        });
+
+        return (String) result[0];
+    }
 }

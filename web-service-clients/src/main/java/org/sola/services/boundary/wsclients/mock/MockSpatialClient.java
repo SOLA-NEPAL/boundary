@@ -31,15 +31,11 @@
  */
 package org.sola.services.boundary.wsclients.mock;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.sola.services.boundary.wsclients.SpatialClient;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.spatial.MapDefinitionTO;
 import org.sola.webservices.spatial.QueryForNavigation;
-import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.spatial.ResultForNavigationInfo;
-import org.sola.webservices.search.ResultForSelectionInfo;
 
 /**
  * Provides a mock implementation for the 
@@ -83,5 +79,10 @@ public class MockSpatialClient extends AbstractMockWSClient implements SpatialCl
         MapDefinitionTO defaultResponse = new MapDefinitionTO();
         return getManager().getResponse(GET_SPATIAL_FOR_NAVIGATION,
                 MapDefinitionTO.class, defaultResponse);
+    }
+
+    @Override
+    public String getCrs(int srid) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

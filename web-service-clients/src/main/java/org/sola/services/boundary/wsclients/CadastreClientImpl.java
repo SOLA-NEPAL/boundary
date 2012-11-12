@@ -42,10 +42,6 @@ import org.sola.webservices.transferobjects.cadastre.*;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
-/**
- *
- * @author Manoku
- */
 public class CadastreClientImpl extends AbstractWSClientImpl implements CadastreClient {
 
     private static final String NAMESPACE_URI = "http://webservices.sola.org/cadastre";
@@ -210,8 +206,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
     }
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //******************************************************************************************************
     @Override
     public CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "saveCadastreObject";
@@ -335,10 +329,6 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }  
     }
 
-    //******************************************************************************************************
-    //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="By Kabindra">
-    //--------------------------------------------------------------------------
     @Override
     public List<CadastreObjectTO> getCadastreObjectByIntersection(String geom, int srid) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getCadastreObjectsByIntersection";
@@ -442,6 +432,48 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    //--------------------------------------------------------------------------
-    //</editor-fold>
+
+    @Override
+    public List<DatasetTO> getDatasetsByCurrentOffice() throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getDatasetsByCurrentOffice";
+        try {
+            return getPort().getDatasetsByCurrentOffice();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<DatasetTO> getDatasetsByCurrentUser() throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getDatasetsByCurrentUser";
+        try {
+            return getPort().getDatasetsByCurrentUser();
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<DatasetTO> getDatasetsByVdc(String vdcCode)  throws WebServiceClientException{
+        final String inputService = SERVICE_NAME + "getDatasetsByVdc";
+        try {
+            return getPort().getDatasetsByVdc(vdcCode);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public DatasetTO getDataset(String id) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getDataset";
+        try {
+            return getPort().getDataset(id);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

@@ -34,6 +34,7 @@ public class CadastreObjectSummaryTO extends AbstractIdTO {
     private MapSheetTO mapSheet4;
     private String officeCode;
     private String fiscalYearCode;
+    private String datasetId;
     
     public CadastreObjectSummaryTO(){
         super();
@@ -253,5 +254,13 @@ public class CadastreObjectSummaryTO extends AbstractIdTO {
 
     public void setOfficialArea(BigDecimal officialArea) {
         this.officialArea = officialArea;
+    }
+
+    public String getDatasetId() {
+        return datasetId;
+    }
+
+    public void setDatasetId(String datasetId) {
+        this.datasetId = datasetId;
     }
 }

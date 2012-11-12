@@ -92,7 +92,17 @@ public class SpatialClientImpl extends AbstractWSClientImpl implements SpatialCl
            handleExceptionsMethod(inputService,e);
            return null;
         }
+    }
 
+    @Override
+    public String getCrs(int srid) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "getCrs";
+        try {
+            return getPort().getCrs(srid);
+         } catch (Throwable e) {
+           handleExceptionsMethod(inputService,e);
+           return null;
+        }
     }
 }
  
