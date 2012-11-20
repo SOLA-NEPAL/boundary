@@ -30,14 +30,15 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
-import org.sola.webservices.transferobjects.administrative.LocSearchByMothParamsTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
+import org.sola.webservices.transferobjects.administrative.LocSearchByMothParamsTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
+import org.sola.webservices.transferobjects.administrative.MothSearchParamsTO;
 import org.sola.webservices.transferobjects.administrative.MothTO;
 import org.sola.webservices.transferobjects.administrative.RrrLocTO;
-
+import org.sola.webservices.transferobjects.administrative.RrrTO;
 
 public interface AdministrativeClient extends AbstractWSClient {
 
@@ -55,7 +56,7 @@ public interface AdministrativeClient extends AbstractWSClient {
     BaUnitTO cancelBaUnitTermination(String baUnitId) throws WebServiceClientException;
 
     BaUnitTO terminateBaUnit(String baUnitId, String serviceId) throws WebServiceClientException;
-    
+
     List<RrrLocTO> getRrrLocs(String locId) throws WebServiceClientException;
 
     MothTO saveMoth(MothTO mothTo);
@@ -69,12 +70,18 @@ public interface AdministrativeClient extends AbstractWSClient {
     LocTO saveLoc(LocTO loc);
 
     LocTO getLoc(String id);
-    
+
     LocWithMothTO getLocWithMoth(String id);
 
     LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
 
     List<LocTO> getLocList(String mothId);
-    
+
     void deletePendingBaUnit(String baUnitId);
+
+    RrrTO getRrr(String id);
+
+    List<LocWithMothTO> getLocListByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
+
+    List<MothTO> searchMoths(MothSearchParamsTO searchParams) throws WebServiceClientException;
 }

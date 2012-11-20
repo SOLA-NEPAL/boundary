@@ -39,8 +39,9 @@ import org.sola.webservices.administrative.AdministrativeService;
 import org.sola.webservices.transferobjects.administrative.BaUnitTO;
 import org.sola.webservices.transferobjects.administrative.LocTO;
 import org.sola.webservices.transferobjects.administrative.LocWithMothTO;
+import org.sola.webservices.transferobjects.administrative.MothSearchParamsTO;
 import org.sola.webservices.transferobjects.administrative.RrrLocTO;
-
+import org.sola.webservices.transferobjects.administrative.RrrTO;
 
 public class AdministrativeClientImpl extends AbstractWSClientImpl
         implements AdministrativeClient {
@@ -212,7 +213,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
     }
 
     @Override
-    public LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams) 
+    public LocWithMothTO getLocByPageNoAndMoth(LocSearchByMothParamsTO searchParams)
             throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getLocByPageNoAndMoth";
         try {
@@ -225,7 +226,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
 
     @Override
     public List<LocTO> getLocList(String mothId) {
-       final String inputService = SERVICE_NAME + "getLocList";
+        final String inputService = SERVICE_NAME + "getLocList";
         try {
             return getPort().getLocList(mothId);
         } catch (Throwable e) {
@@ -233,10 +234,8 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             return null;
         }
     }
- 
-    //*************************************************************************************************************
-    //</editor-fold>
 
+    
     @Override
     public LocWithMothTO getLocWithMoth(String id) {
         final String inputService = SERVICE_NAME + "getLocWithMoth";
@@ -267,6 +266,41 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             getPort().deletePendingBaUnit(baUnitId);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
+        }
+    }
+
+    @Override
+    public RrrTO getRrr(String id) {
+        final String inputService = SERVICE_NAME + "getRrr";
+        try {
+            RrrTO result = getPort().getRrr(id);
+            return result;
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<LocWithMothTO> getLocListByPageNoAndMoth(LocSearchByMothParamsTO searchParams) {
+        final String inputService = SERVICE_NAME + "getLocListByPageNoAndMoth";
+        try {
+            return getPort().getLocListByPageNoAndMoth(searchParams);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<MothTO> searchMoths(MothSearchParamsTO searchParams)
+            throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchMoths";
+        try {
+            return getPort().searchMoths(searchParams);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
         }
     }
 }

@@ -254,8 +254,6 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
         }
     }
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //************************************************************************************************
     @Override
     public Date getGregorianDate(String nepaliDate) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getGregorianDate";
@@ -266,7 +264,7 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             return null;
         }
     }
-    
+
     @Override
     public String getNepaliDate(Date date) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getNepaliDate";
@@ -277,7 +275,7 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             return null;
         }
     }
-    
+
     @Override
     public List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO) {
         final String inputService = SERVICE_NAME + "saveNepaliMonth";
@@ -288,7 +286,7 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             return null;
         }
     }
-    
+
     @Override
     public List<NepaliMonthTO> getNepaliMonths(int nepYear) {
         final String inputService = SERVICE_NAME + "getNepaliMonths";
@@ -299,7 +297,7 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             return null;
         }
     }
-    
+
     @Override
     public List<Integer> getNepaliYear() {
         final String inputService = SERVICE_NAME + "getNepaliYear";
@@ -310,8 +308,6 @@ public class AdminClientImpl extends AbstractWSClientImpl implements AdminClient
             return null;
         }
     }
-    //************************************************************************************************
-    //</editor-fold>
 
     @Override
     public OfficeTO getCurrentOffice() throws WebServiceClientException {
