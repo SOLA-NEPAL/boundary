@@ -38,6 +38,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.administrative.*;
+import org.sola.services.common.EntityAction;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
@@ -46,6 +47,7 @@ import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB;
 import org.sola.services.ejb.administrative.businesslogic.AdministrativeEJBLocal;
 import org.sola.services.ejb.administrative.repository.entities.*;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
+import org.sola.services.ejb.cadastre.repository.entities.CadastreObject;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.TransactionBasic;
@@ -91,10 +93,24 @@ public class Administrative extends AbstractWebService {
             public void run() {
                 if (baUnitTOTmp != null) {
                     BaUnit currentBaUnit = administrativeEJB.getBaUnitById(baUnitTOTmp.getId());
+                    BaUnit translatedBaUnit = GenericTranslator.fromTO(baUnitTOTmp, BaUnit.class, currentBaUnit);
+                    if(translatedBaUnit.getCadastreObject()!=null 
+                            && !translatedBaUnit.getCadastreObject().isNew()
+                            && (translatedBaUnit.getCadastreObject().isModified() 
+                            || !translatedBaUnit.getCadastreObject().isLoaded())){
+                        if(!translatedBaUnit.getCadastreObject().isLoaded() || 
+                                (translatedBaUnit.getCadastreObject().isLoaded() && translatedBaUnit.getCadastreObject().hasIdChanged())){
+                            translatedBaUnit.setCadastreObject(
+                                    GenericTranslator.fromTO(
+                                    baUnitTOTmp.getCadastreObject(), 
+                                    CadastreObject.class, 
+                                    cadastreEJB.getCadastreObject(baUnitTOTmp.getCadastreObjectId())));
+                        }
+                        translatedBaUnit.getCadastreObject().setEntityAction(EntityAction.UPDATE);
+                    }
+                            
                     // Check cadastre object
-                    BaUnit newBaUnit = administrativeEJB.saveBaUnit(
-                            serviceIdTmp,
-                            GenericTranslator.fromTO(baUnitTOTmp, BaUnit.class, currentBaUnit));
+                    BaUnit newBaUnit = administrativeEJB.saveBaUnit(serviceIdTmp, translatedBaUnit);
                     result[0] = GenericTranslator.toTO(newBaUnit, BaUnitTO.class);
                 }
             }
