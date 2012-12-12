@@ -33,11 +33,7 @@ package org.sola.services.boundary.wsclients;
 
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
-import org.sola.webservices.spatial.MapDefinitionTO;
-import org.sola.webservices.spatial.QueryForNavigation;
-import org.sola.webservices.spatial.ResultForNavigationInfo;
-import org.sola.webservices.spatial.Spatial;
-import org.sola.webservices.spatial.SpatialService;
+import org.sola.webservices.spatial.*;
 
 /**
  * Implementation class for the {@linkplain SpatialClient} interface. 
