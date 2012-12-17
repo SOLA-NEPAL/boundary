@@ -33,8 +33,8 @@ public class BaUnitBasicTO extends AbstractTO {
     private String id;
     private String typeCode;
     private String name;
-    private String nameFirstpart;
-    private String nameLastpart;
+    private String nameFirstPart;
+    private String nameLastPart;
     private String statusCode;
     private String transactionId;
     private String officeCode;
@@ -60,20 +60,20 @@ public class BaUnitBasicTO extends AbstractTO {
         this.name = name;
     }
 
-    public String getNameFirstpart() {
-        return nameFirstpart;
+    public String getNameFirstPart() {
+        return nameFirstPart;
     }
 
-    public void setNameFirstpart(String nameFirstpart) {
-        this.nameFirstpart = nameFirstpart;
+    public void setNameFirstPart(String nameFirstPart) {
+        this.nameFirstPart = nameFirstPart;
     }
 
     public String getNameLastpart() {
-        return nameLastpart;
+        return nameLastPart;
     }
 
-    public void setNameLastpart(String nameLastpart) {
-        this.nameLastpart = nameLastpart;
+    public void setNameLastpart(String nameLastPart) {
+        this.nameLastPart = nameLastPart;
     }
 
     public String getStatusCode() {

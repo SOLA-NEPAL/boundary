@@ -15,8 +15,8 @@ public class CadastreObjectSummaryTO extends AbstractIdTO {
     private String buildingUnitTypeCode;
     private Date approvalDatetime;
     private Date historicDatetime;
-    private String nameFirstpart;
-    private String nameLastpart;
+    private String nameFirstPart;
+    private String nameLastPart;
     private String statusCode;
     private String transactionId;
     private String parcelno;
@@ -88,20 +88,20 @@ public class CadastreObjectSummaryTO extends AbstractIdTO {
         this.historicDatetime = historicDatetime;
     }
 
-    public String getNameFirstpart() {
-        return nameFirstpart;
+    public String getNameFirstPart() {
+        return nameFirstPart;
     }
 
-    public void setNameFirstpart(String nameFirstpart) {
-        this.nameFirstpart = nameFirstpart;
+    public void setNameFirstPart(String nameFirstPart) {
+        this.nameFirstPart = nameFirstPart;
     }
 
-    public String getNameLastpart() {
-        return nameLastpart;
+    public String getNameLastPart() {
+        return nameLastPart;
     }
 
-    public void setNameLastpart(String nameLastpart) {
-        this.nameLastpart = nameLastpart;
+    public void setNameLastPart(String nameLastPart) {
+        this.nameLastPart = nameLastPart;
     }
 
     public String getStatusCode() {

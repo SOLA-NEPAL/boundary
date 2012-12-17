@@ -39,8 +39,8 @@ public class BaUnitTO extends AbstractIdTO {
 
     private String typeCode;
     private String name;
-    private String nameFirstpart;
-    private String nameLastpart;
+    private String nameFirstPart;
+    private String nameLastPart;
     private String statusCode;
     private boolean locked;
     private List<RrrTO> rrrList;
@@ -112,20 +112,20 @@ public class BaUnitTO extends AbstractIdTO {
         this.name = name;
     }
 
-    public String getNameFirstpart() {
-        return nameFirstpart;
+    public String getNameFirstPart() {
+        return nameFirstPart;
     }
 
-    public void setNameFirstpart(String nameFirstpart) {
-        this.nameFirstpart = nameFirstpart;
+    public void setNameFirstPart(String nameFirstPart) {
+        this.nameFirstPart = nameFirstPart;
     }
 
-    public String getNameLastpart() {
-        return nameLastpart;
+    public String getNameLastPart() {
+        return nameLastPart;
     }
 
-    public void setNameLastpart(String nameLastpart) {
-        this.nameLastpart = nameLastpart;
+    public void setNameLastPart(String nameLastPart) {
+        this.nameLastPart = nameLastPart;
     }
 
     public List<RrrTO> getRrrList() {

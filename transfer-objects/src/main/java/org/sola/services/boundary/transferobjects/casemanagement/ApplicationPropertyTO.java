@@ -33,8 +33,8 @@ import org.sola.services.common.contracts.AbstractIdTO;
 public class ApplicationPropertyTO extends AbstractIdTO {
 
     private String applicationId; 
-    private String nameFirstpart;
-    private String nameLastpart; 
+    private String nameFirstPart;
+    private String nameLastPart; 
     private String baUnitId; 
     private BigDecimal area;
     private BigDecimal totalValue;
@@ -72,20 +72,20 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.baUnitId = baUnitId;
     }
 
-    public String getNameFirstpart() {
-        return nameFirstpart;
+    public String getNameFirstPart() {
+        return nameFirstPart;
     }
 
-    public void setNameFirstpart(String nameFirstpart) {
-        this.nameFirstpart = nameFirstpart;
+    public void setNameFirstPart(String nameFirstPart) {
+        this.nameFirstPart = nameFirstPart;
     }
 
-    public String getNameLastpart() {
-        return nameLastpart;
+    public String getNameLastPart() {
+        return nameLastPart;
     }
 
-    public void setNameLastpart(String nameLastpart) {
-        this.nameLastpart = nameLastpart;
+    public void setNameLastPart(String nameLastPart) {
+        this.nameLastPart = nameLastPart;
     }
 
     public BigDecimal getTotalValue() {

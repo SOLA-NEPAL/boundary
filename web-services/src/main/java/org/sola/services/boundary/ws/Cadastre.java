@@ -39,7 +39,6 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.cadastre.*;
-import org.sola.services.boundary.transferobjects.casemanagement.PartyTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -364,7 +363,8 @@ public class Cadastre extends AbstractWebService {
 
             @Override
             public void run() {
-                CadastreObjectSummaryTO cadTo = (CadastreObjectTO) params[0];
+                //CadastreObjectSummaryTO cadTo = (CadastreObjectTO) params[0];
+                CadastreObjectSummaryTO cadTo = (CadastreObjectSummaryTO) params[0];
                 if (cadTo != null) {
                     CadastreObject cadastreObjectEntity = cadastreEJB.getCadastreObject(cadTo.getId());
                     cadTo = GenericTranslator.toTO(

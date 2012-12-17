@@ -84,10 +84,10 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
     }
 
     @Override
-    public BaUnitTO GetBaUnitByCode(String nameFirstpart, String nameLastpart) throws WebServiceClientException {
+    public BaUnitTO GetBaUnitByCode(String nameFirstPart, String nameLastPart) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getBaUnitByCode";
         try {
-            BaUnitTO result = getPort().getBaUnitByCode(nameFirstpart, nameLastpart);
+            BaUnitTO result = getPort().getBaUnitByCode(nameFirstPart, nameLastPart);
             return result;
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);

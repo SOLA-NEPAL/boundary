@@ -199,20 +199,20 @@ public class Administrative extends AbstractWebService {
 
     @WebMethod(operationName = "GetBaUnitByCode")
     public BaUnitTO GetBaUnitByCode(
-            @WebParam(name = "nameFirstpart") String nameFirstpart,
-            @WebParam(name = "nameLastpart") String nameLastpart)
+            @WebParam(name = "nameFirstPart") String nameFirstPart,
+            @WebParam(name = "nameLastPart") String nameLastPart)
             throws SOLAFault, UnhandledFault {
 
-        final String nameFirstpartTmp = nameFirstpart;
-        final String nameLastpartTmp = nameLastpart;
+        final String nameFirstPartTmp = nameFirstPart;
+        final String nameLastPartTmp = nameLastPart;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
-                        administrativeEJB.getBaUnitByCode(nameFirstpartTmp,
-                        nameLastpartTmp), BaUnitTO.class);
+                        administrativeEJB.getBaUnitByCode(nameFirstPartTmp,
+                        nameLastPartTmp), BaUnitTO.class);
             }
         });
 

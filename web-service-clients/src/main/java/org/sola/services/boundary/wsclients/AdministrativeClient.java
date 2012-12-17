@@ -48,7 +48,7 @@ public interface AdministrativeClient extends AbstractWSClient {
 
     BaUnitTO GetBaUnitById(String id) throws WebServiceClientException;
 
-    BaUnitTO GetBaUnitByCode(String nameFirstpart, String nameLastpart)
+    BaUnitTO GetBaUnitByCode(String nameFirstPart, String nameLastPart)
             throws WebServiceClientException;
 
     List<BaUnitTO> getBaUnitsByServiceId(String serviceId) throws WebServiceClientException;
