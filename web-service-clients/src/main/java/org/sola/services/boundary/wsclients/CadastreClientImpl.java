@@ -206,8 +206,18 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
     }
 
+//    @Override
+//    public CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject) throws WebServiceClientException {
+//        final String inputService = SERVICE_NAME + "saveCadastreObject";
+//        try {
+//            return getPort().saveCadastreObject(cadastreObject);
+//        } catch (Throwable e) {
+//            handleExceptionsMethod(inputService, e);
+//            return null;
+//        }
+//    }
     @Override
-    public CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject) throws WebServiceClientException {
+    public CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "saveCadastreObject";
         try {
             return getPort().saveCadastreObject(cadastreObject);
@@ -316,17 +326,17 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
-     @Override
+
+    @Override
     public CadastreObjectTO getCadastreObject(String id) {
-      final String inputService = SERVICE_NAME + "getCadastreObject";
+        final String inputService = SERVICE_NAME + "getCadastreObject";
         try {
             CadastreObjectTO result = getPort().getCadastreObject(id);
             return result;
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
-        }  
+        }
     }
 
     @Override
@@ -454,9 +464,9 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             return null;
         }
     }
-    
+
     @Override
-    public List<DatasetTO> getDatasetsByVdc(String vdcCode)  throws WebServiceClientException{
+    public List<DatasetTO> getDatasetsByVdc(String vdcCode) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "getDatasetsByVdc";
         try {
             return getPort().getDatasetsByVdc(vdcCode);
@@ -471,6 +481,28 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         final String inputService = SERVICE_NAME + "getDataset";
         try {
             return getPort().getDataset(id);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectTO> getCadastreObjectsByTransaction(String transactionId) {
+        final String inputService = SERVICE_NAME + "getCadastreObjectsByTransaction";
+        try {
+            return getPort().getCadastreObjectsByTransaction(transactionId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectTargetTO> getCadastreObjectTargetsByCadastreObject(String cadastreObjectId) {
+        final String inputService = SERVICE_NAME + "getCadastreObjectTargetsByCadastreObject";
+        try {
+            return getPort().getCadastreObjectTargetsByCadastreObject(cadastreObjectId);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

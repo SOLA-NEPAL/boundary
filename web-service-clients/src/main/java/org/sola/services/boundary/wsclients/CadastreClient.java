@@ -73,7 +73,8 @@ public interface CadastreClient extends AbstractWSClient {
 
     TransactionCadastreRedefinitionTO getTransactionCadastreRedefinition(String serviceId);
 
-    CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject);
+    //CadastreObjectSummaryTO saveCadastreObject(CadastreObjectSummaryTO cadastreObject);
+    CadastreObjectTO saveCadastreObject(CadastreObjectTO cadastreObject);
 
     MapSheetTO getMapSheet(String id);
 
@@ -92,7 +93,7 @@ public interface CadastreClient extends AbstractWSClient {
     CadastreObjectTO getCadastreObjectByVdcWardParcel(String vdcCode, String wardNo, int parcelNo);
 
     CadastreObjectTO getCadastreObjectByMapSheetParcel(String mapSheetCode, int parcelNo);
-    
+
     CadastreObjectTO getCadastreObject(String id);
 
     List<CadastreObjectTO> getCadastreObjectByIntersection(String geom, int srid)
@@ -116,12 +117,17 @@ public interface CadastreClient extends AbstractWSClient {
     List<MapSheetTO> loadVDCMapSheet(int mapSheetType, String vdccode);
 
     List<String> getWardlist(String vdccode);
-    
+
     List<DatasetTO> getDatasetsByCurrentOffice() throws WebServiceClientException;
+
+    List<DatasetTO> getDatasetsByCurrentUser() throws WebServiceClientException;
+
+    List<DatasetTO> getDatasetsByVdc(String vdcCode) throws WebServiceClientException;
+
+    DatasetTO getDataset(String id) throws WebServiceClientException;
+
+    List<CadastreObjectTO> getCadastreObjectsByTransaction(String transactionId);
     
-    List<DatasetTO> getDatasetsByCurrentUser()  throws WebServiceClientException;
+    List<CadastreObjectTargetTO> getCadastreObjectTargetsByCadastreObject(String cadastreObjectId);
     
-    List<DatasetTO> getDatasetsByVdc(String vdcCode)  throws WebServiceClientException;
-    
-    DatasetTO getDataset(String id)  throws WebServiceClientException;
 }

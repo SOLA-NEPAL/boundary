@@ -32,7 +32,10 @@
 package org.sola.services.boundary.transferobjects.transaction;
 
 import java.util.List;
-import org.sola.services.boundary.transferobjects.cadastre.*;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTargetRedefinitionTO;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTargetTO;
+import org.sola.services.boundary.transferobjects.cadastre.SurveyPointTO;
 
 /**
  *

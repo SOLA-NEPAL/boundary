@@ -184,7 +184,7 @@ public class Cadastre extends AbstractWebService {
         return (List<CadastreObjectTO>) result[0];
     }
 
-    @WebMethod(operationName = "SaveCadastreChange")
+    @WebMethod(operationName = "saveCadastreChange")
     public List<ValidationResult> SaveTransactionCadastreChange(
             @WebParam(name = "transactionCadastreChangeTO") TransactionCadastreChangeTO transactionCadastreChangeTO,
             @WebParam(name = "languageCode") String languageCode)
@@ -354,8 +354,30 @@ public class Cadastre extends AbstractWebService {
         return (TransactionCadastreRedefinitionTO) result[0];
     }
 
+//    @WebMethod(operationName = "saveCadastreObject")
+//    public CadastreObjectSummaryTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectSummaryTO cadastreObjectTO)
+//            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+//        final Object[] result = {null};
+//        final Object[] params = {cadastreObjectTO};
+//        runUpdateMethod(wsContext, new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                //CadastreObjectSummaryTO cadTo = (CadastreObjectTO) params[0];
+//                CadastreObjectSummaryTO cadTo = (CadastreObjectSummaryTO) params[0];
+//                if (cadTo != null) {
+//                    CadastreObject cadastreObjectEntity = cadastreEJB.getCadastreObject(cadTo.getId());
+//                    cadTo = GenericTranslator.toTO(
+//                            cadastreEJB.saveCadastreObject(
+//                            GenericTranslator.fromTO(cadTo, CadastreObject.class, cadastreObjectEntity)), CadastreObjectSummaryTO.class);
+//                    result[0] = cadTo;
+//                }
+//            }
+//        });
+//        return (CadastreObjectTO) result[0];
+//    }
     @WebMethod(operationName = "saveCadastreObject")
-    public CadastreObjectSummaryTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectSummaryTO cadastreObjectTO)
+    public CadastreObjectTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectTO cadastreObjectTO)
             throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
         final Object[] result = {null};
         final Object[] params = {cadastreObjectTO};
@@ -364,12 +386,12 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 //CadastreObjectSummaryTO cadTo = (CadastreObjectTO) params[0];
-                CadastreObjectSummaryTO cadTo = (CadastreObjectSummaryTO) params[0];
+                CadastreObjectTO cadTo = (CadastreObjectTO) params[0];
                 if (cadTo != null) {
                     CadastreObject cadastreObjectEntity = cadastreEJB.getCadastreObject(cadTo.getId());
                     cadTo = GenericTranslator.toTO(
                             cadastreEJB.saveCadastreObject(
-                            GenericTranslator.fromTO(cadTo, CadastreObject.class, cadastreObjectEntity)), CadastreObjectSummaryTO.class);
+                            GenericTranslator.fromTO(cadTo, CadastreObject.class, cadastreObjectEntity)), CadastreObjectTO.class);
                     result[0] = cadTo;
                 }
             }
@@ -414,7 +436,7 @@ public class Cadastre extends AbstractWebService {
 
         return (List<MapSheetTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getMapSheetsByDefaultOffice")
     public List<MapSheetTO> getMapSheetsByDefaultOffice() throws SOLAFault, UnhandledFault {
 
@@ -533,8 +555,8 @@ public class Cadastre extends AbstractWebService {
             }
         });
         return (CadastreObjectTO) result[0];
-    }   
-    
+    }
+
     @WebMethod(operationName = "GetCadastreObjectByIntersection")
     public List<CadastreObjectTO> GetCadastreObjectByIntersection(
             @WebParam(name = "geom") String geom,
@@ -580,7 +602,7 @@ public class Cadastre extends AbstractWebService {
 
         return (List<CadastreObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getPendingParcelByParts")
     public List<CadastreObjectTO> GetPendingParcelByParts(
             @WebParam(name = "searchString") String searchString)
@@ -601,7 +623,7 @@ public class Cadastre extends AbstractWebService {
 
         return (List<CadastreObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getCadastreObjectListMem")
     public List<CadastreObjectTO> GetCadastreObjectListMem(@WebParam(name = "mapSheetCode") List<String> mapSheetCode) throws SOLAFault, UnhandledFault {
         final List<String> mapSheetCodeTmp = mapSheetCode;
@@ -616,7 +638,7 @@ public class Cadastre extends AbstractWebService {
         });
         return (List<CadastreObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getConstructionObjectListMem")
     public List<ConstructionObjectTO> getConstructionObjectListMem(@WebParam(name = "mapSheetCode") List<String> mapSheetCode) throws SOLAFault, UnhandledFault {
         final List<String> mapSheetCodeTmp = mapSheetCode;
@@ -631,7 +653,7 @@ public class Cadastre extends AbstractWebService {
         });
         return (List<ConstructionObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "GetCadastreObjectByExactParts")
     public List<CadastreObjectTO> GetCadastreObjectByExactParts(
             @WebParam(name = "firstpart") String firstpart,
@@ -647,21 +669,21 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
-                        cadastreEJB.getCadastreObjectByExactParts(tmpfirstpart,tmplastpart),
+                        cadastreEJB.getCadastreObjectByExactParts(tmpfirstpart, tmplastpart),
                         CadastreObjectTO.class);
             }
         });
 
         return (List<CadastreObjectTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "loadWardMapSheet")
     public List<MapSheetTO> loadWardMapSheet(@WebParam(name = "mapSheetType") int mapSheetType,
-                @WebParam(name = "vdccode") String vdccode,
-                @WebParam(name = "wardno") String wardno) throws SOLAFault, UnhandledFault {
+            @WebParam(name = "vdccode") String vdccode,
+            @WebParam(name = "wardno") String wardno) throws SOLAFault, UnhandledFault {
         final int mapSheetTypeTmp = mapSheetType;
-        final String tmpVdccode=vdccode;
-        final String tmpWardno=wardno;
+        final String tmpVdccode = vdccode;
+        final String tmpWardno = wardno;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
@@ -674,12 +696,12 @@ public class Cadastre extends AbstractWebService {
         });
         return (List<MapSheetTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "loadVdcMapSheet")
     public List<MapSheetTO> loadVdcMapSheet(@WebParam(name = "mapSheetType") int mapSheetType,
-                @WebParam(name = "vdccode") String vdccode) throws SOLAFault, UnhandledFault {
+            @WebParam(name = "vdccode") String vdccode) throws SOLAFault, UnhandledFault {
         final int mapSheetTypeTmp = mapSheetType;
-        final String tmpVdccode=vdccode;
+        final String tmpVdccode = vdccode;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
@@ -692,11 +714,11 @@ public class Cadastre extends AbstractWebService {
         });
         return (List<MapSheetTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getWardList")
-    public List<String> getWardList(@WebParam(name = "vdccode") String vdccode)  
-        throws SOLAFault, UnhandledFault {
-        final String tmpVdccode=vdccode;
+    public List<String> getWardList(@WebParam(name = "vdccode") String vdccode)
+            throws SOLAFault, UnhandledFault {
+        final String tmpVdccode = vdccode;
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
@@ -704,16 +726,16 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 List<HashMap> wardHash = cadastreEJB.getWardList(tmpVdccode);
-                List<String> wards=new ArrayList<String>();
-                for (HashMap ward:wardHash){
+                List<String> wards = new ArrayList<String>();
+                for (HashMap ward : wardHash) {
                     wards.add(ward.values().toArray()[0].toString());
                 }
-                result[0]=wards;
+                result[0] = wards;
             }
         });
         return (List<String>) result[0];
     }
-    
+
     @WebMethod(operationName = "getCadastreObject")
     public CadastreObjectTO getCadastreObject(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault {
 
@@ -748,7 +770,7 @@ public class Cadastre extends AbstractWebService {
 
         return (List<DatasetTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDatasetsByCurrentUser")
     public List<DatasetTO> getDatasetsByCurrentUser() throws SOLAFault, UnhandledFault {
 
@@ -766,9 +788,9 @@ public class Cadastre extends AbstractWebService {
 
         return (List<DatasetTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDatasetsByVdc")
-    public List<DatasetTO> getDatasetsByVdc(@WebParam(name="vdcCode") final String vdcCode) 
+    public List<DatasetTO> getDatasetsByVdc(@WebParam(name = "vdcCode") final String vdcCode)
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
@@ -784,9 +806,9 @@ public class Cadastre extends AbstractWebService {
 
         return (List<DatasetTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "getDataset")
-    public DatasetTO getDataset(@WebParam(name="id") final String id) 
+    public DatasetTO getDataset(@WebParam(name = "id") final String id)
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
@@ -800,5 +822,47 @@ public class Cadastre extends AbstractWebService {
         });
 
         return (DatasetTO) result[0];
+    }
+
+    @WebMethod(operationName = "getCadastreObjectsByTransaction")
+    public List<CadastreObjectTO> getCadastreObjectsByTransaction(
+            @WebParam(name = "transactionId") String transactionId)
+            throws SOLAFault, UnhandledFault {
+
+        final String tmpTransactionId = transactionId;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getCadastreObjectsByTransaction(tmpTransactionId),
+                        CadastreObjectTO.class);
+            }
+        });
+
+        return (List<CadastreObjectTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "getCadastreObjectTargetsByCadastreObject")
+    public List<CadastreObjectTargetTO> getCadastreObjectTargetsByCadastreObject(
+            @WebParam(name = "cadastreObjectId") String cadastreObjectId)
+            throws SOLAFault, UnhandledFault {
+
+        final String tmpCadastreObjectId = cadastreObjectId;
+        final Object[] result = {null};
+
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getCadastreObjectTargetsByCadastreObject(tmpCadastreObjectId),
+                        CadastreObjectTargetTO.class);
+            }
+        });
+
+        return (List<CadastreObjectTargetTO>) result[0];
     }
 }
