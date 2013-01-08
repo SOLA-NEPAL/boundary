@@ -376,6 +376,7 @@ public class Cadastre extends AbstractWebService {
 //        });
 //        return (CadastreObjectTO) result[0];
 //    }
+    
     @WebMethod(operationName = "saveCadastreObject")
     public CadastreObjectTO saveCadastreObject(@WebParam(name = "cadastreObjectTO") final CadastreObjectTO cadastreObjectTO)
             throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {

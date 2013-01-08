@@ -84,4 +84,6 @@ public interface AdministrativeClient extends AbstractWSClient {
     List<LocWithMothTO> getLocListByPageNoAndMoth(LocSearchByMothParamsTO searchParams);
 
     List<MothTO> searchMoths(MothSearchParamsTO searchParams) throws WebServiceClientException;
+
+    List<MothTO> searchMothsByParts(String searchString) throws WebServiceClientException;
 }

@@ -303,4 +303,15 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             return null;
         }
     }
+
+    @Override
+    public List<MothTO> searchMothsByParts(String searchString) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchMothsByParts";
+        try {
+            return getPort().searchMothsByParts(searchString);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }
