@@ -198,12 +198,12 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     }
 
     @Override
-    public LocDetailsTO getLocDetails(String locId) throws WebServiceClientException {
+    public LocDetailsTO getLocDetails(String locId, boolean current) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public LocDetailsTO getLocDetails(String locId, String lang) throws WebServiceClientException {
+    public LocDetailsTO getLocDetails(String locId, boolean current, String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

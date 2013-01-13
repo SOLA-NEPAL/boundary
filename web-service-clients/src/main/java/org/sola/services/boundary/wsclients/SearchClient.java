@@ -86,13 +86,13 @@ public interface SearchClient extends AbstractWSClient {
 
     List<BaUnitSearchResultTO> getAllBaUnitsByService(String serviceId) throws WebServiceClientException;
 
-    LocDetailsTO getLocDetails(String locId) throws WebServiceClientException;
+    LocDetailsTO getLocDetails(String locId, boolean current) throws WebServiceClientException;
 
-    LocDetailsTO getLocDetails(String locId, String lang) throws WebServiceClientException;
+    LocDetailsTO getLocDetails(String locId, boolean current, String lang) throws WebServiceClientException;
 
     List<LocSearchResultTO> searchLocs(LocSearchParamsTO searchParams) throws WebServiceClientException;
 
     List<RestrictionSearchResultTO> searchRestrictions(RestrictionSearchParamsTO searchParams) throws WebServiceClientException;
 
-    List<RestrictionInfoTO> searchRestrictionInfo(RestrictionInfoParamsTO searchParams) throws WebServiceClientException;
+    List<RestrictionInfoTO> searchRestrictionInfo(RestrictionInfoParamsTO searchParams) throws WebServiceClientException;    
 }
