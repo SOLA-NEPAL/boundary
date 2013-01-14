@@ -27,10 +27,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sola.services.boundary.wsclients.mock;
 
 import java.util.ArrayList;
@@ -219,6 +215,11 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
 
     @Override
     public List<RestrictionInfoTO> searchRestrictionInfo(RestrictionInfoParamsTO searchParams) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultTO> searchCadastreObecjtsByIds(List<String> ids) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

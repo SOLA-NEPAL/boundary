@@ -323,4 +323,15 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
             return null;
         }
     }
+
+    @Override
+    public List<CadastreObjectSearchResultTO> searchCadastreObecjtsByIds(List<String> ids) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchCadastreObecjtsByIds";
+        try {
+            return getPort().searchCadastreObecjtsByIds(ids);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }

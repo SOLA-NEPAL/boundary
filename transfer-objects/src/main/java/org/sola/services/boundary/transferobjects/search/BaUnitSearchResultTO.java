@@ -44,6 +44,7 @@ public class BaUnitSearchResultTO extends AbstractReadWriteTO {
     private String mothNo;
     private String wardNo;
     private String vdcCode;
+    private String cadastreObjectId;
     private String parcelNo;
     private String mapNumber;
     private String mapSheetId;
@@ -163,6 +164,14 @@ public class BaUnitSearchResultTO extends AbstractReadWriteTO {
 
     public void setPanaNo(String panaNo) {
         this.panaNo = panaNo;
+    }
+
+    public String getCadastreObjectId() {
+        return cadastreObjectId;
+    }
+
+    public void setCadastreObjectId(String cadastreObjectId) {
+        this.cadastreObjectId = cadastreObjectId;
     }
 
     public String getParcelNo() {

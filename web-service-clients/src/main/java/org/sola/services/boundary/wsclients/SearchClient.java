@@ -34,6 +34,7 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
+import javax.jws.WebParam;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.GenericResult;
 import org.sola.webservices.search.QueryForSelect;
@@ -95,4 +96,6 @@ public interface SearchClient extends AbstractWSClient {
     List<RestrictionSearchResultTO> searchRestrictions(RestrictionSearchParamsTO searchParams) throws WebServiceClientException;
 
     List<RestrictionInfoTO> searchRestrictionInfo(RestrictionInfoParamsTO searchParams) throws WebServiceClientException;
+    
+    List<CadastreObjectSearchResultTO> searchCadastreObecjtsByIds(List<String> ids) throws WebServiceClientException;
 }

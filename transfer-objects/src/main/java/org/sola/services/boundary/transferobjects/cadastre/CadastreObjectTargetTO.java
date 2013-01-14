@@ -43,7 +43,8 @@ public class CadastreObjectTargetTO extends AbstractVersionedTO {
 
     private String cadastreObjectId;
     private String transactionId;
-
+    private String datasetId;
+    
     public String getCadastreObjectId() {
         return cadastreObjectId;
     }
@@ -58,5 +59,13 @@ public class CadastreObjectTargetTO extends AbstractVersionedTO {
 
     public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
+    }
+
+    public String getDatasetId() {
+        return datasetId;
+    }
+
+    public void setDatasetId(String datasetId) {
+        this.datasetId = datasetId;
     }
 }
