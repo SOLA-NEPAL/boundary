@@ -1,5 +1,6 @@
 package org.sola.services.boundary.transferobjects.search;
 
+import java.util.Date;
 import org.sola.services.common.contracts.AbstractTO;
 
 public class CadastreObjectSearchParamsTO extends AbstractTO {
@@ -7,7 +8,9 @@ public class CadastreObjectSearchParamsTO extends AbstractTO {
     private String vdcCode;
     private String mapSheetCode;
     private String parcelNo;
-    private String wardNo;
+    private String wardNo;    
+    private Date fromDate;
+    private Date toDate;
 
     public CadastreObjectSearchParamsTO() {
         super();
@@ -43,5 +46,20 @@ public class CadastreObjectSearchParamsTO extends AbstractTO {
 
     public void setMapSheetCode(String mapSheetCode) {
         this.mapSheetCode = mapSheetCode;
+    }
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 }
