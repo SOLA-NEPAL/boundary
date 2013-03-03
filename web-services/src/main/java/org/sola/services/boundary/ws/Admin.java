@@ -413,8 +413,7 @@ public class Admin extends AbstractWebService {
         return (BrTO) result[0];
     }
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //************************************************************************************************
+    
     @WebMethod(operationName = "getGregorianDate")
     public Date getGregorianDate(@WebParam(name = "nepaliDate") final String nepaliDate)
             throws SOLAFault, UnhandledFault {

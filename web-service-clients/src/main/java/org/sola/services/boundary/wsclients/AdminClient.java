@@ -72,7 +72,7 @@ public interface AdminClient extends AbstractWSClient {
     boolean changePassword(String userName, String password) throws WebServiceClientException;
 
     boolean changeCurrentUserPassword(String oldPassword, String newPassword);
-    
+
     boolean isUserAdmin() throws WebServiceClientException;
 
     List<LanguageTO> getLanguages() throws WebServiceClientException;
@@ -85,19 +85,15 @@ public interface AdminClient extends AbstractWSClient {
 
     BrTO saveBr(BrTO brTO) throws WebServiceClientException;
 
-    //<editor-fold defaultstate="collapsed" desc="By Kumar">
-    //************************************************************************************************
     List<NepaliMonthTO> saveNepaliMonth(List<NepaliMonthTO> nepaliMonthsTO);
-    
+
     List<NepaliMonthTO> getNepaliMonths(int nepYear);
-    
+
     List<Integer> getNepaliYear();
-    
+
     Date getGregorianDate(String nepaliDate) throws WebServiceClientException;
-    
+
     String getNepaliDate(Date date) throws WebServiceClientException;
-    //************************************************************************************************
-    //</editor-fold>
-    
+
     OfficeTO getCurrentOffice() throws WebServiceClientException;
 }
