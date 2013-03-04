@@ -106,4 +106,8 @@ public interface SearchClient extends AbstractWSClient {
     List<PartySearchResultTO> searchLandOwnersFromTo(Date fromDate, Date toDate, String lang) throws WebServiceClientException;
 
     List<PartySearchResultTO> searchLandOwnersUpto(Date upToDate, String lang) throws WebServiceClientException;
+
+    List<PartySearchResultTO> searchLandOwnersFrom(Date from, String lang) throws WebServiceClientException;
+
+    List<PartySearchResultTO> searchLandOwnersInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String lang) throws WebServiceClientException;
 }

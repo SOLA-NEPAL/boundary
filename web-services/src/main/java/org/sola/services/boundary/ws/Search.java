@@ -569,4 +569,35 @@ public class Search extends AbstractWebService {
         });
         return (List<PartySearchResultTO>) result[0];
     }
+    @WebMethod(operationName = "searchLandOwnersFrom")
+    public List<PartySearchResultTO> searchLandOwnersFrom(
+            @WebParam(name = "from") final Date from, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersFrom(from,lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "searchLandOwnersInFiscalYear")
+    public List<PartySearchResultTO> searchLandOwnersInFiscalYear(
+            @WebParam(name = "fromFiscalYear") final Date fromFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersInFiscalYear(fromFiscalYear, toFiscalYear, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
 }

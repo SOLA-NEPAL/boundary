@@ -378,4 +378,26 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
             return null;
         }
     }
+
+    @Override
+    public List<PartySearchResultTO> searchLandOwnersFrom(Date from, String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchLandOwnersFrom";
+        try {
+            return getPort().searchLandOwnersFrom(DateToXMLDate(from), lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<PartySearchResultTO> searchLandOwnersInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchLandOwnersInFiscalYear";
+        try {
+            return getPort().searchLandOwnersInFiscalYear(DateToXMLDate(frmFiscalYear), DateToXMLDate(toFiscalYear), lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }
