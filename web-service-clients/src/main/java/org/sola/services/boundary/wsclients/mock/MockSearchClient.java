@@ -30,6 +30,7 @@
 package org.sola.services.boundary.wsclients.mock;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.sola.services.boundary.wsclients.SearchClient;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
@@ -220,6 +221,26 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
 
     @Override
     public List<CadastreObjectSearchResultTO> searchCadastreObecjtsByIds(List<String> ids) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultExtTO> searchPlotsByWard(String ward_no) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<PartySearchResultTO> searchLandOwnersFromTo(Date fromDate, Date toDate, String lang) throws WebServiceClientException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<PartySearchResultTO> searchLandOwnersUpto(Date upToDate, String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

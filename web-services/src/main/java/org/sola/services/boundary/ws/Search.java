@@ -29,7 +29,7 @@
  */
 package org.sola.services.boundary.ws;
 
-import org.sola.services.boundary.transferobjects.administrative.MothSearchParamsTO;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -420,7 +420,7 @@ public class Search extends AbstractWebService {
 
         return (List<CadastreObjectSearchResultExtTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "searchCadastreObecjtsByIds")
     public List<CadastreObjectSearchResultTO> searchCadastreObecjtsByIds(
             @WebParam(name = "ids") final List<String> ids) throws SOLAFault, UnhandledFault {
@@ -428,6 +428,7 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralMethod(wsContext, new Runnable() {
+
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -439,7 +440,7 @@ public class Search extends AbstractWebService {
     }
 
     @WebMethod(operationName = "getLocDetails")
-    public LocDetailsTO getLocDetails(@WebParam(name = "id") final String id,@WebParam(name = "current") final boolean current, 
+    public LocDetailsTO getLocDetails(@WebParam(name = "id") final String id, @WebParam(name = "current") final boolean current,
             @WebParam(name = "lang") final String lang)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
@@ -503,5 +504,69 @@ public class Search extends AbstractWebService {
             }
         });
         return (List<RestrictionInfoTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchPlotsByWard")
+    public List<CadastreObjectSearchResultExtTO> searchPlotsByWard(
+            @WebParam(name = "ward_no") final String ward_no)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchPlotsByWard(ward_no), CadastreObjectSearchResultExtTO.class);
+            }
+        });
+        return (List<CadastreObjectSearchResultExtTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchPlotsBySheetNo")
+    public List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(
+            @WebParam(name = "sheet_no") final String sheet_no)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchPlotsBySheetNo(sheet_no), CadastreObjectSearchResultExtTO.class);
+            }
+        });
+        return (List<CadastreObjectSearchResultExtTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchLandOwnersFromTo")
+    public List<PartySearchResultTO> searchLandOwnersFromTo(
+            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersFromTo(fromDate, toDate, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchLandOwnersUpto")
+    public List<PartySearchResultTO> searchLandOwnersUpto(
+            @WebParam(name = "upToDate") final Date upToDate, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersUpto(upToDate, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
     }
 }

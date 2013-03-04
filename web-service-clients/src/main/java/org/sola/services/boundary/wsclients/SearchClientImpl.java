@@ -29,7 +29,7 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.List;
+import java.util.*;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.*;
@@ -329,6 +329,50 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         final String inputService = SERVICE_NAME + "searchCadastreObecjtsByIds";
         try {
             return getPort().searchCadastreObecjtsByIds(ids);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultExtTO> searchPlotsByWard(String ward_no) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchPlotsByWard";
+        try {
+            return getPort().searchPlotsByWard(ward_no);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchPlotsBySheetNo";
+        try {
+            return getPort().searchPlotsByWard(sheet_no);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<PartySearchResultTO> searchLandOwnersFromTo(Date fromDate, Date toDate, String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchLandOwnersFromTo";
+        try {
+            return getPort().searchLandOwnersFromTo(DateToXMLDate(fromDate), DateToXMLDate(toDate), lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<PartySearchResultTO> searchLandOwnersUpto(Date upToDate, String lang) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchLandOwnersUpto";
+        try {
+            return getPort().searchLandOwnersUpto(DateToXMLDate(upToDate), lang);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;
