@@ -506,6 +506,326 @@ public class Search extends AbstractWebService {
         return (List<RestrictionInfoTO>) result[0];
     }
 
+    @WebMethod(operationName = "searchLandOwnersFromTo")
+    public List<PartySearchResultTO> searchLandOwnersFromTo(
+            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersFromTo(fromDate, toDate, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchLandOwnersUpto")
+    public List<PartySearchResultTO> searchLandOwnersUpto(
+            @WebParam(name = "upToDate") final Date upToDate, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersUpto(upToDate, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchLandOwnersFrom")
+    public List<PartySearchResultTO> searchLandOwnersFrom(
+            @WebParam(name = "from") final Date from, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersFrom(from, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchLandOwnersInFiscalYear")
+    public List<PartySearchResultTO> searchLandOwnersInFiscalYear(
+            @WebParam(name = "fromFiscalYear") final Date fromFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear, @WebParam(name = "lang") final String lang)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchLandOwnersInFiscalYear(fromFiscalYear, toFiscalYear, lang), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchTransactionFromTo")
+    public List<BaUnitSearchResultTO> searchTransactionFromTo(
+            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchTransactionFromTo(fromDate, toDate), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchTransactionUpTo")
+    public List<BaUnitSearchResultTO> searchTransactionUpTo(
+            @WebParam(name = "upToDate") final Date upToDate)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchTransactionUpTo(upToDate), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchTransactionFrom")
+    public List<BaUnitSearchResultTO> searchTransactionFrom(
+            @WebParam(name = "from") final Date from)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchTransactionFrom(from), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchTransactionInFiscalYear")
+    public List<BaUnitSearchResultTO> searchTransactionInFiscalYear(
+            @WebParam(name = "frmFiscalYear") final Date frmFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchTransactionInFiscalYear(frmFiscalYear, toFiscalYear), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsFromTo")
+    public List<BaUnitSearchResultTO> searchParcelsFromTo(
+            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsFromTo(fromDate, toDate), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsUpTo")
+    public List<BaUnitSearchResultTO> searchParcelsUpTo(
+            @WebParam(name = "upToDate") final Date upToDate)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsUpTo(upToDate), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsFrom")
+    public List<BaUnitSearchResultTO> searchParcelsFrom(
+            @WebParam(name = "from") final Date from)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsFrom(from), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsInFiscalYear")
+    public List<BaUnitSearchResultTO> searchParcelsInFiscalYear(
+            @WebParam(name = "frmFiscalYear") final Date frmFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsInFiscalYear(frmFiscalYear, toFiscalYear), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchRegistrationGenderWiseFromTo")
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseFromTo(
+            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate, @WebParam(name = "genderCode") final String genderCode, @WebParam(name = "handicapped") final String handicapped, @WebParam(name = "deprived") final String deprived, @WebParam(name = "martyrs") final String martyrs)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchRegistrationGenderWiseFromTo(fromDate, toDate, genderCode, handicapped, deprived, martyrs), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchRegistrationGenderWiseUpTo")
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseUpTo(
+            @WebParam(name = "upToDate") final Date upToDate, @WebParam(name = "genderCode") final String genderCode, @WebParam(name = "handicapped") final String handicapped, @WebParam(name = "deprived") final String deprived, @WebParam(name = "martyrs") final String martyrs)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchRegistrationGenderWiseUpTo(upToDate, genderCode, handicapped, deprived, martyrs), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchRegistrationGenderWiseFrom")
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseFrom(
+            @WebParam(name = "from") final Date from, @WebParam(name = "genderCode") final String genderCode, @WebParam(name = "handicapped") final String handicapped, @WebParam(name = "deprived") final String deprived, @WebParam(name = "martyrs") final String martyrs)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchRegistrationGenderWiseFrom(from, genderCode, handicapped, deprived, martyrs), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchRegistrationGenderWiseInFiscalYear")
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseInFiscalYear(
+            @WebParam(name = "fromFiscalYear") final Date fromFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear, @WebParam(name = "genderCode") final String genderCode, @WebParam(name = "handicapped") final String handicapped, @WebParam(name = "deprived") final String deprived, @WebParam(name = "martyrs") final String martyrs)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchRegistrationGenderWiseInFiscalYear(fromFiscalYear, toFiscalYear, genderCode, handicapped, deprived, martyrs), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsSplitFromTo")
+    public List<BaUnitSearchResultTO> searchParcelsSplitFromTo(
+            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsSplitFromTo(fromDate, toDate), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsSplitUpTo")
+    public List<BaUnitSearchResultTO> searchParcelsSplitUpTo(
+            @WebParam(name = "upToDate") final Date upToDate)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsSplitUpTo(upToDate), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsSplitFrom")
+    public List<BaUnitSearchResultTO> searchParcelsSplitFrom(
+            @WebParam(name = "from") final Date from)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsSplitFrom(from), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
+    @WebMethod(operationName = "searchParcelsSplitInFiscalYear")
+    public List<BaUnitSearchResultTO> searchParcelsSplitInFiscalYear(
+            @WebParam(name = "frmFiscalYear") final Date frmFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchParcelsSplitInFiscalYear(frmFiscalYear, toFiscalYear), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
+
     @WebMethod(operationName = "searchPlotsByWard")
     public List<CadastreObjectSearchResultExtTO> searchPlotsByWard(
             @WebParam(name = "ward_no") final String ward_no)
@@ -538,66 +858,18 @@ public class Search extends AbstractWebService {
         return (List<CadastreObjectSearchResultExtTO>) result[0];
     }
 
-    @WebMethod(operationName = "searchLandOwnersFromTo")
-    public List<PartySearchResultTO> searchLandOwnersFromTo(
-            @WebParam(name = "fromDate") final Date fromDate, @WebParam(name = "toDate") final Date toDate, @WebParam(name = "lang") final String lang)
+    @WebMethod(operationName = "getRuleByDatasetId")
+    public String getRuleByDatasetId(
+            @WebParam(name = "datasetId") final String datasetId)
             throws SOLAFault, UnhandledFault {
         final Object[] result = {null};
         runGeneralMethod(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        searchEJB.searchLandOwnersFromTo(fromDate, toDate, lang), PartySearchResultTO.class);
+                result[0] = searchEJB.getRuleByDatasetId(datasetId);
             }
         });
-        return (List<PartySearchResultTO>) result[0];
-    }
-
-    @WebMethod(operationName = "searchLandOwnersUpto")
-    public List<PartySearchResultTO> searchLandOwnersUpto(
-            @WebParam(name = "upToDate") final Date upToDate, @WebParam(name = "lang") final String lang)
-            throws SOLAFault, UnhandledFault {
-        final Object[] result = {null};
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        searchEJB.searchLandOwnersUpto(upToDate, lang), PartySearchResultTO.class);
-            }
-        });
-        return (List<PartySearchResultTO>) result[0];
-    }
-    @WebMethod(operationName = "searchLandOwnersFrom")
-    public List<PartySearchResultTO> searchLandOwnersFrom(
-            @WebParam(name = "from") final Date from, @WebParam(name = "lang") final String lang)
-            throws SOLAFault, UnhandledFault {
-        final Object[] result = {null};
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        searchEJB.searchLandOwnersFrom(from,lang), PartySearchResultTO.class);
-            }
-        });
-        return (List<PartySearchResultTO>) result[0];
-    }
-    
-    @WebMethod(operationName = "searchLandOwnersInFiscalYear")
-    public List<PartySearchResultTO> searchLandOwnersInFiscalYear(
-            @WebParam(name = "fromFiscalYear") final Date fromFiscalYear, @WebParam(name = "toFiscalYear") final Date toFiscalYear, @WebParam(name = "lang") final String lang)
-            throws SOLAFault, UnhandledFault {
-        final Object[] result = {null};
-        runGeneralMethod(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                result[0] = GenericTranslator.toTOList(
-                        searchEJB.searchLandOwnersInFiscalYear(fromFiscalYear, toFiscalYear, lang), PartySearchResultTO.class);
-            }
-        });
-        return (List<PartySearchResultTO>) result[0];
+        return (String) result[0];
     }
 }

@@ -99,10 +99,6 @@ public interface SearchClient extends AbstractWSClient {
 
     List<CadastreObjectSearchResultTO> searchCadastreObecjtsByIds(List<String> ids) throws WebServiceClientException;
 
-    List<CadastreObjectSearchResultExtTO> searchPlotsByWard(String ward_no) throws WebServiceClientException;
-
-    List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException;
-
     List<PartySearchResultTO> searchLandOwnersFromTo(Date fromDate, Date toDate, String lang) throws WebServiceClientException;
 
     List<PartySearchResultTO> searchLandOwnersUpto(Date upToDate, String lang) throws WebServiceClientException;
@@ -110,4 +106,42 @@ public interface SearchClient extends AbstractWSClient {
     List<PartySearchResultTO> searchLandOwnersFrom(Date from, String lang) throws WebServiceClientException;
 
     List<PartySearchResultTO> searchLandOwnersInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String lang) throws WebServiceClientException;
+
+    List<BaUnitSearchResultTO> searchTransactionFromTo(Date fromDate, Date toDate);
+
+    List<BaUnitSearchResultTO> searchTransactionUpTo(Date upToDate);
+
+    List<BaUnitSearchResultTO> searchTransactionFrom(Date from);
+
+    List<BaUnitSearchResultTO> searchTransactionInFiscalYear(Date frmFiscalYear, Date toFiscalYear);
+
+    List<BaUnitSearchResultTO> searchParcelsFromTo(Date fromDate, Date toDate);
+
+    List<BaUnitSearchResultTO> searchParcelsUpTo(Date upToDate);
+
+    List<BaUnitSearchResultTO> searchParcelsFrom(Date from);
+
+    List<BaUnitSearchResultTO> searchParcelsInFiscalYear(Date frmFiscalYear, Date toFiscalYear);
+
+    List<BaUnitSearchResultTO> searchRegistrationGenderWiseFromTo(Date fromDate, Date toDate, String genderCode, String handicapped, String deprived, String martyrs);
+
+    List<BaUnitSearchResultTO> searchRegistrationGenderWiseUpTo(Date upToDate, String genderCode, String handicapped, String deprived, String martyrs);
+
+    List<BaUnitSearchResultTO> searchRegistrationGenderWiseFrom(Date from, String genderCode, String handicapped, String deprived, String martyrs);
+
+    List<BaUnitSearchResultTO> searchRegistrationGenderWiseInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String genderCode, String handicapped, String deprived, String martyrs);
+
+    List<BaUnitSearchResultTO> searchParcelsSplitFromTo(Date fromDate, Date toDate);
+
+    List<BaUnitSearchResultTO> searchParcelsSplitUpTo(Date upToDate);
+
+    List<BaUnitSearchResultTO> searchParcelsSplitFrom(Date from);
+
+    List<BaUnitSearchResultTO> searchParcelsSplitInFiscalYear(Date frmFiscalYear, Date toFiscalYear);
+
+    List<CadastreObjectSearchResultExtTO> searchPlotsByWard(String ward_no) throws WebServiceClientException;
+
+    List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException;
+
+    String getRuleByDatasetId(String datasetId);
 }

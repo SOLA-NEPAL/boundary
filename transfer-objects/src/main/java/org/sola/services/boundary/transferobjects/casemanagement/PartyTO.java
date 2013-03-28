@@ -57,6 +57,7 @@ public class PartyTO extends PartySummaryTO {
     private DocumentBinaryTO leftFingerDoc;
     private DocumentBinaryTO rightFingerDoc;
     private DocumentBinaryTO signatureDoc;
+    private List<PartyCategoryTO> categoryList;
     
     public PartyTO() {
         super();
@@ -243,5 +244,13 @@ public class PartyTO extends PartySummaryTO {
             roleList = new ArrayList<PartyRoleTO>();
         }
         roleList.add(role);
+    }
+
+    public List<PartyCategoryTO> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<PartyCategoryTO> categoryList) {
+        this.categoryList = categoryList;
     }
 }

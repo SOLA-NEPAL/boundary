@@ -253,4 +253,89 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     public List<PartySearchResultTO> searchLandOwnersInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String lang) throws WebServiceClientException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionFromTo(Date fromDate, Date toDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsFromTo(Date fromDate, Date toDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseFromTo(Date fromDate, Date toDate, String genderCode,String handicapped, String deprived, String martyrs) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionUpTo(Date upToDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionFrom(Date from) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionInFiscalYear(Date frmFiscalYear, Date toFiscalYear) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsUpTo(Date upToDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsFrom(Date from) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsInFiscalYear(Date frmFiscalYear, Date toFiscalYear) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseUpTo(Date upToDate, String genderCode, String handicapped, String deprived, String martyrs) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseFrom(Date from, String genderCode, String handicapped, String deprived, String martyrs) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String genderCode, String handicapped, String deprived, String martyrs) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitFromTo(Date fromDate, Date toDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitUpTo(Date upToDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitFrom(Date from) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitInFiscalYear(Date frmFiscalYear, Date toFiscalYear) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public String getRuleByDatasetId(String datasetId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

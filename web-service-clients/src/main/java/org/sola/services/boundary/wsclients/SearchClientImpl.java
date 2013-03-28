@@ -29,7 +29,8 @@
  */
 package org.sola.services.boundary.wsclients;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 import javax.xml.namespace.QName;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.*;
@@ -336,28 +337,6 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
     }
 
     @Override
-    public List<CadastreObjectSearchResultExtTO> searchPlotsByWard(String ward_no) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "searchPlotsByWard";
-        try {
-            return getPort().searchPlotsByWard(ward_no);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
-    public List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException {
-        final String inputService = SERVICE_NAME + "searchPlotsBySheetNo";
-        try {
-            return getPort().searchPlotsByWard(sheet_no);
-        } catch (Throwable e) {
-            handleExceptionsMethod(inputService, e);
-            return null;
-        }
-    }
-
-    @Override
     public List<PartySearchResultTO> searchLandOwnersFromTo(Date fromDate, Date toDate, String lang) throws WebServiceClientException {
         final String inputService = SERVICE_NAME + "searchLandOwnersFromTo";
         try {
@@ -395,6 +374,215 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         final String inputService = SERVICE_NAME + "searchLandOwnersInFiscalYear";
         try {
             return getPort().searchLandOwnersInFiscalYear(DateToXMLDate(frmFiscalYear), DateToXMLDate(toFiscalYear), lang);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionFromTo(Date fromDate, Date toDate) {
+        final String inputService = SERVICE_NAME + "searchTransactionFromTo";
+        try {
+            return getPort().searchTransactionFromTo(DateToXMLDate(fromDate), DateToXMLDate(toDate));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionUpTo(Date upToDate) {
+        final String inputService = SERVICE_NAME + "searchTransactionUpTo";
+        try {
+            return getPort().searchTransactionUpTo(DateToXMLDate(upToDate));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionFrom(Date from) {
+        final String inputService = SERVICE_NAME + "searchTransactionFrom";
+        try {
+            return getPort().searchTransactionFrom(DateToXMLDate(from));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchTransactionInFiscalYear(Date frmFiscalYear, Date toFiscalYear) {
+        final String inputService = SERVICE_NAME + "searchTransactionInFiscalYear";
+        try {
+            return getPort().searchTransactionInFiscalYear(DateToXMLDate(frmFiscalYear), DateToXMLDate(toFiscalYear));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsFromTo(Date fromDate, Date toDate) {
+        final String inputService = SERVICE_NAME + "searchParcelsFromTo";
+        try {
+            return getPort().searchParcelsFromTo(DateToXMLDate(fromDate), DateToXMLDate(toDate));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsUpTo(Date upToDate) {
+        final String inputService = SERVICE_NAME + "searchParcelsUpTo";
+        try {
+            return getPort().searchParcelsUpTo(DateToXMLDate(upToDate));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsFrom(Date from) {
+        final String inputService = SERVICE_NAME + "searchParcelsFrom";
+        try {
+            return getPort().searchParcelsFrom(DateToXMLDate(from));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsInFiscalYear(Date frmFiscalYear, Date toFiscalYear) {
+        final String inputService = SERVICE_NAME + "searchParcelsInFiscalYear";
+        try {
+            return getPort().searchParcelsInFiscalYear(DateToXMLDate(frmFiscalYear), DateToXMLDate(toFiscalYear));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseFromTo(Date fromDate, Date toDate, String genderCode, String handicapped, String deprived, String martyrs) {
+        final String inputService = SERVICE_NAME + "searchRegistrationGenderWiseFromTo";
+        try {
+            return getPort().searchRegistrationGenderWiseFromTo(DateToXMLDate(fromDate), DateToXMLDate(toDate), genderCode, handicapped, deprived, martyrs);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseUpTo(Date upToDate, String genderCode, String handicapped, String deprived, String martyrs) {
+        final String inputService = SERVICE_NAME + "searchRegistrationGenderWiseUpTo";
+        try {
+            return getPort().searchRegistrationGenderWiseUpTo(DateToXMLDate(upToDate), genderCode, handicapped, deprived, martyrs);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseFrom(Date from, String genderCode, String handicapped, String deprived, String martyrs) {
+        final String inputService = SERVICE_NAME + "searchRegistrationGenderWiseFrom";
+        try {
+            return getPort().searchRegistrationGenderWiseFrom(DateToXMLDate(from), genderCode, handicapped, deprived, martyrs);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchRegistrationGenderWiseInFiscalYear(Date frmFiscalYear, Date toFiscalYear, String genderCode, String handicapped, String deprived, String martyrs) {
+        final String inputService = SERVICE_NAME + "searchRegistrationGenderWiseInFiscalYear";
+        try {
+            return getPort().searchRegistrationGenderWiseInFiscalYear(DateToXMLDate(frmFiscalYear), DateToXMLDate(toFiscalYear), genderCode, handicapped, deprived, martyrs);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitFromTo(Date fromDate, Date toDate) {
+        final String inputService = SERVICE_NAME + "searchParcelsSplitFromTo";
+        try {
+            return getPort().searchParcelsSplitFromTo(DateToXMLDate(fromDate), DateToXMLDate(toDate));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitUpTo(Date upToDate) {
+        final String inputService = SERVICE_NAME + "searchParcelsSplitUpTo";
+        try {
+            return getPort().searchParcelsSplitUpTo(DateToXMLDate(upToDate));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitFrom(Date from) {
+        final String inputService = SERVICE_NAME + "searchParcelsSplitFrom";
+        try {
+            return getPort().searchParcelsSplitFrom(DateToXMLDate(from));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchParcelsSplitInFiscalYear(Date frmFiscalYear, Date toFiscalYear) {
+        final String inputService = SERVICE_NAME + "searchParcelsSplitInFiscalYear";
+        try {
+            return getPort().searchParcelsSplitInFiscalYear(DateToXMLDate(frmFiscalYear), DateToXMLDate(toFiscalYear));
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultExtTO> searchPlotsByWard(String ward_no) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchPlotsByWard";
+        try {
+            return getPort().searchPlotsByWard(ward_no);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException {
+        final String inputService = SERVICE_NAME + "searchPlotsBySheetNo";
+        try {
+            return getPort().searchPlotsBySheetNo(sheet_no);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
+
+    @Override
+    public String getRuleByDatasetId(String datasetId) {
+        final String inputService = SERVICE_NAME + "getRuleByDatasetId";
+        try {
+            return getPort().getRuleByDatasetId(datasetId);
         } catch (Throwable e) {
             handleExceptionsMethod(inputService, e);
             return null;

@@ -54,6 +54,8 @@ public class BaUnitSearchResultTO extends AbstractReadWriteTO {
     private String mapSheetId;
     private String action;
     private Date approvalDateTime;
+    private String categories;
+    private String newParcelNo;
 
     public BaUnitSearchResultTO() {
         super();
@@ -217,5 +219,21 @@ public class BaUnitSearchResultTO extends AbstractReadWriteTO {
 
     public void setApprovalDateTime(Date approvalDateTime) {
         this.approvalDateTime = approvalDateTime;
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
+    }
+
+    public String getNewParcelNo() {
+        return newParcelNo;
+    }
+
+    public void setNewParcelNo(String newParcelNo) {
+        this.newParcelNo = newParcelNo;
     }
 }

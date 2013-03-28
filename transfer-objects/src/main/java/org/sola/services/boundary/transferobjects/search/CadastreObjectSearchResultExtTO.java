@@ -21,7 +21,8 @@ public class CadastreObjectSearchResultExtTO extends AbstractTO {
     private String lastName;
     private String parcelno;
     private String datasetId;
-    
+    private String rule;
+
     public CadastreObjectSearchResultExtTO() {
         super();
     }
@@ -130,7 +131,6 @@ public class CadastreObjectSearchResultExtTO extends AbstractTO {
         this.parcelno = parcelno;
     }
 
-
     public String getVdcCode() {
         return vdcCode;
     }
@@ -161,5 +161,13 @@ public class CadastreObjectSearchResultExtTO extends AbstractTO {
 
     public void setDatasetId(String datasetId) {
         this.datasetId = datasetId;
+    }
+
+    public String getRule() {
+        return rule;
+    }
+
+    public void setRule(String rule) {
+        this.rule = rule;
     }
 }
