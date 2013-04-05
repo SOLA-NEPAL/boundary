@@ -338,4 +338,9 @@ public class MockSearchClient extends AbstractMockWSClient implements SearchClie
     public String getRuleByDatasetId(String datasetId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchBaunitsByHistoricBaunitId(String baUnitsHistoricId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

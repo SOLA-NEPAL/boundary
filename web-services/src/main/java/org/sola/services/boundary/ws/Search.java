@@ -872,4 +872,20 @@ public class Search extends AbstractWebService {
         });
         return (String) result[0];
     }
+
+    @WebMethod(operationName = "searchBaunitsByHistoricBaunitId")
+    public List<BaUnitSearchResultTO> searchBaunitsByHistoricBaunitId(
+            @WebParam(name = "baUnitsHistoricId") final String baUnitsHistoricId)
+            throws SOLAFault, UnhandledFault {
+        final Object[] result = {null};
+        runGeneralMethod(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        searchEJB.searchBaunitsByHistoricBaunitId(baUnitsHistoricId), BaUnitSearchResultTO.class);
+            }
+        });
+        return (List<BaUnitSearchResultTO>) result[0];
+    }
 }

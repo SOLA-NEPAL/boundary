@@ -144,4 +144,6 @@ public interface SearchClient extends AbstractWSClient {
     List<CadastreObjectSearchResultExtTO> searchPlotsBySheetNo(String sheet_no) throws WebServiceClientException;
 
     String getRuleByDatasetId(String datasetId);
+
+    List<BaUnitSearchResultTO> searchBaunitsByHistoricBaunitId(String baUnitsHistoricId);
 }

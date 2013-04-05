@@ -588,4 +588,15 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
             return null;
         }
     }
+
+    @Override
+    public List<BaUnitSearchResultTO> searchBaunitsByHistoricBaunitId(String baUnitsHistoricId) {
+        final String inputService = SERVICE_NAME + "searchBaunitsByHistoricBaunitId";
+        try {
+            return getPort().searchBaunitsByHistoricBaunitId(baUnitsHistoricId);
+        } catch (Throwable e) {
+            handleExceptionsMethod(inputService, e);
+            return null;
+        }
+    }
 }
